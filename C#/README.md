@@ -1,10 +1,10 @@
-# KDC101 C\# Programming Guide
+C\# Programming Guide
 
 This guide will attempt to guide you through the process of setting up a project in visual studio, adding references to the necessary libraries, and using the example provided.
 
 ### Prerequisites
 
-  - Microsoft Visual Studio
+  - Microsoft Visual Studio with the C\# and .NET development packages
   - Thorlabs Kinesis
   - A KDC101 Controller
   - A connected instrument

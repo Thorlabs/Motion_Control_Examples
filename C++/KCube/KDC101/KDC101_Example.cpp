@@ -1,25 +1,25 @@
-// Example_BBD203.cpp : Defines the entry point for the console application.
+// Example_KDC101.cpp : Defines the entry point for the console application.
 
-// stdafx.h includes headers for precompiled windows binaries
+// stdafx.h imports several precompiled windows libraries.
 #include "stdafx.h"
 
 #include <stdlib.h>
 #include <conio.h>
 
-// Include the library specific header file
-#include "Thorlabs.MotionControl.Benchtop.BrushlessMotor.h"
+// Include library specific header file
+#include "Thorlabs.MotionControl.KCube.DCServo.h"
 
 
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
     if(argc < 1)
     {
-        printf("Usage = Example_BBD203 [serial_no] [position: optional (0 - 1715200)] [velocity: optional (0 - 3838091)]\r\n");
+        printf("Usage = Example_KDC101 [serial_no] [position: optional (0 - 1715200)] [velocity: optional (0 - 3838091)]\r\n");
         char c = _getch();
         return 1;
     }
 
-    int serialNo = 73837825;
+    int serialNo = 83837825;
     if(argc > 1)
     {
         serialNo = _wtoi(argv[1]);
@@ -47,9 +47,9 @@ int __cdecl wmain(int argc, wchar_t* argv[])
     {
         // get device list size 
         short n = TLI_GetDeviceListSize();
-        // get BBD serial numbers
+        // get KDC serial numbers
         char serialNos[100];
-        TLI_GetDeviceListByTypeExt(serialNos, 100, 73);
+        TLI_GetDeviceListByTypeExt(serialNos, 100, 27);
 
         // output list of matching devices
         {
@@ -75,57 +75,55 @@ int __cdecl wmain(int argc, wchar_t* argv[])
         }
 
         // open device
-        if(BMC_Open(testSerialNo) == 0)
+        if(CC_Open(testSerialNo) == 0)
         {
             // start the device polling at 200ms intervals
-            BMC_StartPolling(testSerialNo, 1, 200);
-
-            // enable device so that it can move
-            BMC_EnableChannel(testSerialNo, 1);
+            CC_StartPolling(testSerialNo, 200);
 
             Sleep(3000);
             // Home device
-            BMC_ClearMessageQueue(testSerialNo, 1);
-            BMC_Home(testSerialNo, 1);
+            CC_ClearMessageQueue(testSerialNo);
+            CC_Home(testSerialNo);
             printf("Device %s homing\r\n", testSerialNo);
 
             // wait for completion
             WORD messageType;
             WORD messageId;
             DWORD messageData;
-            BMC_WaitForMessage(testSerialNo, 1, &messageType, &messageId, &messageData);
+            CC_WaitForMessage(testSerialNo, &messageType, &messageId, &messageData);
             while(messageType != 2 || messageId != 0)
             {
-                BMC_WaitForMessage(testSerialNo, 1, &messageType, &messageId, &messageData);
+                CC_WaitForMessage(testSerialNo, &messageType, &messageId, &messageData);
             }
 
             // set velocity if desired
             if(velocity > 0)
             {
                 int currentVelocity, currentAcceleration;
-                BMC_GetVelParams(testSerialNo, 1, &currentAcceleration, &currentVelocity);
-                BMC_SetVelParams(testSerialNo, 1, currentAcceleration, velocity);
+                CC_GetVelParams(testSerialNo, &currentAcceleration, &currentVelocity);
+                CC_SetVelParams(testSerialNo, currentAcceleration, velocity);
             }
 
             // move to position (channel 1)
-            BMC_ClearMessageQueue(testSerialNo, 1);
-            BMC_MoveToPosition(testSerialNo, 1, position);
+            CC_ClearMessageQueue(testSerialNo);
+            CC_MoveToPosition(testSerialNo, position);
             printf("Device %s moving\r\n", testSerialNo);
 
             // wait for completion
-            BMC_WaitForMessage(testSerialNo, 1, &messageType, &messageId, &messageData);
+            CC_WaitForMessage(testSerialNo, &messageType, &messageId, &messageData);
             while(messageType != 2 || messageId != 1)
             {
-                BMC_WaitForMessage(testSerialNo, 1, &messageType, &messageId, &messageData);
+                CC_WaitForMessage(testSerialNo, &messageType, &messageId, &messageData);
             }
+
             // get actual poaition
-            int pos = BMC_GetPosition(testSerialNo, 1);
+            int pos = CC_GetPosition(testSerialNo);
             printf("Device %s moved to %d\r\n", testSerialNo, pos);
 
             // stop polling
-            BMC_StopPolling(testSerialNo, 1);
+            CC_StopPolling(testSerialNo);
             // close device
-            BMC_Close(testSerialNo);
+            CC_Close(testSerialNo);
         }
     }
 

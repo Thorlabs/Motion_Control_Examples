@@ -1,4 +1,4 @@
-C\# Programming Guide
+# C\# Programming Guide
 
 This guide will attempt to guide you through the process of setting up a console application project in visual studio, adding references to the necessary libraries, and using the example provided.
 
@@ -10,36 +10,64 @@ This guide will attempt to guide you through the process of setting up a console
   - A connected instrument
     * e.g. a DDR25/M
 
-## Creating Your Project
+## Setting up Your Project
+
+This section details the steps necessary to create your project such that it compiles correctly when you add the example file. These steps are general and vary little between examples. If you have any comments or feedback for this guide, please add them to the "Issues" section of the repository.
 
   - Open Visual Studio, and select "Create new project..." from the opening screen.
     - Alternatively, select File->New->Project 
+  - In the resulting "New Project" Window, select "Console App (.NET Framework) from the Visual C# section
+  - Choose an appropriate name and location for your project (e.g. KDC101_Console for a KDC101 project)
+    - The default file path for Visual Studio projects is "C:\Users\<username>\source\repos". 
+      - This can be changed by going to Tools->Options, selecting Projects->Locations, and clicking on the "..."
 
-In the resulting "New Project" Window, select "Console App (.NET Framework) from the Visual C# section, choose an appropriate name and location for your project (e.g. KDC101_Console) and press ok. This will create a new folder with your project name.
 
-By default, the file path for Visual studio projects is "C:\Users\<your username>\source\repos. This can be changed by navigating to the tool bar and selecting Tools, and opening the options menu. Within the options menu, expand the projects and solutions menu (if not expanded already) and select "Locations". Change the Projects location by clicking on the "...", then navigate to your chosen folder.
+### Adding Project Dependencies to Your Project Folder
 
-Next, open file explorer and navigate to your Kinesis installation folder ("C:\Program Files\Thorlabs\Kinesis" for 64-bit installations or "C:\Program Files (x86)\Thorlabs\Kinesis" for 32-bit installations). Within this folder is a program named "Thorlabs.MotionControl.Kinesis.DLLutility.exe", which can be used to copy the libraries you need into your project folders Bin\\Debug folder. Alternatively, you can manually copy and paste the files.
+In order for the project to compile successfully, you will need to add library references to your project. For simplicity, the appropriate Kinesis DLLs should be copied into your project folder.
 
-The DLLUtility has the advantage of allowing you to select your device and target programming language; ensuring that you have all of the required libraries and their dependencies.
+  - Open File Explorer and navigate to your Kinesis Installation folder
+    - "C:\Program Files\Thorlabs\Kinesis" for 64-bit installations
+    - "C:\Program Files\Thorlabs\Kinesis" for 32-bit installations
+  - Open Thorlabs.MotionControl.Kinesis.DLLUtility.exe
+    - This utility is designed to help you select only the libraries you need for your project, with no unnecessary files
+  - Select the type of project from the drop down menu at the top of the program
+    - In this case: .NET (no UI)
+  - Change the destination folder to <Your Project Folder>\Bin\Debug
+    - You may need to change the source folder to your Kinesis installation folder. Check that this is correct.
 
-## Targeting Your Solution
+Alternatively, you may copy and paste the required files yourself, without using the utility. When using this option, the easiest method is to simply copy and paste all of the files into your projects Bin\Debug folder. This has the disadvantage of copying files that you will not need, however.
 
-Depending on which set of DLLs you intend to use (32- or 64-bit), you will need to select an appropriate build target for your solution. To do this, go to the solution explorer (CTRL+ALT+L will open the widget if it's not open already), right click on project and select "Properties". Then, go to the Build menu and select your platform target: if you are using the 32-bit Dlls, select "x86", otherwise select "x64". Failing to set this option is a common cause of build errors.
 
-## Adding References
+### Targeting Your Solution
 
-The .NET API contains a list of dependencies required in order to control the device. You will need to add some of these dependencies as references to your project. To do this, right-click the project in the solution explorer and select "Add->References", which will open a new window. In this window, select "Browse" and navigate to the folder into which you copied the Kinesis DLLs.
+Depending on which set of DLLs you intend to use (32- or 64-bit), you will need to select an appropriate build target for your solution. Failing to do so is a common source of build errors.
 
-Select the following DLLs, which are common to all examples:
+  - Open the solution explorer if it's not open already
+    - The easiest method is to use the CTRL+ALT+L shortcut
+  - Right click on your project in the solution explorer and select "Properties"
+  - In the resulting menu, navigate to "Build" and select your platform target from the drop-down menu
+    - Select "x86" if you're using the 32-bit DLLs, and "x64" otherwise.
 
-  - Thorlabs.MotionControl.DeviceManagerCLI
-  - Thorlabs.MotionControl.Tools.Logging
-  - Thorlabs.MotionControl.Tools.Common
 
-Since the exact dependencies required by a project will depend upon the device being used, only the shared references are included here. Additional references required by these projects are listed within the project folders.
+### Adding References
+
+For any of the examples present in this repository, Visual Studio requires references to a devices dependencies. Some of these dependencies are shared between multiple devices, while others are specific to one device. The exact dependencies required will be listed in the folder for each example.
+
+  - Open solution explorer if it's not open already
+  - Right click on your project and select Add->References from the right-click context menu
+    - This will bring up a new menu. If you have done this recently, old references will still be present and it may be necessary to clear them before continuing
+  - Select "Browse" and navigate to where you saved the Kinesis libraries copied previously (Bin\Debug)
+  - Select the following DLLs, which are common to all examples:
+    - Thorlabs.MotionControl.DeviceManagerCLI
+    - Thorlabs.MotionControl.Tools.Logging
+    - Thorlabs.MotionControl.Tools.Common
+  - Select the DLLs listed in the example folder
+
 
 ## Adding the Example Code
+
+With your project set up, it is now time to add the example code to your file. By default, Visual Studio sets up a project with a file containing "program.cs" that is uses as the main input when compiling.
 
 Ensure the correct references for your device have also been added before continuing.
 

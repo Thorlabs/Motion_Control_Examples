@@ -8,3 +8,6 @@
 *.dll
 *.cache
 *.user
+*.exe
+*.ilk
+*.obj

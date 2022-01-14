@@ -1,0 +1,10 @@
+
+*.tlog
+*.log
+*.idb
+*.pdb
+*.vs
+*.lib
+*.dll
+*.cache
+*.user

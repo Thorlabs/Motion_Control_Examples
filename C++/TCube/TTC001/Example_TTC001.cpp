@@ -9,7 +9,7 @@
 #if defined TestCode
 	#include "..\..\..\Instruments\Thorlabs.TCube.TEC\Thorlabs.TCube.TEC\Thorlabs.MotionControl.TCube.TEC.h"
 #else
-	#include "Thorlabs.MotionControl.TCube.StepperMotor.h"
+	#include "Thorlabs.MotionControl.TCube.TEC.h"
 #endif
 
 /// <summary> Main entry-point for this application. </summary>

@@ -1,14 +1,25 @@
 # C++ Programming Guide
 
-This guide will walk you through the process of creating a C++ project in visual studio, linking the necessary libraries, and filling out the code.
+This guide aims to help you set up and compile a C++ project using our examples, either by using the Visual Studio project, or creating a project from scratch. If you cloned the entire repository, then you will have access to a solution that contains all examples. As such, this guide is split into 2 parts:
 
-### Prerequisites
+  - Using the Existing Project in the MotionControl_Examples Solution
+  - Creating a New Visual C++ Project in Visual Studio from scratch
 
-  - Microsoft Visual Studio with the Visual C++ packages installed
-  - An installation of Kinesis 
-  - A compatible MotionControl Device
+Frequently asked questions will be added to the end of this file.
 
-## Creating a New Visual C++ Project
+## Using C++ Projects in the Existing Solution
+
+### Requirements
+
+  - Microsoft Visual Studio
+    - Community for hobby projects, Professional for business.
+  - Windows 10 or higher
+
+### Cloning the repository
+
+All example projects are include in the visual studio solution in the top directory of this repository. Building a project from within the solution is the most straightforward way of using these examples, but requires that you download the entire repository. To do this, click the green "code" button located at the top right on the repository's first page. Then select "Download Zip, or clone the repository.
+
+### Adding the Kinesis DLLs to Your Chosen Project
 
 ### A Note of stdafx.h
 

@@ -1,0 +1,10 @@
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\Benchtop\BPCX0X\bin\Debug\BPCX0X.exe.config
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\Benchtop\BPCX0X\bin\Debug\BPCX0X.exe
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\Benchtop\BPCX0X\bin\Debug\BPCX0X.pdb
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\Benchtop\BPCX0X\bin\Debug\Thorlabs.MotionControl.PrivateInternal.dll
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\Benchtop\BPCX0X\bin\Debug\Thorlabs.MotionControl.Tools.WPF.dll
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\Benchtop\BPCX0X\obj\Debug\BPCX0X.csprojAssemblyReference.cache
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\Benchtop\BPCX0X\obj\Debug\BPCX0X.csproj.CoreCompileInputs.cache
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\Benchtop\BPCX0X\obj\Debug\BPCX0X.csproj.CopyComplete
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\Benchtop\BPCX0X\obj\Debug\BPCX0X.exe
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\Benchtop\BPCX0X\obj\Debug\BPCX0X.pdb

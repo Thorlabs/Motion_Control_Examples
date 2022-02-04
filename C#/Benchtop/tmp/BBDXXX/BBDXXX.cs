@@ -1,3 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using Thorlabs.MotionControl.DeviceManagerCLI;
+using Thorlabs.MotionControl.GenericMotorCLI;
+using Thorlabs.MotionControl.GenericMotorCLI.ControlParameters;
+using Thorlabs.MotionControl.GenericMotorCLI.AdvancedMotor;
+using Thorlabs.MotionControl.GenericMotorCLI.Settings;
+using Thorlabs.MotionControl.Benchtop.BrushlessMotorCLI;
 // NOTE this example is written for the Benchtop Brushless  Motor but the technique is applicable to all benchtop devices
  
     public class Program
@@ -9,6 +19,7 @@
             // Equivenent references to your device type
 
             // Serial number for Benchtop Brushless Motor (Example)
+           
             string serialNo = "73000001";
 
             try

@@ -41,11 +41,6 @@ namespace KDC101Console
             MotorConfiguration motorSettings = device.LoadMotorConfiguration(serialNo,
             DeviceConfiguration.DeviceSettingsUseOptionType.UseFileSettings);
 
-            para.Trigger1Mode = KCubeTriggerConfigSettings.TriggerPortMode.TrigIN_GPI;
-            para.Trigger1Polarity = KCubeTriggerConfigSettings.TriggerPolarity.TriggerHigh;
-
-            device.SetTriggerConfigParams(para);
-
             // This starts polling the device at intervals of 250ms (0.25s). 
 
             device.StartPolling(250);

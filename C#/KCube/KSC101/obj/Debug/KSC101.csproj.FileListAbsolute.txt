@@ -1,0 +1,10 @@
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KSC101\bin\Debug\KSC101.exe.config
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KSC101\bin\Debug\KSC101.exe
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KSC101\bin\Debug\KSC101.pdb
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KSC101\bin\Debug\Thorlabs.MotionControl.PrivateInternal.dll
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KSC101\bin\Debug\Thorlabs.MotionControl.Tools.WPF.dll
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KSC101\obj\Debug\KSC101.csprojAssemblyReference.cache
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KSC101\obj\Debug\KSC101.csproj.CoreCompileInputs.cache
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KSC101\obj\Debug\KSC101.csproj.CopyComplete
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KSC101\obj\Debug\KSC101.exe
+C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KSC101\obj\Debug\KSC101.pdb

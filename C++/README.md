@@ -1,12 +1,39 @@
 # C++ Programming Guide
 
-This guide will walk you through the process of creating a C++ project in visual studio, linking the necessary libraries, and filling out the code.
+This guide will walk you through some of the options for getting any of the include examples up and running in Visual Studio. The two options covered here are:
+
+ - Opening and building the example from within the MotionControl_Examples Solution
+ - Creating your own Visual C++ project from scratch.
+
+The repository is set up as a visual studio solution, which can be downloaded in full by cloning the repository.
+Each example in the solution is set within it's own project, and set up with all references required for the project to compile.
+As a result, it is the simplest method for getting a project up and running quickly, but with the caveat that you must download all examples in order for it to work.  
+
+If you're project only requires an example for one device, then you may also create a Visual C++ project from scratch.
+The guide will explain how to set up a project, add library dependencies, and additional include directories.
 
 ### Prerequisites
 
+For the purposes of this guide, the following are required:
+
   - Microsoft Visual Studio with the Visual C++ packages installed
+   - It is possible to use other IDEs, but the original repository was written using Visual Studio.
   - An installation of Kinesis 
-  - A compatible MotionControl Device
+   - Kinesis can be downloaded from [here](https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=Motion_Control&viewtab=0)
+  - A compatible MotionControl Device (see top level README for a full list of supported devices)
+ 
+### Note
+
+All examples included in this section include "stdafx.h", a file that can be found in the Shared Headers folder.
+"stdafx.h" includes some standard library tools, as well as targetver.h, which allows you to define Windows version you are targeting.
+While stdafx.h isn't necessary for the examples to run, you will need to ensure that you include <stdio.h> and <'
+
+# Using the MotionControl_Examples Solution
+
+Downloading the repository and opening the Visual Studio solution is the simplest way of getting started with examples for any device.
+To start, go to the top level of this repository, and click the green "Code" button to display a drop down menu.
+From this menu, choose whether you would like to download the repository as a .zip file, through Github desktop, or through the git or ssh command line interfaces.
+Save the repository to a convenient location on your local machince, and open the main folder containing the solution file in Windows explorer.
 
 ## Creating a New Visual C++ Project
 

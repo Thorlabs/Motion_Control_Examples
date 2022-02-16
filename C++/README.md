@@ -28,14 +28,28 @@ All examples included in this section include "stdafx.h", a file that can be fou
 "stdafx.h" includes some standard library tools, as well as targetver.h, which allows you to define Windows version you are targeting.
 While stdafx.h isn't necessary for the examples to run, you will need to ensure that you include <stdio.h> and <'
 
-# Using the MotionControl_Examples Solution
+## Using the MotionControl_Examples Solution
 
 Downloading the repository and opening the Visual Studio solution is the simplest way of getting started with examples for any device.
 To start, go to the top level of this repository, and click the green "Code" button to display a drop down menu.
 From this menu, choose whether you would like to download the repository as a .zip file, through Github desktop, or through the git or ssh command line interfaces.
-Save the repository to a convenient location on your local machince, and open the main folder containing the solution file in Windows explorer.
+Save the repository to a convenient location on your local machince, and open the main folder containing the solution file in Windows explorer.   
+
+From there, navigate through to this file, then to the folder corresponding to your device. 
+For example, the project for the KDC101 can be found in 
+ - ./MotionControl_Examples/C++/KCube/KDC101.
+Open the "Required DLLs.txt" file located in the project folder to see which DLLs are needed by the project.
+Then, either using the DLLUtility or copy and paste, copy the required DLLs into the project folder (the same folder as the C++ file).
+
+Open the solution (or the project) in Visual Studio and bring up the Solution Explorer (CTRL+ALT+L), then expand the project to display it's contents.
+To view the main source file, expand the "Source Files" virtual folder and double-click the .cpp file.
+Near the top of the source file, there is a variable called serialNo: change this to match the serial number of your device.
+If you're intending to use a simulated device with Kinesis Simulator, you will need to uncomment (delete the "//" on a line) TLI_InitializeSimulations() at the top of the file, and
+TLI_UninitializeSimulations() at the bottom of the file.
 
 ## Creating a New Visual C++ Project
+
+TODO
 
 ### A Note of stdafx.h
 

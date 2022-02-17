@@ -1,0 +1,13 @@
+./C++/Benchtop/BVCX01/*
+*.tlog
+*.log
+*.idb
+*.pdb
+*.vs
+*.lib
+*.dll
+*.cache
+*.user
+*.exe
+*.ilk
+*.obj

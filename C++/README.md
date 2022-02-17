@@ -14,9 +14,9 @@ The guide will explain how to set up a project, add library dependencies, and ad
 
 For the purposes of this guide, the following are required:
 
-  - Microsoft Visual Studio with the Visual C++ packages installed
+  - Microsoft Visual Studio with the Visual C++ packages installed   
    - It is possible to use other IDEs, but the original repository was written using Visual Studio.
-  - An installation of Kinesis 
+  - An installation of Kinesis    
    - Kinesis can be downloaded from [here](https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=Motion_Control&viewtab=0)
   - A compatible MotionControl Device (see top level README for a full list of supported devices)
  
@@ -36,7 +36,7 @@ Save the repository to your local machine, then extract the files into a conveni
 
 From there, navigate through the folders to your desired device example.
 For example, the project for the KDC101 can be found in 
- - ./MotionControl_Examples/C++/KCube/KDC101.
+ - ./MotionControl_Examples/C++/KCube/KDC101.   
 Open the "Required DLLs.txt" file located in the project folder to see which DLLs are needed by the project.
 Then, either using the DLLUtility or copy and paste, copy the required DLLs into the project folder (the same folder as the C++ file).
 

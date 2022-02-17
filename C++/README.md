@@ -12,8 +12,6 @@ As a result, it is the simplest method for getting a project up and running quic
 If you're project only requires an example for one device, then you may also create a Visual C++ project from scratch.
 The guide will explain how to set up a project, add library dependencies, and additional include directories.
 
-### Prerequisites
-
 For the purposes of this guide, the following are required:
 
   - Microsoft Visual Studio with the Visual C++ packages installed
@@ -52,7 +50,19 @@ Next, right click on the project in the solution explorer and select "Properties
 In the properties dialogue, ensure that the configuration is "Active(Debug)" and the platform matches your DLLs using the drop down menus.
 If you are using the 32-bit DLLs, then select "x86" as your platform. Otherwise, select "x64".
 
-## Creating a New Visual C++ Project
+## Using C++ Projects in the Existing Solution
+
+### Requirements
+
+  - Microsoft Visual Studio
+    - Community for hobby projects, Professional for business.
+  - Windows 10 or higher
+
+### Cloning the repository
+
+All example projects are include in the visual studio solution in the top directory of this repository. Building a project from within the solution is the most straightforward way of using these examples, but requires that you download the entire repository. To do this, click the green "code" button located at the top right on the repository's first page. Then select "Download Zip, or clone the repository.
+
+### Adding the Kinesis DLLs to Your Chosen Project
 
 TODO
 

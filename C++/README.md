@@ -46,7 +46,11 @@ Open the solution (or the project) in Visual Studio and bring up the Solution Ex
 To view the main source file, expand the "Source Files" virtual folder and double-click the .cpp file.
 Near the top of the source file, there is a variable called serialNo: change this to match the serial number of your device.
 If you're intending to use a simulated device with Kinesis Simulator, you will need to uncomment (delete the "//" on a line) TLI_InitializeSimulations() at the top of the file, and
-TLI_UninitializeSimulations() at the bottom of the file.
+TLI_UninitializeSimulations() at the bottom of the file.  
+
+Next, right click on the project in the solution explorer and select "Properties" (or press ALT+ENTER).
+In the properties dialogue, ensure that the configuration is "Active(Debug)" and the platform matches your DLLs using the drop down menus.
+If you are using the 32-bit DLLs, then select "x86" as your platform. Otherwise, select "x64".
 
 ## Creating a New Visual C++ Project
 

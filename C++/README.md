@@ -31,11 +31,12 @@ While stdafx.h isn't necessary for the examples to run, you will need to ensure 
 ## Using the MotionControl_Examples Solution
 
 Downloading the repository and opening the Visual Studio solution is the simplest way of getting started with examples for any device.
-To start, go to the top level of this repository, and click the green "Code" button to display a drop down menu.
+To start, go back to the [top level of this repository](https://github.com/Thorlabs/MotionControl_Examples), and click the green "Code" button to display a drop down menu.
 From this menu, choose whether you would like to download the repository as a .zip file, through Github desktop, or through the git or ssh command line interfaces.
-Save the repository to a convenient location on your local machince, and open the main folder containing the solution file in Windows explorer.   
+If you do not have git or github desktop installed, then download the repository as a .zip.
+Save the repository to your local machine, then extract the files into a convenient location and open it in windows file explorer.
 
-From there, navigate through to this file, then to the folder corresponding to your device. 
+From there, navigate through the folders to your desired device example.
 For example, the project for the KDC101 can be found in 
  - ./MotionControl_Examples/C++/KCube/KDC101.
 Open the "Required DLLs.txt" file located in the project folder to see which DLLs are needed by the project.

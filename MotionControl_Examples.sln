@@ -10,8 +10,14 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KIM101", "C++\KCube\KIM101\KIM101.vcxproj", "{C7F82E8F-61AB-4E3B-9A1B-135EADDF5D72}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C++", "C++", "{D3DDF0C7-09BC-4980-BFF9-FEE3ECF41A3C}"
+	ProjectSection(SolutionItems) = preProject
+		C++\README.md = C++\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSharp", "CSharp", "{B964465E-1E35-4998-B114-05B13906EF14}"
+	ProjectSection(SolutionItems) = preProject
+		C#\README.md = C#\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KCube", "KCube", "{0494B9C3-AE9B-42EE-875A-603FD2197C3E}"
 EndProject
@@ -130,6 +136,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TST001", "C#\TCube\TST001\TST001.csproj", "{2C73C145-9BAD-4A1A-87A2-353498F98276}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTC001", "C#\TCube\TTC001\TTC001.csproj", "{9B624893-CBE6-4F74-96AA-1135C6864490}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{92250772-83CE-4E08-9666-D4F403747533}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

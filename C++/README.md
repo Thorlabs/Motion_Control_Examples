@@ -49,6 +49,9 @@ TLI_UninitializeSimulations() at the bottom of the file.
 Next, right click on the project in the solution explorer and select "Properties" (or press ALT+ENTER).
 In the properties dialogue, ensure that the configuration is "Active(Debug)" and the platform matches your DLLs using the drop down menus.
 If you are using the 32-bit DLLs, then select "x86" as your platform. Otherwise, select "x64".
+Press OK to close the window.  
+
+To build the project, go to solution explorer, right click on your chosen project's title and select "Build.
 
 ## Using C++ Projects in the Existing Solution
 

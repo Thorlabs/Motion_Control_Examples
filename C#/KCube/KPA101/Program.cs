@@ -126,6 +126,7 @@ namespace KPA_Console_net_managed
             PositionAlignerStatus status = device.Status;
             Console.WriteLine("Actual Position = ({0},{1})", status.PositionDifference.X, status.PositionDifference.Y);
 
+
             device.StopPolling();
             device.Disconnect(true);
 

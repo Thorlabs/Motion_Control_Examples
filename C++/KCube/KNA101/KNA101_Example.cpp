@@ -1,8 +1,6 @@
 // Example_KNA101.cpp : Defines the entry point for the console application.
 
-// stdafx.h imports headers for several pre-compiled Windows binaries
-#include "stdafx.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
@@ -11,30 +9,19 @@
 
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-    if(argc < 1)
-    {
-        printf("Usage = Example_KNA101 [serial_no] [h position: optional (0 - 65535)] [v position: optional (0 - 65535)]\r\n");
-        char c = _getch();
-        return 1;
-    }
+	// Uncomment this line (and TLI_UnitializeSimulations at the bottom of the page)
+	// If you are using a simulated device
+	//TLI_InitializeSimulations();
+    
+	// Change this line to reflect your device's serial number
+	int serialNo = 8200001;
 
-    int serialNo = 82837825;
-    if(argc > 1)
-    {
-        serialNo = _wtoi(argv[1]);
-    }
-
-    // get parameters from command line
+    // set the horizontal and vertical components of the position
     NT_HVComponent position;
     position.horizontalComponent = 0x8000;
     position.verticalComponent = 0x8000;
-    if(argc > 3)
-    {
-        position.horizontalComponent = _wtoi(argv[2]);
-        position.verticalComponent = _wtoi(argv[3]);
-    }
-
-    // identify and access device
+    
+	//identify and access device
     char testSerialNo[16];
     sprintf_s(testSerialNo, "%d", serialNo);
 
@@ -98,6 +85,8 @@ int __cdecl wmain(int argc, wchar_t* argv[])
         }
     }
 
+	// Uncomment this line if you are using simulations
+	//TLI_UnitializeSimulations;
     char c = _getch();
     return 0;
 }

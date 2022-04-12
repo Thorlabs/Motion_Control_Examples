@@ -1,38 +1,25 @@
 // Example_KPZ101.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
-#if defined TestCode
-#include "..\..\..\Instruments\Thorlabs.KCube.Piezo\Thorlabs.KCube.Piezo\Thorlabs.MotionControl.KCube.Piezo.h"
-#else
 #include "Thorlabs.MotionControl.KCube.Piezo.h"
-#endif
+
 
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-	if (argc < 1)
-	{
-		printf("Usage = Example_KPZ101 [serial_no] [Position: optional (0 - 65535)]\r\n");
-		char c = _getch();
-		return 1;
-	}
 
-	int serialNo = 82837825;
-	if (argc > 1)
-	{
-		serialNo = _wtoi(argv[1]);
-	}
+	// Uncomment this line (and TLI_UnitializeSimulations at the bottom of the page)
+	// If you are using a simulated device
+	//TLI_InitializeSimulations();
+	
+	// Change this line to reflect your device's serial number
+	int serialNo = 81000001;
 
-	int position;
-	position = 0;
-	if (argc > 2)
-	{
-		position = _wtoi(argv[2]);
-	}
+	// Optionally adjust this value to move your device to a new position (in device units)
+	int position = 0;
 
 	// identify and access device
 	char testSerialNo[16];
@@ -43,7 +30,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 	{
 		// get device list size 
 		short n = TLI_GetDeviceListSize();
-		// get BBD serial numbers
+		// get KPZ serial numbers
 		char serialNos[100];
 		TLI_GetDeviceListByTypeExt(serialNos, 100, 81);
 
@@ -85,7 +72,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 			printf("Set %s position\r\n", testSerialNo);
 			PCC_SetPosition(testSerialNo, position);
 			Sleep(1000);
-
+			
 			// get output voltage
 			int voltage = PCC_GetOutputVoltage(testSerialNo);
 			printf("Device %s voltage = %d\r\n", testSerialNo, voltage);
@@ -98,6 +85,8 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 		}
 	}
 
+	// Uncomment this line if you are using simulations
+	//TLI_UnitializeSimulations;
 	char c = _getch();
 	return 0;
 }

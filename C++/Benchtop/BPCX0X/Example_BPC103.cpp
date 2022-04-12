@@ -1,44 +1,26 @@
 // Example_BPC103.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
-#if defined TestCode
-	#include "..\..\..\Instruments\Thorlabs.Benchtop.Piezo\Thorlabs.Benchtop.Piezo\Thorlabs.MotionControl.Benchtop.Piezo.h"
-#else
-	#include "Thorlabs.MotionControl.Benchtop.Piezo.h"
-#endif
+// Include device-specific header file
+#include "Thorlabs.MotionControl.Benchtop.Piezo.h"
 
-/// <summary> Main entry-point for this application. </summary>
-/// <param name="argc"> The argc. </param>
-/// <param name="argv"> The argv. </param>
-/// <returns> . </returns>
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-	if(argc < 1)
-	{
-		printf("Usage = Example_BPC103 [serial_no] [Position: optional (0 - 65535)]\r\n");
-		char c = _getch();
-		return 1;
-	}
+	// Uncomment this line (and TLI_UnitializeSimulations at the bottom of the page)
+	// If you are using a simulated device
+	//TLI_InitializeSimulations();
 
-	int serialNo = 22837825;
-	if(argc > 1)
-	{
-		serialNo = _wtoi(argv[1]);
-	}
+	// Change this line to reflect your device's serial number
+	int serialNo = 41000001;
 
-	// get parameters from command line
+	// Optionally set the position of the device (in device units)
 	int position;
 	position = 0;
-	if(argc > 2)
-	{
-		position = _wtoi(argv[2]);
-	}
-
+	
 	// identify and access device
 	char testSerialNo[16];
 	sprintf_s(testSerialNo, "%d", serialNo);
@@ -106,6 +88,8 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 	    }
     }
 
+	// Uncomment this line if you are using simulations
+	//TLI_UnitializeSimulations;
 	char c = _getch();
 	return 0;
 }

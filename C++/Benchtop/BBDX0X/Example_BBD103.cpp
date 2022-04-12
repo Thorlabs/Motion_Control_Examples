@@ -102,7 +102,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 			{
 				BMC_WaitForMessage(testSerialNo, 1, &messageType, &messageId, &messageData);
 			}
-			// get actual poaition
+			// get actual position
 			int pos = BMC_GetPosition(testSerialNo, 1);
 			printf("Device %s moved to %d\r\n", testSerialNo, pos);
 

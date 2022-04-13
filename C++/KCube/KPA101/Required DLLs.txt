@@ -1,0 +1,4 @@
+Thorlabs.MotionControl.DeviceManager.dll
+Thorlabs.MotionControl.KCube.PositionAligner.dll
+Thorlabs.MotionControl.KCube.PositionAligner.h
+Thorlabs.MotionControl.KCube.PositionAligner.lib

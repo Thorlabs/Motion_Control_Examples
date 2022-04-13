@@ -1,0 +1,4 @@
+Thorlabs.MotionControl.DeviceManager.dll
+Thorlabs.MotionControl.TCube.InertialMotor.dll
+Thorlabs.MotionControl.TCube.InertialMotor.h
+Thorlabs.MotionControl.TCube.InertialMotor.lib

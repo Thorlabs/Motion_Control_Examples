@@ -1,0 +1,4 @@
+Thorlabs.MotionControl.DeviceManager.dll
+Thorlabs.MotionControl.Benchtop.StepperMotor.dll
+Thorlabs.MotionControl.Benchtop.StepperMotor.h
+Thorlabs.MotionControl.Benchtop.StepperMotor.lib

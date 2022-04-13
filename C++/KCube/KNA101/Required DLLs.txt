@@ -1,0 +1,4 @@
+Thorlabs.MotionControl.DeviceManager.dll
+Thorlabs.MotionControl.KCube.NanoTrak.dll
+Thorlabs.MotionControl.KCube.NanoTrak.h
+Thorlabs.MotionControl.KCube.NanoTrak.lib

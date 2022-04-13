@@ -1,0 +1,4 @@
+Thorlabs.MotionControl.DeviceManager.dll
+Thorlabs.MotionControl.KCube.StrainGauge.dll
+Thorlabs.MotionControl.KCube.StrainGauge.h
+Thorlabs.MotionControl.KCube.StrainGauge.lib

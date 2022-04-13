@@ -14,10 +14,11 @@ The guide will explain how to set up a project, add library dependencies, and ad
 
 For the purposes of this guide, the following are required:
 
+
   - Microsoft Visual Studio with the Visual C++ packages installed
-   - When installing Visual Studio, check the "Desktop development with C++" option under "Desktop and Mobile."
+   - When installing Visual Studio, check the "Desktop development with C++" option under "Desktop and Mobile. 
    - It is possible to use other IDEs, but the original repository was written using Visual Studio.
-  - An installation of Kinesis 
+  - An installation of Kinesis    
    - Kinesis can be downloaded from [here](https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=Motion_Control&viewtab=0)
   - A compatible MotionControl Device (see top level README for a full list of supported devices)
  
@@ -35,10 +36,8 @@ Save the repository to your local machine, then extract the files into a conveni
 
 From there, navigate through the folders to your desired device example.
 For example, the project for the KDC101 can be found in 
- - ./MotionControl_Examples/C++/KCube/KDC101.
+ - ./MotionControl_Examples/C++/KCube/KDC101.   
 
-### Adding the Required DLLs for your solution 
- 
 Open the "Required DLLs.txt" file located in the project folder to see which DLLs are needed by the project.
 These DLL's are bundled with installations of Kinesis, and can be found in C:\Program Files\Thorlabs\Kinesis folder for 64-bit installations, and C:\Program Files (x86)\Thorlabs\Kinesis for 32-bit installations
 Once you have found the required DLLs, copy and paste them into the project folder (the same folder as the source file).
@@ -57,6 +56,9 @@ Next, right click on your selected project in the solution explorer and select "
 For example, if you are opening the KDC101 example, right-click on the "KDC101" title in the solution explorer.
 In the properties dialogue, ensure that the configuration is "Active(Debug)" and the platform matches your DLLs using the drop down menus.
 If you are using the 32-bit DLLs, then select "x86" as your platform. Otherwise, select "x64".
+Press OK to close the window.  
+
+To build the project, go to solution explorer, right click on your chosen project's title and select "Build.
 
 
 ### A Note of stdafx.h

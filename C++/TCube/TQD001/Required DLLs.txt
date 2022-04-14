@@ -1,0 +1,4 @@
+Thorlabs.MotionControl.DeviceManager.dll
+Thorlabs.MotionControl.TCube.Quad.dll
+Thorlabs.MotionControl.TCube.Quad.h
+Thorlabs.MotionControl.TCube.Quad.lib

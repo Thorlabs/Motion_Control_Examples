@@ -1,42 +1,25 @@
 // Example_TTC001.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
-#if defined TestCode
-	#include "..\..\..\Instruments\Thorlabs.TCube.TEC\Thorlabs.TCube.TEC\Thorlabs.MotionControl.TCube.TEC.h"
-#else
-	#include "Thorlabs.MotionControl.TCube.TEC.h"
-#endif
+// Include device-specific header file
+#include "Thorlabs.MotionControl.TCube.TEC.h"
 
-/// <summary> Main entry-point for this application. </summary>
-/// <param name="argc"> The argc. </param>
-/// <param name="argv"> The argv. </param>
-/// <returns> . </returns>
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-	if(argc < 1)
-	{
-		printf("Usage = Example_TTC001 [serial_no] [temperature: optional (0 - 32767)]\r\n");
-		char c = _getch();
-		return 1;
-	}
+	// Uncomment this line (and TLI_UnitializeSimulations at the bottom of the page)
+	// If you are using a simulated device
+	//TLI_InitializeSimulations();
 
-	int serialNo = 87837825;
-	if(argc > 1)
-	{
-		serialNo = _wtoi(argv[1]);
-	}
+	// Change this line to reflect your device's serial number
+	int serialNo = 87000001;
 
-	// get parameters from command line
+	// Optionally set temperature 
+	// (range and units depend on sensor, see documentation for TC_SetTemperature())
 	int temperature = 2000;
-	if(argc > 2)
-	{
-		temperature = _wtoi(argv[2]);
-	}
 
 	// identify and access device
 	char testSerialNo[16];
@@ -106,6 +89,8 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 	    }
     }
 
+	// Uncomment this line if you are using simulations
+	//TLI_UnitializeSimulations;
 	char c = _getch();
 	return 0;
 }

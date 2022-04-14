@@ -1,0 +1,4 @@
+Thorlabs.MotionControl.DeviceManager.dll
+Thorlabs.MotionControl.TCube.BrushlessMotor.dll
+Thorlabs.MotionControl.TCube.BrushlessMotor.h
+Thorlabs.MotionControl.TCube.BrushlessMotor.lib

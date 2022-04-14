@@ -1,0 +1,4 @@
+Thorlabs.MotionControl.DeviceManager.dll
+Thorlabs.MotionControl.TCube.LaserSource.dll
+Thorlabs.MotionControl.TCube.LaserSource.h
+Thorlabs.MotionControl.TCube.LaserSource.lib

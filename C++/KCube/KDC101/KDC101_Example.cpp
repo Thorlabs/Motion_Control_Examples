@@ -1,8 +1,6 @@
 // Example_KDC101.cpp : Defines the entry point for the console application.
 
-// stdafx.h imports several precompiled windows libraries.
-#include "stdafx.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
@@ -12,31 +10,17 @@
 
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-    if(argc < 1)
-    {
-        printf("Usage = Example_KDC101 [serial_no] [position: optional (0 - 1715200)] [velocity: optional (0 - 3838091)]\r\n");
-        char c = _getch();
-        return 1;
-    }
+    // Comment/uncomment this line based on whether or not you're using simulation.
+	//TLI_InitializeSimulations();
 
-    int serialNo = 83837825;
-    if(argc > 1)
-    {
-        serialNo = _wtoi(argv[1]);
-    }
+	// Change this line to reflect your device's serial number
+    int serialNo = 27000001; 
 
-    // get parameters from command line
+    // optionally set a position in device units.
     int position = 0;
-    if(argc > 2)
-    {
-        position = _wtoi(argv[2]);
-    }
 
-    int velocity = 0;
-    if(argc > 3)
-    {
-        velocity = _wtoi(argv[3]);
-    }
+	// Optionally change this value to a desired velocity (in device units/second)--*--+cx vc                                                                       
+     int velocity = 0;
 
     // identify and access device
     char testSerialNo[16];
@@ -52,6 +36,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
         TLI_GetDeviceListByTypeExt(serialNos, 100, 27);
 
         // output list of matching devices
+		// This bit is optional and can largely be ignored.
         {
             char *searchContext = nullptr;
             char *p = strtok_s(serialNos, ",", &searchContext);
@@ -80,8 +65,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
             // start the device polling at 200ms intervals
             CC_StartPolling(testSerialNo, 200);
 
-            Sleep(3000);
-            // Home device
+			// Home device
             CC_ClearMessageQueue(testSerialNo);
             CC_Home(testSerialNo);
             printf("Device %s homing\r\n", testSerialNo);
@@ -107,18 +91,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
             // move to position (channel 1)
             CC_ClearMessageQueue(testSerialNo);
             CC_MoveToPosition(testSerialNo, position);
-            printf("Device %s moving\r\n", testSerialNo);
-
-            // wait for completion
-            CC_WaitForMessage(testSerialNo, &messageType, &messageId, &messageData);
-            while(messageType != 2 || messageId != 1)
-            {
-                CC_WaitForMessage(testSerialNo, &messageType, &messageId, &messageData);
-            }
-
-            // get actual poaition
-            int pos = CC_GetPosition(testSerialNo);
-            printf("Device %s moved to %d\r\n", testSerialNo, pos);
+            
 
             // stop polling
             CC_StopPolling(testSerialNo);
@@ -126,6 +99,9 @@ int __cdecl wmain(int argc, wchar_t* argv[])
             CC_Close(testSerialNo);
         }
     }
+
+	// Uncomment this line if you are using simulations
+	//TLI_UninitializeSimulations();
 
     char c = _getch();
     return 0;

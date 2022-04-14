@@ -1,8 +1,6 @@
 // Example_KLD101.cpp : Defines the entry point for the console application.
 
-// stdafx.h imports header files for precompiled Windows binaries
-#include "stdafx.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
@@ -12,36 +10,27 @@
 
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-    if(argc < 1)
-    {
-        printf("Usage = Example_KLD101 [serial_no] [power: optional (0 - 32767)]\r\n");
-        char c = _getch();
-        return 1;
-    }
 
-    int serialNo = 98837825;
-    if(argc > 1)
-    {
-        serialNo = _wtoi(argv[1]);
-    }
+	// Uncomment this line (and TLI_UnitializeSimulations at the bottom of the page)
+	// If you are using a simulated device
 
-    // get parameters from command line
+	// Change this line to reflect your device's serial number
+	int serialNo = 98000001;
+
+
+    // Optionally Adjust the setpoint of your device
     WORD setPoint = 100;
-    if(argc > 2)
-    {
-        setPoint = _wtoi(argv[2]);
-    }
 
     // identify and access device
     char testSerialNo[16];
     sprintf_s(testSerialNo, "%d", serialNo);
 
-    // Build list of connected device
+    // Build list of connected devices
     if (TLI_BuildDeviceList() == 0)
     {
         // get device list size 
         short n = TLI_GetDeviceListSize();
-        // get BBD serial numbers
+        // get KLD serial numbers
         char serialNos[100];
         TLI_GetDeviceListByTypeExt(serialNos, 100, 98);
 
@@ -98,6 +87,8 @@ int __cdecl wmain(int argc, wchar_t* argv[])
         }
     }
 
+	// Uncomment this line if you are using simulations
+	//TLI_UnitializeSimulations;
     char c = _getch();
     return 0;
 }

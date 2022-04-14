@@ -1,8 +1,6 @@
 // Example_KIM101.cpp : Defines the entry point for the console application.
 
-// stdafx.h includes header files for several pre-compiled Windows binaries
-#include "stdafx.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
@@ -11,18 +9,13 @@
 
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-    if(argc < 1)
-    {
-        printf("Usage = Example_KIM101 [serial_no]\r\n");
-        char c = _getch();
-        return 1;
-    }
 
-    int serialNo = 85837825;
-    if(argc > 1)
-    {
-        serialNo = _wtoi(argv[1]);
-    }
+	// Uncomment this line (and TLI_UnitializeSimulations at the bottom of the file)
+	// if you are using simulated devices.
+	//TLI_InitializeSimulations();
+
+	// Change the serial number to match the one found on your device
+    int serialNo = 85000001;
 
     // identify and access device
     char testSerialNo[16];
@@ -66,13 +59,13 @@ int __cdecl wmain(int argc, wchar_t* argv[])
             // start the device polling at 200ms intervals
             KIM_StartPolling(testSerialNo, 200);
 
-            Sleep(1000);
-
             // initalize current position to zero
             KIM_SetPosition(testSerialNo, KIM_Channels::Channel1, 0);
-            Sleep(1000);
 
-            // Move to 
+			// It is often good practice to allow some time for the device to accept commands
+            Sleep(200);
+
+            // Move to Absolute position (in device units)
             KIM_MoveAbsolute(testSerialNo, KIM_Channels::Channel1, 1000);
             Sleep(200);
             printf("Device %s moving to 1000\r\n", testSerialNo);
@@ -81,7 +74,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
             int pos = KIM_GetCurrentPosition(testSerialNo, KIM_Channels::Channel1);
             printf("Device %s position is %d\r\n", testSerialNo, pos);
 
-            // Move Jog 
+            // Move Jog using jog settings
             KIM_MoveJog(testSerialNo, KIM_Channels::Channel1, KIM_TravelDirection::Forward);
             Sleep(200);
             printf("Device %s jogging\r\n", testSerialNo);
@@ -98,6 +91,8 @@ int __cdecl wmain(int argc, wchar_t* argv[])
         }
     }
 
+	// Uncomment this line if you are using simulations
+	//TLI_UnitializeSimulations;
     char c = _getch();
     return 0;
 }

@@ -1,16 +1,12 @@
 // Example_BPC103.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
-#if defined TestCode
-	#include "..\..\..\Instruments\Thorlabs.Benchtop.PrecisionPiezo\Thorlabs.Benchtop.PrecisionPiezo\Thorlabs.MotionControl.Benchtop.PrecisionPiezo.h"
-#else
-	#include "Thorlabs.MotionControl.Benchtop.PrecisionPiezo.h"
-#endif
+#include "Thorlabs.MotionControl.Benchtop.PrecisionPiezo.h"
+
 
 /// <summary> Main entry-point for this application. </summary>
 /// <param name="argc"> The argc. </param>
@@ -18,26 +14,16 @@
 /// <returns> . </returns>
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-	if(argc < 1)
-	{
-		printf("Usage = Example_PPC001 [serial_no] [Position: optional (0 - 65535)]\r\n");
-		char c = _getch();
-		return 1;
-	}
+	// Uncomment this line (and TLI_UnitializeSimulations at the bottom of the page)
+	// If you are using a simulated device
+	//TLI_InitializeSimulations();
 
-	int serialNo = 44123456;
-	if(argc > 1)
-	{
-		serialNo = _wtoi(argv[1]);
-	}
+	// Change this line to reflect your device's serial number
+	int serialNo = 44000001;
 
-	// get parameters from command line
+	// Optionally set the position of the device (in device units)
 	int position;
 	position = 0;
-	if(argc > 2)
-	{
-		position = _wtoi(argv[2]);
-	}
 
 	// identify and access device
 	char testSerialNo[16];
@@ -48,7 +34,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
     {
 		// get device list size 
         short n = TLI_GetDeviceListSize();
-		// get BBD serial numbers
+		// get PPC serial numbers
         char serialNos[100];
 		TLI_GetDeviceListByTypeExt(serialNos, 100, 44);
 
@@ -103,6 +89,8 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 	    }
     }
 
+	// Uncomment this line if you are using simulations
+	//TLI_UnitializeSimulations;
 	char c = _getch();
 	return 0;
 }

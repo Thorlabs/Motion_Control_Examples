@@ -1,43 +1,25 @@
 // Example_TLS001.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
-#if defined TestCode
-	#include "..\..\..\Instruments\Thorlabs.TCube.LaserSource\Thorlabs.TCube.LaserSource\Thorlabs.MotionControl.TCube.LaserSource.h"
-#else
-	#include "Thorlabs.MotionControl.TCube.LaserSource.h"
-#endif
+// Include device-specific header file
+#include "Thorlabs.MotionControl.TCube.LaserSource.h"
 
-/// <summary> Main entry-point for this application. </summary>
-/// <param name="argc"> The argc. </param>
-/// <param name="argv"> The argv. </param>
-/// <returns> . </returns>
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-	if(argc < 1)
-	{
-		printf("Usage = Example_TLS001 [serial_no] [power: optional (0 - 32767)]\r\n");
-		char c = _getch();
-		return 1;
-	}
+	// Uncomment this line (and TLI_UnitializeSimulations at the bottom of the page)
+	// If you are using a simulated device
+	//TLI_InitializeSimulations();
 
-	int serialNo = 86837825;
-	if(argc > 1)
-	{
-		serialNo = _wtoi(argv[1]);
-	}
+	// Change this line to reflect your device's serial number
+	int serialNo = 86000001;
 
-	// get parameters from command line
+	// Optionally set the power to the device (between 0-32767 representing 0-100% max power)
 	WORD power = 0;
-	if(argc > 2)
-	{
-		power = _wtoi(argv[2]);
-	}
-
+	
 	// identify and access device
 	char testSerialNo[16];
 	sprintf_s(testSerialNo, "%d", serialNo);
@@ -102,6 +84,8 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 	    }
     }
 
+	// Uncomment this line if you are using simulations
+	//TLI_UnitializeSimulations;
 	char c = _getch();
 	return 0;
 }

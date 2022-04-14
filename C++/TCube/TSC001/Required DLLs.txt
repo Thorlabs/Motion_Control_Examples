@@ -1,0 +1,4 @@
+Thorlabs.MotionControl.DeviceManager.dll
+Thorlabs.MotionControl.TCube.Solenoid.dll
+Thorlabs.MotionControl.TCube.Solenoid.h
+Thorlabs.MotionControl.TCube.Solenoid.lib

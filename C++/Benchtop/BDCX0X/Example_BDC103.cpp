@@ -1,49 +1,26 @@
 // Example_BDC103.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
-#if defined TestCode
-	#include "..\..\..\Instruments\Thorlabs.Benchtop.DCServo\Thorlabs.Benchtop.DCServo\Thorlabs.MotionControl.Benchtop.DCServo.h"
-#else
-	#include "Thorlabs.MotionControl.Benchtop.DCServo.h"
-#endif
-
-/// <summary> Main entry-point for this application. </summary>
-/// <param name="argc"> The argc. </param>
-/// <param name="argv"> The argv. </param>
-/// <returns> . </returns>
+#include "Thorlabs.MotionControl.Benchtop.DCServo.h"
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-	if(argc < 1)
-	{
-		printf("Usage = Example_BDC103 [serial_no] [position: optional (0 - 1715200)] [velocity: optional (0 - 3838091)]\r\n");
-		char c = _getch();
-		return 1;
-	}
+	// Uncomment this line (and TLI_UnitializeSimulations at the bottom of the page)
+	// If you are using a simulated device
+	//TLI_InitializeSimulations();
 
-	int serialNo = 43837825;
-	if(argc > 1)
-	{
-		serialNo = _wtoi(argv[1]);
-	}
-
-	// get parameters from command line
+	// Change this line to reflect your device's serial number
+	int serialNo = 43000001;
+	
+	// Optionally set the position (in device units)
 	int position = 0;
-	if(argc > 2)
-	{
-		position = _wtoi(argv[2]);
-	}
 
+	// Optionally set the velocity (in device units per second)
 	int velocity = 0;
-	if(argc > 3)
-	{
-		velocity = _wtoi(argv[3]);
-	}
-
+	
 	// identify and access device
 	char testSerialNo[16];
 	sprintf_s(testSerialNo, "%d", serialNo);
@@ -135,7 +112,9 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 			BDC_Close(testSerialNo);
 	    }
     }
-
+	
+	// Uncomment this line if you are using simulations
+	//TLI_UnitializeSimulations;
 	char c = _getch();
 	return 0;
 }

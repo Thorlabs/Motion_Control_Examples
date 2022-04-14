@@ -1,35 +1,20 @@
 // Example_TIM101.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
-#if defined TestCode
-	#include "..\..\..\Instruments\Thorlabs.TCube.InertialMotor\Thorlabs.TCube.InertialMotor\Thorlabs.MotionControl.TCube.InertialMotor.h"
-#else
-	#include "Thorlabs.MotionControl.TCube.InertialMotor.h"
-#endif
+#include "Thorlabs.MotionControl.TCube.InertialMotor.h"
 
-/// <summary> Main entry-point for this application. </summary>
-/// <param name="argc"> The argc. </param>
-/// <param name="argv"> The argv. </param>
-/// <returns> . </returns>
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-	if(argc < 1)
-	{
-		printf("Usage = Example_TIM101 [serial_no]\r\n");
-		char c = _getch();
-		return 1;
-	}
+	// Uncomment this line (and TLI_UnitializeSimulations at the bottom of the page)
+	// If you are using a simulated device
+	//TLI_InitializeSimulations();
 
-	int serialNo = 85837825;
-	if(argc > 1)
-	{
-		serialNo = _wtoi(argv[1]);
-	}
+	// Change this line to reflect your device's serial number
+	int serialNo = 65000001;
 
 	// identify and access device
 	char testSerialNo[16];
@@ -42,7 +27,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
         short n = TLI_GetDeviceListSize();
 		// get BBD serial numbers
         char serialNos[100];
-		TLI_GetDeviceListByTypeExt(serialNos, 100, 85);
+		TLI_GetDeviceListByTypeExt(serialNos, 100, 65);
 
 		// output list of matching devices
 		{
@@ -105,6 +90,8 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 	    }
     }
 
+	// Uncomment this line if you are using simulations
+	//TLI_UnitializeSimulations;
 	char c = _getch();
 	return 0;
 }

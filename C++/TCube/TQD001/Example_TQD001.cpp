@@ -1,46 +1,26 @@
 // Example_TQD001.cpp : Defines the entry point for the console application.
-//
 
-#include "stdafx.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
-#if defined TestCode
-	#include "..\..\..\Instruments\Thorlabs.TCube.Quad\Thorlabs.TCube.Quad\Thorlabs.MotionControl.TCube.Quad.h"
-#else
-	#include "Thorlabs.MotionControl.TCube.Quad.h"
-#endif
+#include "Thorlabs.MotionControl.TCube.Quad.h"
 
-/// <summary> Main entry-point for this application. </summary>
-/// <param name="argc"> The argc. </param>
-/// <param name="argv"> The argv. </param>
-/// <returns> . </returns>
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-	if(argc < 1)
-	{
-		printf("Usage = Example_TQD001 [serial_no] [xPos: optional (+/-32767), yPos: optional (+/-32767)]\r\n");
-		char c = _getch();
-		return 1;
-	}
+	// Uncomment this line (and TLI_UnitializeSimulations at the bottom of the page)
+	// If you are using a simulated device
+	//TLI_InitializeSimulations();
 
-	int serialNo = 89837825;
-	if(argc > 1)
-	{
-		serialNo = _wtoi(argv[1]);
-	}
+	// Change this line to reflect your device's serial number
+	int serialNo = 89000001;
 
 	// identify and access device
 	char testSerialNo[16];
 	sprintf_s(testSerialNo, "%d", serialNo);
 
+	// Optionally set the X and Y positions of the device
 	QD_Position demandPosition = {0,0};
-	if(argc > 3)
-	{
-		demandPosition.x = _wtoi(argv[2]);
-		demandPosition.y = _wtoi(argv[3]);
-	}
 
 	// Build list of connected device
     if (TLI_BuildDeviceList() == 0)
@@ -108,6 +88,8 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 	    }
     }
 
+	// Uncomment this line if you are using simulations
+	//TLI_UnitializeSimulations;
 	char c = _getch();
 	return 0;
 }

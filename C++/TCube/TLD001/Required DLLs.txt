@@ -1,0 +1,4 @@
+Thorlabs.MotionControl.DeviceManager.dll
+Thorlabs.MotionControl.TCube.LaserDiode.dll
+Thorlabs.MotionControl.TCube.LaserDiode.h
+Thorlabs.MotionControl.TCube.LaserDiode.lib

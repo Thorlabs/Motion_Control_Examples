@@ -16,32 +16,21 @@ namespace KBD_Console_net_managed
     {
         static void Main(string[] args)
         {
-            // Get parameters from command line
-            int argc = args.Count();
-            if (argc < 1)
-            {
-                Console.WriteLine("Usage: KBD_Console_net_managed serial_number [position: (0 - 50)] [velocity: (0 - 5)]");
-                Console.ReadKey();
-                return;
-            }
 
-            // Get the motor position
+            // Uncomment this line if you are using simulations
+            // Also uncomment UnitializeSimulations() at the end of the file
+            SimulationManager.Instance.InitializeSimulations();
+
+            // Change this line to match the serial number on your device
+            string serialNo = "28000001";
+
+            // Optionally set the motor position (in real units)
             decimal position = 0m;
-            if (argc > 1)
-            {
-                position = decimal.Parse(args[1]);
-            }
 
-            // Get the velocity
+            // Optionally Set the velocity (in real units/second)
             decimal velocity = 0m;
-            if (argc > 2)
-            {
-                velocity = decimal.Parse(args[2]);
-            }
 
-            // Get the KBD101 serial number (e.g. 28000123)
-            string serialNo = args[0];
-
+            // Build device list
             try
             {
                 // Tell the device manager to get the list of all devices connected to the computer
@@ -152,6 +141,9 @@ namespace KBD_Console_net_managed
             device.Disconnect(true);
 
             Console.ReadKey();
+
+            // Uncomment this line if you are using a simulated device
+            SimulationManager.Instance.UninitializeSimulations();
         }
 
         public static void Home_Method1(IGenericAdvancedMotor device)

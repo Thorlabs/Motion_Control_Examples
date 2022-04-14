@@ -14,9 +14,9 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 	//TLI_InitializeSimulations();
 
 	// Change this line to reflect your device's serial number
-    int serialNo = 24000001; 
+    int serialNo = 27000001; 
 
-    // change this value to adjust the desired position
+    // optionally set a position in device units.
     int position = 0;
 
 	// Optionally change this value to a desired velocity (in device units/second)--*--+cx vc                                                                       

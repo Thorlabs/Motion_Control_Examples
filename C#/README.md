@@ -1,6 +1,6 @@
 # C\# Programming Guide
 
-This guide will attempt to guide you through the process of setting up a console application project in visual studio, adding references to the necessary libraries, and using the example provided.
+This guide will guide you through the process of setting up a console application project in visual studio, adding references to the necessary libraries, and using the example provided.
 
 ### Prerequisites
 
@@ -75,8 +75,4 @@ To add the example script to your project, first download it from the repository
 
 Alternatively, you may wish to simply copy and paste the example code from GitHub straight into the "program.cs" file. This solution may be more simple.
 
-## Adjusting the Example to Use Your Device
 
-By default, most examples are programmed to take command line inputs in the form [Program Name] [Serial Number] <Optional Arguments>. Although example serial numbers are given in the code, the scripts as-written will not use them.
-
-Instead, they use the [Serial Number] argument.

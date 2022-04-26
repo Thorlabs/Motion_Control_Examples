@@ -15,10 +15,13 @@ namespace KDC101Console
     {
         static void Main(string[] args)
         {
-            string serialNo = "27000423";
-            // This instructs the DeviceManager to build and maintain the list of 
-            // devices connected. 
-            SimulationManager.Instance.InitializeSimulations();
+            // Uncomment this line (and SimulationManager.Instance.UninitializeSimulations() at the end on Main)
+            // If you are using a simulated device
+            // SimulationManager.Instance.InitializeSimulations();
+
+            // Enter the serial number for your device
+            string serialNo = "27000001";
+
             DeviceManagerCLI.BuildDeviceList();
 
 
@@ -72,6 +75,10 @@ namespace KDC101Console
             device.ShutDown();
             SimulationManager.Instance.InitializeSimulations();
             Console.WriteLine("Complete. Press any key to exit");
+
+            // Uncomment this line if you are using Simulations
+            //SimulationManager.Instance.UninitializeSimulations();
+
             Console.ReadKey();
 
         }

@@ -13,33 +13,19 @@ namespace BDC_Console_net_managed
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            // Get parameters from command line
-            int argc = args.Count();
-            if (argc < 1)
-            {
-                Console.WriteLine("Usage: BDC_Console_net_managed serial_number [position: (0 - 50)] [velocity: (0 - 5)]");
-                Console.ReadKey();
-                return;
-            }
+        static void Main()
+        { 
+        
 
-            // Get the motor position - for single channel
+            // Optionally set the position for a single channel (in real units)
             decimal position = 0m;
-            if (argc > 1)
-            {
-                position = decimal.Parse(args[1]);
-            }
 
             // Get the velocity
             decimal velocity = 0m;
-            if (argc > 2)
-            {
-                velocity = decimal.Parse(args[2]);
-            }
+           
 
-            // Get the BDC103 serial number (e.g. 79000123)
-            string serialNo = args[0];
+            // Enter your device's serial number
+            string serialNo = "79000001";
 
             try
             {
@@ -134,9 +120,19 @@ namespace BDC_Console_net_managed
             DeviceInfo deviceInfo = channel.GetDeviceInfo();
             Console.WriteLine("Device {0} = {1}", deviceInfo.SerialNumber, deviceInfo.Name);
 
-            Home_Method1(channel);
-            // or 
-            //Home_Method2(channel);
+            // Home the channel
+            try
+            {
+                Console.WriteLine("Homing device");
+                channel.Home(60000);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Failed to home device");
+                Console.ReadKey();
+                return;
+            }
+            Console.WriteLine("Device Homed");
             bool homed = channel.Status.IsHomed;
 
             // If a position is requested
@@ -150,9 +146,18 @@ namespace BDC_Console_net_managed
                     channel.SetVelocityParams(velPars);
                 }
 
-                Move_Method1(channel, position);
-                // or
-                // Move_Method2(channel, position);
+                try
+                {
+                    Console.WriteLine("Moving Device to {0}", position);
+                    channel.MoveTo(position, 60000);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Failed to move to position");
+                    Console.ReadKey();
+                    return;
+                }
+                Console.WriteLine("Device Moved");
 
                 Decimal newPos = channel.Position;
                 Console.WriteLine("Device Moved to {0}", newPos);
@@ -162,81 +167,6 @@ namespace BDC_Console_net_managed
             device.Disconnect(true);
 
             Console.ReadKey();
-        }
-
-        public static void Home_Method1(IGenericAdvancedMotor device)
-        {
-            try
-            {
-                Console.WriteLine("Homing device");
-                device.Home(60000);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Failed to home device");
-                Console.ReadKey();
-                return;
-            }
-            Console.WriteLine("Device Homed");
-        }
-
-        public static void Move_Method1(IGenericAdvancedMotor device, decimal position)
-        {
-            try
-            {
-                Console.WriteLine("Moving Device to {0}", position);
-                device.MoveTo(position, 60000);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Failed to move to position");
-                Console.ReadKey();
-                return;
-            }
-            Console.WriteLine("Device Moved");
-        }
-
-        private static bool _taskComplete;
-        private static ulong _taskID;
-
-        public static void CommandCompleteFunction(ulong taskID)
-        {
-            if ((_taskID > 0) && (_taskID == taskID))
-            {
-                _taskComplete = true;
-            }
-        }
-
-        public static void Home_Method2(IGenericAdvancedMotor device)
-        {
-            Console.WriteLine("Homing device");
-            _taskComplete = false;
-            _taskID = device.Home(CommandCompleteFunction);
-            while (!_taskComplete)
-            {
-                Thread.Sleep(500);
-                StatusBase status = device.Status;
-                Console.WriteLine("Device Homing {0}", status.Position);
-
-                // will need some timeout functionality;
-            }
-            Console.WriteLine("Device Homed");
-        }
-
-        public static void Move_Method2(IGenericAdvancedMotor device, decimal position)
-        {
-            Console.WriteLine("Moving Device to {0}", position);
-            _taskComplete = false;
-            _taskID = device.MoveTo(position, CommandCompleteFunction);
-            while (!_taskComplete)
-            {
-                Thread.Sleep(500);
-                StatusBase status = device.Status;
-                Console.WriteLine("Device Moving {0}", status.Position);
-
-                // Will need some timeout functionality;
-            }
-            Console.WriteLine("Device Moved");
         }
     }
 }

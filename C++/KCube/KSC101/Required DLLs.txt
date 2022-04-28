@@ -1,4 +1,0 @@
-Thorlabs.MotionControl.DeviceManager.dll
-Thorlabs.MotionControl.KCube.Solenoid.dll
-Thorlabs.MotionControl.KCube.Solenoid.h
-Thorlabs.MotionControl.KCube.Solenoid.lib

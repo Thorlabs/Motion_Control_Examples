@@ -11,24 +11,16 @@ namespace KLD_Console_net_managed
     {
         static void Main(string[] args)
         {
-            // Get parameters from command line
-            int argc = args.Count();
-            if (argc < 1)
-            {
-                Console.WriteLine("Usage: KLD_Console_net_managed serial_number [Power: (0 - 5)]");
-                Console.ReadKey();
-                return;
-            }
+            // Uncomment this line (and SimulationManager.Instance.UninitializeSimulations() at the end on Main)
+            // If you are using a simulated device
+            // SimulationManager.Instance.InitializeSimulations();
 
-            // Get the required output power/current
+            // Optionally set the required output power/current
             decimal setPoint = 100m;
-            if (argc > 1)
-            {
-                setPoint = decimal.Parse(args[1]);
-            }
+
 
             // Get the KLD101 serial number (e.g. 98000123)
-            string serialNo = args[0];
+            string serialNo = "98000001";
 
             try
             {
@@ -126,6 +118,10 @@ namespace KLD_Console_net_managed
             device.StopPolling();
             device.Disconnect(true);
 
+            // Uncomment this line if you are using Simulations
+            //SimulationManager.Instance.UninitializeSimulations();
+
+            Console.WriteLine("Press any key to close the program.");
             Console.ReadKey();
         }
     }

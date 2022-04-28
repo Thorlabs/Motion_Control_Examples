@@ -105,10 +105,25 @@ namespace KIM_Console_net_managed
             // Zero the device
             device.SetPositionAs(InertialMotorStatus.MotorChannels.Channel1, 0);
 
-            int position = 1000;
-            Move_Method1(device, InertialMotorStatus.MotorChannels.Channel1, position);
-            // or
-            // Move_Method2(device, InertialMotorStatus.MotorChannels.Channel1, position);
+            // Optionally set the position
+
+            decimal position = 0m;
+            if (position > 0m)
+            {
+                try
+                {
+                    Console.WriteLine("Moving Device to {0}", position);
+                    device.MoveTo(InertialMotorStatus.MotorChannels.Channel1, position, 60000);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Failed to move to position");
+                    Console.ReadKey();
+                    return;
+                }
+                Console.WriteLine("Device Moved");
+            }
+            
 
             Decimal newPos = device.GetPosition(InertialMotorStatus.MotorChannels.Channel1);
             Console.WriteLine("Device Moved to {0}", newPos);
@@ -123,47 +138,6 @@ namespace KIM_Console_net_managed
             Console.ReadKey();
         }
 
-        public static void Move_Method1(KCubeInertialMotor device, InertialMotorStatus.MotorChannels channel, int position)
-        {
-            try
-            {
-                Console.WriteLine("Moving Device to {0}", position);
-                device.MoveTo(channel, position, 60000);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Failed to move to position");
-                Console.ReadKey();
-                return;
-            }
-            Console.WriteLine("Device Moved");
-        }
-
-        private static bool _taskComplete;
-        private static ulong _taskID;
-
-        public static void CommandCompleteFunction(ulong taskID)
-        {
-            if ((_taskID > 0) && (_taskID == taskID))
-            {
-                _taskComplete = true;
-            }
-        }
-
-        public static void Move_Method2(KCubeInertialMotor device, InertialMotorStatus.MotorChannels channel, int position)
-        {
-            Console.WriteLine("Moving Device to {0}", position);
-            _taskComplete = false;
-            _taskID = device.MoveTo(channel, position, CommandCompleteFunction);
-            while (!_taskComplete)
-            {
-                Thread.Sleep(500);
-                int actualPosition = device.GetPosition(channel);
-                Console.WriteLine("Device Moving {0}", actualPosition);
-
-                // will need some timeout functionality;
-            }
-            Console.WriteLine("Device Moved");
-        }
+        
     }
 }

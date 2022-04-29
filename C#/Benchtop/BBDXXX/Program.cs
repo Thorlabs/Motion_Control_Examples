@@ -18,8 +18,12 @@ public class Program
         // Simply replace all references to BenchtopBrushlessMotor and BrushlessMotorChannel with
         // Equivenent references to your device type
 
-        // Serial number for Benchtop Brushless Motor (Example)
+        // Uncomment this line (and the equivalent Uninitialize statement at the end)
+        // If you are using simulations.
+        //SimulationManager.Instance.InitializeSimulations();
 
+        // Serial number for Benchtop Brushless Motor (Example)
+        // Change this line to match your device
         string serialNo = "73000001";
 
         try
@@ -151,6 +155,9 @@ public class Program
         // The following applies to all Benchtop devices
 
         device.ShutDown();
+
+        // Uncomment this line if you are using simulations
+        //SimulationManager.Instance.UninitializeSimulations();
 
         Console.ReadKey();
     }

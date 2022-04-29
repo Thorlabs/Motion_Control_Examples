@@ -10,28 +10,19 @@ namespace BPC_Console_net_managed
 {
     class Program
     {
-        /// <summary> Main entry-point for this application. </summary>
-        /// <param name="args"> Array of command-line argument strings. </param>
-        static void Main(string[] args)
+        static void Main()
         {
-            // Get parameters from command line
-            int argc = args.Count();
-            if (argc < 1)
-            {
-                Console.WriteLine("Usage: BPC_Console_net_managed serial_number [voltage: (0 - 150)]");
-                Console.ReadKey();
-                return;
-            }
 
-            // Get the piezo output voltage
+            // Uncomment this line (and the equivalent Uninitialize statement at the end)
+            // If you are using simulations.
+            //SimulationManager.Instance.InitializeSimulations();
+
+            // Optionally set the Piezo output voltage
             decimal voltage = 0m;
-            if (argc > 1)
-            {
-                voltage = decimal.Parse(args[1]);
-            }
 
-            // Get the BPC303 serial number (e.g. 71000123)
-            string serialNo = args[0];
+
+            // Change this value to reflect your device
+            string serialNo = "71000001";
 
             try
             {
@@ -141,6 +132,10 @@ namespace BPC_Console_net_managed
             channel.StopPolling();
             device.Disconnect(true);
 
+            // Uncomment this line if you are using simulations
+            //SimulationManager.Instance.UninitializeSimulations();
+
+            Console.WriteLine("Press any key to close the program.");
             Console.ReadKey();
         }
     }

@@ -1,26 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Threading;
 using Thorlabs.MotionControl.DeviceManagerCLI;
-using Thorlabs.MotionControl.KCube.LaserDiodeCLI;
+using Thorlabs.MotionControl.GenericMotorCLI;
+using Thorlabs.MotionControl.GenericMotorCLI.ControlParameters;
+using Thorlabs.MotionControl.GenericMotorCLI.AdvancedMotor;
+using Thorlabs.MotionControl.GenericMotorCLI.Settings;
+using Thorlabs.MotionControl.IntegratedStepperMotorsCLI;
 
-namespace KLD_Console_net_managed
+
+namespace ISC
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            // Uncomment this line (and SimulationManager.Instance.UninitializeSimulations() at the end on Main)
-            // If you are using a simulated device
-            // SimulationManager.Instance.InitializeSimulations();
+            // Initialize connections with all simulated devices in the KinesisSimulator
+            SimulationManager.Instance.InitializeSimulations();
 
-            // Optionally set the required output power/current
-            decimal setPoint = 100m;
+            // Swap this serial number for your device's
+            string serialNo = "49000001";
 
-
-            // Get the KLD101 serial number (e.g. 98000123)
-            string serialNo = "98000001";
+            // Optionally enter a position to move to
+            decimal position = 0m; // In real units
 
             try
             {
@@ -35,23 +40,22 @@ namespace KLD_Console_net_managed
                 return;
             }
 
-            // Get available KLD and check our serial number is correct - by using the device prefix
-            // (i.e. for serial number 98000123 the device prefix is 98)
-            List<string> serialNumbers = DeviceManagerCLI.GetDeviceList(KCubeLaserDiode.DevicePrefix);
+            List<string> serialNumbers = DeviceManagerCLI.GetDeviceList(LabJack.LJ050DevicePrefix);
             if (!serialNumbers.Contains(serialNo))
             {
-                // The requested serial number is not a KLD101 or is not connected
+                // The requested serial number is not a ISC000 or is not connected
                 Console.WriteLine("{0} is not a valid serial number", serialNo);
                 Console.ReadKey();
                 return;
             }
 
-            // Create the device - KLD
-            KCubeLaserDiode device = KCubeLaserDiode.CreateKCubeLaserDiode(serialNo);
+            // Create the device - LabJack
+            LabJack device = LabJack.CreateLabJack(serialNo);
+
             if (device == null)
             {
                 // An error occured
-                Console.WriteLine("{0} is not a KCubeLaserDiode", serialNo);
+                Console.WriteLine("{0} is not a LongStageTravel", serialNo);
                 Console.ReadKey();
                 return;
             }
@@ -93,36 +97,50 @@ namespace KLD_Console_net_managed
             // Needs a delay to give time for the device to be enabled
             Thread.Sleep(500);
 
-            // Call GetLaserDiodeConfiguration on the device to initialize the settings
-            LaserDiodeConfiguration laserDiodeConfiguration = device.GetLaserDiodeConfiguration(serialNo);
-            ThorlabsLaserDiodeSettings currentDeviceSettings = device.LaserDiodeDeviceSettings;
+            // Call LoadMotorConfiguration on the device to initialize the DeviceUnitConverter object required for real world unit parameters
+            //  - loads configuration information into channel
+            MotorConfiguration motorConfiguration = device.LoadMotorConfiguration(serialNo);
 
             // Display info about device
             DeviceInfo deviceInfo = device.GetDeviceInfo();
             Console.WriteLine("Device {0} = {1}", deviceInfo.SerialNumber, deviceInfo.Name);
 
-            // Sets the current Laser Diode to Open Loop mode
-            device.SetConstI();
-            device.SetOn();
-            Thread.Sleep(500);
-            if ((setPoint > 0))
+            // Home the device
+            try
             {
-                // Sets the Laser Diode current(mA)
-                device.SetLaserSetPoint(setPoint);
-                Console.WriteLine("Power set to {0}", device.GetLaserSetPoint());
+                Console.WriteLine("Homing device");
+                device.Home(60000);
             }
-            LaserDiodeStatus status = device.Status;
-            Console.WriteLine("Set Point = {0}mW, Actual Laser Diode Current = {1}mA, Actual Power = {2}mW", status.LaserSetPoint, status.ActualCurrent, status.ActualPower);
+            catch (Exception)
+            {
+                Console.WriteLine("Failed to home device");
+                Console.ReadKey();
+                return;
+            }
+            Console.WriteLine("Device Homed");
+            // Move the device if the position is not 0
 
-            device.SetOff();
-            device.StopPolling();
-            device.Disconnect(true);
+            if (position != 0m)
+            {
+                try
+                {
+                    Console.WriteLine("Moving Device to {0}", position);
+                    device.MoveTo(position, 60000);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Failed to move to position");
+                    Console.ReadKey();
+                    return;
+                }
+                Console.WriteLine("Device Moved");
+            }
 
-            // Uncomment this line if you are using Simulations
-            //SimulationManager.Instance.UninitializeSimulations();
-
-            Console.WriteLine("Press any key to close the program.");
+            Console.WriteLine("Press any key + Enter to close the program.");
             Console.ReadKey();
+
+            // Disconnect devices and simulation manager from the KinesisSimulator
+            SimulationManager.Instance.UninitializeSimulations();
         }
     }
 }

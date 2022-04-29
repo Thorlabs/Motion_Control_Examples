@@ -13,35 +13,20 @@ namespace BSC_Console_net_managed
 {
     class Program
     {
-        /// <summary> Main entry-point for this application. </summary>
-        /// <param name="args"> Array of command-line argument strings. </param>
-        static void Main(string[] args)
+        static void Main()
         {
-            // Get parameters from command line
-            int argc = args.Count();
-            if (argc < 1)
-            {
-                Console.WriteLine("Usage: BSC_Console_net_managed serial_number [position: (0 - 50)] [velocity: (0 - 5)]");
-                Console.ReadKey();
-                return;
-            }
+            // Uncomment this line (and the equivalent Uninitialize statement at the end)
+            // If you are using simulations.
+            //SimulationManager.Instance.InitializeSimulations();
 
-            // Get the test motor position
+            // Optionally set the motor position
             decimal position = 0m;
-            if (argc > 1)
-            {
-                position = decimal.Parse(args[1]);
-            }
 
-            // Get the test velocity
+            // Optionally set the velocity in real units
             decimal velocity = 0m;
-            if (argc > 2)
-            {
-                velocity = decimal.Parse(args[2]);
-            }
 
-            // get the test BSC203 serial number
-            string serialNo = args[0];
+            // Change this value to reflect your device
+            string serialNo = "700000001";
 
             try
             {
@@ -136,12 +121,20 @@ namespace BSC_Console_net_managed
             DeviceInfo deviceInfo = channel.GetDeviceInfo();
             Console.WriteLine("Device {0} = {1}", deviceInfo.SerialNumber, deviceInfo.Name);
 
-            Home_Method1(channel);
-            // or 
-            //Home_Method2(channel);
-            bool homed = channel.Status.IsHomed;
+            try
+            {
+                Console.WriteLine("Homing device");
+                channel.Home(60000);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Failed to home device");
+                Console.ReadKey();
+                return;
+            }
+            Console.WriteLine("Device Homed");
 
-            // If a position is requested
+            // Change the position if the set value is not 0
             if (position != 0)
             {
                 // Update velocity if required using real world methods
@@ -152,17 +145,31 @@ namespace BSC_Console_net_managed
                     channel.SetVelocityParams(velPars);
                 }
 
-                Move_Method1(channel, position);
-                // or
-                // Move_Method2(channel, position);
+                try
+                {
+                    Console.WriteLine("Moving Device to {0}", position);
+                    channel.MoveTo(position, 60000);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Failed to move to position");
+                    Console.ReadKey();
+                    return;
+                }
+                Console.WriteLine("Device Moved");
 
                 Decimal newPos = channel.Position;
                 Console.WriteLine("Device Moved to {0}", newPos);
             }
 
+            // Stop polling and disconnect
             channel.StopPolling();
             device.Disconnect(true);
 
+            // Uncomment this line if you are using simulations
+            //SimulationManager.Instance.UninitializeSimulations();
+
+            Console.WriteLine("Press any key to close the program.");
             Console.ReadKey();
         }
 

@@ -13,17 +13,12 @@ namespace KSG_Console_net_managed
     {
         static void Main(string[] args)
         {
-            // Get parameters from command line
-            int argc = args.Count();
-            if (argc < 1)
-            {
-                Console.WriteLine("Usage: KSG_Console_net_managed serial_number");
-                Console.ReadKey();
-                return;
-            }
+            // Uncomment this line (and SimulationManager.Instance.UninitializeSimulations() at the end on Main)
+            // If you are using a simulated device
+            // SimulationManager.Instance.InitializeSimulations();
 
-            // Get the KSG101 serial number (e.g xx000123)
-            string serialNo = args[0];
+            // Enter the serial number for your device
+            string serialNo = "59000001";
 
             try
             {
@@ -130,6 +125,9 @@ namespace KSG_Console_net_managed
 
             device.StopPolling();
             device.Disconnect(true);
+
+            // Uncomment this line if you are using Simulations
+            //SimulationManager.Instance.UninitializeSimulations();
 
             Console.ReadKey();
         }

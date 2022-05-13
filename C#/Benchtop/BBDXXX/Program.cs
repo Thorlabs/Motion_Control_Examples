@@ -16,7 +16,7 @@ public class Program
     {
         // Uncomment this line (and the equivalent Uninitialize statement at the end)
         // If you are using simulations.
-        //SimulationManager.Instance.InitializeSimulations();
+        SimulationManager.Instance.InitializeSimulations();
 
         // Serial number for Benchtop Brushless Motor (Example)
         // Change this line to match your device
@@ -121,12 +121,13 @@ public class Program
         channel.RequestTriggerIOConfigParameters();
         Thread.Sleep(200);
 
-        TriggerIOConfigParametersBase parametersBase;
         TriggerIOConfigParameters trigIOParams = channel.GetTriggerIOConfigParameters();
-
         trigIOParams.TriggerOutMode = TriggerOutModeType.TrigOutput_AtPositionFwd;
         trigIOParams.StartPositionFwd = 0.0m; // 0mm start
         trigIOParams.IntervalFwd = 0.1m; // 0.1mm intervals
+
+        channel.SetTriggerIOConfigParams(trigIOParams);
+        Thread.Sleep(200);
 
         int position = 50;
         int velocity = 10;
@@ -164,7 +165,7 @@ public class Program
         device.ShutDown();
 
         // Uncomment this line if you are using simulations
-        //SimulationManager.Instance.UninitializeSimulations();
+        SimulationManager.Instance.UninitializeSimulations();
 
         Console.ReadKey();
     }

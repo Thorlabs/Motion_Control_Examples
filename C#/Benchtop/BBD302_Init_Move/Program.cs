@@ -99,5 +99,5 @@ namespace BBD302_Init_Move
             }
         }
     }
-    }
 }
+

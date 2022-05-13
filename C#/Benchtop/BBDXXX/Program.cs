@@ -14,17 +14,13 @@ public class Program
 {
     static void Main()
     {
-        // The following shows how to create a device and access a channel
-        // Simply replace all references to BenchtopBrushlessMotor and BrushlessMotorChannel with
-        // Equivenent references to your device type
-
         // Uncomment this line (and the equivalent Uninitialize statement at the end)
         // If you are using simulations.
-        //SimulationManager.Instance.InitializeSimulations();
+        SimulationManager.Instance.InitializeSimulations();
 
         // Serial number for Benchtop Brushless Motor (Example)
         // Change this line to match your device
-        string serialNo = "73000001";
+        string serialNo = "103000001";
 
         try
         {
@@ -39,7 +35,7 @@ public class Program
         }
 
         // Get available Benchtop Brushless Motor and check our serial number is correct
-        List<string> serialNumbers = DeviceManagerCLI.GetDeviceList(BenchtopBrushlessMotor.DevicePrefix73);
+        List<string> serialNumbers = DeviceManagerCLI.GetDeviceList(BenchtopBrushlessMotor.DevicePrefix103);
         if (!serialNumbers.Contains(serialNo))
         {
             Console.WriteLine("{0} is not a valid serial number", serialNo);
@@ -76,7 +72,7 @@ public class Program
         }
 
         // Get channel 1
-        BrushlessMotorChannel channel = device.GetChannel(1) as BrushlessMotorChannel;
+        Brushless30XMotorChannel channel = device.GetChannel(1) as Brushless30XMotorChannel;
         if (channel == null)
         {
             Console.WriteLine("channel 1 is not a BenchtopBrushlessMotor");
@@ -121,6 +117,18 @@ public class Program
             return;
         }
 
+        // Get and Set Triggers
+        channel.RequestTriggerIOConfigParameters();
+        Thread.Sleep(200);
+
+        TriggerIOConfigParameters trigIOParams = channel.GetTriggerIOConfigParameters();
+        trigIOParams.TriggerOutMode = TriggerOutModeType.TrigOutput_AtPositionFwd;
+        trigIOParams.StartPositionFwd = 0.0m; // 0mm start
+        trigIOParams.IntervalFwd = 0.1m; // 0.1mm intervals
+
+        channel.SetTriggerIOConfigParams(trigIOParams);
+        Thread.Sleep(200);
+
         int position = 50;
         int velocity = 10;
 
@@ -157,7 +165,7 @@ public class Program
         device.ShutDown();
 
         // Uncomment this line if you are using simulations
-        //SimulationManager.Instance.UninitializeSimulations();
+        SimulationManager.Instance.UninitializeSimulations();
 
         Console.ReadKey();
     }

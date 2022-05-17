@@ -1,47 +1,28 @@
-// Example_MPCx20.cpp : Defines the entry point for the console application.
-//
-
-#include "stdafx.h"
-
 #include <stdlib.h>
 #include <conio.h>
+#include <iostream>
 
-#if defined TestCode
-	#include "..\..\..\Instruments\Thorlabs.Polarizer\Thorlabs.Polarizer\Thorlabs.MotionControl.Polarizer.h"
-#else
-	#include "Thorlabs.MotionControl.Polarizer.h"
-#endif
+#include "Thorlabs.MotionControl.Polarizer.h"
 
-/// <summary> Main entry-point for this application. </summary>
-/// <param name="argc"> The argc. </param>
-/// <param name="argv"> The argv. </param>
-/// <returns> . </returns>
+
+
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-	if(argc < 1)
-	{
-		printf("Usage = Example_MPCx20 [serial_no]\r\n");
-		char c = _getch();
-		return 1;
-	}
-
+	
 	int serialNo = 38837825;
-	if(argc > 1)
-	{
-		serialNo = _wtoi(argv[1]);
-	}
+
 
 	// identify and access device
 	char testSerialNo[16];
 	sprintf_s(testSerialNo, "%d", serialNo);
 
 	// Build list of connected device
-    if (TLI_BuildDeviceList() == 0)
-    {
+	if (TLI_BuildDeviceList() == 0)
+	{
 		// get device list size 
-        short n = TLI_GetDeviceListSize();
+		short n = TLI_GetDeviceListSize();
 		// get MPCx20 serial numbers
-        char serialNos[100];
+		char serialNos[100];
 		TLI_GetDeviceListByTypeExt(serialNos, 100, 38);
 
 		// output list of matching devices
@@ -68,7 +49,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 		}
 
 		// open device
-		if(MPC_Open(testSerialNo) == 0)
+		if (MPC_Open(testSerialNo) == 0)
 		{
 			// start the device polling at 200ms intervals
 			MPC_StartPolling(testSerialNo, 200);
@@ -80,7 +61,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 			// get conversion factor between degrees and steps
 			double stepsPerDegree = MPC_GetStepsPerDegree(testSerialNo);
 
-			for(POL_Paddles paddle = POL_Paddles::paddle1; paddle <= POL_Paddles::paddle3; paddle = static_cast<POL_Paddles>( static_cast<int>(paddle) + 1))
+			for (POL_Paddles paddle = POL_Paddles::paddle1; paddle <= POL_Paddles::paddle3; paddle = static_cast<POL_Paddles>(static_cast<int>(paddle) + 1))
 			{
 				MPC_Home(testSerialNo, paddle);
 				Sleep(1000);
@@ -101,8 +82,8 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 			MPC_StopPolling(testSerialNo);
 			// close device
 			MPC_Close(testSerialNo);
-	    }
-    }
+		}
+	}
 
 	char c = _getch();
 	return 0;

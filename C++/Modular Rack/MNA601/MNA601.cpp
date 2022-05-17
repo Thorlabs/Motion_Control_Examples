@@ -1,58 +1,47 @@
-// Example_MPZ601.cpp : Defines the entry point for the console application.
-//
-
-#include "stdafx.h"
-
 #include <stdlib.h>
 #include <conio.h>
-
-#if defined TestCode
-#include "..\..\..\Instruments\ThorLabs.ModularRack\ThorLabs.ModularRack\Thorlabs.MotionControl.ModularRack.Piezo.h"
-#else
-	#include "Thorlabs.MotionControl.ModularRack.Piezo.h"
-#endif
+#include <iostream>
+#include "Thorlabs.MotionControl.ModularRack.NanoTrak.h"
 
 
-/// <summary> Main entry-point for this application. </summary>
-/// <param name="argc"> The argc. </param>
-/// <param name="argv"> The argv. </param>
-/// <returns> . </returns>
 int __cdecl wmain(int argc, wchar_t* argv[])
 {
-	if(argc < 2)
+	if (argc < 1)
 	{
-		printf("Usage = Example_MPZ601 [module_serial_no] [channelNo] [Voltage: optional (0 - 65535)]\r\n");
+		printf("Usage = Example_MNA601 [module_serial_no] [h position: optional (0 - 65535)] [v position: optional (0 - 65535)]\r\n");
 		char c = _getch();
 		return 1;
 	}
 
-	int serialNo = 51837825;
-	int channelNo = 1;
-	if(argc > 2)
+	int serialNo = 52837825;
+	if (argc > 1)
 	{
 		serialNo = _wtoi(argv[1]);
-		channelNo = _wtoi(argv[2]);
 	}
 
-	int position;
-	position = 0;
-	if(argc > 2)
+	// get parameters from command line
+	NT_HVComponent position;
+	position.horizontalComponent = 0x8000;
+	position.verticalComponent = 0x8000;
+	if (argc > 3)
 	{
-		position = _wtoi(argv[3]);
+		position.horizontalComponent = _wtoi(argv[2]);
+		position.verticalComponent = _wtoi(argv[3]);
 	}
+
 	// identify and access device
 	char testSerialNo[16];
 	sprintf_s(testSerialNo, "%d", serialNo);
 
 	// Build list of connected device
-    if (TLI_BuildDeviceList() == 0)
-    {
+	if (TLI_BuildDeviceList() == 0)
+	{
 		// get device list size 
-        short n = TLI_GetDeviceListSize();
+		short n = TLI_GetDeviceListSize();
 		// get MST serial numbers
-        char serialNos[100];
-		// params define buffer size and module type 51 = Piezo Module
-		TLI_GetDeviceListByTypeExt(serialNos, 100, 51);
+		char serialNos[100];
+		// params define buffer size and module type 52 = NanoTrak Module
+		TLI_GetDeviceListByTypeExt(serialNos, 100, 52);
 
 		// output list of matching devices
 		{
@@ -84,39 +73,39 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 
 			if (!matched)
 			{
-				printf("Piezo %s not found\r\n", testSerialNo);
+				printf("NanoTraks %s not found\r\n", testSerialNo);
 				char c = _getch();
 				return 1;
 			}
 		}
 
 		// open device
-		if(MMR_Open(testSerialNo) == 0)
+		if (MMR_Open(testSerialNo) == 0)
 		{
 			// start the device polling at 200ms intervals
-			PBC_StartPolling(testSerialNo, channelNo, 200);
+			NT_StartPolling(testSerialNo, 200);
 
 			// NOTE The following uses Sleep functions to simulate timing
 			// In reality, the program should read the status to check that commands have been completed
 			Sleep(1000);
-			// Set open loop mode
-			PBC_SetPositionControlMode(testSerialNo, channelNo, PZ_ControlModeTypes::PZ_OpenLoop);
-			// Set position
-			printf("Set %s position\r\n", testSerialNo);
-			PBC_SetOutputVoltage(testSerialNo, channelNo, position);
+			// Home device
+			printf("Device %s homing\r\n", testSerialNo);
+			NT_SetCircleHomePosition(testSerialNo, &position);
+			NT_HomeCircle(testSerialNo);
 			Sleep(1000);
 
-			// get output voltage
-			int voltage = PBC_GetOutputVoltage(testSerialNo, channelNo);
-			printf("Device %s voltage = %d\r\n", testSerialNo, voltage);
+			// move to position (channel 1)
+			NT_HVComponent pos;
+			NT_GetCirclePosition(testSerialNo, &pos);
+			printf("Device %s position = (%d, %d)\r\n", testSerialNo, pos.horizontalComponent, pos.verticalComponent);
 			Sleep(1000);
 
 			// stop polling
-			PBC_StopPolling(testSerialNo, channelNo);
+			NT_StopPolling(testSerialNo);
 			// close device
 			MMR_Close(testSerialNo);
-	    }
-    }
+		}
+	}
 
 	char c = _getch();
 	return 0;

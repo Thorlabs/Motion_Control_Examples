@@ -30,14 +30,14 @@ def main():
     # Uncomment this line if you are using simulations
     lib.TLI_InitializeSimulations()
 
-    x_chan = c_int(1)
-    y_chan = c_int(2)
-    serial_num = c_char_p(b"10100001")
+    x_chan = c_short(1)
+    y_chan = c_short(2)
+    serial_num = c_char_p(b"7900001")
 
     # Open the device
     if lib.TLI_BuildDeviceList() == 0:
-        lib.BDC_Open(serial_num)
-
+        ret = lib.BDC_Open(serial_num)
+        print(f'BDC_Open Returned {ret}')
         # Start polling at a 200ms interval
         lib.BDC_StartPolling(serial_num, x_chan, c_int(200))
         lib.BDC_StartPolling(serial_num, y_chan, c_int(200))
@@ -68,8 +68,7 @@ def main():
         # BDC_MoveToPosition(serial_number, channel, position)
         lib.BDC_SetMoveAbsolutePosition(serial_num, x_chan, x_pos_new)
         lib.BDC_SetMoveAbsolutePosition(serial_num, x_chan, x_pos_new)
-
-        time.sleep(0.2)
+        time.sleep(0.25)  # 250ms wait time to ensure values are sent to device
 
         lib.BDC_MoveAbsolute(serial_num, x_chan)
         lib.BDC_MoveAbsolute(serial_num, y_chan)
@@ -86,6 +85,7 @@ def main():
         print(f'X position: {x_pos_dev}\nY Position: {y_pos_dev}')
 
         lib.BDC_Close(serial_num)
+
 
     # Uncomment this line if you are using simulations
     lib.TLI_UninitializeSimulations()

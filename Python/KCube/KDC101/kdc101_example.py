@@ -47,7 +47,7 @@ def main():
 
         # Set up the device to convert real units to device units
         steps_per_rev = c_double(1919.64186)  # for the PRM1-Z8
-        gbox_ratio = c_double(67.0)  # gearbox ratio
+        gbox_ratio = c_double(1.0)  # gearbox ratio
         pitch = c_double(1.0)
 
         # Apply these values to the device
@@ -75,7 +75,7 @@ def main():
                                           byref(new_pos_dev),
                                           0)
 
-        print(f'{new_pos_real} in Device Units: {new_pos_dev}')
+        print(f'{new_pos_real.value} in Device Units: {new_pos_dev.value}')
 
         # Move to new position as an absolute move.
         lib.CC_SetMoveAbsolutePosition(serial_num, new_pos_dev)

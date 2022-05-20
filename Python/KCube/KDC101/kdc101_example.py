@@ -46,12 +46,12 @@ def main():
         time.sleep(1)
 
         # Set up the device to convert real units to device units
-        steps_per_rev = c_double(1919.64186)  # for the PRM1-Z8
+        STEPS_PER_REV = c_double(1919.64186)  # for the PRM1-Z8
         gbox_ratio = c_double(1.0)  # gearbox ratio
         pitch = c_double(1.0)
 
         # Apply these values to the device
-        lib.CC_SetMotorParamsExt(serial_num, steps_per_rev, gbox_ratio, pitch)
+        lib.CC_SetMotorParamsExt(serial_num, STEPS_PER_REV, gbox_ratio, pitch)
 
         # Get the device's current position in dev units
         lib.CC_RequestPosition(serial_num)

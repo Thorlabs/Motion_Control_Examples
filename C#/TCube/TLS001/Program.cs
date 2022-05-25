@@ -9,29 +9,14 @@ namespace TLS_Console_net_managed
 {
     class Program
     {
-        /// <summary> Main entry-point for this application. </summary>
-        /// <param name="args"> Array of command-line argument strings. </param>
         static void Main(string[] args)
         {
-            // Get parameters from command line
-            int argc = args.Count();
-            if (argc < 1)
-            {
-                Console.WriteLine("Usage: TLS_Console_net_managed serial_number [Power: (0 - 5)]");
-                Console.ReadKey();
-                return;
-            }
+            // Replace this line with your device's serial
+            string serialNo = "86000001";
 
             // Get the required output position voltage
             decimal power = 0;
-            if (argc > 1)
-            {
-                power = decimal.Parse(args[1]);
-            }
-
-            // Get the TLS001 serial number (e.g. 86000123)
-            string serialNo = args[0];
-
+                       
             try
             {
                 // Tell the device manager to get the list of all devices connected to the computer

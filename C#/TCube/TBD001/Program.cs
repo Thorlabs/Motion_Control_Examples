@@ -17,31 +17,16 @@ namespace TBD_Console_net_managed
         /// <param name="args"> Array of command-line argument strings. </param>
         static void Main(string[] args)
         {
-            // Get parameters from command line
-            int argc = args.Count();
-            if (argc < 1)
-            {
-                Console.WriteLine("Usage: TBD_Console_net_managed serial_number [position: (0 - 50)] [velocity: (0 - 5)]");
-                Console.ReadKey();
-                return;
-            }
+
 
             // Get the motor position
             decimal position = 0m;
-            if (argc > 1)
-            {
-                position = decimal.Parse(args[1]);
-            }
 
             // Get the velocity
             decimal velocity = 0m;
-            if (argc > 2)
-            {
-                velocity = decimal.Parse(args[2]);
-            }
 
             // Get the TBD001 serial number (e.g. 67000123)
-            string serialNo = args[0];
+            string serialNo = "67000001";
 
             try
             {

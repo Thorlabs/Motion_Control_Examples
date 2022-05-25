@@ -27,8 +27,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.kdc101_example">
+  <component name="RunManager" selected="Python.kdc101_pythonnet">
     <configuration name="BBD30X" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -136,10 +137,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.kdc101_pythonnet" />
+        <item itemvalue="Python.m30xy" />
         <item itemvalue="Python.kdc101_example" />
         <item itemvalue="Python.kbd101_example" />
-        <item itemvalue="Python.m30xy" />
-        <item itemvalue="Python.kdc101_pythonnet" />
         <item itemvalue="Python.BBD30X" />
       </list>
     </recent_temporary>

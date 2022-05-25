@@ -13,35 +13,23 @@ namespace TDC_Console_net_managed
 {
     class Program
     {
-        /// <summary> Main entry-point for this application. </summary>
-        /// <param name="args"> Array of command-line argument strings. </param>
         static void Main(string[] args)
         {
-            // Get parameters from command line
-            int argc = args.Count();
-            if (argc < 1)
-            {
-                Console.WriteLine("Usage: TDC_Console_net_managed serial_number [position: (0 - 50)] [velocity: (0 - 5)]");
-                Console.ReadKey();
-                return;
-            }
 
-            // Get the motor position
+            // Uncomment this line (and UnitializeSimulations at the end of the program)
+            // If you are using simulated devices
+            SimulationManager.Instance.InitializeSimulations();
+
+            //Replace this string with your serial number
+            string serialNo = "83000001";
+
+            // Change this value to your desired position (in real units)
             decimal position = 0m;
-            if (argc > 1)
-            {
-                position = decimal.Parse(args[1]);
-            }
 
-            // Get the velocity
+
+            // Change this value to your desired velocity (in real units)
             decimal velocity = 0m;
-            if (argc > 2)
-            {
-                velocity = decimal.Parse(args[2]);
-            }
 
-            // Get the TDC001 serial number (e.g. 83000123)
-            string serialNo = args[0];
 
             try
             {
@@ -122,10 +110,20 @@ namespace TDC_Console_net_managed
             DeviceInfo deviceInfo = device.GetDeviceInfo();
             Console.WriteLine("Device {0} = {1}", deviceInfo.SerialNumber, deviceInfo.Name);
 
-            Home_Method1(device);
-            // or 
-            //Home_Method2(device);
-            bool homed = device.Status.IsHomed;
+            // Home the device without a callback function
+            try
+            {
+                Console.WriteLine("Homing device");
+                device.Home(60000);
+                Console.WriteLine("Device Homed");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Failed to home device");
+                Console.ReadKey();
+                return;
+            }
+
 
             // if a position is requested
             if (position != 0)
@@ -136,11 +134,23 @@ namespace TDC_Console_net_managed
                     VelocityParameters velPars = device.GetVelocityParams();
                     velPars.MaxVelocity = velocity;
                     device.SetVelocityParams(velPars);
+                    Thread.Sleep(500); 
                 }
 
-                Move_Method1(device, position);
-                // or
-                // Move_Method2(device, position);
+                // Move the device to a desired position
+                try
+                {
+                    Console.WriteLine("Moving Device to {0}", position);
+                    device.MoveTo(position, 60000);
+                    Console.WriteLine("Device Moved");
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Failed to move to position");
+                    Console.ReadKey();
+                    return;
+                }
+                
 
                 Decimal newPos = device.Position;
                 Console.WriteLine("Device Moved to {0}", newPos);
@@ -149,96 +159,10 @@ namespace TDC_Console_net_managed
             device.StopPolling();
             device.Disconnect(true);
 
+            // Uncomment this line if you are using simulations
+            SimulationManager.Instance.InitializeSimulations();
             Console.ReadKey();
         }
 
-        /// <summary> Home method - program execution will wait until either Home completes or the function times out. </summary>
-        /// <param name="device"> The device. </param>
-        public static void Home_Method1(IGenericAdvancedMotor device)
-        {
-            try
-            {
-                Console.WriteLine("Homing device");
-                device.Home(60000);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Failed to home device");
-                Console.ReadKey();
-                return;
-            }
-            Console.WriteLine("Device Homed");
-        }
-
-        /// <summary> Move method - program execution will wait until either Move completes or the function
-        /// times out. </summary>
-        /// <param name="device">   The device. </param>
-        /// <param name="position"> The position. </param>
-        public static void Move_Method1(IGenericAdvancedMotor device, decimal position)
-        {
-            try
-            {
-                Console.WriteLine("Moving Device to {0}", position);
-                device.MoveTo(position, 60000);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Failed to move to position");
-                Console.ReadKey();
-                return;
-            }
-            Console.WriteLine("Device Moved");
-        }
-
-        private static bool _taskComplete;
-        private static ulong _taskID;
-
-        /// <summary> Command complete function. </summary>
-        /// <remarks> called when a specified task completes</remarks>
-        /// <param name="taskID"> Identifier for the task. </param>
-        public static void CommandCompleteFunction(ulong taskID)
-        {
-            if ((_taskID > 0) && (_taskID == taskID))
-            {
-                _taskComplete = true;
-            }
-        }
-
-        /// <summary> Home method2 - wait for completion with callback. </summary>
-        public static void Home_Method2(IGenericAdvancedMotor device)
-        {
-            Console.WriteLine("Homing device");
-            _taskComplete = false;
-            _taskID = device.Home(CommandCompleteFunction);
-            while (!_taskComplete)
-            {
-                Thread.Sleep(500);
-                StatusBase status = device.Status;
-                Console.WriteLine("Device Homing {0}", status.Position);
-
-                // will need some timeout functionality;
-            }
-            Console.WriteLine("Device Homed");
-        }
-
-        /// <summary> Move method - program execution will wait until either Move completes or the function
-        /// times out. </summary>
-        /// <param name="device">   The device. </param>
-        /// <param name="position"> The position. </param>
-        public static void Move_Method2(IGenericAdvancedMotor device, decimal position)
-        {
-            Console.WriteLine("Moving Device to {0}", position);
-            _taskComplete = false;
-            _taskID = device.MoveTo(position, CommandCompleteFunction);
-            while (!_taskComplete)
-            {
-                Thread.Sleep(500);
-                StatusBase status = device.Status;
-                Console.WriteLine("Device Moving {0}", status.Position);
-
-                // will need some timeout functionality;
-            }
-            Console.WriteLine("Device Moved");
-        }
     }
 }

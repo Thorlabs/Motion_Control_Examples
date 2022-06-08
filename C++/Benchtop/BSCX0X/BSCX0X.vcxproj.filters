@@ -15,6 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Required DLLs.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="Example_BSC103.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

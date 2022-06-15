@@ -31,10 +31,10 @@ def main():
     lib: CDLL = cdll.LoadLibrary("Thorlabs.MotionControl.KCube.DCServo.dll")
 
     # Uncomment this line if you are using simulations
-    lib.TLI_InitializeSimulations()
+    #lib.TLI_InitializeSimulations()
 
     # Set constants
-    serial_num = c_char_p(b"27000001")
+    serial_num = c_char_p(b"27500125")
 
     # Open the device
     if lib.TLI_BuildDeviceList() == 0:
@@ -84,7 +84,7 @@ def main():
 
         # Close the device
         lib.CC_Close(serial_num)
-    lib.TLI_UninitializeSimulations()
+    #.TLI_UninitializeSimulations()
 
     return
 

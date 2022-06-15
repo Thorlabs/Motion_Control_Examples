@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fbaea0a-16e4-4f94-b619-2bef2440d7eb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pythonnet_template.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../C++/Benchtop/BSCX0X/BSCX0X.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/Benchtop/BSCX0X/BSCX0X.vcxproj.filters" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KCube/KBD101/kbd101_pythonnet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCube/KDB101/kbd101_example.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Benchtop/BBD30X.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCube/KDC101/kdc101_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/KCube/KDC101/kdc101_example.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KCube/KDC101/kdc101_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/KCube/KDC101/kdc101_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +33,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/KCube/KBD101" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\Python\KCube\KBD101" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.kdc101_pythonnet">
     <configuration name="BBD30X" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -144,8 +150,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.kdc101_pythonnet" />
-        <item itemvalue="Python.m30xy" />
         <item itemvalue="Python.kdc101_example" />
+        <item itemvalue="Python.m30xy" />
         <item itemvalue="Python.kbd101_example" />
         <item itemvalue="Python.BBD30X" />
       </list>
@@ -181,6 +187,11 @@
           <url>file://$PROJECT_DIR$/KCube/KDC101/kdc101_example.py</url>
           <line>36</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/KCube/KDC101/kdc101_pythonnet.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

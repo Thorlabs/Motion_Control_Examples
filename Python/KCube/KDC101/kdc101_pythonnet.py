@@ -36,30 +36,26 @@ def main():
         kcube.EnableDevice()
         time.sleep(0.25)  # Wait for device to enable
 
+        # Get Device information
         device_info = kcube.GetDeviceInfo()
-        device_info = {
-            'Description': device_info.Description,
-            'Firmware Version': device_info.FirmwareVersion,  # returns an object with properties
-            'Device Dependant Data': device_info.DeviceDependantData
-        }
+        print(device_info.Description)
 
-        print(device_info['Device Dependant Data'])
-
-        # Wait for device settings to be initialized
+        # Wait for Settings to Initialise
         if not kcube.IsSettingsInitialized():
             kcube.WaitForSettingsInitialized(10000)  # 10 second timeout
             assert kcube.IsSettingsInitialized() is True
 
+        # Before homing or moving device, ensure the motor's configuration is loaded
+        m_config = kcube.LoadMotorConfiguration(serial_no,
+                                                DeviceConfiguration.DeviceSettingsUseOptionType.UseDeviceSettings)
 
-
-        print(device_info)
         print("Homing Actuator")
         kcube.Home(60000)  # 10s timeout, blocking call
 
         print("Device Homed. Moving to position 5.0")
         f = 5.0
         d = Decimal(f)
-        kcube.MoveTo_DeviceUnit(10000, 10000)  # 10s timeout again
+        kcube.MoveTo(d, 10000)  # 10s timeout again
         time.sleep(1)
 
         print(f'Device now at position {kcube.Position}')

@@ -25,7 +25,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.kbd101_pythonnet">
+  <component name="RunManager" selected="Python.kdc101_pythonnet">
     <configuration name="kbd101_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -70,8 +70,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.kbd101_pythonnet" />
         <item itemvalue="Python.kdc101_pythonnet" />
+        <item itemvalue="Python.kbd101_pythonnet" />
       </list>
     </recent_temporary>
   </component>

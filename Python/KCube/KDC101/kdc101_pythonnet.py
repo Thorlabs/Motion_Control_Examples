@@ -9,19 +9,21 @@ clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\ThorLabs.MotionControl.K
 from Thorlabs.MotionControl.DeviceManagerCLI import *
 from Thorlabs.MotionControl.GenericMotorCLI import *
 from Thorlabs.MotionControl.KCube.DCServoCLI import *
-from decimal import Decimal
+from System import Decimal
 
 
 def main():
     """The main entry point for the application"""
 
     # Uncomment this line if you are using
-    SimulationManager.Instance.InitializeSimulations()
+    # SimulationManager.Instance.InitializeSimulations()
 
     try:
 
         # Create new device
-        serial_no = "27000001"
+        serial_no = str("27500125")
+
+        DeviceManagerCLI.BuildDeviceList()
 
         kcube = KCubeDCServo.CreateKCubeDCServo(serial_no)
 
@@ -67,7 +69,7 @@ def main():
     except Exception as e:
         print(e)
 
-    SimulationManager.Instance.UninitializeSimulations()
+    # SimulationManager.Instance.UninitializeSimulations()
     return None
 
 

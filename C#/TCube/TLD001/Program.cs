@@ -9,28 +9,14 @@ namespace TLD_Console_net_managed
 {
     class Program
     {
-        /// <summary> Main entry-point for this application. </summary>
-        /// <param name="args"> Array of command-line argument strings. </param>
         static void Main(string[] args)
         {
-            // Get parameters from command line
-            int argc = args.Count();
-            if (argc < 1)
-            {
-                Console.WriteLine("Usage: TLD_Console_net_managed serial_number [Power: (0 - 5)]");
-                Console.ReadKey();
-                return;
-            }
+            // Replace with your serial numbers
+            string serialNo = "64000001";
 
-            // Get the required output power/current
+            // Set point in real units
             decimal setPoint = 100m;
-            if (argc > 1)
-            {
-                setPoint = decimal.Parse(args[1]);
-            }
 
-            // Get the test TLD001 serial number (e.g. 64000123)
-            string serialNo = args[0];
 
             try
             {

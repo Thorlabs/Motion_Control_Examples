@@ -153,6 +153,9 @@
   <ItemGroup>
     <ClCompile Include="MPZ601.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Thorlabs.MotionControl.ModularRack.Piezo.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

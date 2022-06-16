@@ -32,6 +32,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
         short n = TLI_GetDeviceListSize();
 		// get BDC serial numbers
         char serialNos[100];
+		
 		TLI_GetDeviceListByTypeExt(serialNos, 100, 43);
 
 		// output list of matching devices

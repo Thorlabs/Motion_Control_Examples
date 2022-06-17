@@ -43,7 +43,7 @@ def main():
         device.Enable()
         time.sleep(0.25)  # Wait for device to enable
 
-        if not device.IsSettingsInitialized() or not device.IsSettingsInitialized():
+        if not device.IsSettingsInitialized():
             device.WaitForSettingsInitialized(10000)  # 10 second timeout
             assert device.IsSettingsInitialized() is True
 

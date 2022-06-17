@@ -23,11 +23,12 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/mcalle/Documents/GitHub/Motion_Control_Examples/Python/KCube/KST101"
+    "last_opened_file_path": "C:/Users/mcalle/Documents/GitHub/Motion_Control_Examples/Python/KCube/KPZ101"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\KCube\KPZ101" />
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\KCube\KST101" />
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Benchtop\M30X(Y)" />
     </key>
@@ -145,12 +146,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Benchtop/M30X(Y)/m30xy_pythonnet.py</url>
-          <line>34</line>
+          <line>38</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Benchtop/M30X(Y)/m30xy_pythonnet.py</url>
-          <line>27</line>
+          <line>31</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

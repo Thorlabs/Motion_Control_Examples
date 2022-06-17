@@ -1,4 +1,8 @@
-"""An example that uses the .NET Kinesis Libraries to connect to a KDC."""
+"""
+An example that uses the .NET Kinesis Libraries to connect to an M30XY stage
+
+This is also applicable to the M30X stage.
+"""
 import os
 import time
 import sys
@@ -14,7 +18,7 @@ clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\Thorlabs.MotionControl.B
 from Thorlabs.MotionControl.DeviceManagerCLI import *
 from Thorlabs.MotionControl.GenericMotorCLI import *
 from Thorlabs.MotionControl.Benchtop.DCServoCLI import *
-from System import Decimal
+from System import Decimal  # Required for real units
 
 
 def main():
@@ -70,6 +74,9 @@ def main():
 
         x_home_params.Velocity = Decimal(2.0)
         y_home_params.Velocity = Decimal(2.0)
+
+        x_channel.SetHomingParams(x_home_params)
+        y_channel.SetHomingParams(y_home_params)
 
         # Home the device
         print("Homing X Channel")

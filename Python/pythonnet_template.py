@@ -1,4 +1,10 @@
-"""An example that uses the .NET Kinesis Libraries to connect to a KDC."""
+"""
+pythonnet_template
+==================
+
+A template useful for the creation of custom software for MotionControl Products.
+Originally written in a python 3.10.5 environment with a pre-release version of pythonnet (June 22)
+"""
 import os
 import time
 import sys
@@ -28,9 +34,10 @@ def main():
         # Connect, begin polling, and enable
         device = None
 
-        # Get Device Information and display description
-        device_info = device.GetDeviceInfo()
-        print(device_info.Description)
+        # Ensure that the device settings have been initialized
+        if not device.IsSettingsInitialized():
+            device.WaitForSettingsInitialized(10000)  # 10 second timeout
+            assert device.IsSettingsInitialized() is True
 
         # Start polling and enable
         device.StartPolling(250)  #250ms polling rate
@@ -38,10 +45,21 @@ def main():
         device.Enable()
         time.sleep(0.25)  # Wait for device to enable
 
-        if not device.IsSettingsInitialized() or not device.IsSettingsInitialized():
-            device.WaitForSettingsInitialized(10000)  # 10 second timeout
-            assert device.IsSettingsInitialized() is True
+        # Get Device Information and display description
+        device_info = device.GetDeviceInfo()
+        print(device_info.Description)
 
+        # Load any configuration settings needed by the controller/stage
+
+        # Get parameters related to homing/zeroing/other
+
+        # Home or Zero the device (if a motor/piezo)
+
+        # Move the device to a new position
+
+        # Stop Polling and Disconnect
+        device.StopPolling()
+        device.Disconnect()
 
     except Exception as e:
         print(e)

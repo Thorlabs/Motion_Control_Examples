@@ -65,7 +65,7 @@ def main():
         print(e)
 
     # Uncomment this line if you are using Simulations
-    # SimulationManager.Instance.UnitializeSimulations()
+    # SimulationManager.Instance.UninitializeSimulations()
     ...
 
 

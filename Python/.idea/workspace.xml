@@ -23,11 +23,12 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/mcalle/Documents/GitHub/Motion_Control_Examples/Python/KCube/KIM101"
+    "last_opened_file_path": "C:/Users/mcalle/Documents/GitHub/Motion_Control_Examples/Python/Benchtop/BDC10X"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Benchtop\BDC10X" />
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\KCube\KIM101" />
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\KCube\KPZ101" />
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\KCube\KST101" />
@@ -37,8 +38,8 @@
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Benchtop\M30X(Y)" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.kim101_pythonnet">
-    <configuration name="kbd101_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.bdc10x_pythonnet">
+    <configuration name="bdc10x_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -46,11 +47,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/KCube/KBD101" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Benchtop/BDC10X" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KCube/KBD101/kbd101_pythonnet.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Benchtop/BDC10X/bdc10x_pythonnet.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -145,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.bdc10x_pythonnet" />
         <item itemvalue="Python.kim101_pythonnet" />
         <item itemvalue="Python.kst101_pythonnet" />
         <item itemvalue="Python.m30xy_pythonnet" />
         <item itemvalue="Python.kdc101_pythonnet" />
-        <item itemvalue="Python.kbd101_pythonnet" />
       </list>
     </recent_temporary>
   </component>

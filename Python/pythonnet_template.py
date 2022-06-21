@@ -42,7 +42,7 @@ def main():
         # Start polling and enable
         device.StartPolling(250)  #250ms polling rate
         time.sleep(25)
-        device.Enable()
+        device.EnableDevice()
         time.sleep(0.25)  # Wait for device to enable
 
         # Get Device Information and display description

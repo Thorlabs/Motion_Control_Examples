@@ -23,22 +23,22 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/mcalle/Documents/GitHub/Motion_Control_Examples/Python/Benchtop/BBDXXX"
+    "last_opened_file_path": "C:/Users/mcalle/Documents/GitHub/Motion_Control_Examples/Python/Integrated Stages/LTS"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Integrated Stages\LTS" />
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Benchtop\BBDXXX" />
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Benchtop\BDC10X" />
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\KCube\KIM101" />
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\KCube\KPZ101" />
-      <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\KCube\KST101" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Benchtop\M30X(Y)" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.bbd_pythonnet">
+  <component name="RunManager" selected="Python.lts_pythonnet">
     <configuration name="bbd_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -123,7 +123,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="m30xy_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="lts_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -131,11 +131,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Benchtop/M30X(Y)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Integrated Stages/LTS" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Benchtop/M30X(Y)/m30xy_pythonnet.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Integrated Stages/LTS/lts_pythonnet.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -146,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.lts_pythonnet" />
         <item itemvalue="Python.bbd_pythonnet" />
         <item itemvalue="Python.bdc10x_pythonnet" />
         <item itemvalue="Python.kim101_pythonnet" />
         <item itemvalue="Python.kst101_pythonnet" />
-        <item itemvalue="Python.m30xy_pythonnet" />
       </list>
     </recent_temporary>
   </component>
@@ -197,6 +197,16 @@
           <url>file://$PROJECT_DIR$/Benchtop/BBDXXX/bbd_pythonnet.py</url>
           <line>37</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Integrated Stages/LTS/lts_pythonnet.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Integrated Stages/LTS/lts_pythonnet.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -62,6 +62,7 @@ def main():
         device.Disconnect()
 
     except Exception as e:
+        # this can be bad practice: It sometimes obscures the error source
         print(e)
 
     # Uncomment this line if you are using Simulations

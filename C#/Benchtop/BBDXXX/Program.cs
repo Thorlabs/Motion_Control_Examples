@@ -8,6 +8,7 @@ using Thorlabs.MotionControl.GenericMotorCLI.ControlParameters;
 using Thorlabs.MotionControl.GenericMotorCLI.AdvancedMotor;
 using Thorlabs.MotionControl.GenericMotorCLI.Settings;
 using Thorlabs.MotionControl.Benchtop.BrushlessMotorCLI;
+using Thorlabs.MotionControl.DeviceManagerCLI.ControlParameters;
 // NOTE this example is written for the Benchtop Brushless  Motor but the technique is applicable to all benchtop devices
 
 public class Program
@@ -95,8 +96,9 @@ public class Program
         BrushlessMotorSettings currentDeviceSettings = channel.MotorDeviceSettings as BrushlessMotorSettings;
 
         // Get the device unit converter
-        //motorSettings.UpdateCurrentConfiguration();
-        //DeviceUnitConverter deviceUnitConverter = channel.;
+        motorSettings.UpdateCurrentConfiguration();
+
+        channel.SetSettings(currentDeviceSettings, false); // false won't persist settings to device
 
         // Display info about device
         DeviceInfo di = channel.GetDeviceInfo();
@@ -118,6 +120,8 @@ public class Program
         }
 
         // Get and Set Triggers
+        IOPortConfigParameters IOConfig = device.GetIOPortConfigParams(0x01);
+        IOConfig.Source 
         channel.RequestTriggerIOConfigParameters();
         Thread.Sleep(200);
 

@@ -19,13 +19,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/mcalle/Documents/GitHub/Motion_Control_Examples/Python/Modular Rack"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mcalle/Documents/GitHub/Motion_Control_Examples/Python/Modular Rack&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Modular Rack" />
@@ -38,7 +38,7 @@
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Benchtop\M30X(Y)" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.mmr_pythonnet">
+  <component name="RunManager" selected="Python.kdc101_pythonnet">
     <configuration name="bbd_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -81,7 +81,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="kim101_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="kdc101_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -89,11 +89,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/KCube/KIM101" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/KCube/KDC101" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KCube/KIM101/kim101_pythonnet.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KCube/KDC101/kdc101_pythonnet.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -146,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.kdc101_pythonnet" />
         <item itemvalue="Python.mmr_pythonnet" />
         <item itemvalue="Python.lts_pythonnet" />
         <item itemvalue="Python.bbd_pythonnet" />
         <item itemvalue="Python.bdc10x_pythonnet" />
-        <item itemvalue="Python.kim101_pythonnet" />
       </list>
     </recent_temporary>
   </component>
@@ -212,6 +212,11 @@
           <url>file://$PROJECT_DIR$/Modular Rack/mmr_pythonnet.py</url>
           <line>39</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/KCube/KDC101/kdc101_pythonnet.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

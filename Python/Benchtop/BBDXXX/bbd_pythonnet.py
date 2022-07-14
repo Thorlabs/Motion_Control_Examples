@@ -56,6 +56,10 @@ def main():
         motor_config = channel.LoadMotorConfiguration(serial_no)
         device_settings = channel.MotorDeviceSettings
 
+        channel.UpdateConfiguration()
+
+        channel.SetSettings(device_settings)
+
         # Get parameters related to homing/zeroing/other
         home_params = channel.GetHomingParams()
         print(f'Homing Velocity: {home_params.Velocity}\n',

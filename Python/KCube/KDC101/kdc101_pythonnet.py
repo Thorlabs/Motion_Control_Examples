@@ -16,17 +16,17 @@ def main():
     """The main entry point for the application"""
 
     # Uncomment this line if you are using
-    # SimulationManager.Instance.InitializeSimulations()
+    SimulationManager.Instance.InitializeSimulations()
 
     try:
-
+        print(GenericMotorCLI.ControlParameters.JogParametersBase.JogModes.SingleStep)
         # Create new device
-        serial_no = str("27500125")
+        serial_no = str("27000001")
 
         DeviceManagerCLI.BuildDeviceList()
 
         device = KCubeDCServo.CreateKCubeDCServo(serial_no)
-
+        print(DeviceManagerCLI.GetDeviceList())
         # Connect, begin polling, and enable
         device.Connect(serial_no)
         time.sleep(0.25)
@@ -47,22 +47,21 @@ def main():
 
         # Before homing or moving device, ensure the motor's configuration is loaded
         m_config = device.LoadMotorConfiguration(serial_no,
-                                                DeviceConfiguration.DeviceSettingsUseOptionType.UseDeviceSettings)
+                                                DeviceConfiguration.DeviceSettingsUseOptionType.UseFileSettings)
 
-        m_config.DeviceSettingsName = "MTS25"
+        m_config.DeviceSettingsName = "PRMTZ8"
 
         m_config.UpdateCurrentConfiguration()
 
-        device_settings = device.MotorDeviceSettings
-        print(device_settings)
+        device.SetSettings(device.MotorDeviceSettings, True, False)
 
         print("Homing Actuator")
         device.Home(60000)  # 10s timeout, blocking call
 
-        print("Device Homed. Moving to position 5.0")
-        f = 5.0
+        f = 50.0
         d = Decimal(f)
-        device.MoveTo(d, 10000)  # 10s timeout again
+        print(f'Device Homed. Moving to position {f}')
+        device.MoveTo(d, 20000)  # 10s timeout again
         time.sleep(1)
 
         print(f'Device now at position {device.Position}')
@@ -72,7 +71,7 @@ def main():
     except Exception as e:
         print(e)
 
-    # SimulationManager.Instance.UninitializeSimulations()
+    SimulationManager.Instance.UninitializeSimulations()
     return None
 
 

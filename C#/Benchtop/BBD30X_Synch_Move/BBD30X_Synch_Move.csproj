@@ -4,17 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5EF0B60F-7840-492D-8C29-9283D3416025}</ProjectGuid>
+    <ProjectGuid>{B70EFEE8-7F30-4C01-AC5D-9FBA0613EF63}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>BBDXXX</RootNamespace>
-    <AssemblyName>BBDXXX</AssemblyName>
+    <RootNamespace>BBD30X_Synch_Move</RootNamespace>
+    <AssemblyName>BBD30X_Synch_Move</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -43,23 +43,23 @@
     <Reference Include="System.Xml" />
     <Reference Include="Thorlabs.MotionControl.Benchtop.BrushlessMotorCLI, Version=1.14.34.20005, Culture=neutral, PublicKeyToken=c7ec6d6d6e2435e7, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\BBD30X_Synchronous_Move\bin\Debug\Thorlabs.MotionControl.Benchtop.BrushlessMotorCLI.dll</HintPath>
+      <HintPath>bin\Debug\Thorlabs.MotionControl.Benchtop.BrushlessMotorCLI.dll</HintPath>
     </Reference>
     <Reference Include="Thorlabs.MotionControl.DeviceManagerCLI, Version=1.14.34.20005, Culture=neutral, PublicKeyToken=c7ec6d6d6e2435e7, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\BBD30X_Synchronous_Move\bin\Debug\Thorlabs.MotionControl.DeviceManagerCLI.dll</HintPath>
+      <HintPath>bin\Debug\Thorlabs.MotionControl.DeviceManagerCLI.dll</HintPath>
     </Reference>
     <Reference Include="Thorlabs.MotionControl.GenericMotorCLI, Version=1.14.34.20005, Culture=neutral, PublicKeyToken=c7ec6d6d6e2435e7, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\BBD30X_Synchronous_Move\bin\Debug\Thorlabs.MotionControl.GenericMotorCLI.dll</HintPath>
+      <HintPath>bin\Debug\Thorlabs.MotionControl.GenericMotorCLI.dll</HintPath>
     </Reference>
     <Reference Include="Thorlabs.MotionControl.Tools.Common, Version=1.0.0.20005, Culture=neutral, PublicKeyToken=c7ec6d6d6e2435e7, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\BBD30X_Synchronous_Move\bin\Debug\Thorlabs.MotionControl.Tools.Common.dll</HintPath>
+      <HintPath>bin\Debug\Thorlabs.MotionControl.Tools.Common.dll</HintPath>
     </Reference>
     <Reference Include="Thorlabs.MotionControl.Tools.Logging, Version=1.0.0.20005, Culture=neutral, PublicKeyToken=c7ec6d6d6e2435e7, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\BBD30X_Synchronous_Move\bin\Debug\Thorlabs.MotionControl.Tools.Logging.dll</HintPath>
+      <HintPath>bin\Debug\Thorlabs.MotionControl.Tools.Logging.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

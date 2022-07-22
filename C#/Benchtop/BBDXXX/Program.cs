@@ -121,7 +121,6 @@ public class Program
 
         // Get and Set Triggers
         IOPortConfigParameters IOConfig = device.GetIOPortConfigParams(0x01);
-        IOConfig.Source 
         channel.RequestTriggerIOConfigParameters();
         Thread.Sleep(200);
 

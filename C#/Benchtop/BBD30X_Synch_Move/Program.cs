@@ -116,6 +116,7 @@ namespace BBD30X_Synch_Move
             chan2.SetSettings(chan2Settings, false);
 
             // Home both channels
+            Console.WriteLine("Homing Channels");
             try
             {
                 chan1.Home(60000); // 60 second timeout

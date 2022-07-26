@@ -23,7 +23,7 @@ namespace BBD30X_Synch_Move
 
             // Serial number for Benchtop Brushless Motor (Example)
             // Change this line to match your device
-            string serialNo = "103000001";
+            string serialNo = "103242814";
 
             try
             {
@@ -77,13 +77,6 @@ namespace BBD30X_Synch_Move
                 return;
             }
 
-            // Make sure settings are initialized
-            if (!chan1.IsSettingsInitialized() || !chan2.IsSettingsInitialized())
-            {
-                chan1.WaitForSettingsInitialized(3000);
-                chan2.WaitForSettingsInitialized(3000);
-            }
-
             // Enable Channels and start polling
             // The polling loop requests regular status requests to the motor to ensure the program keeps track of the device.
             chan1.StartPolling(250);
@@ -96,12 +89,23 @@ namespace BBD30X_Synch_Move
             // Needs a delay to give time for the device to be enabled
             Thread.Sleep(500);
 
-            // Load the motor configuration for each channel
-            MotorConfiguration chan1Config = chan1.LoadMotorConfiguration(serialNo);
-            MotorConfiguration chan2Config = chan2.LoadMotorConfiguration(serialNo);
+            // Make sure settings are initialized
+            if (!chan1.IsSettingsInitialized() || !chan2.IsSettingsInitialized())
+            {
+                chan1.WaitForSettingsInitialized(3000);
+                chan2.WaitForSettingsInitialized(3000);
+            }
 
-            BrushlessMotorSettings chan1Settings = chan1.MotorDeviceSettings as BrushlessMotorSettings;
-            BrushlessMotorSettings chan2Settings = chan2.MotorDeviceSettings as BrushlessMotorSettings;
+            // Load the motor configuration for each channel
+            DeviceConfiguration.DeviceSettingsUseOptionType settingsMode = DeviceConfiguration.DeviceSettingsUseOptionType.UseFileSettings;
+            MotorConfiguration chan1Config = chan1.LoadMotorConfiguration(chan1.DeviceID, settingsMode);
+            MotorConfiguration chan2Config = chan2.LoadMotorConfiguration(chan2.DeviceID, settingsMode);
+
+            MotorDeviceSettings chan1Settings = chan1.MotorDeviceSettings;
+            MotorDeviceSettings chan2Settings = chan2.MotorDeviceSettings;
+
+            chan1.GetSettings(chan1Settings);
+            chan2.GetSettings(chan2Settings);
 
             // Update the settings for each channel.
             // This ensures the device unit to real value conversion is correct
@@ -112,8 +116,8 @@ namespace BBD30X_Synch_Move
             chan1Config.UpdateCurrentConfiguration();
             chan2Config.UpdateCurrentConfiguration();
 
-            chan1.SetSettings(chan1Settings, false); // False won't persist to device
-            chan2.SetSettings(chan2Settings, false);
+            chan1.SetSettings(chan1Settings, true, false); // False won't persist to device
+            chan2.SetSettings(chan2Settings, true, false);
 
             // Home both channels
             Console.WriteLine("Homing Channels");
@@ -124,7 +128,7 @@ namespace BBD30X_Synch_Move
             }
             catch (DeviceException ex)
             {
-                Console.WriteLine("Failed to home");
+                Console.WriteLine("Failed to home: {0}", ex.ToString());
                 Console.ReadKey();
                 return;
             }
@@ -152,14 +156,30 @@ namespace BBD30X_Synch_Move
              * Because it is not a 2D array, care must be taken when setting the NumberOfPoints
              * The easiest way of doing so is to take the total length of the array and divide by 3
              * 
-             * Positions are set in device units.
+             * Times are set in terms of device time units, where 1 unit = 0.1024 ms
+             * e.g. 10000 units = 1.024 s,  9766 units ~= 1.00004 seconds
+             * Positions are set in device units. 
              */
-            uint[] syncArray = {  10, 1000, 1000 ,
-                                  20, 2000, 2000 ,
-                                  30, 3000, 3000 ,
-                                  40, 4000, 4000 ,
-                                  50, 5000, 5000
-            };
+
+            uint xHome = 55 * 20000;
+            uint yHome = (int)(37.5 * 20000);
+
+            uint point1mm = 2000;
+            uint hundredMS = 977; // roughly 100 ms in device cycles
+
+
+            uint[] syncArray = new uint[300];
+
+            syncArray[0] = 0;
+            syncArray[1] = xHome;
+            syncArray[2] = yHome;
+
+            for (int i = 3; i < 300; i += 3)
+            {
+                syncArray[i] = hundredMS;
+                syncArray[i + 1] = (uint)(xHome + (i * point1mm));
+                syncArray[i + 2] = (uint)(yHome + (i * point1mm));
+            }
 
 
             syncSection.TimePositions = syncArray;
@@ -171,7 +191,9 @@ namespace BBD30X_Synch_Move
 
             syncController.StartMultiChannelMoveArray(1, channelMask); // Array 1
 
-            Thread.Sleep(60000);
+            Thread.Sleep(6000);
+
+            syncController.Stop(channelMask);
 
             chan1.StopPolling();
             chan2.StopPolling();

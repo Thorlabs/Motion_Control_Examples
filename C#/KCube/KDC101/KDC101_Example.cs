@@ -73,7 +73,6 @@ namespace KDC101Console
             // Shut down controller using Disconnect() to close comms
             // Then the used library
             device.ShutDown();
-            SimulationManager.Instance.InitializeSimulations();
             Console.WriteLine("Complete. Press any key to exit");
 
             // Uncomment this line if you are using Simulations

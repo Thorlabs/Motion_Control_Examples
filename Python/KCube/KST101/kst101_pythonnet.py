@@ -41,8 +41,9 @@ def main():
         device.EnableDevice()
         time.sleep(0.25)  # Wait for device to enable
 
-        # Configure device
-        device_config = device.LoadMotorConfiguration(device.DeviceID)
+        # Configure device#
+        use_file_settings = DeviceConfiguration.DeviceSettingsUseOptionType.UseFileSettings
+        device_config = device.LoadMotorConfiguration(device.DeviceID, use_file_settings)
         # Get homing settings
         home_params = device.GetHomingParams()
         print(f'Homing Velocity: {home_params.Velocity}')

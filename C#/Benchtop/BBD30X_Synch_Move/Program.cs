@@ -140,13 +140,12 @@ namespace BBD30X_Synch_Move
             // Set the channel Mask:
             ushort channelMask = 0x01 + 0x02; // For channels 1 and 2
 
-            // Create new sync movement section and assign it
+            // Create new sync movement section 
             MultiChannelMoveArraySection syncSection = new MultiChannelMoveArraySection();
 
             syncSection.ArrayID = 1;
             syncSection.Channels = channelMask;
-            syncSection.StartIndex = 0; // Used if there are more than 256 pos
-
+            syncSection.StartIndex = 0; 
 
             /* CREATING THE SYNCHRONOUS POSITION ARRAY
              * 

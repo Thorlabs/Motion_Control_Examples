@@ -114,7 +114,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
     }
 
 	// Uncomment this line if you are using simulations
-	//TLI_UnitializeSimulations;
+	//TLI_UninitializeSimulations;
 	char c = _getch();
 	return 0;
 }

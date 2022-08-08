@@ -2,8 +2,7 @@
 pythonnet_template
 ==================
 
-A template useful for the creation of custom software for MotionControl Products.
-Originally written in a python 3.10.5 environment with a pre-release version of pythonnet (June 22)
+An example written to show control of a BSC101 stepper motor controller.
 """
 import os
 import time

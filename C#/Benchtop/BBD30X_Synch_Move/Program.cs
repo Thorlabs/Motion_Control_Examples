@@ -20,7 +20,6 @@ namespace BBD30X_Synch_Move
             // If you are using simulations.
             SimulationManager.Instance.InitializeSimulations();
 
-
             // Serial number for Benchtop Brushless Motor (Example)
             // Change this line to match your device
             string serialNo = "103242814";

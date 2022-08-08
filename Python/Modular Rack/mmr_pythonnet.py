@@ -12,10 +12,10 @@ import clr
 
 clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\Thorlabs.MotionControl.DeviceManagerCLI.dll")
 clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\Thorlabs.MotionControl.GenericMotorCLI.dll")
-clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\ThorLabs.MotionControl.<>.dll")
+clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\ThorLabs.MotionControl.ModularRackCLI.dll")
 from Thorlabs.MotionControl.DeviceManagerCLI import *
 from Thorlabs.MotionControl.GenericMotorCLI import *
-# from Thorlabs.MotionControl.<> import *
+from Thorlabs.MotionControl.ModularRackCLI.Rack import *
 from System import Decimal  # necessary for real world units
 
 def main():
@@ -31,8 +31,15 @@ def main():
         # create new device
         serial_no = "26000001"  # Replace this line with your device's serial number
 
+        # Get Device info using a factory
+        device_info = DeviceFactory.GetDeviceInfo(serial_no)
+        print(device_info.GetTypeID())
+
+        rack = ModularRack.CreateModularRack(int(DeviceInfo.GetTypeID()), serial_no)
         # Connect, begin polling, and enable
-        device = None
+        device = rack[1]
+
+        rack.Connect(serial_no)
 
         # Ensure that the device settings have been initialized
         if not device.IsSettingsInitialized():
@@ -45,9 +52,14 @@ def main():
         device.EnableDevice()
         time.sleep(0.25)  # Wait for device to enable
 
-        # Get Device Information and display description
-        device_info = device.GetDeviceInfo()
-        print(device_info.Description)
+        # Get device in bay
+        device_type = rack.BayDeviceType(1)
+
+        if (device_type == ChannelDefinitions.ModularRackDevices.ModularRackPiezo):
+            piezo = rack.GetPiezoChannel(1)
+            if piezo is not None:
+                print("Piezo Connected.")
+
 
         # Load any configuration settings needed by the controller/stage
 
@@ -58,6 +70,7 @@ def main():
         # Move the device to a new position
 
         # Stop Polling and Disconnect
+        print("Disconnecting")
         device.StopPolling()
         device.Disconnect()
 

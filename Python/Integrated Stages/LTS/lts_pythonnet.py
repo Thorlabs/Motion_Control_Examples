@@ -1,9 +1,8 @@
 """
-pythonnet_template
+lts_pythonnet
 ==================
 
-A template useful for the creation of custom software for MotionControl Products.
-Originally written in a python 3.10.5 environment with a pre-release version of pythonnet (June 22)
+An example of using the LTS integrated stages with python via pythonnet
 """
 import os
 import time
@@ -12,10 +11,10 @@ import clr
 
 clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\Thorlabs.MotionControl.DeviceManagerCLI.dll")
 clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\Thorlabs.MotionControl.GenericMotorCLI.dll")
-clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\ThorLabs.MotionControl.<>.dll")
+clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\ThorLabs.MotionControl.IntegratedStepperMotorsCLI.dll")
 from Thorlabs.MotionControl.DeviceManagerCLI import *
 from Thorlabs.MotionControl.GenericMotorCLI import *
-# from Thorlabs.MotionControl.<> import *
+from Thorlabs.MotionControl.IntegratedStepperMotorsCLI import *
 from System import Decimal  # necessary for real world units
 
 def main():
@@ -29,10 +28,11 @@ def main():
         DeviceManagerCLI.BuildDeviceList()
 
         # create new device
-        serial_no = "26000001"  # Replace this line with your device's serial number
+        serial_no = "45877001"  # Replace this line with your device's serial number
 
         # Connect, begin polling, and enable
-        device = None
+        device = LongTravelStage.CreateLongTravelStage(serial_no)
+        device.Connect(serial_no)
 
         # Ensure that the device settings have been initialized
         if not device.IsSettingsInitialized():
@@ -50,19 +50,36 @@ def main():
         print(device_info.Description)
 
         # Load any configuration settings needed by the controller/stage
+        motor_config = device.LoadMotorConfiguration(serial_no)
 
         # Get parameters related to homing/zeroing/other
+        home_params = device.GetHomingParams()
+        print(f'Homing velocity: {home_params.Velocity}\n,'
+              f'Homing Direction: {home_params.Direction}')
+        home_params.Velocity = Decimal(10.0)  # real units, mm/s
+        # Set homing params (if changed)
+        device.SetHomingParams(home_params)
 
         # Home or Zero the device (if a motor/piezo)
+        print("Homing Device")
+        device.Home(60000)  # 60 second timeout
+        print("Done")
 
+        # Get Velocity Params
+        vel_params = device.GetVelocityParams()
+        vel_params.MaxVelocity = Decimal(50.0)  # This is a bad idea
+        device.SetVelocityParams(vel_params)
         # Move the device to a new position
+        new_pos = Decimal(150.0)  # Must be a .NET decimal
+        print(f'Moving to {new_pos}')
+        device.MoveTo(new_pos, 60000)  # 60 second timeout
+        print("Done")
 
         # Stop Polling and Disconnect
         device.StopPolling()
         device.Disconnect()
 
     except Exception as e:
-        # this can be bad practice: It sometimes obscures the error source
         print(e)
 
     # Uncomment this line if you are using Simulations

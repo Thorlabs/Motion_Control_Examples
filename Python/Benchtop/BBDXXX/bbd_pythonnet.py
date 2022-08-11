@@ -53,7 +53,7 @@ def main():
 
         # Load any configuration settings needed by the controller/stage
         print(channel)
-        motor_config = channel.LoadMotorConfiguration(serial_no)
+        motor_config = channel.LoadMotorConfiguration(channel.DeviceID)  # Device ID is the serial no + channel
         device_settings = channel.MotorDeviceSettings
 
         channel.UpdateConfiguration()

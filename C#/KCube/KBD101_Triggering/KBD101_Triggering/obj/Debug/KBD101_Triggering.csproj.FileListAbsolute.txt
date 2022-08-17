@@ -1,0 +1,15 @@
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\bin\Debug\KBD101_Triggering.exe.config
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\bin\Debug\KBD101_Triggering.exe
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\bin\Debug\KBD101_Triggering.pdb
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\obj\Debug\KBD101_Triggering.csproj.AssemblyReference.cache
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\obj\Debug\KBD101_Triggering.csproj.CoreCompileInputs.cache
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\obj\Debug\KBD101_Triggering.exe
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\obj\Debug\KBD101_Triggering.pdb
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\bin\Debug\Thorlabs.MotionControl.DeviceManagerCLI.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\bin\Debug\Thorlabs.MotionControl.GenericMotorCLI.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\bin\Debug\Thorlabs.MotionControl.KCube.BrushlessMotorCLI.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\bin\Debug\Thorlabs.MotionControl.PrivateInternal.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\bin\Debug\Thorlabs.MotionControl.Tools.Common.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\bin\Debug\Thorlabs.MotionControl.Tools.Logging.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\bin\Debug\Thorlabs.MotionControl.Tools.WPF.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KBD101_Triggering\KBD101_Triggering\obj\Debug\KBD101_Triggering.csproj.CopyComplete

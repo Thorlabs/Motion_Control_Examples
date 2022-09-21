@@ -5,3 +5,11 @@ C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KDC101\obj\x86\
 C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KDC101\obj\x86\Debug\KDC101_Example.csproj.CopyComplete
 C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KDC101\obj\x86\Debug\ConsoleApplication.exe
 C:\Users\mcalle\Documents\GitHub\MotionControl_Examples\C#\KCube\KDC101\obj\x86\Debug\ConsoleApplication.pdb
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\KCube\KDC101\bin\Debug\ConsoleApplication.exe.config
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\KCube\KDC101\bin\Debug\ConsoleApplication.exe
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\KCube\KDC101\bin\Debug\ConsoleApplication.pdb
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\KCube\KDC101\obj\x86\Debug\KDC101_Example.csproj.AssemblyReference.cache
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\KCube\KDC101\obj\x86\Debug\KDC101_Example.csproj.CoreCompileInputs.cache
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\KCube\KDC101\obj\x86\Debug\KDC101_Example.csproj.CopyComplete
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\KCube\KDC101\obj\x86\Debug\ConsoleApplication.exe
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\KCube\KDC101\obj\x86\Debug\ConsoleApplication.pdb

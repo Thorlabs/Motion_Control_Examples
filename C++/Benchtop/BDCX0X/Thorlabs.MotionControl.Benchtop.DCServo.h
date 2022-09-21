@@ -251,8 +251,8 @@ extern "C"
 		/// <summary> The device model number. </summary>
 		/// <remarks> The model number uniquely identifies the device type as a string. </remarks>
 		char modelNumber[8];
-		/// <summary> The device type. </summary>
-		/// <remarks> Each device type has a unique Type ID: see \ref C_DEVICEID_page "Device serial numbers" </remarks>
+		/// <summary> The type. </summary>
+		/// <remarks> Do not use this value to identify a particular device type. Please use <see cref="TLI_DeviceInfo"/> typeID for this purpose.</remarks>
 		WORD type;
 		/// <summary> The device firmware version. </summary>
 		DWORD firmwareVersion;

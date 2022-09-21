@@ -26,7 +26,7 @@ namespace BSC_Console_net_managed
             decimal velocity = 0m;
 
             // Change this value to reflect your device
-            string serialNo = "700000001";
+            string serialNo = "70174584";
 
             try
             {
@@ -116,15 +116,20 @@ namespace BSC_Console_net_managed
 
             // Not used directly in example but illustrates how to obtain device settings
             ThorlabsBenchtopStepperMotorSettings currentDeviceSettings = channel.MotorDeviceSettings as ThorlabsBenchtopStepperMotorSettings;
+            channel.GetSettings(currentDeviceSettings);
 
+            currentDeviceSettings.Home.HomeVel = 50.0m;
+            channel.SetSettings(currentDeviceSettings, false);
             // Display info about device
             DeviceInfo deviceInfo = channel.GetDeviceInfo();
             Console.WriteLine("Device {0} = {1}", deviceInfo.SerialNumber, deviceInfo.Name);
-
+            // Testing some stuff
             try
             {
+                Console.WriteLine("Setting rotation settings...");
+                channel.SetRotationModes(RotationSettings.RotationModes.RotationalUnlimited, RotationSettings.RotationDirections.Quickest);
                 Console.WriteLine("Homing device");
-                channel.Home(60000);
+                Home_Method2(channel);
             }
             catch (Exception)
             {
@@ -134,33 +139,48 @@ namespace BSC_Console_net_managed
             }
             Console.WriteLine("Device Homed");
 
-            // Change the position if the set value is not 0
-            if (position != 0)
+            Decimal[] positions = { 315.0m, 270.0m, 0.0m, 315.0m, 270.0m };
+            foreach(Decimal pos in positions)
             {
-                // Update velocity if required using real world methods
-                if (velocity != 0)
-                {
-                    VelocityParameters velPars = channel.GetVelocityParams();
-                    velPars.MaxVelocity = velocity;
-                    channel.SetVelocityParams(velPars);
-                }
-
                 try
                 {
-                    Console.WriteLine("Moving Device to {0}", position);
-                    channel.MoveTo(position, 60000);
+                    Console.WriteLine("Moving to position {0}", pos);
+                    Move_Method2(channel, pos);
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Failed to move to position");
+                    Console.WriteLine("Failed to Move to position {0}", pos);
                     Console.ReadKey();
                     return;
                 }
-                Console.WriteLine("Device Moved");
-
-                Decimal newPos = channel.Position;
-                Console.WriteLine("Device Moved to {0}", newPos);
             }
+            //// Change the position if the set value is not 0
+            //if (position != 0)
+            //{
+            //    // Update velocity if required using real world methods
+            //    if (velocity != 0)
+            //    {
+            //        VelocityParameters velPars = channel.GetVelocityParams();
+            //        velPars.MaxVelocity = velocity;
+            //        channel.SetVelocityParams(velPars);
+            //    }
+
+            //    try
+            //    {
+            //        Console.WriteLine("Moving Device to {0}", position);
+            //        channel.MoveTo(position, 60000);
+            //    }
+            //    catch (Exception)
+            //    {
+            //        Console.WriteLine("Failed to move to position");
+            //        Console.ReadKey();
+            //        return;
+            //    }
+            //    Console.WriteLine("Device Moved");
+
+            //    Decimal newPos = channel.Position;
+            //    Console.WriteLine("Device Moved to {0}", newPos);
+            //}
 
             // Stop polling and disconnect
             channel.StopPolling();
@@ -244,20 +264,8 @@ namespace BSC_Console_net_managed
         /// <summary> Move method - program execution will wait until either Move completes or the function times out. </summary>
         /// <param name="device">   The device. </param>
         /// <param name="position"> The target position. </param>
-        public static void Move_Method2(IGenericAdvancedMotor device, decimal position)
-        {
-            Console.WriteLine("Moving Device to {0}", position);
-            _taskComplete = false;
-            _taskID = device.MoveTo(position, CommandCompleteFunction);
-            while (!_taskComplete)
-            {
-                Thread.Sleep(500);
-                StatusBase status = device.Status;
-                Console.WriteLine("Device Moving {0}", status.Position);
+        
 
-                // will need some timeout functionality;
-            }
-            Console.WriteLine("Device Moved");
-        }
     }
+
 }

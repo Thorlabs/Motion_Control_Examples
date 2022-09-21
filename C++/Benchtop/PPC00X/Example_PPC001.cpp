@@ -38,27 +38,13 @@ int __cdecl wmain(int argc, wchar_t* argv[])
         char serialNos[100];
 		TLI_GetDeviceListByTypeExt(serialNos, 100, 44);
 
-		// output list of matching devices
-		{
-			char *searchContext = nullptr;
-			char *p = strtok_s(serialNos, ",", &searchContext);
-
-			while (p != nullptr)
-			{
-				TLI_DeviceInfo deviceInfo;
-				// get device info from device
-				TLI_GetDeviceInfo(p, &deviceInfo);
-				// get strings from device info structure
-				char desc[65];
-				strncpy_s(desc, deviceInfo.description, 64);
-				desc[64] = '\0';
-				char serialNo[9];
-				strncpy_s(serialNo, deviceInfo.serialNo, 8);
-				serialNo[8] = '\0';
-				// output
-				printf("Found Device %s=%s : %s\r\n", p, serialNo, desc);
-				p = strtok_s(nullptr, ",", &searchContext);
-			}
+		// Search serial numbers for given serial number
+		if (strstr(serialNos, testSerialNo)) {
+			printf("Device %s found", testSerialNo);
+		}
+		else {
+			printf("Device %s Not Found", testSerialNo);
+			return -1;
 		}
 
 		// open device

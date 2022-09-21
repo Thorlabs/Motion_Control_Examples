@@ -20,7 +20,7 @@ namespace KDC101Console
             // SimulationManager.Instance.InitializeSimulations();
 
             // Enter the serial number for your device
-            string serialNo = "27000001";
+            string serialNo = "27500125";
 
             DeviceManagerCLI.BuildDeviceList();
 
@@ -41,7 +41,7 @@ namespace KDC101Console
 
             // This calls LoadMotorConfiguration on the device to initialize the 
             // DeviceUnitConverter object required for real world unit parameters.
-            MotorConfiguration motorSettings = device.LoadMotorConfiguration(serialNo,
+            MotorConfiguration motorSettings = device.LoadMotorConfiguration(device.DeviceID,
             DeviceConfiguration.DeviceSettingsUseOptionType.UseFileSettings);
 
             // This starts polling the device at intervals of 250ms (0.25s). 
@@ -63,9 +63,20 @@ namespace KDC101Console
             device.Home(60000);
 
             // Move the stage/actuator to 5mm (or degrees depending on the device 
-            // connected). 
+            // connected).
+            device.SetRotationModes(RotationSettings.RotationModes.RotationalRange, RotationSettings.RotationDirections.Reverse);
+
+            decimal[] positions = {350, 355, 10};
             Console.WriteLine("Actuator is Moving");
-            device.MoveTo(5, 60000);
+            for (int i = 0; i<10; i++)
+            {
+                foreach(decimal pos in positions)
+                {
+                    device.MoveTo(pos, 10000);
+                    Thread.Sleep(1000);
+                    Console.WriteLine("Current position: %f", device.Position);
+                }
+            }
 
             //Stop polling device
             device.StopPolling();

@@ -9,7 +9,7 @@ The repository is set up as a visual studio solution, which can be downloaded in
 Each example in the solution is set within it's own project, and set up with all references required for the project to compile.
 As a result, it is the simplest method for getting a project up and running quickly, but with the caveat that you must download all examples in order for it to work.  
 
-If you're project only requires an example for one device, then you may also create a Visual C++ project from scratch.
+If your project only requires an example for one device, then you may also create a Visual C++ project from scratch.
 The guide will explain how to set up a project, add library dependencies, and additional include directories.
 
 For the purposes of this guide, the following are required:

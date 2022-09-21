@@ -61,22 +61,31 @@ Press OK to close the window.
 To build the project, go to solution explorer, right click on your chosen project's title and select "Build.
 
 
-### A Note of stdafx.h
-
-The Kinesis library makes calls and references to Windows' standard libraries. In order to improve compilation speed, these libraries are included in precompiled headers, referenced in "stdafx.h".
-It is recommended to include this file in your project. If not, the header file generally includes the following libraries:
-
-  - "targetver.h"
-  - <WS2tcpip.h>
-  - <windows.h>
-  - <stdio.h>
-  - <tchar.h>.
-
-Kinesis' dependence on Windows libraries is the reason for it's incompatibility with Linux. For Linux programming, please refer to our Serial communications examples.
 
 ## Referencing Kinesis Libraries
 
-  - Refer to Linker settings
-  - Additional Include Directories (optional step)
-  - Specificy .lib file to use
-  - Point to device examples for the correct .lib file (include as comment?
+All of the C++ projects in the Motion_Control_Examples solution have a .lib file as input to the linker. 
+For these projects to build correctly, you will need to save the .lib file and its associated .dll and .h files into the project directory.
+DLL and Lib files are not uploaded to this repository to save on space, as well as to encourage users to make use of the latest DLLs.
+
+The C API libraries can be found in the Kinesis installation folder on Windows.
+If you are using a 32-bit installation on 32-bit Windows or a 64-bit installation on 64-bit Windows, then the program will be installed in C:\Program Files\Thorlabs\Kinesis\ .
+Users with a 32-bit installation on a 64-bit Windows may find the install folder under C:\Program Files (x86)\Thorlabs\Kinesis.
+Generally speaking, C++ examples have two dependencies:
+ - The device specific dependency (e.g. Thorlabs.MotionControl.KCube.BrushlessMotor.dll for the KBD101)
+ - A Generic Device dependency (Thorlabs.MotionControl.DeviceManager.dll)
+To use these examples, you will need to copy a minimum of 4 files from the installation folder to the project folder for a single device. 
+These include the device specific dependencies with extensions .dll, .lib, and .h and the DeviceManager dll.
+
+Alternatively, you may wish to use the DLLUtility in the Kinesis installation folder to copy the files.
+This utility allows you to select a programming language and the devices you wish to use, and copies the DLLs directly to the project folder.
+The advantage of using this tool is that it elimates guesswork, and ensures you have the correct DLLs and .lib files.
+
+### Adding the Library to Your Linker Settings
+
+Although each project in this repository already adds the .lib file to the Linker, you may also want to add your own.
+To do this, open the project properties by right-clicking on the project and selecting "Properties", or by pressing ALT+ENTER.
+Under configuration properties, expand the linker options and click "Input" and click the "Additional Dependencies" text box.
+Click the arrow to bring up the drop-down menu and select "Edit", then type a comma-separated list of any libraries you wish to include.
+By default, this will follow the relative filepath from the project file: if you wish to use a library in another folder,
+you can edit the "Additional Library Directories" under the General Linker settings.

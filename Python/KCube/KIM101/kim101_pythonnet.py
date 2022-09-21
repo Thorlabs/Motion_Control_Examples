@@ -72,8 +72,22 @@ def main():
         device.SetPositionAs(chan1, 0)
 
         # Move the device to a new position
+        '''
+        There are two versions of each movement Method in the API,
+        with the same names but different inputs. 
+        
+        Methods that take an integer argument as an input move in terms of 
+        device steps (step size can be user-defined). These methods are 
+        used in open-loop operation.
+        
+        Methods that take a Decimal argument as an input move in real units.
+        These methods are used in open closed-loop operation.        
+        '''
         new_pos = Decimal(5.0)
+        # uncomment the following for open-loop operation:
+        #new_pos = int(100)
         print(f'Moving to position {new_pos}')
+        # Pythonnet will infer which method to use:
         device.MoveTo(chan1, new_pos, 60000)  # 60 second timeout
         print("Move Complete")
 

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using Thorlabs.MotionControl.Benchtop.BrushlessMotorCLI;
 using Thorlabs.MotionControl.DeviceManagerCLI;
 using Thorlabs.MotionControl.GenericMotorCLI;
 using Thorlabs.MotionControl.GenericMotorCLI.ControlParameters;
 using Thorlabs.MotionControl.GenericMotorCLI.AdvancedMotor;
 using Thorlabs.MotionControl.GenericMotorCLI.Settings;
-using Thorlabs.MotionControl.Benchtop.BrushlessMotorCLI;
 using Thorlabs.MotionControl.DeviceManagerCLI.ControlParameters;
 // NOTE this example is written for the Benchtop Brushless  Motor but the technique is applicable to all benchtop devices
 

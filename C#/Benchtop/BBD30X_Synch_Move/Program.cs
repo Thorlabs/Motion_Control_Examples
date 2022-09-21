@@ -18,7 +18,7 @@ namespace BBD30X_Synch_Move
         {
             // Uncomment this line (and the equivalent Uninitialize statement at the end)
             // If you are using simulations.
-            SimulationManager.Instance.InitializeSimulations();
+            //SimulationManager.Instance.InitializeSimulations();
 
             // Serial number for Benchtop Brushless Motor (Example)
             // Change this line to match your device
@@ -165,20 +165,24 @@ namespace BBD30X_Synch_Move
             uint point1mm = 2000;
             uint hundredMS = 977; // roughly 100 ms in device cycles
 
+            double dev_unit = 0.1024; // ms
+            //uint[] syncArray = new uint[300];
 
-            uint[] syncArray = new uint[300];
+            //syncArray[0] = 0;
+            //syncArray[1] = xHome;
+            //syncArray[2] = yHome;
 
-            syncArray[0] = 0;
-            syncArray[1] = xHome;
-            syncArray[2] = yHome;
+            //for (int i = 3; i < 300; i += 3)
+            //{
+            //    syncArray[i] = hundredMS;
+            //    syncArray[i + 1] = (uint)(xHome + (i * point1mm));
+            //    syncArray[i + 2] = (uint)(yHome + (i * point1mm));
+            //}
 
-            for (int i = 3; i < 300; i += 3)
-            {
-                syncArray[i] = hundredMS;
-                syncArray[i + 1] = (uint)(xHome + (i * point1mm));
-                syncArray[i + 2] = (uint)(yHome + (i * point1mm));
-            }
-
+            uint[] syncArray = {0, xHome + 1000, yHome+1000,
+                                30, xHome + 2000, yHome + 2000,
+                                30, xHome + 3000, yHome + 3000,
+                                30, xHome + 4000, yHome + 4000};
 
             syncSection.TimePositions = syncArray;
             syncSection.NumberOfPoints = (ushort)(syncArray.Length / 3);
@@ -192,7 +196,7 @@ namespace BBD30X_Synch_Move
             Thread.Sleep(6000);
 
             syncController.Stop(channelMask);
-
+            
             chan1.StopPolling();
             chan2.StopPolling();
 
@@ -205,7 +209,7 @@ namespace BBD30X_Synch_Move
             device.Disconnect(true);
 
             // Uncomment this line if you are using simulations
-            SimulationManager.Instance.UninitializeSimulations();
+            //SimulationManager.Instance.UninitializeSimulations();
 
             Console.WriteLine("Press any key to end the program");
             Console.ReadKey();

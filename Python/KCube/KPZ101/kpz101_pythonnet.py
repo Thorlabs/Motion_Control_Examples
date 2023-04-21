@@ -33,6 +33,8 @@ def main():
         # Connect, begin polling, and enable
         device = KCubePiezo.CreateKCubePiezo(serial_no)
 
+        device.Connect(serial_no)
+
         # Get Device Information and display description
         device_info = device.GetDeviceInfo()
         print(device_info.Description)
@@ -40,7 +42,7 @@ def main():
         # Start polling and enable
         device.StartPolling(250)  #250ms polling rate
         time.sleep(25)
-        device.Enable()
+        device.EnableDevice()
         time.sleep(0.25)  # Wait for device to enable
 
         if not device.IsSettingsInitialized():
@@ -64,9 +66,9 @@ def main():
         dev_voltage = Decimal(15.0)
         print(f'Going to voltage {dev_voltage}')
 
-        if dev_voltage != 0 and dev_voltage <= max_voltage:
+        if dev_voltage != Decimal(0) and dev_voltage <= max_voltage:
             device.SetOutputVoltage(dev_voltage)
-            time.Sleep(1)
+            time.Sleep(1.0)
 
             print(f'Moved to Voltage {device.GetOutputVoltage()}')
         else:

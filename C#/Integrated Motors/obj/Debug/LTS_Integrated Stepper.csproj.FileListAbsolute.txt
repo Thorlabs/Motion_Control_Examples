@@ -1,0 +1,13 @@
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\LTS_Integrated Stepper\bin\Debug\LTS_Integrated Stepper.exe.config
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\LTS_Integrated Stepper\bin\Debug\LTS_Integrated Stepper.exe
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\LTS_Integrated Stepper\bin\Debug\LTS_Integrated Stepper.pdb
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\LTS_Integrated Stepper\obj\Debug\LTS_Integrated Stepper.csproj.AssemblyReference.cache
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\LTS_Integrated Stepper\obj\Debug\LTS_Integrated Stepper.csproj.SuggestedBindingRedirects.cache
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\LTS_Integrated Stepper\obj\Debug\LTS_Integrated Stepper.csproj.CoreCompileInputs.cache
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\LTS_Integrated Stepper\obj\Debug\LTS_Integrated Stepper.exe
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\LTS_Integrated Stepper\obj\Debug\LTS_Integrated Stepper.pdb
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\LTS_Integrated Stepper\obj\Debug\LTS_Integrated Stepper.csproj.CopyComplete
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\LTS_Integrated Stepper\bin\Debug\Thorlabs.MotionControl.PrivateInternal.dll
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\LTS_Integrated Stepper\bin\Debug\Thorlabs.MotionControl.Tools.Common.dll
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\LTS_Integrated Stepper\bin\Debug\Thorlabs.MotionControl.Tools.Logging.dll
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\LTS_Integrated Stepper\bin\Debug\Thorlabs.MotionControl.Tools.WPF.dll

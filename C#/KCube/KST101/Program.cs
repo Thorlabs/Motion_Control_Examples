@@ -51,7 +51,7 @@ namespace KST_Console_net_managed
             {
                 // An error occurred - see ex for details
 
-               Console.WriteLine("Exception raised by BuildDeviceList { 0}", ex);
+               Console.WriteLine("Exception raised by BuildDeviceList {0}", ex);
                 Console.ReadKey();
                 return;
             }
@@ -62,7 +62,7 @@ namespace KST_Console_net_managed
             if (!serialNumbers.Contains(serialNo))
             {
                 //The requested serial number is not a KST101 or is not connected
-                Console.WriteLine("{ 0} is not a valid serial number", serialNo);
+                Console.WriteLine("{0} is not a valid serial number", serialNo);
                 Console.ReadKey();
                 return;
             }
@@ -72,7 +72,7 @@ namespace KST_Console_net_managed
             if (device == null)
             {
                 // An error occured
-                Console.WriteLine("{ 0} is not a KCubeStepper", serialNo);
+                Console.WriteLine("{0} is not a KCubeStepper", serialNo);
                 Console.ReadKey();
                 return;
             }
@@ -80,13 +80,13 @@ namespace KST_Console_net_managed
             // Open a connection to the device.
             try
             {
-                Console.WriteLine("Opening device { 0}", serialNo);
+                Console.WriteLine("Opening device {0}", serialNo);
                 device.Connect(serialNo);
             }
             catch (Exception)
             {
                 // Connection failed
-                Console.WriteLine("Failed to open device { 0}", serialNo);
+                Console.WriteLine("Failed to open device {0}", serialNo);
                 Console.ReadKey();
                 return;
             }
@@ -123,7 +123,7 @@ namespace KST_Console_net_managed
 
             // Display info about device
             DeviceInfo deviceInfo = device.GetDeviceInfo();
-            Console.WriteLine("Device { 0} = { 1}", deviceInfo.SerialNumber, deviceInfo.Name);
+            Console.WriteLine("Device {0} = {1}", deviceInfo.SerialNumber, deviceInfo.Name);
 
             Home_Method1(device);
             // or
@@ -146,7 +146,7 @@ namespace KST_Console_net_managed
                 // Move_Method2(device, position);
 
                 Decimal newPos = device.Position;
-                Console.WriteLine("Device Moved to { 0}", newPos);
+                Console.WriteLine("Device Moved to {0}", newPos);
             }
 
             device.StopPolling();
@@ -175,7 +175,7 @@ namespace KST_Console_net_managed
         {
             try
             {
-                Console.WriteLine("Moving Device to { 0}, position");
+                Console.WriteLine("Moving Device to {0}, position");
                 device.MoveTo(position, 60000);
             }
             catch (Exception)
@@ -207,7 +207,7 @@ namespace KST_Console_net_managed
             {
                 Thread.Sleep(500);
                 StatusBase status = device.Status;
-                Console.WriteLine("Device Homing { 0}", status.Position);
+                Console.WriteLine("Device Homing {0}", status.Position);
 
                 // will need some timeout functionality;
             }
@@ -216,14 +216,14 @@ namespace KST_Console_net_managed
 
         public static void Move_Method2(IGenericAdvancedMotor device, decimal position)
         {
-            Console.WriteLine("Moving Device to { 0}", position);
+            Console.WriteLine("Moving Device to {0}", position);
             _taskComplete = false;
             _taskID = device.MoveTo(position, CommandCompleteFunction);
             while (!_taskComplete)
             {
                 Thread.Sleep(500);
                 StatusBase status = device.Status;
-                Console.WriteLine("Device Moving { 0}", status.Position);
+                Console.WriteLine("Device Moving {0}", status.Position);
 
                 // will need some timeout functionality;
             }

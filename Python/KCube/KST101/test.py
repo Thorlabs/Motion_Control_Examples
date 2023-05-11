@@ -76,5 +76,61 @@ def main():
     ...
 
 
+def moveDevice(initial_position, target_position):
+    SimulationManager.Instance.InitializeSimulations()
+
+    DeviceManagerCLI.BuildDeviceList()
+
+    # create new device
+    serial_no = "26004167"  # Replace this line with your device's serial number
+    device = KCubeStepper.CreateKCubeStepper(serial_no)
+
+    # Connect
+    device.Connect(serial_no)
+    time.sleep(0.25)  # wait statements are important to allow settings to be sent to the device
+
+    # Start polling and enable
+    device.StartPolling(250)  #250ms polling rate
+    time.sleep(25)
+    device.EnableDevice()
+    time.sleep(0.25)  # Wait for device to enable
+
+    # Configure device#
+    use_file_settings = DeviceConfiguration.DeviceSettingsUseOptionType.UseFileSettings
+    device_config = device.LoadMotorConfiguration(device.DeviceID, use_file_settings)
+    # Get homing settings
+    home_params = device.GetHomingParams()
+    print(f'Homing Velocity: {home_params.Velocity}')
+
+    # Home device
+    print("Homing Motor...")
+    device.Home(60000)  # 60 seconds
+    print("Motor Homed.")
+
+    # Get/Set Velocity Params
+    device_vel_params = device.GetVelocityParams()
+
+    print(f'Acceleration: {device_vel_params.Acceleration}',f'Velocity: {device_vel_params.MaxVelocity}')
+
+    # Set a position and move it
+    #new_pos = Decimal(1.0)  # in Real Units
+    #device.MoveTo(new_pos, 60000) 
+
+    for i in range(initial_position, target_position):
+        newpos = Decimal(i + 0.0)
+        device.MoveTo(newpos, 60000) 
+        time.sleep(1)
+    
+    #new_pos = Decimal(5.0)
+    #device.MoveTo(new_pos, 60000)
+
+    # Stop Polling and Disconnect
+    device.StopPolling()
+    device.Disconnect()
+
+    SimulationManager.Instance.UninitializeSimulations()
+
 if __name__ == "__main__":
     main()
+    
+moveDevice(0,10)

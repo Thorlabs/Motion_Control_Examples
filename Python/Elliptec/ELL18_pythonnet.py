@@ -1,4 +1,4 @@
-#Example tested for ELL6
+#Example tested for ELL18
 import sys, os, time
 import clr
 
@@ -32,13 +32,8 @@ for device in devices:
 
         
         # Call move methods. 
-        addressedDevice.Home(ELLBaseDevice.DeviceDirection.Linear)
+        addressedDevice.Home(ELLBaseDevice.DeviceDirection.Clockwise)
         time.sleep(1)
         addressedDevice.JogForward()
         time.sleep(1)
         addressedDevice.JogBackward()
-            
-    
-    
-
-

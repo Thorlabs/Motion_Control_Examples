@@ -21,7 +21,7 @@ def main():
     """The main entry point for the application"""
 
     # Uncomment this line if you are using
-    SimulationManager.Instance.InitializeSimulations()
+    # SimulationManager.Instance.InitializeSimulations()
 
     try:
 
@@ -89,7 +89,7 @@ def main():
         print(e)
 
     # Uncomment this line if you are using Simulations
-    SimulationManager.Instance.UninitializeSimulations()
+    # SimulationManager.Instance.UninitializeSimulations()
     ...
 
 

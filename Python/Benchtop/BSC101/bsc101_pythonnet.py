@@ -54,7 +54,7 @@ def main():
         print(device_info.Description)
 
         # Load any configuration settings needed by the controller/stage
-        channel_config = channel.LoadMotorConfiguration(serial_no)
+        channel_config = channel.LoadMotorConfiguration(serial_no) # If using BSC203, change serial_no to channel.DeviceID. 
         chan_settings = channel.MotorDeviceSettings
 
         channel.GetSettings(chan_settings)

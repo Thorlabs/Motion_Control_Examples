@@ -68,7 +68,7 @@ def main():
 
         if dev_voltage != Decimal(0) and dev_voltage <= max_voltage:
             device.SetOutputVoltage(dev_voltage)
-            time.Sleep(1.0)
+            time.sleep(1.0)
 
             print(f'Moved to Voltage {device.GetOutputVoltage()}')
         else:

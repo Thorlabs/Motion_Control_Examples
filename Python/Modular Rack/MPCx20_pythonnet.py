@@ -1,8 +1,6 @@
 import clr
 import time
 
- 
-
 clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\Thorlabs.MotionControl.DeviceManagerCLI.dll")
 clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\Thorlabs.MotionControl.GenericMotorCLI.dll")
 clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\ThorLabs.MotionControl.PolarizerCLI.dll")
@@ -13,6 +11,7 @@ from Thorlabs.MotionControl.PolarizerCLI import *
 from System import Decimal
 
 def main():
+    # Uncomment this line if you are using a simulation
     #SimulationManager.Instance.InitializeSimulations()
 
     try:
@@ -43,14 +42,15 @@ def main():
 
         # Call device methods.
         print("Homing Device")
-        device.Home(1,60000)  # 60 second timeout.
+        paddle = PolarizerPaddles.Paddle1#choose first paddle
+        device.Home(paddle,60000)  # 60 second timeout.
         print("Done")
 
         time.sleep(2)
 
         new_pos = Decimal(10.0)  # Must be a .NET decimal.
         print(f'Moving to {new_pos}')
-        device.MoveTo(new_pos,1, 60000)  # 60 second timeout.
+        device.MoveTo(new_pos,paddle, 60000)  # 60 second timeout.
         print("Done")
 
 

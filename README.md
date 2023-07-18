@@ -18,13 +18,11 @@ Other IDEs can be used, but instructions are not provided in this repository.
 
 ### Python Requirements
 
-Python examples make use of the Ctypes module, which can be installed using the command
+Python examples make use of the pythonNET and cTypes modules. If pythonNET is not installed already, it can be using the command
 
 ```
-pip install ctypes
+pip install pythonnet
 ```
-
-if cytypes is not installed already.
 
 ## Frequently Asked Questions (FAQs)
 

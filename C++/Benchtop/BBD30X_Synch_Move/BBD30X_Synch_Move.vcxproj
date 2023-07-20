@@ -142,6 +142,9 @@
   <ItemGroup>
     <ClCompile Include="BBD30X_Synch_Move.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\BBDX0X\Required DLLs.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

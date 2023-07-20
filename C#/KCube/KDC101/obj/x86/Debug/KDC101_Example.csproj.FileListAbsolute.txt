@@ -13,3 +13,17 @@ C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\KCube\KDC101\obj\x86
 C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\KCube\KDC101\obj\x86\Debug\KDC101_Example.csproj.CopyComplete
 C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\KCube\KDC101\obj\x86\Debug\ConsoleApplication.exe
 C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\KCube\KDC101\obj\x86\Debug\ConsoleApplication.pdb
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\bin\Debug\ConsoleApplication.exe.config
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\bin\Debug\ConsoleApplication.exe
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\bin\Debug\ConsoleApplication.pdb
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\bin\Debug\Thorlabs.MotionControl.DeviceManagerCLI.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\bin\Debug\Thorlabs.MotionControl.GenericMotorCLI.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\bin\Debug\Thorlabs.MotionControl.KCube.DCServoCLI.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\bin\Debug\Thorlabs.MotionControl.Tools.Common.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\bin\Debug\Thorlabs.MotionControl.Tools.Logging.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\bin\Debug\Thorlabs.MotionControl.PrivateInternal.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\bin\Debug\Thorlabs.MotionControl.Tools.WPF.dll
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\obj\x86\Debug\KDC101_Example.csproj.CoreCompileInputs.cache
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\obj\x86\Debug\KDC101_Example.csproj.CopyComplete
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\obj\x86\Debug\ConsoleApplication.exe
+C:\Users\manzelmi\Documents\Tech_Github\Motion_Control_Examples\C#\KCube\KDC101\obj\x86\Debug\ConsoleApplication.pdb

@@ -12,8 +12,13 @@ namespace BBD302_Init_Move
     {
         static void Main(string[] args)
         {
+            // Uncomment this line (and the equivalent Uninitialize statement at the end)
+            // If you are using simulations.
+            //SimulationManager.Instance.InitializeSimulations();
+
             try
             {
+                // Build device list
                 DeviceManagerCLI.BuildDeviceList();
             }
             catch (Exception)
@@ -22,8 +27,10 @@ namespace BBD302_Init_Move
                 return;
             }
 
+            //Get the first available BBD300 controller
             List<string> serialNumbers = DeviceManagerCLI.GetDeviceList(103);
 
+            //Check if there was a found device. If not, close the program
             if (serialNumbers.Count > 0)
             {
                 Console.WriteLine(serialNumbers[0]);
@@ -38,6 +45,7 @@ namespace BBD302_Init_Move
 
             if (controller != null)
             {
+                //Initialize the controller
                 controller.Connect(serialNumbers[0]);
                 controller.GetMotherboardConfiguration(serialNumbers[0], DeviceConfiguration.DeviceSettingsUseOptionType.UseDeviceSettings);
 
@@ -45,8 +53,10 @@ namespace BBD302_Init_Move
 
                 if (channel != null)
                 {
+                    //Initialize the channel
                     channel.Connect(serialNumbers[0]);
                     channel.WaitForSettingsInitialized(3000);
+                    // Call LoadMotorConfiguration on the device to initialize the DeviceUnitConverter object required for real unit parameters
                     channel.LoadMotorConfiguration(channel.DeviceID);
 
                     channel.StartPolling(250);
@@ -66,8 +76,13 @@ namespace BBD302_Init_Move
                     channel.DisableDevice();
 
                 }
+
+                //Close the controller connection
                 controller.Disconnect(false);
                 Console.WriteLine("Controller Disconnected");
+
+                // Uncomment this line if you are using simulations
+                //SimulationManager.Instance.UninitializeSimulations();
             }
         }
 

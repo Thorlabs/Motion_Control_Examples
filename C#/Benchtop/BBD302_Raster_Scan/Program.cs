@@ -14,8 +14,13 @@ namespace BBD302_Raster_Scan
     {
         static void Main(string[] args)
         {
+            // Uncomment this line (and the equivalent Uninitialize statement at the end)
+            // If you are using simulations.
+            //SimulationManager.Instance.InitializeSimulations();
+
             try
             {
+                // Build device list
                 DeviceManagerCLI.BuildDeviceList();
             }
             catch (Exception)
@@ -24,6 +29,8 @@ namespace BBD302_Raster_Scan
                 return;
             }
 
+            //Get the first available BBD300 controller
+            //Check if there was a found device. If not, close the program
             List<string> serialNumbers = DeviceManagerCLI.GetDeviceList(103);
             if (serialNumbers.Count > 0)
             {
@@ -38,9 +45,11 @@ namespace BBD302_Raster_Scan
             BenchtopBrushlessMotor controller = BenchtopBrushlessMotor.CreateBenchtopBrushlessMotor(serialNumbers[0]);
             if (controller != null)
             {
+                //Initialize the controller
                 controller.Connect(serialNumbers[0]);
                 controller.GetMotherboardConfiguration(serialNumbers[0], DeviceConfiguration.DeviceSettingsUseOptionType.UseDeviceSettings);
 
+                //Initialize the channels
                 Brushless30XMotorChannel xAxis = controller.GetChannel(1) as Brushless30XMotorChannel;
                 Brushless30XMotorChannel yAxis = controller.GetChannel(2) as Brushless30XMotorChannel;
 
@@ -67,12 +76,14 @@ namespace BBD302_Raster_Scan
                     HomeStage(xAxis);
                     HomeStage(yAxis);
 
+                    //Set the movement parameters for the scan
                     xAxis.SetJogVelocityParams(200, 1000);
                     xAxis.SetVelocityParams(200, 1000);
 
                     yAxis.SetJogVelocityParams(200, 1000);
                     yAxis.SetVelocityParams(200, 1000);
 
+                    //Scan parameters
                     Decimal startX = 25;
                     Decimal startY = 50;
 
@@ -85,6 +96,7 @@ namespace BBD302_Raster_Scan
                     xAxis.SetJogStepSize(Math.Abs(endX - startX) / numberOfXPoints);
                     yAxis.SetJogStepSize(Math.Abs(endy - startY) / numberOfRows);
 
+                    //determine the direction the scan will be going for the x and y axes
                     MotorDirection xDirection = MotorDirection.Forward;
                     MotorDirection yDirection = MotorDirection.Forward;
 
@@ -97,6 +109,7 @@ namespace BBD302_Raster_Scan
                         yDirection = MotorDirection.Backward;
                     }
 
+                    //start the scan
                     MoveStage(xAxis, startX);
                     MoveStage(yAxis, startY);
 
@@ -129,8 +142,11 @@ namespace BBD302_Raster_Scan
                     yAxis.DisableDevice();
 
                 }
+                //close the controller connection
                 controller.Disconnect(false);
                 Console.WriteLine("Controller Disconnected");
+                // Uncomment this line if you are using simulations
+                //SimulationManager.Instance.UninitializeSimulations();
             }
         }
 

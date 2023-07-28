@@ -66,7 +66,7 @@ def main():
         print("Done")
 
         new_direction_forward = MotorDirection.Forward 
-        new_direction_forward = MotorDirection.Backward
+        new_direction_backward = MotorDirection.Backward
         # new_velocity = 10 Only if using .MoveContinuousAtVelocity
         
         

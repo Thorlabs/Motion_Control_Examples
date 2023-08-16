@@ -1,8 +1,6 @@
 # MotionControl_Examples
 Software examples for Thorlabs'  range of motion control products (e.g. KCubes)
 
-## What's New?
-New examples would go here
 
 ## How to Find an Example for Your Device in Your Chosen Language
 

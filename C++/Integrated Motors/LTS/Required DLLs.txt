@@ -1,0 +1,4 @@
+Thorlabs.MotionControl.DeviceManager.dll
+Thorlabs.MotionControl.KCube.IntegratedStepperMotors.dll
+Thorlabs.MotionControl.KCube.IntegratedStepperMotors.h
+Thorlabs.MotionControl.KCube.IntegratedStepperMotors.lib

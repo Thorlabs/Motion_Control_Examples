@@ -1,6 +1,10 @@
-// This example uses the Kinesis C++ API to move and control Thorlabs integrated stepper motor, LTS, K10CR1, and MLJ stages. 
-//
-
+// C++ Example for Thorlabs LTS stages;
+// 2023-09-06; 
+// 2023-09-06;
+// C++20;
+// Kinesis 1.14.37;
+// ==================
+// This example uses the Kinesis C++ API to move and control Thorlabs integrated stepper motor, LTS, K10CR1, and MLJ stages.
 
 #include <string> 
 #include <iostream>

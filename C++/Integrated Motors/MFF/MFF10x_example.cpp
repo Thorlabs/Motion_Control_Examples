@@ -89,7 +89,7 @@ int main()
 			FF_StopPolling(testSerialNo);
 			// close device
 			FF_Close(testSerialNo);
-
+			// TLI_UnitializeSimulations();
 		}
 	}
 }

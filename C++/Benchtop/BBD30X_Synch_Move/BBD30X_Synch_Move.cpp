@@ -1,5 +1,10 @@
-// BBD30X_Synch_Move.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/*
+BBD30x Synchronous Move
+Date of Creation(YYYY-MM-DD): 2022-07-27
+Date of Last Modification on Github: 2022-08-08
+C++ Version Used: ISO C++ 14
+Kinesis Version Tested: 1.14.40
+*/
 
 #include <iostream>
 #include <stdio.h>

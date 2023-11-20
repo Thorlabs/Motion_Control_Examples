@@ -1,3 +1,11 @@
+/*
+MPCx20 Simple Example
+Date of Creation(YYYY-MM-DD): 2022-05-16
+Date of Last Modification on Github: 2022-09-21
+C++ Version Used: ISO C++ 14
+Kinesis Version Tested: 1.14.40
+*/
+
 #include <stdlib.h>
 #include <conio.h>
 #include <iostream>

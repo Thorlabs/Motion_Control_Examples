@@ -1,0 +1,10 @@
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\MFF10x_FilterFlipper\bin\Debug\MFF10x_FilterFlipper.exe.config
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\MFF10x_FilterFlipper\bin\Debug\MFF10x_FilterFlipper.exe
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\MFF10x_FilterFlipper\bin\Debug\MFF10x_FilterFlipper.pdb
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\MFF10x_FilterFlipper\obj\Debug\MFF10x_FilterFlipper.csproj.AssemblyReference.cache
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\MFF10x_FilterFlipper\obj\Debug\MFF10x_FilterFlipper.csproj.SuggestedBindingRedirects.cache
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\MFF10x_FilterFlipper\obj\Debug\MFF10x_FilterFlipper.csproj.CoreCompileInputs.cache
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\MFF10x_FilterFlipper\obj\Debug\MFF10x_FilterFlipper.exe
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\MFF10x_FilterFlipper\obj\Debug\MFF10x_FilterFlipper.pdb
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\MFF10x_FilterFlipper\obj\Debug\MFF10x_FilterFlipper.csproj.CopyComplete
+C:\Users\tmetz\OneDrive - THORLABS Inc\Desktop\VS test\MFF10x_FilterFlipper\bin\Debug\Thorlabs.MotionControl.PrivateInternal.dll

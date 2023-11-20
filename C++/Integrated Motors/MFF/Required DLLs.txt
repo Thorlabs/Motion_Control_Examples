@@ -1,0 +1,4 @@
+Thorlabs.MotionControl.DeviceManager.dll
+Thorlabs.MotionControl.KCube.FilterFlipper.dll
+Thorlabs.MotionControl.KCube.FilterFlipper.h
+Thorlabs.MotionControl.KCube.FilterFlipper.lib

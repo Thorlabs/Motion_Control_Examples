@@ -22,7 +22,7 @@ This example uses serial commands as documented in the "APT Communications Proto
 ## KDC101_Power_Meter_Insight_Code
 
 This example uses the Kinesis .NET library and the Python module 'pythonNET'
-A video showing the setup and programming can be found on [Youtube] (https://www.youtube.com/watch?v=VbcCDI6Z6go)
+A video showing the setup and programming can be found on https://www.youtube.com/watch?v=VbcCDI6Z6go
 
 
 

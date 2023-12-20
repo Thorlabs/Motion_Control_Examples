@@ -74,6 +74,9 @@ def main():
 
     except Exception as e:
         print(e)
+        
+    # Uncomment this line if you are using Simulations
+    # SimulationManager.Instance.UninitializeSimulations()
 
 
 if __name__ == "__main__":

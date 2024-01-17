@@ -107,7 +107,7 @@ namespace KIM_Console_net_managed
 
             // Optionally set the position
 
-            decimal position = 0m;
+            int position = 0m;
             if (position > 0m)
             {
                 try

@@ -3,26 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Thorlabs.MotionControl.DeviceManagerCLI;
+using Thorlabs.MotionControl.GenericMotorCLI.Settings;
 using Thorlabs.MotionControl.PolarizerCLI;
 
 namespace MPC20_Console_net_managed
 {
     class Program
     {
-
         static void Main(string[] args)
         {
-            // Get parameters from command line
-            int argc = args.Count();
-            if (argc < 1)
-            {
-                Console.WriteLine("Usage: MPC20_Console_net_managed serial_number");
-                Console.ReadKey();
-                return;
-            }
+            // Uncomment this line (and the equivalent Uninitialize statement at the end)
+            // If you are using simulations.
+            //SimulationManager.Instance.InitializeSimulations();
+
 
             // Get the MPCx20 serial number (e.g. 38000123)
-            string serialNo = args[0];
+            string serialNo = "38000001";
 
             try
             {
@@ -96,6 +92,8 @@ namespace MPC20_Console_net_managed
             Thread.Sleep(500);
 
             // Get the Polarizer settings
+            DeviceConfiguration.DeviceSettingsUseOptionType settingUseOptionType = DeviceConfiguration.DeviceSettingsUseOptionType.UseDeviceSettings;
+            PolarizerConfiguration configuration = device.GetDeviceConfiguration(serialNo, settingUseOptionType);
             ThorlabsPolarizerSettings currentDeviceSettings = device.PolarizerDeviceSettings;
 
             // Display info about device
@@ -118,10 +116,12 @@ namespace MPC20_Console_net_managed
             device.StopPolling();
             device.Disconnect(true);
 
+            // Uncomment this line if you are using simulations
+            //SimulationManager.Instance.UninitializeSimulations();
+
             Console.ReadKey();
         }
 
-       
         public static void Home(Polarizer device, PolarizerPaddles paddle)
         {
             try
@@ -154,3 +154,4 @@ namespace MPC20_Console_net_managed
         }
     }
 }
+

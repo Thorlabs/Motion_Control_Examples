@@ -1,4 +1,10 @@
-// Example_KNA101.cpp : Defines the entry point for the console application.
+/*
+KBD101 Simple Example
+Date of Creation(YYYY-MM-DD): 2022-01-14
+Date of Last Modification on Github: 2022-09-21
+C++ Version Used: ISO C++ 14
+Kinesis Version Tested: 1.14.40
+*/
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,4 +1,10 @@
-// Example_KIM101.cpp : Defines the entry point for the console application.
+/*
+KIM101 Simple Example
+Date of Creation(YYYY-MM-DD): 2022-01-14
+Date of Last Modification on Github: 2022-09-21
+C++ Version Used: ISO C++ 14
+Kinesis Version Tested: 1.14.40
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,7 +21,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 	//TLI_InitializeSimulations();
 
 	// Change the serial number to match the one found on your device
-    int serialNo = 85000001;
+    int serialNo = 97000001;
 
     // identify and access device
     char testSerialNo[16];
@@ -28,7 +34,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
         short n = TLI_GetDeviceListSize();
         // get BBD serial numbers
         char serialNos[100];
-        TLI_GetDeviceListByTypeExt(serialNos, 100, 85);
+        TLI_GetDeviceListByTypeExt(serialNos, 100, 97);
 
         // Search serial numbers for given serial number
         if (strstr(serialNos, testSerialNo)) {
@@ -78,7 +84,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
     }
 
 	// Uncomment this line if you are using simulations
-	//TLI_UnitializeSimulations;
+	//TLI_UninitializeSimulations;
     char c = _getch();
     return 0;
 }

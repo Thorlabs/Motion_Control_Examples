@@ -1,5 +1,10 @@
-// Example_BVC101.cpp : Defines the entry point for the console application.
-//
+/*
+BVS10x Simple Example
+Date of Creation(YYYY-MM-DD): 2022-06-06
+Date of Last Modification on Github: 2022-06-06
+C++ Version Used: ISO C++ 14
+Kinesis Version Tested: 1.14.40
+*/
 
 #include "stdafx.h"
 

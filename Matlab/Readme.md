@@ -8,7 +8,7 @@ This guide will guide you through using and running an example in MATLAB.
  - Thorlabs Kinesis
  - A Thorlabs controller and compatable stage
 
-## Avaiable Examples
+## Available Examples
 
  - Benchtop Controllers
    * BBD30X controller using a DDR100 stage

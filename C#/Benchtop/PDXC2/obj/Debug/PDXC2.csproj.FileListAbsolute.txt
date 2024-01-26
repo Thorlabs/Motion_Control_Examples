@@ -1,0 +1,13 @@
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\PDXC2\C#\PDXC2\bin\Debug\PDXC2.exe.config
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\PDXC2\C#\PDXC2\bin\Debug\PDXC2.exe
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\PDXC2\C#\PDXC2\bin\Debug\PDXC2.pdb
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\PDXC2\C#\PDXC2\bin\Debug\Thorlabs.MotionControl.PrivateInternal.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\PDXC2\C#\PDXC2\bin\Debug\Thorlabs.MotionControl.Tools.Common.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\PDXC2\C#\PDXC2\bin\Debug\Thorlabs.MotionControl.Tools.Logging.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\PDXC2\C#\PDXC2\bin\Debug\Thorlabs.MotionControl.Tools.WPF.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\PDXC2\C#\PDXC2\obj\Debug\PDXC2.csproj.AssemblyReference.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\PDXC2\C#\PDXC2\obj\Debug\PDXC2.csproj.SuggestedBindingRedirects.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\PDXC2\C#\PDXC2\obj\Debug\PDXC2.csproj.CoreCompileInputs.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\PDXC2\C#\PDXC2\obj\Debug\PDXC2.csproj.CopyComplete
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\PDXC2\C#\PDXC2\obj\Debug\PDXC2.exe
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\PDXC2\C#\PDXC2\obj\Debug\PDXC2.pdb

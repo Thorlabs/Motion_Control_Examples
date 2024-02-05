@@ -61,7 +61,7 @@ def main():
         # Convert device units to real units
         real_pos = c_double()
         lib.CC_GetRealValueFromDeviceUnit(serial_num,
-                                          real_pos,
+                                          dev_pos,
                                           byref(real_pos),
                                           0)
 

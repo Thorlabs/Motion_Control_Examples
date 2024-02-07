@@ -84,7 +84,7 @@ def main():
 
         # Close the device
         lib.CC_Close(serial_num)
-    #.TLI_UninitializeSimulations()
+    #lib.TLI_UninitializeSimulations()
 
     return
 

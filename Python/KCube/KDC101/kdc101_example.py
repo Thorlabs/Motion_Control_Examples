@@ -61,7 +61,7 @@ def main():
         # Convert device units to real units
         real_pos = c_double()
         lib.CC_GetRealValueFromDeviceUnit(serial_num,
-                                          real_pos,
+                                          dev_pos,
                                           byref(real_pos),
                                           0)
 
@@ -84,7 +84,7 @@ def main():
 
         # Close the device
         lib.CC_Close(serial_num)
-    #.TLI_UninitializeSimulations()
+    #lib.TLI_UninitializeSimulations()
 
     return
 

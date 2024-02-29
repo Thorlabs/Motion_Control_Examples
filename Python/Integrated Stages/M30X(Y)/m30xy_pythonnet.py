@@ -1,7 +1,13 @@
 """
-An example that uses the .NET Kinesis Libraries to connect to an M30XY stage
-
-This is also applicable to the M30X stage.
+Example Title: M30XY_pythonnet.py
+Example Date of Creation(YYYY-MM-DD) 2023-08-23
+Example Date of Last Modification on Github
+Version of Python: 3.9
+Version of the Thorlabs SDK used: 1.14.44
+==================
+Example Description
+Using the .NET Dlls
+Example runs the M30XY stage, this uses the Benchtop not integrated stage DLLs
 """
 import os
 import time
@@ -25,13 +31,13 @@ def main():
     """The main entry point for the application"""
 
     # Uncomment this line if you are using
-    # SimulationManager.Instance.InitializeSimulations()
+    #SimulationManager.Instance.InitializeSimulations()
 
     try:
 
         DeviceManagerCLI.BuildDeviceList()
         # create new device
-        serial_no = "101272674"  # Replace this line with your device's serial number
+        serial_no = "101000004"  # Replace this line with your device's serial number
 
         device = BenchtopDCServo.CreateBenchtopDCServo(serial_no)
 
@@ -41,7 +47,7 @@ def main():
 
         # Get Device Information and display description
         device_info = device.GetDeviceInfo()
-        print(device_info.Description)
+        #print(device_info.Description)
 
         # Get the channel for the device
         x_channel = device.GetChannel(1)  # Returns a benchtop channel object
@@ -80,12 +86,14 @@ def main():
 
         # Home the device
         print("Homing X Channel")
-        x_channel.Home(60000)  # 60 second timeout
+        x_channel.Home(0)  # 60 second timeout
         print("Homing Y Channel")
         y_channel.Home(60000)
+        print("Homed")
+        time.sleep(5)
 
         # Create circle coordinates
-        angles = np.arange(0, 2 * np.pi, 0.025)
+        angles = np.arange(0, 2 * np.pi, 0.25)
         radius = 10.0  # mm
         xs = radius * np.cos(angles)
         ys = radius * np.sin(angles)
@@ -101,14 +109,17 @@ def main():
         x_channel.SetVelocityParams(x_vel_params)
         y_channel.SetVelocityParams(y_vel_params)
 
+        print("Scanning circle positions")
         # Go to a new position
         for i in range(len(angles)):
             x_channel.MoveTo(Decimal(float(xs[i])), 20000)
             y_channel.MoveTo(Decimal(float(ys[i])), 20000)
 
         # Return to Home
-        x_channel.Home(60000)
+        print("Returning to Home positions")
+        x_channel.Home(0)
         y_channel.Home(60000)
+        time.sleep(5)
 
         # Stop polling and exit
         x_channel.StopPolling()
@@ -117,8 +128,8 @@ def main():
         print(e)
 
     # Uncomment this line if you are using Simulations
-    # SimulationManager.Instance.UninitializeSimulations()
-    ...
+    #SimulationManager.Instance.UninitializeSimulations()
+
 
 
 if __name__ == "__main__":

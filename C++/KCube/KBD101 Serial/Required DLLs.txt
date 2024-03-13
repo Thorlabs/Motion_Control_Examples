@@ -1,0 +1,3 @@
+ftd2xx.h
+ftd2xx.lib
+ftd2xx.dll or ftd2xx64.dll

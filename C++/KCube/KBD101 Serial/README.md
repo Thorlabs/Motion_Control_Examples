@@ -3,11 +3,11 @@ This example shows how to control the KBD101 with serial commands.
 It demonstrates how to set the serial port, home the stage, set the parameters, move the stage and read the status of the stage.
 
 ## Preparation
-The electrical interface within the Thorlabs controllers uses a Future Technology Devices International (FTDI), type FT232BM USB peripheral chip to communicate with the host PC. The complete communications protocol can be found in the "Communications Protocol" tab of the following link:
+The electrical interface within the Thorlabs controllers uses a Future Technology Devices International (FTDI), type FT232BM USB peripheral chip to communicate with the host PC. The complete communications protocol can be found in the "Communications Protocol" tab of the following link:   
 https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=Motion_Control&viewtab=0  
 
-**Configuration Wizard is written for Windows OS in mind.**
-### Install the driver
+The following wizard explains how to install drivers and setup virtual serial ports. Configuration Wizard is written for Windows OS in mind.
+### Install the Driver
 The driver can be installed in two methods:
 1. Install the Thorlabs Motion Controller Software Kinesis, then the FTDI driver will be installed automatically. In this case, the library files can be found in C:\Program Files\Thorlabs\Kinesis\Drivers\Kinesis\VCP Driver or C:\Program Files (x86)\Thorlabs\Kinesis\Drivers\Kinesis\VCP Driver according to the bit of the software.  
 Download Link of the Kinesis: https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=Motion_Control&viewtab=0

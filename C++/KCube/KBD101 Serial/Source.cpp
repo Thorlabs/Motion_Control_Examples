@@ -1,7 +1,6 @@
 //Example Date of Creation(YYYY-MM-DD): 2024-03-13
 //Example Date of Last Modification on Github:  2024-03-13
 //Version of C++ for Testing adn IDE:C++ 14, Visual Studio 2022
-//Version of the ftd2xx.dll or ftd2xx64.dll used: 3.2.16.1
 #include "stdlib.h"
 #include "stdio.h"
 #include "ftd2xx.h"

@@ -1,0 +1,2 @@
+C:\Users\Doneill\OneDrive - THORLABS Inc\Customer files current\BBD303\BBD303_Ethernet\obj\Debug\BBD303_Ethernet.csproj.AssemblyReference.cache
+C:\Users\Doneill\OneDrive - THORLABS Inc\Customer files current\BBD303\BBD303_Ethernet\obj\Debug\BBD303_Ethernet.csproj.CoreCompileInputs.cache

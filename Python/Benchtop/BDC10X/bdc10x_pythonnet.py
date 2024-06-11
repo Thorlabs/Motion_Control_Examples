@@ -1,9 +1,10 @@
 """
-pythonnet_template
-==================
+BDC10X Pythonnet Example
+Date of Creation(YYYY-MM-DD): 2022-06-21
+Date of Last Modification on Github: 2022-06-21
+Python Version Used: python 3.10.0
+Kinesis Version Tested: 1.14.33
 
-A template useful for the creation of custom software for MotionControl Products.
-Originally written in a python 3.10.5 environment with a pre-release version of pythonnet (June 22)
 """
 import os
 import time

@@ -1,9 +1,10 @@
 """
-pythonnet_template
-==================
+BBDXXX Pythonnet Example
+Date of Creation(YYYY-MM-DD): 2022-06-21
+Date of Last Modification on Github: 2022-08-11
+Python Version Used: python3
+Kinesis Version Tested: 1.14.34
 
-A template useful for the creation of custom software for MotionControl Products.
-Originally written in a python 3.10.5 environment with a pre-release version of pythonnet (June 22)
 """
 import os
 import time

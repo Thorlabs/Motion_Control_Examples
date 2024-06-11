@@ -1,4 +1,16 @@
-﻿using System;
+﻿// Title: BPCX0X
+// Created Date: 02/04/2022
+// Last Modified Date: 04/26/2022
+// .NET Framework version: 4.7.2
+// Thorlabs DLL version: 1.14.32
+// Example Description: 
+// This example demonstrates how to set-up the communication for the Thorlabs 
+// BPCXXX Benchtop controllers.
+
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;

@@ -1,4 +1,14 @@
-﻿using System;
+﻿// Title: KST101
+// Created Date: 02/11/2022
+// Last Modified Date: 05/01/2023
+// .NET Framework version: 4.8.0
+// Thorlabs DLL version: 1.14.37
+// Example Description: 
+// This example demonstrates how to set-up the communication for the Thorlabs 
+// KST101 controllers.
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;

@@ -1,4 +1,14 @@
-﻿using System;
+﻿// Title: KDC101_Example
+// Created Date: 04/14/2022
+// Last Modified Date: 07/18/2023
+// .NET Framework version: 4.7.2
+// Thorlabs DLL version: 1.14.37
+// Example Description: 
+// This example demonstrates how to set-up the communication for the Thorlabs 
+// KDC101 controllers.
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -19,7 +19,6 @@ def main():
     SimulationManager.Instance.InitializeSimulations()
 
     try:
-        print(GenericMotorCLI.ControlParameters.JogParametersBase.JogModes.SingleStep)
         # Create new device
         serial_no = str("27000001")
 

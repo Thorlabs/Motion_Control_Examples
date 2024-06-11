@@ -1,0 +1,10 @@
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\Benchtop\BBD30X_Synch_Move\bin\Debug\BBD30X_Synch_Move.exe.config
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\Benchtop\BBD30X_Synch_Move\bin\Debug\BBD30X_Synch_Move.exe
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\Benchtop\BBD30X_Synch_Move\bin\Debug\BBD30X_Synch_Move.pdb
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\Benchtop\BBD30X_Synch_Move\bin\Debug\Thorlabs.MotionControl.PrivateInternal.dll
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\Benchtop\BBD30X_Synch_Move\bin\Debug\Thorlabs.MotionControl.Tools.WPF.dll
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\Benchtop\BBD30X_Synch_Move\obj\Debug\BBD30X_Synch_Move.csproj.AssemblyReference.cache
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\Benchtop\BBD30X_Synch_Move\obj\Debug\BBD30X_Synch_Move.csproj.CoreCompileInputs.cache
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\Benchtop\BBD30X_Synch_Move\obj\Debug\BBD30X_Synch_Move.csproj.CopyComplete
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\Benchtop\BBD30X_Synch_Move\obj\Debug\BBD30X_Synch_Move.exe
+C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\C#\Benchtop\BBD30X_Synch_Move\obj\Debug\BBD30X_Synch_Move.pdb

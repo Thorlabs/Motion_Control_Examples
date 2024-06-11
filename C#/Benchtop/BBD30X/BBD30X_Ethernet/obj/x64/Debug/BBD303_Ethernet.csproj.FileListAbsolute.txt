@@ -1,0 +1,8 @@
+C:\Users\Doneill\OneDrive - THORLABS Inc\Customer files current\BBD303\BBD303_Ethernet\obj\x64\Debug\BBD303_Ethernet.csproj.AssemblyReference.cache
+C:\Users\Doneill\OneDrive - THORLABS Inc\Customer files current\BBD303\BBD303_Ethernet\obj\x64\Debug\BBD303_Ethernet.csproj.CoreCompileInputs.cache
+C:\Users\Doneill\OneDrive - THORLABS Inc\Customer files current\BBD303\BBD303_Ethernet\bin\x64\Debug\BBD303_Ethernet.exe.config
+C:\Users\Doneill\OneDrive - THORLABS Inc\Customer files current\BBD303\BBD303_Ethernet\bin\x64\Debug\BBD303_Ethernet.exe
+C:\Users\Doneill\OneDrive - THORLABS Inc\Customer files current\BBD303\BBD303_Ethernet\bin\x64\Debug\BBD303_Ethernet.pdb
+C:\Users\Doneill\OneDrive - THORLABS Inc\Customer files current\BBD303\BBD303_Ethernet\obj\x64\Debug\BBD303_Ethernet.csproj.CopyComplete
+C:\Users\Doneill\OneDrive - THORLABS Inc\Customer files current\BBD303\BBD303_Ethernet\obj\x64\Debug\BBD303_Ethernet.exe
+C:\Users\Doneill\OneDrive - THORLABS Inc\Customer files current\BBD303\BBD303_Ethernet\obj\x64\Debug\BBD303_Ethernet.pdb

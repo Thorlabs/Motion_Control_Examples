@@ -1,0 +1,13 @@
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\Cage Rotator\K10CR1 c sharp\bin\Debug\K10CR1_Cage_Rotator.exe.config
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\Cage Rotator\K10CR1 c sharp\bin\Debug\K10CR1_Cage_Rotator.exe
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\Cage Rotator\K10CR1 c sharp\bin\Debug\K10CR1_Cage_Rotator.pdb
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\Cage Rotator\K10CR1 c sharp\bin\Debug\Thorlabs.MotionControl.PrivateInternal.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\Cage Rotator\K10CR1 c sharp\bin\Debug\Thorlabs.MotionControl.Tools.Common.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\Cage Rotator\K10CR1 c sharp\bin\Debug\Thorlabs.MotionControl.Tools.Logging.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\Cage Rotator\K10CR1 c sharp\bin\Debug\Thorlabs.MotionControl.Tools.WPF.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\Cage Rotator\K10CR1 c sharp\obj\Debug\K10CR1_Cage_Rotator.csproj.AssemblyReference.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\Cage Rotator\K10CR1 c sharp\obj\Debug\K10CR1_Cage_Rotator.csproj.SuggestedBindingRedirects.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\Cage Rotator\K10CR1 c sharp\obj\Debug\K10CR1_Cage_Rotator.csproj.CoreCompileInputs.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\Cage Rotator\K10CR1 c sharp\obj\Debug\K10CR1_Cage_Rotator.csproj.CopyComplete
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\Cage Rotator\K10CR1 c sharp\obj\Debug\K10CR1_Cage_Rotator.exe
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\Cage Rotator\K10CR1 c sharp\obj\Debug\K10CR1_Cage_Rotator.pdb

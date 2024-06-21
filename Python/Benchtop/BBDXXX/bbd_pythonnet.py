@@ -37,14 +37,10 @@ def main():
         device.Connect(serial_no)
 
         channel = device.GetChannel(1)
-        # Ensure that the device settings have been initialized
-        if not channel.IsSettingsInitialized():
-            channel.WaitForSettingsInitialized(10000)  # 10 second timeout
-            assert channel.IsSettingsInitialized() is True
 
         # Start polling and enable
         channel.StartPolling(250)  #250ms polling rate
-        time.sleep(25)
+        time.sleep(0.25)
         channel.EnableDevice()
         time.sleep(0.25)  # Wait for device to enable
 
@@ -57,9 +53,13 @@ def main():
         motor_config = channel.LoadMotorConfiguration(channel.DeviceID)  # Device ID is the serial no + channel
         device_settings = channel.MotorDeviceSettings
 
-        channel.UpdateConfiguration()
+        motor_config.UpdateCurrentConfiguration()
 
-        channel.SetSettings(device_settings)
+        channel.SetSettings(device_settings, False)
+
+        if not channel.IsSettingsInitialized():
+            channel.WaitForSettingsInitialized(10000)  # 10 second timeout
+            assert channel.IsSettingsInitialized() is True
 
         # Get parameters related to homing/zeroing/other
         home_params = channel.GetHomingParams()

@@ -1,4 +1,14 @@
-﻿using System;
+﻿// Title: TSC001
+// Created Date: 02/16/2022
+// Last Modified Date: 05/25/2022
+// .NET Framework version: 4.7.2
+// Thorlabs DLL version: 1.14.37
+// Example Description: 
+// This example demonstrates how to set-up the communication for the Thorlabs 
+// TSC001 controllers.
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;

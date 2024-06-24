@@ -1,4 +1,14 @@
-﻿using System;
+﻿// Title: KBD101_Triggering
+// Created Date: 02/11/2022
+// Last Modified Date: 07/18/2023
+// .NET Framework version: 4.7.2
+// Thorlabs DLL version: 1.14.37
+// Example Description: 
+// This example demonstrates how to set-up the communication for the Thorlabs 
+// KBD101 controllers and how to set the triggers.
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

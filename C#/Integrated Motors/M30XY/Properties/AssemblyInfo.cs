@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MFF101")]
+[assembly: AssemblyTitle("BDC101")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MFF101")]
+[assembly: AssemblyProduct("BDC101")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1f987612-51e7-4b2c-85a0-025c6d8e36e7")]
+[assembly: Guid("c15670bb-32c4-4b71-b69c-e6d9ceaf0142")]
 
 // Version information for an assembly consists of the following four values:
 //

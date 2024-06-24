@@ -1,26 +1,35 @@
-﻿using System;
+﻿// Title: K10CR1 cage rotator example
+// Created Date: 06/21/2023
+// Last Modified Date: 06/21/2024
+// .NET Framework version: 4.8
+// Thorlabs DLL version: 1.14.37
+// Example Description: 
+// This example demonstrates how to set-up the communication for the Thorlabs K10CR1 cage rotator
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Thorlabs.MotionControl.DeviceManagerCLI;
-using Thorlabs.MotionControl.FilterFlipperCLI;
 using Thorlabs.MotionControl.GenericMotorCLI;
 using Thorlabs.MotionControl.GenericMotorCLI.ControlParameters;
 using Thorlabs.MotionControl.GenericMotorCLI.AdvancedMotor;
 using Thorlabs.MotionControl.GenericMotorCLI.Settings;
-using Thorlabs.MotionControl.FilterFlipper;
+using Thorlabs.MotionControl.IntegratedStepperMotorsCLI;
 
-namespace MFF_Console_net_managed
+namespace K10CR1_Cage_Rotator
 {
-    class Program
+    internal class Program
     {
-
         static void Main(string[] args)
         {
-            // get parameters from command line
+            // Comment out if not using simulation
+            SimulationManager.Instance.InitializeSimulations();
+            // Set the motor target position (unit: degrees)
+            decimal position = 0;
 
-            // Get the test MFF101 serial number
-            string serialNo = "37000001";
+            // Change serial number to match your device. 
+            string serialNo = "55000001";
 
             try
             {
@@ -35,22 +44,12 @@ namespace MFF_Console_net_managed
                 return;
             }
 
-            // Get available Filter Flipper and check our serial number is correct
-            List<string> serialNumbers = DeviceManagerCLI.GetDeviceList(FilterFlipper.DevicePrefix);
-            if (!serialNumbers.Contains(serialNo))
-            {
-                // The requested serial number is not a MFF101 or is not connected
-                Console.WriteLine("{0} is not a valid serial number", serialNo);
-                Console.ReadKey();
-                return;
-            }
-
-            // Create the FilterFlipper device
-            FilterFlipper device = FilterFlipper.CreateFilterFlipper(serialNo);
+            // Create the device - K10CR1
+            CageRotator device = CageRotator.CreateCageRotator(serialNo);
             if (device == null)
             {
                 // An error occured
-                Console.WriteLine("{0} is not a FilterFlipper", serialNo);
+                Console.WriteLine("Cannot find {0}", serialNo);
                 Console.ReadKey();
                 return;
             }
@@ -92,59 +91,31 @@ namespace MFF_Console_net_managed
             // Needs a delay to give time for the device to be enabled
             Thread.Sleep(500);
 
-            // Get the Filter Flipper settings
-            FilterFlipperConfiguration currentDeviceSettings = device.GetDeviceConfiguration(serialNo, DeviceConfiguration.DeviceSettingsUseOptionType.UseDeviceSettings);
+            // Call LoadMotorConfiguration on the device to initialize the DeviceUnitConverter object required for real world unit parameters
+            // loads configuration information into channel
+            MotorConfiguration motorConfiguration = device.LoadMotorConfiguration(serialNo);
+
+            // Not used directly in example but illustrates how to obtain device settings
+            ThorlabsIntegratedStepperMotorSettings currentDeviceSettings = device.MotorDeviceSettings as ThorlabsIntegratedStepperMotorSettings;
 
             // Display info about device
             DeviceInfo deviceInfo = device.GetDeviceInfo();
             Console.WriteLine("Device {0} = {1}", deviceInfo.SerialNumber, deviceInfo.Name);
 
-            Home(device);
-
-            Thread.Sleep(1000);
-
-            // Flip mounts are 'two-position' - move to position 1
-            Move(device, 1);
-
-            Thread.Sleep(1000);
-
-            // Flip mounts are 'two-position' - move to position 2
-            Move(device, 2);
+            // Initialize moves. 
+            device.Home(60000);
+            device.MoveTo(position, 60000);
+            Console.WriteLine("Device is at {0} degrees", device.Position);
 
             device.StopPolling();
             device.Disconnect(true);
 
+            Console.WriteLine("Complete. Press any key to exit");
             Console.ReadKey();
+            // comment out if not using simulation
+            SimulationManager.Instance.UninitializeSimulations();
+
         }
 
-        public static void Home(FilterFlipper device)
-        {
-            try
-            {
-                Console.WriteLine("Homing device");
-                device.Home(60000);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Failed to home device");
-                Console.ReadKey();
-                return;
-            }
-            Console.WriteLine("Device Homed");
-        }
-        public static void Move(FilterFlipper device, uint position)
-        {
-            try
-            {
-                Console.WriteLine("Moving Device to {0}", position);
-                device.SetPosition(position, 60000);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Failed to move to position");
-                Console.ReadKey();
-                return;
-            }
-        }
     }
 }

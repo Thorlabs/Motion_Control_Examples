@@ -1,4 +1,13 @@
-﻿using System;
+﻿// Title: 
+// Created Date: 02/11/2022
+// Last Modified Date: 01/16/2024
+// .NET Framework version: 4.8.0
+// Thorlabs DLL version: 1.14.44
+// Example Description: 
+// This example demonstrates how to set-up the communication for the Thorlabs 
+// KIM101 controllers.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;

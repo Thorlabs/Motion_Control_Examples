@@ -1,4 +1,11 @@
-#Example tested for ELL6
+"""
+ELL6 pythonnet Example
+Date of Creation(YYYY-MM-DD): 2024-05-02
+Date of Last Modification on Github: 2024-05-11
+Python Version Used: python 3.10.5
+ELLO Software Version: 1.6.2.0
+
+"""
 import sys, os, time
 import clr
 

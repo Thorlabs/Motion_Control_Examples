@@ -1,4 +1,15 @@
-﻿using System;
+﻿// Title: KBD101
+// Created Date: 02/11/2022
+// Last Modified Date: 04/14/2022
+// .NET Framework version: 4.7.2
+// Thorlabs DLL version: 1.14.37
+// Example Description: 
+// This example demonstrates how to set-up the communication for the Thorlabs 
+// KBD101 controllers.
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;

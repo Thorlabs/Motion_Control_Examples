@@ -1,4 +1,14 @@
-﻿using System;
+﻿// Title: MPCX20
+// Created Date: 05/18/2022
+// Last Modified Date: 11/29/2023
+// .NET Framework version: 4.8.0
+// Thorlabs DLL version: 1.14.44
+// Example Description: 
+// This example demonstrates how to set-up the communication for the Thorlabs 
+// MPCX20 modular rack controllers.
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;

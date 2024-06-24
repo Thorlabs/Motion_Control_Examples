@@ -1,3 +1,13 @@
+"""
+PDXC2 Ctypes Example
+Date of Creation(YYYY-MM-DD): 2024-02-01
+Date of Last Modification on Github: 2024-02-01
+Python Version Used: python 3.10.5
+Kinesis Version Tested: 1.14.45
+
+"""
+
+
 import os
 import time
 import sys

@@ -1,7 +1,7 @@
 %% Header
 % Title: KSC101.m
 % Created Date: 2024-01-16
-% Last modified date: 2024-01-16
+% Last modified date: 2024-07-02
 % Matlab Version: R2023b
 % Thorlabs DLL version: Kinesis 1.14.44
 %% Notes:
@@ -36,27 +36,37 @@ timeout_val=60000;
 %Connect to controller
 device = KCubeSolenoid.CreateKCubeSolenoid(serial_num);
 device.Connect(serial_num);
-device.WaitForSettingsInitialized(5000);
 
-device.StartPolling(250);
-device.EnableDevice();
-pause(1) %wait to make sure device is enabled
-
-%%
-%Pull the enumeration values from the SolenoidCLI
-modesHandle = solCLI.AssemblyHandle.GetType("Thorlabs.MotionControl.KCube.SolenoidCLI.SolenoidStatus+OperatingModes");
-statesHandle = solCLI.AssemblyHandle.GetType("Thorlabs.MotionControl.KCube.SolenoidCLI.SolenoidStatus+OperatingStates");
-modesEnums = modesHandle.GetEnumValues();
-statesEnums = statesHandle.GetEnumValues();
-
-device.SetOperatingMode(modesEnums.GetValue(0)); % Manual mode, change the interger value for other modes
-pause(5);
-fprintf("Opening the Shutter\n")
-device.SetOperatingState(statesEnums.GetValue(0)); % Opens the shutter
-pause(5);
-fprintf("Closing the Shutter\n")
-device.SetOperatingState(statesEnums.GetValue(1)); % Closes the shutter
-pause(5);
+try
+    % Try/Catch statement used to disconnect correctly after an error
+    
+    device.WaitForSettingsInitialized(5000);
+    
+    device.StartPolling(250);
+    device.EnableDevice();
+    pause(1) %wait to make sure device is enabled
+    
+    %%
+    %Pull the enumeration values from the SolenoidCLI
+    modesHandle = solCLI.AssemblyHandle.GetType("Thorlabs.MotionControl.KCube.SolenoidCLI.SolenoidStatus+OperatingModes");
+    statesHandle = solCLI.AssemblyHandle.GetType("Thorlabs.MotionControl.KCube.SolenoidCLI.SolenoidStatus+OperatingStates");
+    modesEnums = modesHandle.GetEnumValues();
+    statesEnums = statesHandle.GetEnumValues();
+    
+    device.SetOperatingMode(modesEnums.GetValue(0)); % Manual mode, change the interger value for other modes
+    pause(5);
+    fprintf("Opening the Shutter\n")
+    device.SetOperatingState(statesEnums.GetValue(0)); % Opens the shutter
+    pause(5);
+    fprintf("Closing the Shutter\n")
+    device.SetOperatingState(statesEnums.GetValue(1)); % Closes the shutter
+    pause(5);
+catch
+    fprintf("Error has caused the program to stop, disconnecting..\n")
+    fprintf(e.identifier);
+    fprintf("\n");
+    fprintf(e.message);
+end
 
 %% Disconnect from controller
 device.StopPolling();

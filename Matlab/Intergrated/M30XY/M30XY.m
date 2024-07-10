@@ -1,7 +1,7 @@
 %% Header
 % M30XY.m
 % Created Date: 2024-01-26
-% Last modified date: 2024-01-26
+% Last modified date: 2024-07-02
 % Matlab Version: R2022a
 % Thorlabs DLL version: Kinesis 1.14.45
 %% Notes
@@ -33,46 +33,50 @@ serialNo='101000001';
 timeoutVal=60000;
 
 %Set up device and configuration
-try 
 device =BenchtopDCServo.CreateBenchtopDCServo(serialNo);
-catch e
-    e.message;
-    if(isa(e, 'NET.NetException'))
-        eObj = e.ExceptionObject;
-    end
-end
 device.Connect(serialNo);
-channel = device.GetChannel(1);
 
-channel.WaitForSettingsInitialized(5000);
+try
+    % Try/Catch statement used to disconnect correctly after an error
 
-%The polling loop requests regular status requests to the motor to ensure the program keeps track of the device. 
-channel.StartPolling(250);
-%Needs a delay so that the current enabled state can be obtained
-pause(1);
-%Enable the channel otherwise any move is ignored 
-channel.EnableDevice();
-%Needs a delay to give time for the device to be enabled
-pause(1);
+    channel = device.GetChannel(1);
+    
+    channel.WaitForSettingsInitialized(5000);
+    
+    %The polling loop requests regular status requests to the motor to ensure the program keeps track of the device. 
+    channel.StartPolling(250);
+    %Needs a delay so that the current enabled state can be obtained
+    pause(1);
+    %Enable the channel otherwise any move is ignored 
+    channel.EnableDevice();
+    %Needs a delay to give time for the device to be enabled
+    pause(1);
+    
+    %Call LoadMotorConfiguration on the device to initialize the DeviceUnitConverter object required for real world unit parameters
+    % - loads configuration information into channel
+    motorConfiguration = channel.LoadMotorConfiguration(channel.DeviceID);
+    
+    % Display info about device
+    deviceInfo = channel.GetDeviceInfo();
+    disp( deviceInfo.Name);
+    
+    %Home
+    channel.Home(timeoutVal);
+    fprintf('Motor homed.\n');
+    
+    %Move to unit 10
+    channel.MoveTo(10, timeoutVal);
+    
+    %Check Position
+    pos = System.Decimal.ToDouble(channel.Position);
+    fprintf('The motor position is %d.\n',pos);
 
-%Call LoadMotorConfiguration on the device to initialize the DeviceUnitConverter object required for real world unit parameters
-% - loads configuration information into channel
-motorConfiguration = channel.LoadMotorConfiguration(channel.DeviceID);
-
-% Display info about device
-deviceInfo = channel.GetDeviceInfo();
-disp( deviceInfo.Name);
-
-%Home
-channel.Home(timeoutVal);
-fprintf('Motor homed.\n');
-
-%Move to unit 10
-channel.MoveTo(10, timeoutVal);
-
-%Check Position
-pos = System.Decimal.ToDouble(channel.Position);
-fprintf('The motor position is %d.\n',pos);
+catch
+    fprintf("Error has caused the program to stop, disconnecting..\n")
+    fprintf(e.identifier);
+    fprintf("\n");
+    fprintf(e.message);
+end
 
 %% Close and Disconnect
 channel.StopPolling()

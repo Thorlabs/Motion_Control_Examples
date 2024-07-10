@@ -1,7 +1,7 @@
 %% Header
 % Title: KIM101.m
 % Created Date: 2024-01-16
-% Last modified date: 2024-01-16
+% Last modified date: 2024-07-02
 % Matlab Version: R2023b
 % Thorlabs DLL version: Kinesis 1.14.44
 %% Notes:
@@ -34,26 +34,36 @@ timeout_val=60000;
 %Connect to controller
 device = KCubeInertialMotor.CreateKCubeInertialMotor(serial_num);
 device.Connect(serial_num);
-device.WaitForSettingsInitialized(5000);
 
-device.StartPolling(250);
-device.EnableDevice();
-pause(1) %wait to make sure device is enabled
+try
+    % Try/Catch statement used to disconnect correctly after an error
 
-% Pull the Enums needed
-channelsHandle = motCLI.AssemblyHandle.GetType('Thorlabs.MotionControl.KCube.InertialMotorCLI.InertialMotorStatus+MotorChannels');
-
-channelsEnums = channelsHandle.GetEnumValues();
-jogDirectionHandle = motCLI.AssemblyHandle.GetType('Thorlabs.MotionControl.KCube.InertialMotorCLI.InertialMotorJogDirection');
-jogDirectionEnums = jogDirectionHandle.GetEnumValues();
-
-% Zero the actuator
-fprintf("Zero the actuator\n")
-device.SetPositionAs(channelsEnums.GetValue(0), 0);
-
-% Jog the Actuator
-fprintf("Jog the actuator forwards\n")
-device.Jog(channelsEnums.GetValue(0), jogDirectionEnums.GetValue(0), timeout_val);
+    device.WaitForSettingsInitialized(5000);
+    
+    device.StartPolling(250);
+    device.EnableDevice();
+    pause(1) %wait to make sure device is enabled
+    
+    % Pull the Enums needed
+    channelsHandle = motCLI.AssemblyHandle.GetType('Thorlabs.MotionControl.KCube.InertialMotorCLI.InertialMotorStatus+MotorChannels');
+    
+    channelsEnums = channelsHandle.GetEnumValues();
+    jogDirectionHandle = motCLI.AssemblyHandle.GetType('Thorlabs.MotionControl.KCube.InertialMotorCLI.InertialMotorJogDirection');
+    jogDirectionEnums = jogDirectionHandle.GetEnumValues();
+    
+    % Zero the actuator
+    fprintf("Zero the actuator\n")
+    device.SetPositionAs(channelsEnums.GetValue(0), 0);
+    
+    % Jog the Actuator
+    fprintf("Jog the actuator forwards\n")
+    device.Jog(channelsEnums.GetValue(0), jogDirectionEnums.GetValue(0), timeout_val);
+catch
+    fprintf("Error has caused the program to stop, disconnecting..\n")
+    fprintf(e.identifier);
+    fprintf("\n");
+    fprintf(e.message);
+end
 
 %Disconnect from controller
 device.StopPolling();

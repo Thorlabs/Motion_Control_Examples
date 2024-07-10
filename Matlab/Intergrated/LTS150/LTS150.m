@@ -1,7 +1,7 @@
 %% Header
 % LTS150.m
 % Created Date: 2024-01-16
-% Last modified date: 2024-01-16
+% Last modified date: 2024-07-02
 % Matlab Version: R2023b
 % Thorlabs DLL version: Kinesis 1.14.44
 %% Notes
@@ -35,26 +35,35 @@ timeout_val = 60000;
 device = Thorlabs.MotionControl.IntegratedStepperMotorsCLI.LongTravelStage.CreateLongTravelStage(serialNumber);
 device.Connect(serialNumber) 
 
-% Settings should be initialized as soon as the channel is connected. 
-device.WaitForSettingsInitialized(50000);
-device.StartPolling(250);
+try
+    % Try/Catch statement used to disconnect correctly after an error
 
-%Load Settings
-motorConfiguration = device.LoadMotorConfiguration(serialNumber);
-
-%Enable the device and start sending commands
-device.EnableDevice();
-pause(1); %wait to make sure Ch1 is enabled
-
-% Homing
-fprintf("Homing...\n")
-device.Home(timeout_val);
-fprintf("Homed\n")
-
-% Moving
-fprintf("Moving...\n")
-device.MoveTo(50, timeout_val)
-fprintf("Moved.\n")
+    % Settings should be initialized as soon as the channel is connected. 
+    device.WaitForSettingsInitialized(50000);
+    device.StartPolling(250);
+    
+    %Load Settings
+    motorConfiguration = device.LoadMotorConfiguration(serialNumber);
+    
+    %Enable the device and start sending commands
+    device.EnableDevice();
+    pause(1); %wait to make sure Ch1 is enabled
+    
+    % Homing
+    fprintf("Homing...\n")
+    device.Home(timeout_val);
+    fprintf("Homed\n")
+    
+    % Moving
+    fprintf("Moving...\n")
+    device.MoveTo(50, timeout_val)
+    fprintf("Moved.\n")
+catch
+    fprintf("Error has caused the program to stop, disconnecting..\n")
+    fprintf(e.identifier);
+    fprintf("\n");
+    fprintf(e.message);
+end
 
 %% Disconnect the device
 device.StopPolling();

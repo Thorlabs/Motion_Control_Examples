@@ -61,7 +61,7 @@ try
     fprintf("Closing the Shutter\n")
     device.SetOperatingState(statesEnums.GetValue(1)); % Closes the shutter
     pause(5);
-catch
+catch e
     fprintf("Error has caused the program to stop, disconnecting..\n")
     fprintf(e.identifier);
     fprintf("\n");

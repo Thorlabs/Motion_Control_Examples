@@ -71,7 +71,7 @@ try
     pos = System.Decimal.ToDouble(channel.Position);
     fprintf('The motor position is %d.\n',pos);
 
-catch
+catch e
     fprintf("Error has caused the program to stop, disconnecting..\n")
     fprintf(e.identifier);
     fprintf("\n");

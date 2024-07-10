@@ -63,7 +63,7 @@ try
     channel.MoveTo(position, timeout);
     fprintf("Moved\n")
     pause(1);
-catch
+catch e
     fprintf("Error has caused the program to stop, disconnecting..\n")
     fprintf(e.identifier);
     fprintf("\n");

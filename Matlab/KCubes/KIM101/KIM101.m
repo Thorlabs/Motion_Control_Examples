@@ -58,7 +58,7 @@ try
     % Jog the Actuator
     fprintf("Jog the actuator forwards\n")
     device.Jog(channelsEnums.GetValue(0), jogDirectionEnums.GetValue(0), timeout_val);
-catch
+catch e
     fprintf("Error has caused the program to stop, disconnecting..\n")
     fprintf(e.identifier);
     fprintf("\n");

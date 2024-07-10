@@ -58,7 +58,7 @@ try
     fprintf("Moving...\n")
     device.MoveTo(50, timeout_val)
     fprintf("Moved.\n")
-catch
+catch e
     fprintf("Error has caused the program to stop, disconnecting..\n")
     fprintf(e.identifier);
     fprintf("\n");

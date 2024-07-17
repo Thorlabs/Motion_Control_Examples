@@ -1,7 +1,7 @@
 /*
 KPZ101 Simple Example
 Date of Creation(YYYY-MM-DD): 2021-12-24
-Date of Last Modification on Github: 2022-09-21
+Date of Last Modification on Github: 2024-07-17
 C++ Version Used: ISO C++ 14
 Kinesis Version Tested: 1.14.40
 */
@@ -21,7 +21,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 	//TLI_InitializeSimulations();
 	
 	// Change this line to reflect your device's serial number
-	int serialNo = 81000001;
+	int serialNo = 29000001;
 
 	// Optionally adjust this value to move your device to a new position (in device units)
 	int position = 0;
@@ -37,7 +37,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 		short n = TLI_GetDeviceListSize();
 		// get KPZ serial numbers
 		char serialNos[100];
-		TLI_GetDeviceListByTypeExt(serialNos, 100, 81);
+		TLI_GetDeviceListByTypeExt(serialNos, 100, 29);
 
 		// Search serial numbers for given serial number
 		if (strstr(serialNos, testSerialNo)) {
@@ -77,7 +77,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 	}
 
 	// Uncomment this line if you are using simulations
-	//TLI_UnitializeSimulations;
+	//TLI_UninitializeSimulations;
 	char c = _getch();
 	return 0;
 }

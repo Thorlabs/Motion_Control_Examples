@@ -1,4 +1,15 @@
-﻿using System;
+﻿// Title: BBD30X_Synch_Move
+// Created Date: 04/19/2024
+// Last Modified Date: 04/19/2024
+// .NET Framework version: 4.8.2
+// Thorlabs DLL version: 1.14.47
+// Example Description: 
+// This example demonstrates how to set-up communication for the Thorlabs 
+// BBD Benchtop controllers and implement a synchronized move between channels. 
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;

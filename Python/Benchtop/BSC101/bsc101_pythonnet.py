@@ -1,8 +1,10 @@
 """
-pythonnet_template
-==================
+BSC101 Pythonnet Example
+Date of Creation(YYYY-MM-DD): 2023-05-19
+Date of Last Modification on Github: 2023-05-24
+Python Version Used: python 3.10.5
+Kinesis Version Tested: 1.14.40
 
-An example written to show control of a BSC101 stepper motor controller.
 """
 import os
 import time

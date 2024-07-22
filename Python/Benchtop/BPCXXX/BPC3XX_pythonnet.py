@@ -1,8 +1,10 @@
 """
-pythonnet_template
-==================
+BPC3XX Pythonnet Example
+Date of Creation(YYYY-MM-DD): 2023-07-28
+Date of Last Modification on Github: 2023-07-28
+Python Version Used: python 3.10.5
+Kinesis Version Tested: 1.14.40
 
-A template useful for the creation of custom software for Thorlabs BPCXXX benchtop controllers.
 """
 import os
 import time

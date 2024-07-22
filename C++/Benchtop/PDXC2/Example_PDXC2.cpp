@@ -1,5 +1,10 @@
-// Example_PDXC2.cpp : Defines the entry point for the console application.
-//
+/*
+PDXC2 Simple Example
+Date of Creation(YYYY-MM-DD): 2024-01-26
+Date of Last Modification on Github: 2024-01-26
+C++ Version Used: ISO C++ 14
+Kinesis Version Tested: 1.14.45
+*/
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,8 +1,9 @@
 """
 Example PDXC2_serial.py
-Example Date of Creation: 2024-08-08
-Example Date of Last Modification on Github: 2024-08-08
+Example Date of Creation: 2024-08-22
+Example Date of Last Modification on Github: 2024-08-22
 Version of Python used for Testing: 3.10
+Version of PDXC2 firmware: 1.0.6
 ==================
 Example Description: The example shows how to connect to PDXC2 on Windows and Linux. 
 It also shows how to move the stage in open loop and close loop mode. 
@@ -146,10 +147,15 @@ def OpenLoopMove(ser):
     ser.write(command)
     time.sleep(0.05)
     
-    #Start Open Loop Move || MGMSG_PZMOT_MOVE_START ||0x2100
+    # Flush input and output buffer
+    ser.flushInput()
+    ser.flushOutput() 
+    
+    # Start Open Loop Move || MGMSG_PZMOT_MOVE_START ||0x2100
     command = pack('<HBBBB',0x2100, channel, 0x01, destination, source)
     ser.write(command)
     time.sleep(0.05)
+    # Upon completion of the movement, a message will send || MGMSG_PZMOT_MOVE_COMPLETED || 0x08D6
     
     # Flush input and output buffer
     ser.flushInput()
@@ -164,8 +170,9 @@ def OpenLoopMove(ser):
     Rx = ser.read(62)
     if len(Rx) >= 20:
         currentPos, encCount ,statusBits = unpack('<llL',Rx[8:20])
-        #wait for the movement to stop
-        while (statusBits & 0xF0) != 0 or Rx[0] != 0xE1:
+        # wait for the movement to stop
+        # if Rx contains '\d6\08', it's the auto message MGMSG_PZMOT_MOVE_COMPLETED, skip and request the status again
+        while ((statusBits & 0xF0) != 0) or ((b'\xd6\x08') in Rx):
             # Flush input and output buffer
             ser.flushInput()
             ser.flushOutput() 
@@ -226,34 +233,19 @@ def CloseLoopMove(ser):
     ser.write(command)
     time.sleep(0.05)
     
-    # Flush input and output buffer
-    ser.flushInput()
-    ser.flushOutput() 
-    
-    # Request device status || MGMSG_PZMOT_REQ_STATUSUPDATE ||0x08E0
-    command = pack('<HBBBB',0x08E0, 0x00, 0x00, destination, source)
-    ser.write(command)
-    time.sleep(0.05)
-    
-    #Get device status of channel 1 || MGMSG_PZMOT_GET_STATUSUPDATE ||0x08E1
-    Rx = ser.read(62)
-    if len(Rx) >= 20:
-        statusBits = unpack('<L',Rx[16:20])[0]
-        # wait home complete
-        while (statusBits & 0x400)!= 0x400 or Rx[0] != 0xE1:
-            # Flush input and output buffer
-            ser.flushInput()
-            ser.flushOutput() 
-            command = pack('<HBBBB',0x08E0, 0x00, 0x00, destination, source)
-            ser.write(command)
-            time.sleep(0.05)
-            Rx = ser.read(62)
-            statusBits = unpack('<L',Rx[16:20])[0]
+    # Upon completion of home sequence, a message will send || MGMSG_MOT_MOVE_HOMED || 0x0444
+    startTime = time.time()
+    Rx = bytearray()
+    while len(Rx) < 6:
+        new_data = ser.read(ser.inWaiting() or 1)
+        Rx.extend(new_data)
+        time.sleep(0.01)
+        endTime = time.time()
+        # overtime break
+        if endTime - startTime > 30:
+            print(f"Fail to home the stage")
+            return -1
 
-    else: 
-        print("MGMSG_PZMOT_GET_STATUSUPDATE: Fail to receive bytes.")
-        return -1
-        
     print("The stage is Homed.")
     
     # Flush input and output buffer
@@ -265,10 +257,15 @@ def CloseLoopMove(ser):
     ser.write(command)
     time.sleep(0.05)
     
+    # Flush input and output buffer
+    ser.flushInput()
+    ser.flushOutput() 
+    
     #Start Close Loop Move || MGMSG_PZMOT_MOVE_START ||0x2100
     command = pack('<HBBBB',0x2100, channel, 0x01, destination, source)
     ser.write(command)
     time.sleep(0.05)
+    # Upon completion of the movement, a message will send || MGMSG_PZMOT_MOVE_COMPLETED || 0x08D6
     
     # Flush input and output buffer
     ser.flushInput()
@@ -283,8 +280,9 @@ def CloseLoopMove(ser):
     Rx = ser.read(62)
     if len(Rx) >= 20:
         currentPos, encCount ,statusBits = unpack('<llL',Rx[8:20])
-        #wait for the movement to stop
-        while (statusBits & 0xF0) != 0 or Rx[0] != 0xE1:
+        # wait for the movement to stop
+        # if Rx contains '\d6\08', it's the auto message MGMSG_PZMOT_MOVE_COMPLETED, skip and request the status again
+        while ((statusBits & 0xF0) != 0) or ((b'\xd6\x08') in Rx):
             # Flush input and output buffer
             ser.flushInput()
             ser.flushOutput() 
@@ -293,11 +291,17 @@ def CloseLoopMove(ser):
             time.sleep(0.05)
             Rx = ser.read(62)
             currentPos, encCount ,statusBits = unpack('<llL',Rx[8:20])
+        print(f"The stage stops at {currentPos} nm.")
+        # Flush input and output buffer
+        ser.flushInput()
+        ser.flushOutput() 
+        return 1
     else: 
         print("MGMSG_PZMOT_GET_STATUSUPDATE: Fail to receive bytes.")
+        # Flush input and output buffer
+        ser.flushInput()
+        ser.flushOutput() 
         return -1
-    
-    print(f"The stage stops at {currentPos} nm.")
 
 
 if __name__ == "__main__":

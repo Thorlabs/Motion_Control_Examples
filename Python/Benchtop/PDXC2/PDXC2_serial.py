@@ -157,29 +157,25 @@ def OpenLoopMove(ser):
     time.sleep(0.05)
     # Upon completion of the movement, a message will send || MGMSG_PZMOT_MOVE_COMPLETED || 0x08D6
     
-    # Flush input and output buffer
-    ser.flushInput()
-    ser.flushOutput() 
-    
     # Request device status || MGMSG_PZMOT_REQ_STATUSUPDATE ||0x08E0
     command = pack('<HBBBB',0x08E0, 0x00, 0x00, destination, source)
     ser.write(command)
     time.sleep(0.05)
     
     #Get device status and position of channel 1 || MGMSG_PZMOT_GET_STATUSUPDATE ||0x08E1
-    Rx = ser.read(62)
+    Rx = ser.read_all()
     if len(Rx) >= 20:
         currentPos, encCount ,statusBits = unpack('<llL',Rx[8:20])
         # wait for the movement to stop
         # if Rx contains '\d6\08', it's the auto message MGMSG_PZMOT_MOVE_COMPLETED, skip and request the status again
-        while ((statusBits & 0xF0) != 0) or ((b'\xd6\x08') in Rx):
+        while ((statusBits & 0xF0) != 0) or ((b'\xd6\x08') in Rx) or Rx[0] != 0xE1:
             # Flush input and output buffer
             ser.flushInput()
             ser.flushOutput() 
             command = pack('<HBBBB',0x08E0, 0x00, 0x00, destination, source)
             ser.write(command)
             time.sleep(0.05)
-            Rx = ser.read(62)
+            Rx = ser.read_all()
             currentPos, encCount ,statusBits = unpack('<llL',Rx[8:20])
         print(f"The stage stops at {currentPos} steps.")
         # Flush input and output buffer
@@ -267,29 +263,25 @@ def CloseLoopMove(ser):
     time.sleep(0.05)
     # Upon completion of the movement, a message will send || MGMSG_PZMOT_MOVE_COMPLETED || 0x08D6
     
-    # Flush input and output buffer
-    ser.flushInput()
-    ser.flushOutput() 
-    
     # Request device status || MGMSG_PZMOT_REQ_STATUSUPDATE ||0x08E0
     command = pack('<HBBBB',0x08E0, 0x00, 0x00, destination, source)
     ser.write(command)
     time.sleep(0.05)
     
     #Get device status and position of channel 1 || MGMSG_PZMOT_GET_STATUSUPDATE ||0x08E1
-    Rx = ser.read(62)
+    Rx = ser.read_all()
     if len(Rx) >= 20:
         currentPos, encCount ,statusBits = unpack('<llL',Rx[8:20])
         # wait for the movement to stop
         # if Rx contains '\d6\08', it's the auto message MGMSG_PZMOT_MOVE_COMPLETED, skip and request the status again
-        while ((statusBits & 0xF0) != 0) or ((b'\xd6\x08') in Rx):
+        while ((statusBits & 0xF0) != 0) or ((b'\xd6\x08') in Rx) or Rx[0] != 0xE1:
             # Flush input and output buffer
             ser.flushInput()
             ser.flushOutput() 
             command = pack('<HBBBB',0x08E0, 0x00, 0x00, destination, source)
             ser.write(command)
             time.sleep(0.05)
-            Rx = ser.read(62)
+            Rx = ser.read_all()
             currentPos, encCount ,statusBits = unpack('<llL',Rx[8:20])
         print(f"The stage stops at {currentPos} nm.")
         # Flush input and output buffer

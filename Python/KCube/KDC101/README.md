@@ -10,11 +10,6 @@ This example uses the Kinesis .NET library and the Python module 'pythonNET'.
 This example uses the Kinesis C/C++ library and the Python module 'ctypes'´.
 It shows basic functionality.
 
-## KDC101_getrealfromdevice.py
-
-This example uses the Kinesis C/C++ library and the Python module 'ctypes'´.
-It shows how to get real units from device units.
-
 ## KDC101_serial.py
 
 This example uses serial commands as documented in the "APT Communications Protocol" and the Python module "pyserial".
@@ -25,6 +20,8 @@ Please follow the following steps to setup a Virtual Communication Port for Wind
 4. Select the ‘Advanced’ tab, and check the ‘Load VCP’ box.
 5. Click OK, then power cycle the device being configured.
 6. In the device manager, click ‘Ports (COM & LPT)’, and note the ‘APT USB Device Serial Port’ COM port number (e.g. COM3). This COM port can then be used for low level protocol messages.
+
+Serial commands can also be used with Linux OS.
 
 
 ## KDC101_Power_Meter_Insight_Code.py

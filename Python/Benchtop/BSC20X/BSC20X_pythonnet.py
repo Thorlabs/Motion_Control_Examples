@@ -24,7 +24,7 @@ def main():
     # Comment out this line for the real device
     #SimulationManager.Instance.InitializeSimulations()
     try:
-        DeviceManagerCLI.BuildDeviceList();
+        DeviceManagerCLI.BuildDeviceList()
 
         # create new device
         serial_no = "70202914"  # Replace this line with your device's serial number
@@ -69,7 +69,7 @@ def main():
         # Home or Zero the device (if a motor/piezo)
         print("Homing Motor")
         channel.Home(60000)
-        print("Homing Completer")
+        print("Homing Completed")
 
 
         time.sleep(2)

@@ -37,8 +37,6 @@ def main():
 
         # set voltage here 
         voltage = Decimal(4)
-        
-        DeviceManagerCLI.BuildDeviceList()
 
         # Connect, begin polling, and enable
         device = BenchtopPrecisionPiezo.CreateBenchtopPiezo(serial_no)

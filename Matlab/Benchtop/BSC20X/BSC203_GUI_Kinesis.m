@@ -1,3 +1,17 @@
+%% Header
+% BSC203_GUI_Kinesis.m
+% Created Date: 2024-10-21
+% Last modified date: 2024-10-21
+% Matlab Version: R2023b
+% Thorlabs DLL version: Kinesis 1.14.44
+%% Notes
+%
+% Example for the BSC203 opening the Kinesis GUI
+%%
+%% Start of code
+
+clear all; close all; clc
+
 %% Load Assemblies
 NET.addAssembly('System.Windows.Forms');
 NET.addAssembly('C:\Program Files\Thorlabs\Kinesis\Thorlabs.MotionControl.DeviceManagerCLI.dll');

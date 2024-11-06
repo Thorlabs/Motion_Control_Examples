@@ -44,7 +44,7 @@ def main():
 
         # Start polling and enable
         channel.StartPolling(250)  # 250ms polling rate
-        time.sleep(0.5)
+        time.sleep(0.25)
         channel.EnableDevice()
         time.sleep(0.25)  # Wait for device to enable
 

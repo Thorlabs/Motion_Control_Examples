@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e5d5a5f-dbae-4e88-84c0-0df33b3db40e" name="Changes" comment="" />
+    <list default="true" id="6e5d5a5f-dbae-4e88-84c0-0df33b3db40e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Benchtop/BDC10X/bdc10x_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Benchtop/BDC10X/bdc10x_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Benchtop/BPCXXX/BPC3XX_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Benchtop/BPCXXX/BPC3XX_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Benchtop/BSC101/bsc101_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Benchtop/BSC101/bsc101_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Benchtop/BSC20X/BSC20X_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Benchtop/BSC20X/BSC20X_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Benchtop/PPC00X/PFM450_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Benchtop/PPC00X/PFM450_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Integrated Stages/Cage Rotator/K10CR1_Rotation Methods_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Integrated Stages/Cage Rotator/K10CR1_Rotation Methods_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Integrated Stages/Cage Rotator/K10CR1_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Integrated Stages/Cage Rotator/K10CR1_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Integrated Stages/LTS/lts_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Integrated Stages/LTS/lts_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Integrated Stages/MFF/MFF10x_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Integrated Stages/MFF/MFF10x_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Integrated Stages/Polarization Controller/MPCx20_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Integrated Stages/Polarization Controller/MPCx20_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCube/KBD101/kbd101_triggering_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/KCube/KBD101/kbd101_triggering_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCube/KIM101/kim101_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/KCube/KIM101/kim101_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCube/KPZ101/kpz101_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/KCube/KPZ101/kpz101_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KCube/KST101/kst101_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/KCube/KST101/kst101_pythonnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modular Rack/mmr_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modular Rack/mmr_pythonnet.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,13 +43,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mcalle/Documents/GitHub/Motion_Control_Examples/Python&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Doneill/Documents/GitHub/Motion_Control_Examples/Python"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Modular Rack" />
@@ -172,6 +189,17 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -204,21 +232,6 @@
           <url>file://$PROJECT_DIR$/Benchtop/BBDXXX/bbd_pythonnet.py</url>
           <line>37</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Integrated Stages/LTS/lts_pythonnet.py</url>
-          <line>37</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Integrated Stages/LTS/lts_pythonnet.py</url>
-          <line>38</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Modular Rack/mmr_pythonnet.py</url>
-          <line>39</line>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/KCube/KDC101/kdc101_pythonnet.py</url>

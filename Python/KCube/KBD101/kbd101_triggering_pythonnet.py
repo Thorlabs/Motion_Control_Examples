@@ -32,9 +32,9 @@ def main():
 
         # Connect, begin polling, and enable
         kcube.Connect(serial_no)
-        time.sleep(0.5)
+        time.sleep(0.25)
         kcube.StartPolling(250)
-        time.sleep(0.5)  # wait statements are important to allow settings to be sent to the device
+        time.sleep(0.25)  # wait statements are important to allow settings to be sent to the device
 
         kcube.EnableDevice()
         time.sleep(0.5)  # Wait for device to enable

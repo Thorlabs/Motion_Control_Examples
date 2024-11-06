@@ -32,7 +32,7 @@ def main():
 
         # Start polling loop and enable device.
         device.StartPolling(250)  #250ms polling rate.
-        time.sleep(5)
+        time.sleep(0.25)
         device.EnableDevice()
         time.sleep(0.25)  # Wait for device to enable.
 

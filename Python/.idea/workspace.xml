@@ -1,35 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e5d5a5f-dbae-4e88-84c0-0df33b3db40e" name="Changes" comment="">
+    <list default="true" id="c2f6c825-9df4-42ee-8998-2b54cee98267" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Benchtop/BDC10X/bdc10x_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Benchtop/BDC10X/bdc10x_pythonnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Benchtop/BPCXXX/BPC3XX_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Benchtop/BPCXXX/BPC3XX_pythonnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Benchtop/BSC101/bsc101_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Benchtop/BSC101/bsc101_pythonnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Benchtop/BSC20X/BSC20X_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Benchtop/BSC20X/BSC20X_pythonnet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Benchtop/PPC00X/PFM450_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Benchtop/PPC00X/PFM450_pythonnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Integrated Stages/Cage Rotator/K10CR1_Rotation Methods_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Integrated Stages/Cage Rotator/K10CR1_Rotation Methods_pythonnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Integrated Stages/Cage Rotator/K10CR1_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Integrated Stages/Cage Rotator/K10CR1_pythonnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Integrated Stages/LTS/lts_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Integrated Stages/LTS/lts_pythonnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Integrated Stages/MFF/MFF10x_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Integrated Stages/MFF/MFF10x_pythonnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Integrated Stages/Polarization Controller/MPCx20_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Integrated Stages/Polarization Controller/MPCx20_pythonnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCube/KBD101/kbd101_triggering_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/KCube/KBD101/kbd101_triggering_pythonnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCube/KIM101/kim101_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/KCube/KIM101/kim101_pythonnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCube/KPZ101/kpz101_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/KCube/KPZ101/kpz101_pythonnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KCube/KST101/kst101_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/KCube/KST101/kst101_pythonnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modular Rack/mmr_pythonnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modular Rack/mmr_pythonnet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -37,208 +18,8 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2AeQr3IW0OZleEaMH6tV6WtFnT7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Doneill/Documents/GitHub/Motion_Control_Examples/Python"
-  }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Modular Rack" />
-      <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Integrated Stages\LTS" />
-      <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Benchtop\BBDXXX" />
-      <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Benchtop\BDC10X" />
-      <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\KCube\KIM101" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\mcalle\Documents\GitHub\Motion_Control_Examples\Python\Benchtop\M30X(Y)" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Python.bsc101_pythonnet">
-    <configuration name="bbd_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Benchtop/BBDXXX" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Benchtop/BBDXXX/bbd_pythonnet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="bsc101_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Benchtop/BSC101" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Benchtop/BSC101/bsc101_pythonnet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="kdc101_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/KCube/KDC101" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KCube/KDC101/kdc101_pythonnet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="lts_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Integrated Stages/LTS" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Integrated Stages/LTS/lts_pythonnet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="mmr_pythonnet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Modular Rack" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Modular Rack/mmr_pythonnet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.bsc101_pythonnet" />
-        <item itemvalue="Python.kdc101_pythonnet" />
-        <item itemvalue="Python.mmr_pythonnet" />
-        <item itemvalue="Python.lts_pythonnet" />
-        <item itemvalue="Python.bbd_pythonnet" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="6e5d5a5f-dbae-4e88-84c0-0df33b3db40e" name="Changes" comment="" />
-      <created>1655367767910</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1655367767910</updated>
-    </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Benchtop/M30X(Y)/m30xy_pythonnet.py</url>
-          <line>38</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Benchtop/M30X(Y)/m30xy_pythonnet.py</url>
-          <line>31</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Benchtop/BBDXXX/bbd_pythonnet.py</url>
-          <line>56</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Benchtop/BBDXXX/bbd_pythonnet.py</url>
-          <line>50</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Benchtop/BBDXXX/bbd_pythonnet.py</url>
-          <line>44</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Benchtop/BBDXXX/bbd_pythonnet.py</url>
-          <line>37</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/KCube/KDC101/kdc101_pythonnet.py</url>
-          <line>30</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

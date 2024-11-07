@@ -38,7 +38,6 @@ def main():
         voltage = Decimal(75)
         position = Decimal(150)
 
-
         # Connect, begin polling, and enable
         device = BenchtopPrecisionPiezo.CreateBenchtopPiezo(serial_no)
 

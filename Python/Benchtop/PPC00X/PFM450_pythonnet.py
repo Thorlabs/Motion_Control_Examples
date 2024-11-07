@@ -30,12 +30,10 @@ def main():
     SimulationManager.Instance.InitializeSimulations()
 
     try:
-
         DeviceManagerCLI.BuildDeviceList()
 
         # create new device
         serial_no = "44000001"  # Replace this line with your device's serial number
-
         # set voltage here
         voltage = Decimal(75)
         position = Decimal(150)

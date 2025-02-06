@@ -1,8 +1,8 @@
 // Title: BBDXXX
 // Created Date: 04/19/2024
-// Last Modified Date: 04/19/2024
+// Last Modified Date: 02/06/2025
 // .NET Framework version: 4.8.2
-// Thorlabs DLL version: 1.14.47
+// Thorlabs DLL version: 1.14.50
 // Example Description: 
 // This example demonstrates how to set-up the communication for the Thorlabs 
 // BBD Benchtop controllers and setting triggers.
@@ -27,7 +27,7 @@ public class Program
     {
         // Uncomment this line (and the equivalent Uninitialize statement at the end)
         // If you are using simulations.
-        SimulationManager.Instance.InitializeSimulations();
+        // SimulationManager.Instance.InitializeSimulations();
 
         // Serial number for Benchtop Brushless Motor (Example)
         // Change this line to match your device
@@ -177,12 +177,13 @@ public class Program
             Console.WriteLine("Device Moved to {0}", newPos);
         }
 
-        // The following applies to all Benchtop devices
-
-        device.ShutDown();
+        // Close the channel and the device
+        channel.StopPolling();
+        channel.DisableDevice();
+        device.Disconnect(false);
 
         // Uncomment this line if you are using simulations
-        SimulationManager.Instance.UninitializeSimulations();
+        //SimulationManager.Instance.UninitializeSimulations();
 
         Console.ReadKey();
     }

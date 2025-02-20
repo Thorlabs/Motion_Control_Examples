@@ -1,8 +1,8 @@
-﻿// Title: BBDXXX
+// Title: BBDXXX
 // Created Date: 04/19/2024
-// Last Modified Date: 04/19/2024
+// Last Modified Date: 02/06/2025
 // .NET Framework version: 4.8.2
-// Thorlabs DLL version: 1.14.47
+// Thorlabs DLL version: 1.14.50
 // Example Description: 
 // This example demonstrates how to set-up the communication for the Thorlabs 
 // BBD Benchtop controllers and setting triggers.
@@ -27,7 +27,7 @@ public class Program
     {
         // Uncomment this line (and the equivalent Uninitialize statement at the end)
         // If you are using simulations.
-        SimulationManager.Instance.InitializeSimulations();
+        // SimulationManager.Instance.InitializeSimulations();
 
         // Serial number for Benchtop Brushless Motor (Example)
         // Change this line to match your device
@@ -102,8 +102,8 @@ public class Program
         // Replace the references to MotorConfiguration and BrushlessMotorSettings with the class appropriate for your device
 
         // Call LoadMotorConfiguration on the device to initialize the DeviceUnitConverter object required for real unit parameters
-        MotorConfiguration motorSettings = channel.LoadMotorConfiguration(serialNo);
-        BrushlessMotorSettings currentDeviceSettings = channel.MotorDeviceSettings as BrushlessMotorSettings;
+        MotorConfiguration motorSettings = channel.LoadMotorConfiguration(channel.DeviceID);
+        MotorDeviceSettings currentDeviceSettings = channel.MotorDeviceSettings;
 
         // Get the device unit converter
         motorSettings.UpdateCurrentConfiguration();
@@ -111,11 +111,19 @@ public class Program
         channel.SetSettings(currentDeviceSettings, false); // false won't persist settings to device
 
         // Display info about device
-        DeviceInfo di = channel.GetDeviceInfo();
-        Console.WriteLine("Device {0} = {1}", di.SerialNumber, di.Name);
+        Console.WriteLine("Device {0} = {1}", channel.SerialNo, channel.DeviceName);
+
+        // Start the device polling
+        // The polling loop requests regular status requests to the motor to ensure the program keeps track of the device. 
+        channel.StartPolling(250);
+        // Needs a delay so that the current enabled state can be obtained
+        Thread.Sleep(500);
+        // Enable the channel otherwise any move is ignored 
+        channel.EnableDevice();
+        // Needs a delay to give time for the device to be enabled
+        Thread.Sleep(500);
 
         // The following shows how to control a motor it only applies to motors
-
         try
         {
             Action<UInt64> workDone = channel.InitializeWaitHandler();
@@ -130,10 +138,6 @@ public class Program
         }
 
         // Get and Set Triggers
-        IOPortConfigParameters IOConfig = device.GetIOPortConfigParams(0x01);
-        channel.RequestTriggerIOConfigParameters();
-        Thread.Sleep(200);
-
         TriggerIOConfigParameters trigIOParams = channel.GetTriggerIOConfigParameters();
         trigIOParams.TriggerOutMode = TriggerOutModeType.TrigOutput_AtPositionFwd;
         trigIOParams.StartPositionFwd = 0.0m; // 0mm start
@@ -170,15 +174,16 @@ public class Program
             }
 
             Decimal newPos = channel.Position;
-            Console.WriteLine("Device Moved to {0}({1})", newPos, position);
+            Console.WriteLine("Device Moved to {0}", newPos);
         }
 
-        // The following applies to all Benchtop devices
-
-        device.ShutDown();
+        // Close the channel and the device
+        channel.StopPolling();
+        channel.DisableDevice();
+        device.Disconnect(false);
 
         // Uncomment this line if you are using simulations
-        SimulationManager.Instance.UninitializeSimulations();
+        //SimulationManager.Instance.UninitializeSimulations();
 
         Console.ReadKey();
     }

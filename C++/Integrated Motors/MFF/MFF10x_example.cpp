@@ -34,9 +34,9 @@ int main()
 	{
 		// get device list size 
 		short n = TLI_GetDeviceListSize();
-		// get BBD serial numbers
+		// get MFF serial numbers
 		char serialNos[100];
-		TLI_GetDeviceListByTypeExt(serialNos, 100, 70);
+		TLI_GetDeviceListByTypeExt(serialNos, 100, 37);
 
 		// output list of matching devices
 		{
@@ -89,7 +89,7 @@ int main()
 			FF_StopPolling(testSerialNo);
 			// close device
 			FF_Close(testSerialNo);
-			// TLI_UnitializeSimulations();
+			// TLI_UninitializeSimulations();
 		}
 	}
 }

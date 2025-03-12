@@ -1,4 +1,4 @@
-"""An example that uses the .NET Kinesis Libraries to connect to a KDC."""
+"""An example that uses the .NET Kinesis Libraries to connect to a KST."""
 import os
 import time
 import sys

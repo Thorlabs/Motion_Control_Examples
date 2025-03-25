@@ -20,8 +20,8 @@ def main():
     SimulationManager.Instance.InitializeSimulations()
 
     try:
-
-        DeviceManagerCLI.BuildDeviceList()
+        # Uncomment this line if you are using Simulations
+        #eviceManagerCLI.BuildDeviceList()
 
         # create new device
         serial_no = "26000001"  # Replace this line with your device's serial number
@@ -47,22 +47,25 @@ def main():
         # Get homing settings
         home_params = device.GetHomingParams()
         print(f'Homing Velocity: {home_params.Velocity}')
-
         # Home device
         print("Homing Motor...")
         device.Home(60000)  # 60 seconds
         print("Motor Homed.")
+        print(f'Position After Homing: {device.Position}')
 
+        
         # Get/Set Velocity Params
         device_vel_params = device.GetVelocityParams()
-
         print(f'Acceleration: {device_vel_params.Acceleration}',
               f'Velocity: {device_vel_params.MaxVelocity}')
 
-        # Set a position and move it
-        new_pos = Decimal(5.0)  # in Real Units
-        device.MoveTo(new_pos, 60000)
-
+        # Set a relative position and move
+        relative_pos = Decimal(10.0)  # in Real Units
+        device.SetMoveRelativeDistance(relative_pos)
+        device.MoveRelative(60000)
+        print(f'Position After Relative Move: {device.Position}')
+        
+        
         # Stop Polling and Disconnect
         device.StopPolling()
         device.Disconnect()

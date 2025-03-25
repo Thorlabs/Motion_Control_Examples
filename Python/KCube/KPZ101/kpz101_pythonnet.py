@@ -21,14 +21,14 @@ def main():
     """The main entry point for the application"""
 
     # Uncomment this line if you are using
-    # SimulationManager.Instance.InitializeSimulations()
+    SimulationManager.Instance.InitializeSimulations()
 
     try:
 
         DeviceManagerCLI.BuildDeviceList()
 
         # create new device
-        serial_no = "26000001"  # Replace this line with your device's serial number
+        serial_no = "29000002"  # Replace this line with your device's serial number
 
         # Connect, begin polling, and enable
         device = KCubePiezo.CreateKCubePiezo(serial_no)
@@ -61,15 +61,21 @@ def main():
 
         # Get the maximum voltage output of the KPZ
         max_voltage = device.GetMaxOutputVoltage()  # This is stored as a .NET decimal
-
+        print(f'Max voltage {max_voltage}')
+        device.SetMaxOutputVoltage(max_voltage)
+        
         # Go to a voltage
         dev_voltage = Decimal(15.0)
         print(f'Going to voltage {dev_voltage}')
 
-        if dev_voltage != Decimal(0) and dev_voltage <= max_voltage:
-            device.SetOutputVoltage(dev_voltage)
-            time.sleep(1.0)
 
+        if dev_voltage != Decimal(0) and dev_voltage <= max_voltage:
+            timeout = time.time() + 30
+            device.SetOutputVoltage(dev_voltage)
+            while (device.IsSetOutputVoltageActive()):
+                time.sleep(30)
+                if time.time() < timeout:
+                    raise Exception("Timeout Exceeded")
             print(f'Moved to Voltage {device.GetOutputVoltage()}')
         else:
             print(f'Voltage must be between 0 and {max_voltage}')
@@ -81,7 +87,7 @@ def main():
         print(e)
 
     # Uncomment this line if you are using Simulations
-    # SimulationManager.Instance.UninitializeSimulations()
+    SimulationManager.Instance.UninitializeSimulations()
     ...
 
 

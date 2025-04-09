@@ -1,14 +1,18 @@
 """
-K10CR1_pythonnet
+Example Title: K10CR1_pythonnet.py
+Example Date of Creation(YYYY-MM-DD) 2023-02-23
+Example Date of Last Modification on Github 2025-04-09
+Version of Python: 3.11
+Version of the Thorlabs SDK used: 1.14.52
 ==================
-
-An example of using the K10CR1 integrated rotation stages with python via pythonnet
+Example Description
+Using the .NET Dlls
+Example runs the K10CR1 or K10CR2 stage. It shows how to initialize, home and move.
+Tested with K10CR2
 """
 
 import clr 
-import os 
 import time 
-import sys
 
 # Write in file paths of dlls needed. 
 clr.AddReference("C:\\Program Files\\Thorlabs\\Kinesis\\Thorlabs.MotionControl.DeviceManagerCLI.dll")
@@ -26,14 +30,14 @@ def main():
     """The main entry point for the application"""
 
     # Uncomment this line if you are using
-    # SimulationManager.Instance.InitializeSimulations()
+    #SimulationManager.Instance.InitializeSimulations()
 
     try:
         # Build device list.  
         DeviceManagerCLI.BuildDeviceList()
 
         # create new device.
-        serial_no = "55000114"  # Replace this line with your device's serial number.
+        serial_no = "55507804"  # Replace this line with your device's serial number.
         device = CageRotator.CreateCageRotator(serial_no)
        
         # Connect to device. 
@@ -55,8 +59,7 @@ def main():
         print(device_info.Description)
 
         # Load any configuration settings needed by the controller/stage.
-        device.LoadMotorConfiguration(serial_no, DeviceConfiguration.DeviceSettingsUseOptionType.UseDeviceSettings)
-        motor_config = device.LoadMotorConfiguration(serial_no)
+        motor_config=device.LoadMotorConfiguration(serial_no, DeviceConfiguration.DeviceSettingsUseOptionType.UseFileSettings)
 
         # Call device methods.
         print("Homing Device")
@@ -76,7 +79,7 @@ def main():
         print(e)
         
     # Uncomment this line if you are using Simulations
-    # SimulationManager.Instance.UninitializeSimulations()
+    #SimulationManager.Instance.UninitializeSimulations()
 
 
 if __name__ == "__main__":

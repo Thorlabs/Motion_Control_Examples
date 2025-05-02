@@ -9,6 +9,7 @@ Track - When tracking, the NanoTrak detects any drop in signal strength resultin
 
 Latch - Scanning is disabled and the piezo drives are held at their present position.
 
+# Instructions: 
 1. Connect your KNA-nnn device to your PC via USB & power your device.
 2. Enter the serial number of the controller into the SerialNumber box below.
 3. Run the VI

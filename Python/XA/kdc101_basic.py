@@ -1,9 +1,12 @@
-import time
-import os
-import sys
+"""
+XA example for the KDC101 controllers
+Date of Creation(YYYY-MM-DD): 2025-08-15
+Date of Last Modification on Github: 2025-08-20
+Python Version Used: python 3.13.3
+XA software version: 1.2.7
+"""
 
-SOURCE_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.dirname(SOURCE_DIR))
+import time
 
 from xa_sdk.products.kdc101 import KDC101
 from xa_sdk.shared.xa_error_factory import XADeviceException

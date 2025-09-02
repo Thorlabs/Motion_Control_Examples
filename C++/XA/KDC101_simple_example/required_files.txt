@@ -1,0 +1,4 @@
+Copy the following required files to the project folder: 
+C:\Program Files\Thorlabs XA\SDK\Native (C, C++)\Libraries\x64\tlmc_xa_native.dll
+C:\Program Files\Thorlabs XA\SDK\Native (C, C++)\Libraries\x64\tlmc_xa_native.lib
+C:\Program Files\Thorlabs XA\SDK\Native (C, C++)\tlmc_xa_native_api.h

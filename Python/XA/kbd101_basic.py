@@ -1,5 +1,13 @@
-import time
 
+"""
+XA example for the KBD101 controllers
+Date of Creation(YYYY-MM-DD): 2025-08-15
+Date of Last Modification on Github: 2025-08-20
+Python Version Used: python 3.13.3
+XA software version: 1.2.7
+"""
+
+import time
 
 from xa_sdk.products.kbd101 import KBD101
 from xa_sdk.shared.xa_error_factory import XADeviceException

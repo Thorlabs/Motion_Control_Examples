@@ -1,3 +1,12 @@
+"""
+XA example for the BSC20x controllers
+Date of Creation(YYYY-MM-DD): 2025-08-15
+Date of Last Modification on Github: 2025-08-20
+Python Version Used: python 3.13.3
+XA software version: 1.2.7
+"""
+
+
 import time
 
 from xa_sdk.native_sdks.xa_sdk import XASDK

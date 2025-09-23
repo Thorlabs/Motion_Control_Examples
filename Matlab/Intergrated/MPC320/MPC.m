@@ -1,9 +1,9 @@
 %% Header
 % MPC320.m
 % Created Date: 2024-08-22
-% Last modified date: 2024-08-22
-% Matlab Version: R2023b
-% Thorlabs DLL version: Kinesis 1.14.49
+% Last modified date: 2025-09-23
+% Matlab Version: R2024b
+% Thorlabs DLL version: Kinesis 1.14.56
 %% Notes
 %
 % Example for the MPC320 intergrated rotation stage
@@ -21,7 +21,7 @@ import Thorlabs.MotionControl.PolarizerCLI.*
 
 
 %% Create Simulation (Comment out for real device)
-%SimulationManager.Instance.InitializeSimulations(); 
+SimulationManager.Instance.InitializeSimulations(); 
 
 %% Connect to device
 % Build Device list
@@ -45,23 +45,22 @@ paddle2 = PolarizerPaddles.Paddle2;
 
 Paddle3 = PolarizerPaddles.Paddle3;
 % Move the stage
-device.Home(paddle, 6000);
+device.Home(paddle1, 6000);
 pause(2);
 
-device.Home(paddle, 6000);
+device.Home(paddle2, 6000);
 pause(2);
 
-device.Home(paddle, 6000);
+device.Home(Paddle3, 6000);
 pause(2);
 
-device.MoveTo(new_pos, paddle1, 6000);
+new_pos1 = 10;
+device.MoveRelative(new_pos1, paddle1, 6000);
 pause(2);
+Position1 = device.Position(paddle1);
+Position1 = str2double(char(Position1.ToString()))
 
-device.MoveTo(new_pos, paddle2, 6000);
-pause(2);
 
-device.MoveTo(new_pos, paddle3, 6000);
-pause(2);
 
 %% Disconnect the channel and chassis
 device.StopPolling();

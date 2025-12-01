@@ -1,8 +1,8 @@
 ﻿// Title: PDXC2
 // Created Date: 01/26/2024
-// Last Modified Date: 01/26/2024
+// Last Modified Date: 11/17/2025
 // .NET Framework version: 4.8.2
-// Thorlabs DLL version: 1.14.47
+// Thorlabs DLL version: 1.14.56
 // Example Description: 
 // This example demonstrates how to set-up the communication for the Thorlabs 
 // PDXC2 Benchtop controllers.
@@ -115,7 +115,7 @@ namespace PDXC2
 
             //Optionally set the deivce to Open Loop Mode and move the stage to target position (position is set in "steps")
             int openLoopPosition = 0;
-            if (openLoopPosition > 0)
+            if (openLoopPosition != 0)
             {
                 // Set the open loop move paramaters for the PDXC2
                 device.SetPositionControlMode(Thorlabs.MotionControl.GenericPiezoCLI.Piezo.PiezoControlModeTypes.OpenLoop);
@@ -128,11 +128,12 @@ namespace PDXC2
                     device.MoveStart();
                     Console.WriteLine("Moving the device to {0}.",openLoopPosition);
 
-                    // Judge if the stage reaches the position
+                    // Wait until the device reaches the target position
                     int newPos = device.GetCurrentPosition();
                     while (openLoopPosition != newPos)
                     {
                         newPos = device.GetCurrentPosition();
+                        Thread.Sleep(200);
                     }
 
                     // Display current position
@@ -141,7 +142,72 @@ namespace PDXC2
                 catch(Exception) 
                 {
                     Console.WriteLine("Fail to move to the position.");
-                }              
+                }
+            }
+
+            //Optionally set the deivce to Closed Loop Mode and move the stage to target position
+            //Close loop mode is only valid for PDX series stages with encoder
+            //For linear stages, the position is in nm
+            //For rotational stages, 360 degrees corresponds to 14400000 encoder counts
+            int closeLoopPosition = 0;
+            if (closeLoopPosition != 0)
+            {
+                // Set the closed loop move paramaters for the PDXC2
+                device.SetPositionControlMode(Thorlabs.MotionControl.GenericPiezoCLI.Piezo.PiezoControlModeTypes.CloseLoop);
+
+                // Performance Optimize
+                device.PulseParamsAcquireStart();
+                Thread.Sleep(500);
+                Console.WriteLine("Optimizing performance, please wait...");
+                // When IsPulseParamsAcquired is true, it indicates the optimization has finished
+                while (device.Status.IsPulseParamsAcquired == false)
+                    Thread.Sleep(500);
+
+                //Home the stage - timeout 60000ms
+                Console.WriteLine("Home the device");
+                device.Home(60000);
+
+                // Set the target position
+                device.SetClosedLoopTarget(closeLoopPosition);
+
+                // Get and Set the velocity and acceleration
+                // For linear stages, the unit is in nm/s and nm/s^2
+                // For rotational stages, 360 degrees corresponds to 14400000 EnCnt. For example, 30 degrees/s = 1200000 EnCnt/s
+                ClosedLoopParams closedLoopParams = device.GetClosedLoopParameters();
+                closedLoopParams.RefSpeed = 1200000; 
+                closedLoopParams.Acceleration = 10000000; 
+                device.SetClosedLoopParameters(closedLoopParams);
+
+                try
+                {
+                    // Move the stage
+                    device.MoveStart();
+                    Console.WriteLine("Moving the device to {0}", closeLoopPosition);
+
+                    // Wait until the device reaches the target position
+                    int posCheckCnt = 0, newPos = 0;
+                    for (int i = 0; i < 200; i++)
+                    {
+                        newPos = device.GetCurrentPosition();
+                        if (Math.Abs(closeLoopPosition - newPos) < 6000)
+                            if (posCheckCnt > 3)
+                                break;
+                            else
+                            {
+                                Thread.Sleep(200);
+                                posCheckCnt++;
+                            }
+                        else
+                            Thread.Sleep(200);
+                    }
+
+                    // Display the current position
+                    Console.WriteLine("Device moved to {0}", newPos);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Fail to move to the position");
+                }
             }
 
             // Tidy up and exit

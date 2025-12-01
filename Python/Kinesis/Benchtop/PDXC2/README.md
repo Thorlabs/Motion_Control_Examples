@@ -19,26 +19,4 @@ Please follow the following steps to setup a Virtual Communication Port for Wind
 6. In the device manager, click ‘Ports (COM & LPT)’, and note the ‘APT USB Device Serial Port’ COM port number (e.g. COM3). This COM port can then be used for low level protocol messages.
 #### Serial Command Protocol
 Please download the detailed APT Serial Commands Documentation from this link:
-https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=Motion_Control&viewtab=2  
-The example also includes some commands that are specialized for PDXC2. 
->1. **MGMSG_PZMOT_MOVE_START**  
-   Command Head: `0x2100`  
-   Command Structure: 00 21 (ChanIdent) (StartMove) d s  
-   Data: StartMove = `0x01`: Start move, StartMove = `Others`: Don't move.  
-   Description: Used to start a open/close loop move. Upon completion of the open/close loop move sequence, the controller sends a MGMSG_PZMOT_MOVE_COMPLETED. Please find the description of MGMSG_PZMOT_MOVE_COMPLETED in the APT Serial Commands documentation.  
->2. **MGMSG_PZMOT_SET_PARAMS**  
-   Command Head: `0x08C0`  
-   Command Structure: C0 08 (PackLen) d s + (SubCode)  
-   Description: This generic parameter set/request message is used to control the functionality of the PDXC2 controllers. Need to be used with sub-message ID and Sub Code listed in below table.  
-  >    * **Set_PZMOT_OpenMoveParams**  
-   Sub-message ID: `0x46`  
-   Sub-message Structure: (SubMsgID) (ChanIdent) (StepSize)  
-     Data: SubMsgID ( word ) : always `0x46`; ChanIdent ( word ) : Channel select. Fixed to `0x1`; StepSize ( long ) : Set the move step size, range from -10000000 to +10000000.   
-   Description: Used to set the open loop move parameters.  
-  >    * **Set_PZMOT_CloseMoveParams**  
-   Sub-message ID: `0x47`  
-   Sub-message Structure: (SubMsgID) (ChanIdent) (DePos)  
-   Data: SubMsgID ( word ) : always `0x47`; ChanIdent ( word ) : Channel select. Fixed to `0x1`; DePos ( long ) : Set desired position, the range is from -1000000 to +1000000 nm. The min set unit is 10nm.  
-   Description: Used to set the close loop move parameters.
-
-The complete serial commands for PDXC2 will be updated to the APT Serial Commands Documentation in the near future.  
+https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=Motion_Control&viewtab=3  

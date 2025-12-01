@@ -1,0 +1,10 @@
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\KDC101 Csharp XA\KDC101\bin\Debug\KDC101.exe.config
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\KDC101 Csharp XA\KDC101\bin\Debug\KDC101.exe
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\KDC101 Csharp XA\KDC101\bin\Debug\KDC101.pdb
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\KDC101 Csharp XA\KDC101\bin\Debug\tlmc_xa_dotnet.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\KDC101 Csharp XA\KDC101\obj\Debug\KDC101.csproj.AssemblyReference.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\KDC101 Csharp XA\KDC101\obj\Debug\KDC101.csproj.CoreCompileInputs.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\KDC101 Csharp XA\KDC101\obj\Debug\KDC101.csproj.Up2Date
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\KDC101 Csharp XA\KDC101\obj\Debug\KDC101.exe
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\KDC101 Csharp XA\KDC101\obj\Debug\KDC101.pdb
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\KDC101 Csharp XA\KDC101\obj\Debug\KDC101.exe.config

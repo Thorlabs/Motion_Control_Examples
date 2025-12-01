@@ -1,9 +1,9 @@
 """
 PDXC2 Pythonnet Example
 Date of Creation(YYYY-MM-DD): 2024-08-02
-Date of Last Modification on Github: 2024-08-02
+Date of Last Modification on Github: 2025-11-12
 Python Version Used: python3
-Kinesis Version Tested: 1.14.49
+Kinesis Version Tested: 1.14.56
 """
 
 import os
@@ -61,7 +61,7 @@ def main():
         
         #Optionally set the deivce to Open Loop Mode and move the stage to target position (position is set in "steps")
         openLoopPosition = 0
-        if (openLoopPosition > 0):
+        if (openLoopPosition != 0):
             #Set the open loop move paramaters for the PDXC2
             device.SetPositionControlMode(PiezoControlModeTypes.OpenLoop)
             openLoopParams = OpenLoopMoveParams()
@@ -72,7 +72,7 @@ def main():
             device.MoveStart()
             print("Moving the device to ",openLoopPosition)
 
-            #check if the stage stops
+            #Wait until the stage stops
             pos = device.GetCurrentPosition()
             time.sleep(0.5)
             while (pos != device.GetCurrentPosition()):
@@ -82,10 +82,12 @@ def main():
             #Display current position
             print("Device Moved to ", pos)
                 
-        #Optionally set the deivce to Close Loop Mode and move the stage to target position (position is set in "nm")
-        #close loop mode is only valid for PDX series stages with encoder
+        #Optionally set the deivce to Closed Loop Mode and move the stage to target position
+        #Close loop mode is only valid for PDX series stages with encoder
+        #For linear stages, the position is in nm
+        #For rotational stages, 360 degrees corresponds to 14400000 encoder counts
         closeLoopPosition = 0
-        if (closeLoopPosition > 0):
+        if (closeLoopPosition != 0):
             #Set the control mode to close loop mode
             device.SetPositionControlMode(PiezoControlModeTypes.CloseLoop)
             
@@ -97,23 +99,40 @@ def main():
             while (not device.Status.IsPulseParamsAcquired):
                 time.sleep(0.5)
             
-            #home the device and set the target position
+            #Home the device
             device.Home(60000) #60 second timeout
+            print("Homed the device")
+
+            #Set the target position
             device.SetClosedLoopTarget(closeLoopPosition)
+
+            #Get and Set the velocity and acceleration
+            #For linear stages, the unit is in nm/s and nm/s^2
+            #For rotational stages, 360 degrees corresponds to 14400000 EnCnt. For example, 30 degrees/s = 1200000 EnCnt/s
+            closedLoopParams = device.GetClosedLoopParameters()
+            closedLoopParams.RefSpeed = 1200000
+            closedLoopParams.Acceleration = 10000000
+            device.SetClosedLoopParameters(closedLoopParams)
 
             #Move the stage
             device.MoveStart()
-            print("Moving the device to ",closeLoopPosition," nm")
+            print("Moving the device to ",closeLoopPosition)
 
-            #check if the stage stops
-            pos = device.GetCurrentPosition()
-            time.sleep(0.5)
-            while (pos != device.GetCurrentPosition()):
-                pos = device.GetCurrentPosition()
-                time.sleep(0.5)
+            #Wait until the device reaches the target position
+            posCheckCnt = 0
+            for i in range(200):
+                newPos = device.GetCurrentPosition()
+                if abs(closeLoopPosition - newPos) < 6000:
+                    if (posCheckCnt > 3):
+                        break
+                    else:
+                        time.sleep(0.25)
+                        posCheckCnt = posCheckCnt + 1
+                else:
+                    time.sleep(0.25)
 
-            #Display current position
-            print("Device Moved to ", pos," nm")
+            # Print the current position
+            print("Device moved to ", newPos)
         
         # Stop polling and close device
         device.StopPolling()

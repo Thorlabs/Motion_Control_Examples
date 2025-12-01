@@ -1,0 +1,13 @@
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\UDXC\UDXC CSharp\bin\Debug\UDXC CSharp.exe.config
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\UDXC\UDXC CSharp\bin\Debug\UDXC CSharp.exe
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\UDXC\UDXC CSharp\bin\Debug\UDXC CSharp.pdb
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\UDXC\UDXC CSharp\obj\Debug\UDXC CSharp.csproj.AssemblyReference.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\UDXC\UDXC CSharp\obj\Debug\UDXC CSharp.csproj.CoreCompileInputs.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\UDXC\UDXC CSharp\obj\Debug\UDXC CSharp.exe
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\UDXC\UDXC CSharp\obj\Debug\UDXC CSharp.pdb
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\UDXC\UDXC CSharp\bin\Debug\Thorlabs.MotionControl.PrivateInternal.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\UDXC\UDXC CSharp\bin\Debug\Thorlabs.MotionControl.Tools.Common.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\UDXC\UDXC CSharp\bin\Debug\Thorlabs.MotionControl.Tools.Logging.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\UDXC\UDXC CSharp\bin\Debug\Thorlabs.MotionControl.Tools.WPF.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\UDXC\UDXC CSharp\obj\Debug\UDXC CSharp.exe.config
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\UDXC\UDXC CSharp\obj\Debug\UDXC CSh.3079E5E8.Up2Date

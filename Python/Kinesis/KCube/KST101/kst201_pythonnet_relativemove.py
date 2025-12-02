@@ -21,7 +21,7 @@ def main():
 
     try:
         # Uncomment this line if you are using Simulations
-        #eviceManagerCLI.BuildDeviceList()
+        # DeviceManagerCLI.BuildDeviceList()
 
         # create new device
         serial_no = "26000001"  # Replace this line with your device's serial number

@@ -1,0 +1,13 @@
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\M30XY\obj\Debug\M30XY.csproj.AssemblyReference.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\M30XY\obj\Debug\M30XY.csproj.SuggestedBindingRedirects.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\M30XY\obj\Debug\M30XY.csproj.CoreCompileInputs.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\M30XY\bin\Debug\BDC101.exe.config
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\M30XY\bin\Debug\BDC101.exe
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\M30XY\bin\Debug\BDC101.pdb
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\M30XY\bin\Debug\Thorlabs.MotionControl.PrivateInternal.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\M30XY\bin\Debug\Thorlabs.MotionControl.Tools.Common.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\M30XY\bin\Debug\Thorlabs.MotionControl.Tools.Logging.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\M30XY\bin\Debug\Thorlabs.MotionControl.Tools.WPF.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\M30XY\obj\Debug\M30XY.csproj.CopyComplete
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\M30XY\obj\Debug\BDC101.exe
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\M30XY\obj\Debug\BDC101.pdb

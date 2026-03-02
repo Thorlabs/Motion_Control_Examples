@@ -1,0 +1,10 @@
+C:\Users\gboedecker\source\repos\KST201\KST201\bin\Debug\KST201.exe.config
+C:\Users\gboedecker\source\repos\KST201\KST201\bin\Debug\KST201.exe
+C:\Users\gboedecker\source\repos\KST201\KST201\bin\Debug\KST201.pdb
+C:\Users\gboedecker\source\repos\KST201\KST201\bin\Debug\tlmc_xa_dotnet.dll
+C:\Users\gboedecker\source\repos\KST201\KST201\obj\Debug\KST201.csproj.AssemblyReference.cache
+C:\Users\gboedecker\source\repos\KST201\KST201\obj\Debug\KST201.csproj.CoreCompileInputs.cache
+C:\Users\gboedecker\source\repos\KST201\KST201\obj\Debug\KST201.csproj.Up2Date
+C:\Users\gboedecker\source\repos\KST201\KST201\obj\Debug\KST201.exe
+C:\Users\gboedecker\source\repos\KST201\KST201\obj\Debug\KST201.pdb
+C:\Users\gboedecker\source\repos\KST201\KST201\obj\Debug\KST201.exe.config

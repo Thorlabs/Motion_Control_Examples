@@ -1,0 +1,13 @@
+C:\Users\gboedecker\source\repos\KPC101\KPC101_Example\KPC101_Example\obj\x64\Debug\KPC101_Example.csproj.AssemblyReference.cache
+C:\Users\gboedecker\source\repos\KPC101\KPC101_Example\KPC101_Example\obj\x64\Debug\KPC101_Example.csproj.CoreCompileInputs.cache
+C:\Users\gboedecker\source\repos\KPC101\KPC101_Example\KPC101_Example\bin\x64\Debug\KPC101_Example.exe.config
+C:\Users\gboedecker\source\repos\KPC101\KPC101_Example\KPC101_Example\bin\x64\Debug\KPC101_Example.exe
+C:\Users\gboedecker\source\repos\KPC101\KPC101_Example\KPC101_Example\bin\x64\Debug\KPC101_Example.pdb
+C:\Users\gboedecker\source\repos\KPC101\KPC101_Example\KPC101_Example\bin\x64\Debug\Thorlabs.MotionControl.PrivateInternal.dll
+C:\Users\gboedecker\source\repos\KPC101\KPC101_Example\KPC101_Example\bin\x64\Debug\Thorlabs.MotionControl.Tools.Common.dll
+C:\Users\gboedecker\source\repos\KPC101\KPC101_Example\KPC101_Example\bin\x64\Debug\Thorlabs.MotionControl.Tools.Logging.dll
+C:\Users\gboedecker\source\repos\KPC101\KPC101_Example\KPC101_Example\bin\x64\Debug\Thorlabs.MotionControl.Tools.WPF.dll
+C:\Users\gboedecker\source\repos\KPC101\KPC101_Example\KPC101_Example\obj\x64\Debug\KPC101_E.4EEB1B3A.Up2Date
+C:\Users\gboedecker\source\repos\KPC101\KPC101_Example\KPC101_Example\obj\x64\Debug\KPC101_Example.exe
+C:\Users\gboedecker\source\repos\KPC101\KPC101_Example\KPC101_Example\obj\x64\Debug\KPC101_Example.pdb
+C:\Users\gboedecker\source\repos\KPC101\KPC101_Example\KPC101_Example\obj\x64\Debug\KPC101_Example.exe.config

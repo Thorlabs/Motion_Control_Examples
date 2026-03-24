@@ -1,13 +1,14 @@
 ﻿// Title: BBD30X
 // Created Date: 03/09/2026
 // Last Modified Date: 03/09/2026
-// .NET FrameworF version: 4.8
+// .NET Framework version: 4.8
 // Thorlabs DLL version: 1.5.0.26490
 // Example Description: 
 // This example demonstrates how to set-up the communication for the Thorlabs 
 // BBD30X controllers, home it, and move it by 1 mm or degrees.
 
 using System;
+using System.Threading;
 using Thorlabs.MotionControl.XA;
 using Thorlabs.MotionControl.XA.Products;
 
@@ -139,6 +140,7 @@ namespace BBD30X
 
                 //Convert the distance to device unit
                 long posInDeviceUnits = channel.FromPhysicalToDeviceUnit(ScaleType.Distance, deviceUnit, distance);
+                Thread.Sleep(500);
 
                 //Move the device
                 Console.WriteLine("Moving to {0} {1}", distance, deviceUnit.ToString());

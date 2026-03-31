@@ -1,6 +1,6 @@
-﻿// Title: KDC101_Example
+﻿// Title: KPC101_Example
 // Created Date: 03/05/2026
-// Last Modified Date: 03/05/2023
+// Last Modified Date: 03/05/2026
 // .NET Framework version: 4.8
 // Thorlabs DLL version: 1.14.59
 // Example Description: 
@@ -15,14 +15,14 @@ using Thorlabs.MotionControl.KCube.PiezoStrainGaugeCLI;
 
 
 
-namespace KCP_CStest
+namespace KCP_Example
 {
     internal class Program
     {
 
         static void Main()
         {
-            //SimulationManager.Instance.InitializeSimulations();  Uncomment for simulated device.
+            SimulationManager.Instance.InitializeSimulations();  //Uncomment for simulated device.
 
             // Get the test KPC101 serial number (e.g. 113000123)
             string serialNo = "113000001";
@@ -51,7 +51,7 @@ namespace KCP_CStest
                 return;
             }
 
-            // Create the KCZ device
+            // Create the KPC device
             KCubePiezoStrainGauge device = KCubePiezoStrainGauge.CreateKCubePiezoStrainGauge(serialNo);
             if (device == null)
             {
@@ -127,7 +127,7 @@ namespace KCP_CStest
 
             Console.WriteLine("Setting Zero");
             device.SetZero();
-            Thread.Sleep(1000);
+            Thread.Sleep(10000);
             Console.WriteLine("Voltage:{0}", device.GetOutputVoltage());
             Console.WriteLine("Position:{0}", device.GetPosition());
 
@@ -148,7 +148,7 @@ namespace KCP_CStest
 
             device.Disconnect(true);
             Console.WriteLine("Device disconnected");
-            //SimulationManager.Instance.UninitializeSimulations(); uncomment for simulated device.
+            SimulationManager.Instance.UninitializeSimulations(); //uncomment for simulated device.
 
             Console.ReadKey();
         }

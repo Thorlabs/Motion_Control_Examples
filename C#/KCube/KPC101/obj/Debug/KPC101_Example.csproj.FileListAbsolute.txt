@@ -1,0 +1,15 @@
+C:\Users\gboedecker\Downloads\KPC101_update\bin\Debug\KPC101_Example.exe.config
+C:\Users\gboedecker\Downloads\KPC101_update\bin\Debug\KPC101_Example.exe
+C:\Users\gboedecker\Downloads\KPC101_update\bin\Debug\KPC101_Example.pdb
+C:\Users\gboedecker\Downloads\KPC101_update\bin\Debug\Thorlabs.MotionControl.DeviceManagerCLI.dll
+C:\Users\gboedecker\Downloads\KPC101_update\bin\Debug\Thorlabs.MotionControl.GenericPiezoCLI.dll
+C:\Users\gboedecker\Downloads\KPC101_update\bin\Debug\Thorlabs.MotionControl.KCube.PiezoStrainGaugeCLI.dll
+C:\Users\gboedecker\Downloads\KPC101_update\bin\Debug\Thorlabs.MotionControl.PrivateInternal.dll
+C:\Users\gboedecker\Downloads\KPC101_update\bin\Debug\Thorlabs.MotionControl.Tools.Common.dll
+C:\Users\gboedecker\Downloads\KPC101_update\bin\Debug\Thorlabs.MotionControl.Tools.Logging.dll
+C:\Users\gboedecker\Downloads\KPC101_update\bin\Debug\Thorlabs.MotionControl.Tools.WPF.dll
+C:\Users\gboedecker\Downloads\KPC101_update\obj\Debug\KPC101_Example.csproj.AssemblyReference.cache
+C:\Users\gboedecker\Downloads\KPC101_update\obj\Debug\KPC101_Example.csproj.CoreCompileInputs.cache
+C:\Users\gboedecker\Downloads\KPC101_update\obj\Debug\KPC101_E.4EEB1B3A.Up2Date
+C:\Users\gboedecker\Downloads\KPC101_update\obj\Debug\KPC101_Example.exe
+C:\Users\gboedecker\Downloads\KPC101_update\obj\Debug\KPC101_Example.pdb

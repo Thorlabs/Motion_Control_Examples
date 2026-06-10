@@ -147,6 +147,9 @@ class TLMC_DeviceType(IntEnum):
     TLMC_DeviceType_Kpc101 = 17
     TLMC_DeviceType_Pdxc2 = 18
     TLMC_DeviceType_Pdxc3 = 19
+    TLMC_DeviceType_Kna101 = 20
+    TLMC_DeviceType_LnnxBaseUnit = 21
+    TLMC_DeviceType_LnnxLogicalChannel = 22
 
 
 class TLMC_DeviceListChange(IntEnum):
@@ -676,19 +679,25 @@ class TLMC_NotificationId(IntEnum):
     TLMC_NotificationId_PiezoKpcIoSettingsChanged = 60
     TLMC_NotificationId_PiezoKpcIoTriggerParamsChanged = 61
     TLMC_NotificationId_PiezoKpcMmiParamsChanged = 62
-    TLMC_NotificationId_AbnormalMoveDetectionParamsChanged = 63
-    TLMC_NotificationId_PiezoInertialMotorAmplifierOutputParamsChanged = 64
-    TLMC_NotificationId_PiezoInertialMotorClosedLoopMoveParamsChanged = 65
-    TLMC_NotificationId_PiezoInertialMotorClosedLoopParamsChanged = 66
-    TLMC_NotificationId_PiezoInertialMotorCurrentPositionChanged = 67
-    TLMC_NotificationId_PiezoInertialMotorEthernetParamsChanged = 68
-    TLMC_NotificationId_PiezoInertialMotorExternalTriggerConfigChanged = 69
-    TLMC_NotificationId_PiezoInertialMotorExternalTriggerParamsChanged = 70
-    TLMC_NotificationId_PiezoInertialMotorJogParamsChanged = 71
-    TLMC_NotificationId_PiezoInertialMotorOpenLoopMoveParamsChanged = 72
-    TLMC_NotificationId_PiezoInertialMotorStatusChanged = 73
-    TLMC_NotificationId_PiezoInertialMotorTriggerTargetPositionChanged = 74
-
+    TLMC_NotificationId_NanoTrakModeChanged = 63
+    TLMC_NotificationId_NanoTrakStatusChanged = 64
+    TLMC_NotificationId_NanoTrakCircleParamsChanged = 65
+    TLMC_NotificationId_NanoTrakRangeParamsChanged = 66
+    TLMC_NotificationId_NanoTrakPhaseCompensationParamsChanged = 67
+    TLMC_NotificationId_PiezoKnaIoTriggerParamsChanged = 68
+    TLMC_NotificationId_NanoTrakCircleHomePositionChanged = 69
+    TLMC_NotificationId_NanoTrakGainChanged = 70
+    TLMC_NotificationId_NanoTrakTrackThresholdChanged = 71
+    TLMC_NotificationId_TNAIoSettingsChanged = 72
+    TLMC_NotificationId_PiezoKnaMmiParamsChanged = 73
+    TLMC_NotificationId_PiezoXyScanDataChanged = 74
+    TLMC_NotificationId_NanoTrakCircleDiameterLutDataChanged = 75
+    TLMC_NotificationId_NanoTrakStatusBitsChanged = 76
+    TLMC_NotificationId_NanoTrakFeedbackSourceChanged = 77
+    TLMC_NotificationId_MonitorOutputParamsChanged = 78
+    TLMC_NotificationId_LnnxControlLoopParamsChanged = 79
+    TLMC_NotificationId_LnnxNotchFilterParamsChanged = 80
+    TLMC_NotificationId_PiezoIoTriggerParamsChanged = 81
 
 class TLMC_OperatingMode(IntFlag):
     TLMC_OperatingMode_StatusPushedByController = 0x00000000
@@ -872,6 +881,13 @@ class TLMC_ScaleType(IntEnum):
     TLMC_ScaleType_NormalizedStrainGauge = 12
     TLMC_ScaleType_RescaledVoltage = 13
     TLMC_ScaleType_RescaledDistance = 14
+    TLMC_ScaleType_Phase = 15
+    TLMC_ScaleType_Frequency = 16
+    TLMC_ScaleType_Current = 17
+    TLMC_ScaleType_UserDiameter = 18
+    TLMC_ScaleType_NanoTrak = 19
+    TLMC_ScaleType_Pid = 20
+    TLMC_ScaleType_QFactor = 21
 
 
 class TLMC_SettingStringFormat(IntEnum):
@@ -974,6 +990,30 @@ class TLMC_StatusItemId(IntEnum):
     TLMC_StatusItemId_PulseAcquired = 65
     TLMC_StatusItemId_PulseAcquiring = 66
     TLMC_StatusItemId_WrongStageDetected = 67
+    TLMC_StatusItemId_CirclePositionA = 68
+    TLMC_StatusItemId_CirclePositionB = 69
+    TLMC_StatusItemId_CircleDiameter = 70
+    TLMC_StatusItemId_AbsoluteReading = 71
+    TLMC_StatusItemId_RelativeReading = 72
+    TLMC_StatusItemId_Range = 73
+    TLMC_StatusItemId_UnderOverRead = 74
+    TLMC_StatusItemId_Gain = 75
+    TLMC_StatusItemId_PhaseCompensationA = 76
+    TLMC_StatusItemId_PhaseCompensationB = 77
+    TLMC_StatusItemId_TrackingWithSignal = 78
+    TLMC_StatusItemId_TrackingOnlyChannelA = 79
+    TLMC_StatusItemId_TrackingOnlyChannelB = 80
+    TLMC_StatusItemId_AutoRange = 81
+    TLMC_StatusItemId_UnderRead = 82
+    TLMC_StatusItemId_OverRead = 83
+    TLMC_StatusItemId_ChannelAConnected = 84
+    TLMC_StatusItemId_ChannelBConnected = 85
+    TLMC_StatusItemId_ChannelAEnabled = 86
+    TLMC_StatusItemId_ChannelBEnabled = 87
+    TLMC_StatusItemId_ChannelAControlMode = 88
+    TLMC_StatusItemId_ChannelBControlMode = 89
+    TLMC_StatusItemId_NanoTrakMode = 90
+    TLMC_StatusItemId_FeedbackSaturated = 91
 
 
 class TLMC_StatusItemValue(IntEnum):
@@ -1052,6 +1092,9 @@ class TLMC_Unit(IntEnum):
     TLMC_Unit_Nanoseconds = 18
     TLMC_Unit_Millivolts = 19
     TLMC_Unit_Steps = 20
+    TLMC_Unit_Milliamps = 21
+    TLMC_Unit_NanoTrak = 22
+    TLMC_Unit_QFactor = 23
 
 
 class TLMC_UniversalStatusBit(IntFlag):

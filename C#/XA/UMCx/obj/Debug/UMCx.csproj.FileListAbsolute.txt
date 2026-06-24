@@ -1,0 +1,9 @@
+C:\Users\cstroud\source\repos\UMC .net testing\obj\x64\Debug\UMC .net testing.csproj.AssemblyReference.cache
+C:\Users\cstroud\source\repos\UMC .net testing\obj\x64\Debug\UMC .net testing.csproj.CoreCompileInputs.cache
+C:\Users\cstroud\source\repos\UMC .net testing\bin\x64\Debug\UMC.net_testing.exe.config
+C:\Users\cstroud\source\repos\UMC .net testing\bin\x64\Debug\UMC.net_testing.exe
+C:\Users\cstroud\source\repos\UMC .net testing\bin\x64\Debug\UMC.net_testing.pdb
+C:\Users\cstroud\source\repos\UMC .net testing\bin\x64\Debug\tlmc_xa_dotnet.dll
+C:\Users\cstroud\source\repos\UMC .net testing\obj\x64\Debug\UMC .net testing.csproj.CopyComplete
+C:\Users\cstroud\source\repos\UMC .net testing\obj\x64\Debug\UMC.net_testing.exe
+C:\Users\cstroud\source\repos\UMC .net testing\obj\x64\Debug\UMC.net_testing.pdb

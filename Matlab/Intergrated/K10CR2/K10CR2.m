@@ -1,12 +1,12 @@
 %% Header
 % K10CR1.m
 % Created Date: 2024-08-22
-% Last modified date: 2024-08-22
+% Last modified date: 2026-03-13
 % Matlab Version: R2023b
 % Thorlabs DLL version: Kinesis 1.14.49
 %% Notes
 %
-% Example for the K10CR1 intergrated rotation stage
+% Example for the K10CR2 intergrated rotation stage
 %%
 %% Start of code
 clear all; close all; clc
@@ -22,14 +22,14 @@ import Thorlabs.MotionControl.GenericMotorCLI.*
 import Thorlabs.MotionControl.IntegratedStepperMotorsCLI.*
 
 %% Create Simulation (Comment out for real device)
-%SimulationManager.Instance.InitializeSimulations(); 
+SimulationManager.Instance.InitializeSimulations();
 
 %Initialize Device List
 DeviceManagerCLI.BuildDeviceList();
 DeviceManagerCLI.GetDeviceListSize();
 
 %Update the serial number for the stage to the one being used.
-serial_num='55000114';
+serial_num='55000001';
 timeout_val=60000;
 
 %Set up device and configuration
@@ -52,11 +52,10 @@ device.Home(timeout_val);
 fprintf('Motor homed.\n');
 
 %Can use specific roatation methods. Like MoveContinous() but need to pull enum values for direction parameter.
-directionOptions = genCLI.AssemblyHandle.GetType("Thorlabs.MotionControl.GenericMotorCLI.AdvancedMotor.GenericAdvancedMotorCLI+MotorDirection");
-Forward = directionOptions.GetEnumValues(0);
-Backward = directionOptions.GetEnumValues(1);
+Forward = Thorlabs.MotionControl.GenericMotorCLI.MotorDirection.Forward;
+Reverse = Thorlabs.MotionControl.GenericMotorCLI.MotorDirection.Forward;
 
-device.MoveContinous(Forward);
+device.MoveContinuous(Forward);
 pause(10)
 device.Stop(timeout_val)
 
@@ -72,4 +71,4 @@ device.StopPolling()
 device.Disconnect()
 
 %% Close Simulations (Comment out if using a real device)
-%SimulationManager.Instance.UninitializeSimulations(); %Close Simulations
+SimulationManager.Instance.UninitializeSimulations(); %Close Simulations

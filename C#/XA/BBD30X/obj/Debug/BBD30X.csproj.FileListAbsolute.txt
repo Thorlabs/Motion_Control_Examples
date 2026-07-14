@@ -1,0 +1,10 @@
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\BBD303 Csharp XA\BBD303\bin\Debug\BBD303.exe.config
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\BBD303 Csharp XA\BBD303\bin\Debug\BBD303.exe
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\BBD303 Csharp XA\BBD303\bin\Debug\BBD303.pdb
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\BBD303 Csharp XA\BBD303\bin\Debug\tlmc_xa_dotnet.dll
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\BBD303 Csharp XA\BBD303\obj\Debug\BBD30X.csproj.AssemblyReference.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\BBD303 Csharp XA\BBD303\obj\Debug\BBD30X.csproj.CoreCompileInputs.cache
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\BBD303 Csharp XA\BBD303\obj\Debug\BBD30X.csproj.Up2Date
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\BBD303 Csharp XA\BBD303\obj\Debug\BBD303.exe
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\BBD303 Csharp XA\BBD303\obj\Debug\BBD303.pdb
+C:\Users\zizhang\OneDrive - THORLABS Inc\Documents\4. SW Project\BBD303 Csharp XA\BBD303\obj\Debug\BBD303.exe.config

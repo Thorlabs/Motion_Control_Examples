@@ -2,10 +2,10 @@ import ctypes
 
 from typing import TypeAlias, Union
 
-from thorlabs_xa.shared.c_params import C_TLMC_AdcInputs, C_TLMC_AnalogMonitorConfigurationParams, C_TLMC_ApiVersion, C_TLMC_ButtonParams, C_TLMC_ConnectedProductInfo, C_TLMC_CurrentLoopParams, C_TLMC_DcPidParams, C_TLMC_DeviceInfo, C_TLMC_FirmwareVersion, C_TLMC_GeneralMoveParams, C_TLMC_HardwareInfo, C_TLMC_HomeParams, C_TLMC_IoConfigurationParams, C_TLMC_IoTriggerParams, C_TLMC_JogParams, C_TLMC_JoystickParams, C_TLMC_JoystickSettingsParams, C_TLMC_KcubeIoTriggerParams, C_TLMC_KcubeMmiParams, C_TLMC_KcubePositionTriggerParams, C_TLMC_LcdDisplayParams, C_TLMC_LcdMoveParams, C_TLMC_LimitSwitchParams, C_TLMC_MonitorOutputParams, C_TLMC_MotorOutputParams, C_TLMC_MoveAbsoluteParams, C_TLMC_MoveRelativeParams, C_TLMC_PZ_IoTriggerParams, C_TLMC_PZ_KpcIoSettingsParams, C_TLMC_PZ_KpcIoTriggerParams, C_TLMC_PZ_KpcMmiParams, C_TLMC_PZ_LnnxControlLoopParams, C_TLMC_PZ_LnnxNotchFilterParams, C_TLMC_PZ_MaxOutputVoltageParams, C_TLMC_PZ_NanoTrakCircleDiameterLookupTableData, C_TLMC_PZ_NanoTrakCircleHomePositionParams, C_TLMC_PZ_NanoTrakCircleParams, C_TLMC_PZ_NanoTrakGainParams, C_TLMC_PZ_NanoTrakMode, C_TLMC_PZ_NanoTrakPhaseCompensationParams, C_TLMC_PZ_NanoTrakRangeParams, C_TLMC_PZ_NanoTrakStatus, C_TLMC_PZ_NanoTrakTnaIoSettings, C_TLMC_PZ_NanoTrakTrackThresholdParams, C_TLMC_PZ_OutputVoltageControlSourceParams, C_TLMC_PZ_OutputWaveformParams, C_TLMC_PZ_PositionLoopParams, C_TLMC_PZ_SlewRateParams, C_TLMC_PZ_StageInfoParams, C_TLMC_PZ_Status, C_TLMC_PositionLoopParams, C_TLMC_PotentiometerParams, C_TLMC_PowerParams, C_TLMC_ProfileModeParams, C_TLMC_RichResponse, C_TLMC_Setting, C_TLMC_StageAxisParams, C_TLMC_StatusItem, C_TLMC_StepperLoopParams, C_TLMC_StepperStatus, C_TLMC_TrackSettleParams, C_TLMC_TriggerParamsForDcBrushless, C_TLMC_TriggerParamsForStepper, C_TLMC_UniversalStatus, C_TLMC_VelocityParams
+from thorlabs_xa.shared.c_params import C_TLMC_AdcInputs, C_TLMC_AnalogMonitorConfigurationParams, C_TLMC_ApiVersion, C_TLMC_ButtonParams, C_TLMC_ConnectedProductInfo, C_TLMC_CurrentLoopParams, C_TLMC_DcPidParams, C_TLMC_DeviceInfo, C_TLMC_FirmwareVersion, C_TLMC_GeneralMoveParams, C_TLMC_HardwareInfo, C_TLMC_HomeParams, C_TLMC_IoConfigurationParams, C_TLMC_IoTriggerParams, C_TLMC_JogParams, C_TLMC_JoystickParams, C_TLMC_JoystickSettingsParams, C_TLMC_KcubeIoTriggerParams, C_TLMC_KcubeMmiParams, C_TLMC_KcubePositionTriggerParams, C_TLMC_LcdDisplayParams, C_TLMC_LcdMoveParams, C_TLMC_LimitSwitchParams, C_TLMC_MonitorOutputParams, C_TLMC_MotorOutputParams, C_TLMC_MoveAbsoluteParams, C_TLMC_MoveRelativeParams, C_TLMC_PZ_KpcIoSettingsParams, C_TLMC_PZ_KpcIoTriggerParams, C_TLMC_PZ_KpcMmiParams, C_TLMC_PZ_LnnxControlLoopParams, C_TLMC_PZ_LnnxNotchFilterParams, C_TLMC_PZ_MaxOutputVoltageParams, C_TLMC_PZ_NanoTrakCircleDiameterLookupTableData, C_TLMC_PZ_NanoTrakCircleHomePositionParams, C_TLMC_PZ_NanoTrakCircleParams, C_TLMC_PZ_NanoTrakGainParams, C_TLMC_PZ_NanoTrakMode, C_TLMC_PZ_NanoTrakPhaseCompensationParams, C_TLMC_PZ_NanoTrakRangeParams, C_TLMC_PZ_NanoTrakStatus, C_TLMC_PZ_NanoTrakTnaIoSettings, C_TLMC_PZ_NanoTrakTrackThresholdParams, C_TLMC_PZ_OutputVoltageControlSourceParams, C_TLMC_PZ_OutputWaveformParams, C_TLMC_PZ_PositionLoopParams, C_TLMC_PZ_SlewRateParams, C_TLMC_PZ_StageInfoParams, C_TLMC_PZ_Status, C_TLMC_PositionLoopParams, C_TLMC_PotentiometerParams, C_TLMC_PowerParams, C_TLMC_ProfileModeParams, C_TLMC_RichResponse, C_TLMC_Setting, C_TLMC_StageAxisParams, C_TLMC_StatusItem, C_TLMC_StepperLoopParams, C_TLMC_StepperStatus, C_TLMC_TrackSettleParams, C_TLMC_TriggerParamsForDcBrushless, C_TLMC_TriggerParamsForStepper, C_TLMC_UniversalStatus, C_TLMC_VelocityParams
 from thorlabs_xa.shared.params import TLMC_AdcInputs, TLMC_AnalogMonitorConfigurationParams, TLMC_ApiVersion, TLMC_ButtonParams, TLMC_ConnectedProductInfo, TLMC_CurrentLoopParams, TLMC_DcPidParams, TLMC_DeviceInfo, TLMC_FirmwareVersion, TLMC_GeneralMoveParams, TLMC_HardwareInfo, TLMC_HomeParams, TLMC_IoConfigurationParams, TLMC_IoTriggerParams, TLMC_JogParams, TLMC_JoystickParams, TLMC_JoystickSettingsParams, TLMC_KcubeIoTriggerParams, TLMC_KcubeMmiParams, TLMC_KcubePositionTriggerParams, TLMC_LcdDisplayParams, TLMC_LcdMoveParams, TLMC_LimitSwitchParams, TLMC_MonitorOutputParams, TLMC_MotorOutputParams, TLMC_MoveAbsoluteParams, TLMC_MoveRelativeParams, TLMC_PZ_IoTriggerParams, TLMC_PZ_KpcIoSettingsParams, TLMC_PZ_KpcIoTriggerParams, TLMC_PZ_KpcMmiParams, TLMC_PZ_LnnxControlLoopParams, TLMC_PZ_LnnxNotchFilterParams, TLMC_PZ_MaxOutputVoltageParams, TLMC_PZ_NanoTrakCircleDiameterLookupTableData, TLMC_PZ_NanoTrakCircleHomePositionParams, TLMC_PZ_NanoTrakCircleParams, TLMC_PZ_NanoTrakGainParams, TLMC_PZ_NanoTrakMode, TLMC_PZ_NanoTrakPhaseCompensationParams, TLMC_PZ_NanoTrakRangeParams, TLMC_PZ_NanoTrakStatus, TLMC_PZ_NanoTrakTnaIoSettings, TLMC_PZ_NanoTrakTrackThresholdParams, TLMC_PZ_OutputVoltageControlSourceParams, TLMC_PZ_OutputWaveformParams, TLMC_PZ_PositionLoopParams, TLMC_PZ_SlewRateParams, TLMC_PZ_StageInfoParams, TLMC_PZ_Status, TLMC_PositionLoopParams, TLMC_PotentiometerParams, TLMC_PowerParams, TLMC_ProfileModeParams, TLMC_RichResponse, TLMC_Setting, TLMC_StageAxisParams, TLMC_StatusItem, TLMC_StepperLoopParams, TLMC_StepperStatus, TLMC_TrackSettleParams, TLMC_TriggerParamsForDcBrushless, TLMC_TriggerParamsForStepper, TLMC_UniversalStatus, TLMC_VelocityParams
 
-from thorlabs_xa.shared.enums import TLMC_AnalogMonitorMotorChannel, TLMC_AnalogMonitorSystemVariable, TLMC_ButtonMode, TLMC_ConnectedProductAxisType, TLMC_ConnectedProductMovementType, TLMC_CurrentLoopPhase, TLMC_DeviceFamily, TLMC_DeviceType, TLMC_HardLimitOperatingMode, TLMC_HomeDirection, TLMC_HomeLimitSwitch, TLMC_IoPortMode, TLMC_IoPortSource, TLMC_IoTriggerPolarity, TLMC_IoTriggerPortNumber, TLMC_JogMode, TLMC_JogStopMode, TLMC_JoystickAxis, TLMC_JoystickDirectionSense, TLMC_JoystickModel, TLMC_JoystickSerialInterface, TLMC_KcubeIoTriggerMode, TLMC_KcubeIoTriggerPolarity, TLMC_KcubeMmi_JoystickDirectionSense, TLMC_KcubeMmi_JoystickGear, TLMC_MonitorOutput, TLMC_PZ_IoTriggerMode, TLMC_PZ_KpcAnalogInputSource, TLMC_PZ_KpcIoTriggerMode, TLMC_PZ_KpcMmi_JoystickDirectionSense, TLMC_PZ_KpcMmi_JoystickMode, TLMC_PZ_KpcMonitorOutputMode, TLMC_PZ_KpcStrainGaugeOption, TLMC_PZ_KpcVoltageRange, TLMC_PZ_LnnxControlLoopParamsOverrideMode, TLMC_PZ_LnnxNotchFilterParamsOverrideMode, TLMC_PZ_NanoTrakAbsolutePowerAdjustType, TLMC_PZ_NanoTrakCircleDiameterMode, TLMC_PZ_NanoTrakGainControlMode, TLMC_PZ_NanoTrakPhaseCompensationMode, TLMC_PZ_NanoTrakRange, TLMC_PZ_NanoTrakRangeChangeType, TLMC_PZ_NanoTrakRangeMode, TLMC_PZ_NanoTrakStatusBit, TLMC_PZ_NanoTrakTrackingMode, TLMC_PZ_NanoTrakTrackingState, TLMC_PZ_NanoTrakUnderOverReadType, TLMC_PZ_OutputVoltageControlSource, TLMC_PZ_OutputWaveformOperatingMode, TLMC_PZ_SensorType, TLMC_PZ_StageProductId, TLMC_PZ_StatusBit, TLMC_PZ_TnaIoSignalOutputMode, TLMC_PZ_TnaIoSignalRangeType, TLMC_PZ_TnaIoSignalSourceBoostType, TLMC_PZ_TnaIoSignalSourceMode, TLMC_PZ_VoltageLimit, TLMC_PortType, TLMC_ScaleType, TLMC_SoftLimitOperatingMode, TLMC_StageAxis_AxisId, TLMC_StageAxis_TypeId, TLMC_StatusItemId, TLMC_StepperLoopParams_LoopMode, TLMC_TriggerModesForDcBrushless, TLMC_TriggerModesForStepper, TLMC_Unit, TLMC_UniversalStatusBit, TLMC_ValueType
+from thorlabs_xa.shared.enums import TLMC_AnalogMonitorMotorChannel, TLMC_AnalogMonitorSystemVariable, TLMC_ButtonMode, TLMC_ConnectedProductAxisType, TLMC_ConnectedProductMovementType, TLMC_CurrentLoopPhase, TLMC_DeviceFamily, TLMC_DeviceType, TLMC_HardLimitOperatingMode, TLMC_HomeDirection, TLMC_HomeLimitSwitch, TLMC_IoPortMode, TLMC_IoPortSource, TLMC_IoTriggerPolarity, TLMC_IoTriggerPortNumber, TLMC_JogMode, TLMC_JogStopMode, TLMC_JoystickAxis, TLMC_JoystickDirectionSense, TLMC_JoystickModel, TLMC_JoystickSerialInterface, TLMC_KcubeIoTriggerMode, TLMC_KcubeIoTriggerPolarity, TLMC_KcubeMmi_JoystickDirectionSense, TLMC_KcubeMmi_JoystickGear, TLMC_MonitorOutput, TLMC_PZ_IoTriggerMode, TLMC_PZ_KpcAnalogInputSource, TLMC_PZ_KpcIoTriggerMode, TLMC_PZ_KpcMmi_JoystickDirectionSense, TLMC_PZ_KpcMmi_JoystickMode, TLMC_PZ_KpcMonitorOutputMode, TLMC_PZ_KpcStrainGaugeOption, TLMC_PZ_KpcVoltageRange, TLMC_PZ_LnnxControlLoopParamsOverrideMode, TLMC_PZ_LnnxNotchFilterParamsOverrideMode, TLMC_PZ_NanoTrakAbsolutePowerAdjustType, TLMC_PZ_NanoTrakCircleDiameterMode, TLMC_PZ_NanoTrakGainControlMode, TLMC_PZ_NanoTrakPhaseCompensationMode, TLMC_PZ_NanoTrakRange, TLMC_PZ_NanoTrakRangeChangeType, TLMC_PZ_NanoTrakRangeMode, TLMC_PZ_NanoTrakStatusBit, TLMC_PZ_NanoTrakTrackingMode, TLMC_PZ_NanoTrakTrackingState, TLMC_PZ_NanoTrakUnderOverReadType, TLMC_PZ_OutputVoltageControlSource, TLMC_PZ_OutputWaveformOperatingMode, TLMC_PZ_SensorType, TLMC_PZ_StageProductId, TLMC_PZ_StatusBit, TLMC_PZ_TnaIoSignalOutputMode, TLMC_PZ_TnaIoSignalRangeType, TLMC_PZ_TnaIoSignalSourceBoostType, TLMC_PZ_TnaIoSignalSourceMode, TLMC_PZ_VoltageLimit, TLMC_PortType, TLMC_ScaleType, TLMC_SoftLimitOperatingMode, TLMC_StageAxisId, TLMC_StageProductId, TLMC_StatusItemId, TLMC_StepperLoopParams_LoopMode, TLMC_TriggerModesForDcBrushless, TLMC_TriggerModesForStepper, TLMC_Unit, TLMC_UniversalStatusBit, TLMC_ValueType
 
 BufLike: TypeAlias = (
     ctypes.Array[ctypes.c_char]
@@ -105,6 +105,7 @@ class MapNativeToPython:
         params.integral_limit = c_params.integralLimit
         params.integral_dead_band = c_params.integralDeadBand
         params.feed_forward = c_params.feedForward
+        params.scaling_factor = c_params.scalingFactor;
 
         return params
     
@@ -417,19 +418,6 @@ class MapNativeToPython:
 
         return params
 
-    @staticmethod
-    def pz_io_trigger_params(c_params: C_TLMC_PZ_IoTriggerParams) -> TLMC_PZ_IoTriggerParams:
-
-        params = TLMC_PZ_IoTriggerParams()
-        params.number_of_ports_per_channel = c_params.numberOfPortsPerChannel
-        params.port_number = TLMC_IoTriggerPortNumber(c_params.portNumber)
-        params.port_type = TLMC_PortType(c_params.portType)
-        params.mode = TLMC_PZ_IoTriggerMode(c_params.mode)
-        params.polarity = TLMC_IoTriggerPolarity(c_params.polarity)
-        params.trigger_parameter1 = c_params.triggerParameter1
-        params.trigger_parameter2 = c_params.triggerParameter2
-
-        return params
 
     @staticmethod
     def pz_lnnx_control_loop_params(c_params: C_TLMC_PZ_LnnxControlLoopParams) -> TLMC_PZ_LnnxControlLoopParams:
@@ -758,7 +746,8 @@ class MapNativeToPython:
     def stage_axis_params(c_params: C_TLMC_StageAxisParams) -> TLMC_StageAxisParams:
 
         params = TLMC_StageAxisParams()
-        params.axis_id = TLMC_StageAxis_AxisId(c_params.axisId)
+        params.acceleration_scale = c_params.accelerationScale;
+        params.axis_id = TLMC_StageAxisId(c_params.axisId)
         params.counts_per_unit = c_params.countsPerUnit
         params.gear_box_ratio = c_params.gearBoxRatio
         params.max_acceleration = c_params.maxAcceleration
@@ -766,9 +755,12 @@ class MapNativeToPython:
         params.min_position = c_params.minPosition
         params.max_position = c_params.maxPosition
         params.max_velocity = c_params.maxVelocity
+        params.micro_steps = c_params.microSteps;
         params.part_number = MapNativeToPython.string(c_params.partNumber)
+        params.position_scale = c_params.positionScale;
+        params.product_id = TLMC_StageProductId(c_params.productId)
         params.serial_number = c_params.serialNumber
-        params.type_id = TLMC_StageAxis_TypeId(c_params.typeId)
+        params.velocity_scale = c_params.velocityScale;
 
         return params
     

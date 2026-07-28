@@ -71,6 +71,7 @@ class C_TLMC_CurrentLoopParams(Structure):
                 ("integralLimit", c_uint16),
                 ("integralDeadBand", c_uint16),
                 ("feedForward", c_uint16),
+                ("scalingFactor", c_float)
                 ]
 
 
@@ -394,17 +395,6 @@ class C_TLMC_ProfileModeParams(Structure):
                 ("reserved", c_int8 * 4)
                 ]
 
-class C_TLMC_PZ_IoTriggerParams(Structure):
-    _pack_ = 1
-    _fields_ = [
-        ("numberOfPortsPerChannel", c_uint16),
-        ("portNumber", c_uint16),
-        ("portType", c_uint16),
-        ("mode", c_uint16),
-        ("polarity", c_uint16),
-        ("triggerParameter1", c_int32),
-        ("triggerParameter2", c_int32)
-]
 
 class C_TLMC_PZ_LnnxControlLoopParams(Structure):
     _pack_ = 1
@@ -627,7 +617,7 @@ class C_TLMC_SettingItemChangedNotificationData(Structure):
 
 class C_TLMC_StageAxisParams(Structure):
     _pack_ = 1
-    _fields_ = [("typeId", c_uint16),
+    _fields_ = [("productId", c_uint16),
                 ("axisId", c_uint16),
                 ("partNumber", c_char * 16),
                 ("serialNumber", c_uint32),
@@ -638,7 +628,11 @@ class C_TLMC_StageAxisParams(Structure):
                 ("maxDeceleration", c_uint32),
                 ("maxVelocity", c_uint32),
                 ("gearBoxRatio", c_uint16),
-                ("reserved", c_uint8 * 22)
+                ("microSteps", c_uint16),
+                ("positionScale", c_float),
+                ("velocityScale", c_float),
+                ("accelerationScale", c_float),
+                ("reserved", c_uint8 * 8)
                 ]
 
 

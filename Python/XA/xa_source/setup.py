@@ -51,7 +51,7 @@ setup(
     author_email = "techsupport@thorlabs.com",
     description = "Thorlabs XA Python SDK",
     project_urls={
-        "Changelog": "https://github.com/Thorlabs/Motion_Control_Examples/blob/main/Python/XA/CHANGELOG.md"
+        "Changelog": "https://github.com/Thorlabs/Motion_Control_Examples/blob/main/Python/XA/xa_source/CHANGELOG.md"
     },
     long_description = read_me_content,
     long_description_content_type="text/markdown",

@@ -1,6 +1,6 @@
 from typing import Sequence
 
-from thorlabs_xa.shared.enums import TLMC_AnalogMonitorMotorChannel, TLMC_AnalogMonitorSystemVariable, TLMC_ButtonMode, TLMC_ConnectedProductAxisType, TLMC_ConnectedProductMovementType, TLMC_CurrentLoopPhase, TLMC_DeviceFamily, TLMC_DeviceType, TLMC_HardLimitOperatingMode, TLMC_HomeDirection, TLMC_HomeLimitSwitch, TLMC_IoPortMode, TLMC_IoPortSource, TLMC_IoTriggerPolarity, TLMC_IoTriggerPortNumber, TLMC_JogMode, TLMC_JogStopMode, TLMC_JoystickAxis, TLMC_JoystickDirectionSense, TLMC_JoystickModel, TLMC_JoystickSerialInterface, TLMC_KcubeIoTriggerMode, TLMC_KcubeIoTriggerPolarity, TLMC_KcubeMmi_JoystickDirectionSense, TLMC_KcubeMmi_JoystickGear, TLMC_KcubeMmi_JoystickMode, TLMC_MonitorOutput, TLMC_PZ_IoTriggerMode, TLMC_PZ_KpcAnalogInputSource, TLMC_PZ_KpcIoTriggerMode, TLMC_PZ_KpcMmi_JoystickDirectionSense, TLMC_PZ_KpcMmi_JoystickMode, TLMC_PZ_KpcMonitorOutputMode, TLMC_PZ_KpcStrainGaugeOption, TLMC_PZ_KpcVoltageRange, TLMC_PZ_LnnxControlLoopParamsOverrideMode, TLMC_PZ_LnnxNotchFilterParamsOverrideMode, TLMC_PZ_NanoTrakAbsolutePowerAdjustType, TLMC_PZ_NanoTrakCircleDiameterMode, TLMC_PZ_NanoTrakGainControlMode, TLMC_PZ_NanoTrakPhaseCompensationMode, TLMC_PZ_NanoTrakRange, TLMC_PZ_NanoTrakRangeChangeType, TLMC_PZ_NanoTrakRangeMode, TLMC_PZ_NanoTrakStatusBit, TLMC_PZ_NanoTrakTrackingMode, TLMC_PZ_NanoTrakTrackingState, TLMC_PZ_NanoTrakUnderOverReadType, TLMC_PZ_OutputVoltageControlSource, TLMC_PZ_OutputWaveformOperatingMode, TLMC_PZ_SensorType, TLMC_PZ_StageProductId, TLMC_PZ_StatusBit, TLMC_PZ_TnaIoOutRangeType, TLMC_PZ_TnaIoOutRouteType, TLMC_PZ_TnaIoSignalOutputMode, TLMC_PZ_TnaIoSignalRangeType, TLMC_PZ_TnaIoSignalSourceBoostType, TLMC_PZ_TnaIoSignalSourceMode, TLMC_PZ_VoltageLimit, TLMC_PortType, TLMC_ProfileMode, TLMC_SoftLimitOperatingMode, TLMC_StageAxis_AxisId, TLMC_StageAxis_TypeId, TLMC_StatusItemId, TLMC_StepperLoopParams_LoopMode, TLMC_TriggerModesForDcBrushless, TLMC_TriggerModesForStepper, TLMC_Unit, TLMC_UniversalStatusBit, TLMC_ValueType
+from thorlabs_xa.shared.enums import TLMC_AnalogMonitorMotorChannel, TLMC_AnalogMonitorSystemVariable, TLMC_ButtonMode, TLMC_ConnectedProductAxisType, TLMC_ConnectedProductMovementType, TLMC_CurrentLoopPhase, TLMC_DeviceFamily, TLMC_DeviceType, TLMC_HardLimitOperatingMode, TLMC_HomeDirection, TLMC_HomeLimitSwitch, TLMC_IoPortMode, TLMC_IoPortSource, TLMC_IoTriggerPolarity, TLMC_IoTriggerPortNumber, TLMC_JogMode, TLMC_JogStopMode, TLMC_JoystickAxis, TLMC_JoystickDirectionSense, TLMC_JoystickModel, TLMC_JoystickSerialInterface, TLMC_KcubeIoTriggerMode, TLMC_KcubeIoTriggerPolarity, TLMC_KcubeMmi_JoystickDirectionSense, TLMC_KcubeMmi_JoystickGear, TLMC_KcubeMmi_JoystickMode, TLMC_MonitorOutput, TLMC_PZ_IoTriggerMode, TLMC_PZ_KpcAnalogInputSource, TLMC_PZ_KpcIoTriggerMode, TLMC_PZ_KpcMmi_JoystickDirectionSense, TLMC_PZ_KpcMmi_JoystickMode, TLMC_PZ_KpcMonitorOutputMode, TLMC_PZ_KpcStrainGaugeOption, TLMC_PZ_KpcVoltageRange, TLMC_PZ_LnnxControlLoopParamsOverrideMode, TLMC_PZ_LnnxNotchFilterParamsOverrideMode, TLMC_PZ_NanoTrakAbsolutePowerAdjustType, TLMC_PZ_NanoTrakCircleDiameterMode, TLMC_PZ_NanoTrakGainControlMode, TLMC_PZ_NanoTrakPhaseCompensationMode, TLMC_PZ_NanoTrakRange, TLMC_PZ_NanoTrakRangeChangeType, TLMC_PZ_NanoTrakRangeMode, TLMC_PZ_NanoTrakStatusBit, TLMC_PZ_NanoTrakTrackingMode, TLMC_PZ_NanoTrakTrackingState, TLMC_PZ_NanoTrakUnderOverReadType, TLMC_PZ_OutputVoltageControlSource, TLMC_PZ_OutputWaveformOperatingMode, TLMC_PZ_SensorType, TLMC_PZ_StageProductId, TLMC_PZ_StatusBit, TLMC_PZ_TnaIoOutRangeType, TLMC_PZ_TnaIoOutRouteType, TLMC_PZ_TnaIoSignalOutputMode, TLMC_PZ_TnaIoSignalRangeType, TLMC_PZ_TnaIoSignalSourceBoostType, TLMC_PZ_TnaIoSignalSourceMode, TLMC_PZ_VoltageLimit, TLMC_PortType, TLMC_ProfileMode, TLMC_SoftLimitOperatingMode, TLMC_StageAxisId, TLMC_StageProductId, TLMC_StatusItemId, TLMC_StepperLoopParams_LoopMode, TLMC_TriggerModesForDcBrushless, TLMC_TriggerModesForStepper, TLMC_Unit, TLMC_UniversalStatusBit, TLMC_ValueType
     
 class TLMC_AnalogMonitorConfigurationParams():
     def __init__(self):
@@ -2585,8 +2585,8 @@ class TLMC_PZ_Status():
 
 class TLMC_StageAxisParams():
     def __init__(self):
-        self._type_id = TLMC_StageAxis_TypeId.TLMC_StageAxisType_Unknown
-        self._axis_id = TLMC_StageAxis_AxisId.TLMC_StageAxisId_Unknown
+        self._product_id = TLMC_StageProductId.TLMC_StageProductId_Unknown
+        self._axis_id = TLMC_StageAxisId.TLMC_StageAxisId_Unknown
         self._part_number = ""
         self._serial_number = 0
         self._counts_per_unit = 0
@@ -2596,21 +2596,25 @@ class TLMC_StageAxisParams():
         self._max_deceleration = 0
         self._max_velocity = 0
         self._gear_box_ratio = 0
+        self._micro_steps = 0
+        self._position_scale = 0
+        self._velocity_scale = 0
+        self._acceleration_scale = 0
 
     @property
-    def type_id(self) -> TLMC_StageAxis_TypeId:
-        return self._type_id
+    def product_id(self) -> TLMC_StageProductId:
+        return self._product_id
 
-    @type_id.setter
-    def type_id(self, val: TLMC_StageAxis_TypeId):
-        self._type_id = val
+    @product_id.setter
+    def product_id(self, val: TLMC_StageProductId):
+        self._product_id = val
 
     @property
-    def axis_id(self) -> TLMC_StageAxis_AxisId:
+    def axis_id(self) -> TLMC_StageAxisId:
         return self._axis_id
 
     @axis_id.setter
-    def axis_id(self, val: TLMC_StageAxis_AxisId):
+    def axis_id(self, val: TLMC_StageAxisId):
         self._axis_id = val
 
     @property
@@ -2684,6 +2688,38 @@ class TLMC_StageAxisParams():
     @gear_box_ratio.setter
     def gear_box_ratio(self, val: int):
         self._gear_box_ratio = val
+
+    @property
+    def micro_steps(self) -> int:
+        return self._micro_steps
+
+    @micro_steps.setter
+    def micro_steps(self, val: int):
+        self._micro_steps = val
+
+    @property
+    def position_scale(self) -> float:
+        return self._position_scale
+
+    @position_scale.setter
+    def position_scale(self, val: float):
+        self._position_scale = val
+
+    @property
+    def velocity_scale(self) -> float:
+        return self._velocity_scale
+
+    @velocity_scale.setter
+    def velocity_scale(self, val: float):
+        self._velocity_scale = val
+
+    @property
+    def acceleration_scale(self) -> float:
+        return self._acceleration_scale
+
+    @acceleration_scale.setter
+    def acceleration_scale(self, val: float):
+        self._acceleration_scale = val
 
 
 class TLMC_TriggerParamsForStepper():
@@ -2827,6 +2863,7 @@ class TLMC_CurrentLoopParams():
         self._integral_limit = 0
         self._integral_dead_band = 0
         self._feed_forward = 0
+        self._scaling_factor = 0
 
     @property
     def phase(self) -> TLMC_CurrentLoopPhase:
@@ -2876,6 +2913,13 @@ class TLMC_CurrentLoopParams():
     def feed_forward(self, val: int):
         self._feed_forward = val
 
+    @property
+    def scaling_factor(self) -> float:
+        return self._scaling_factor
+
+    @scaling_factor.setter
+    def scaling_factor(self, val: float):
+        self._scaling_factor = val
 
 class TLMC_PotentiometerParams:
     def __init__(self):

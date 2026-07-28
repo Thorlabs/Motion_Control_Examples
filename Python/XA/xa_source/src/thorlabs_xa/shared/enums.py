@@ -30,12 +30,9 @@ class TLMC_AuxIoPortNumber(IntEnum):
     TLMC_AuxIoPortNumber_Port1 = 0x0001
     TLMC_AuxIoPortNumber_Port2 = 0x0002
     TLMC_AuxIoPortNumber_Port3 = 0x0004
-
-
-class TLMC_ButtonMode(IntEnum):
-
-    TLMC_ButtonMode_Jog = 0x0001
-    TLMC_ButtonMode_PresetPosition = 0x0002
+    TLMC_AuxIoPortNumber_EncoderOutputMotor1 = 0x0008
+    TLMC_AuxIoPortNumber_EncoderOutputMotor2 = 0x0010
+    TLMC_AuxIoPortNumber_EncoderOutputMotor3 = 0x0020
 
 
 class TLMC_BowIndex(IntEnum):
@@ -60,16 +57,17 @@ class TLMC_BowIndex(IntEnum):
     TLMC_BowIndex_SCurve18 = 18
 
 
+class TLMC_ButtonMode(IntEnum):
+
+    TLMC_ButtonMode_Jog = 0x0001
+    TLMC_ButtonMode_PresetPosition = 0x0002
+
+
 class TLMC_CalibrationState(IntEnum):
     TLMC_CalibrationState_Unknown = 0x00
     TLMC_CalibrationState_FileNotPresent = 0x01
     TLMC_CalibrationState_Active = 0x02
     TLMC_CalibrationState_Inactive = 0x03
-
-
-class TLMC_ChannelEnableStates(IntEnum):
-    ChannelEnabled = 0x01
-    ChannelDisabled = 0x02
 
 
 class TLMC_ConnectedProductAxisType(IntEnum):
@@ -126,6 +124,11 @@ class TLMC_DeviceFamily(IntEnum):
     TLMC_DeviceFamily_ThorlabsMotionControl = 0
 
 
+class TLMC_DeviceListChange(IntEnum):
+    TLMC_DeviceListChange_EntryAdded = 0
+    TLMC_DeviceListChange_EntryRemoved = 1
+
+
 class TLMC_DeviceType(IntEnum):
     TLMC_DeviceType_Bbd30xBaseUnit = 0
     TLMC_DeviceType_Bbd30xLogicalChannel = 1
@@ -147,14 +150,10 @@ class TLMC_DeviceType(IntEnum):
     TLMC_DeviceType_Kpc101 = 17
     TLMC_DeviceType_Pdxc2 = 18
     TLMC_DeviceType_Pdxc3 = 19
-    TLMC_DeviceType_Kna101 = 20
-    TLMC_DeviceType_LnnxBaseUnit = 21
-    TLMC_DeviceType_LnnxLogicalChannel = 22
-
-
-class TLMC_DeviceListChange(IntEnum):
-    TLMC_DeviceListChange_EntryAdded = 0
-    TLMC_DeviceListChange_EntryRemoved = 1
+    TLMC_DeviceType_UmcxBaseUnit = 20
+    TLMC_DeviceType_UmcxBrushlessLogicalChannel = 21
+    TLMC_DeviceType_UmcxStepperLogicalChannel = 22
+    TLMC_DeviceType_Anonymous = 23
 
 
 class TLMC_DigitalInput(IntFlag):
@@ -167,6 +166,16 @@ class TLMC_DigitalInput(IntFlag):
                              | TLMC_DigitalInput_2
                              | TLMC_DigitalInput_3
                              | TLMC_DigitalInput_4)
+
+class TLMC_IoTriggerPortNumber(IntFlag):
+    TLMC_IoTriggerPortNumber_None = 0x0000
+    TLMC_IoTriggerPortNumber_Port1 = 0x0001
+    TLMC_IoTriggerPortNumber_Port2 = 0x0002
+    TLMC_IoTriggerPortNumber_Port3 = 0x0004
+    TLMC_IoTriggerPortNumber_Port4 = 0x0008
+    TLMC_IoTriggerPortNumber_Port5 = 0x0010
+    TLMC_IoTriggerPortNumber_Port6 = 0x0020
+    TLMC_IoTriggerPortNumber_Port7 = 0x0040
 
 
 class TLMC_DigitalOutput(IntFlag):
@@ -241,13 +250,21 @@ class TLMC_IoTriggerInMode(IntEnum):
     TLMC_IoTriggerInMode_TriggersRelativeMove = 0x0002
     TLMC_IoTriggerInMode_TriggersAbsoluteMove = 0x0003
     TLMC_IoTriggerInMode_TriggersHomeMove = 0x0004
+    TLMC_IoTriggerInMode_TriggersHomeStop = 0x0005
 
 
 class TLMC_IoTriggerInSource(IntEnum):
     TLMC_IoTriggerInSource_Software = 0x0000
-    TLMC_IoTriggerInSource_BNC1 = 0x0001
-    TLMC_IoTriggerInSource_BNC2 = 0x0002
-    TLMC_IoTriggerInSource_BNC3 = 0x0003
+    TLMC_IoTriggerInSource_Io1 = 0x0001
+    TLMC_IoTriggerInSource_Io2 = 0x0002
+    TLMC_IoTriggerInSource_Io3 = 0x0003
+    TLMC_IoTriggerInSource_BNC1 = TLMC_IoTriggerInSource_Io1
+    TLMC_IoTriggerInSource_BNC2 = TLMC_IoTriggerInSource_Io2
+    TLMC_IoTriggerInSource_BNC3 = TLMC_IoTriggerInSource_Io3
+    TLMC_IoTriggerInSource_AuxIoUserInput1 = 0x0004
+    TLMC_IoTriggerInSource_AuxIoUserInput2 = 0x0005
+    TLMC_IoTriggerInSource_AuxIoUserInput3 = 0x0006
+    TLMC_IoTriggerInSource_AuxIoUserInput4 = 0x0007
 
 
 class TLMC_IoTriggerOutMode(IntEnum):
@@ -265,17 +282,6 @@ class TLMC_IoTriggerOutMode(IntEnum):
 class TLMC_IoTriggerPolarity(IntEnum):
     TLMC_IoTriggerPolarity_ActiveIsLogicHigh = 0x0001
     TLMC_IoTriggerPolarity_ActiveIsLogicLow = 0x0002
-
-
-class TLMC_IoTriggerPortNumber(IntFlag):
-    TLMC_IoTriggerPortNumber_None = 0x0000
-    TLMC_IoTriggerPortNumber_Port1 = 0x0001
-    TLMC_IoTriggerPortNumber_Port2 = 0x0002
-    TLMC_IoTriggerPortNumber_Port3 = 0x0004
-    TLMC_IoTriggerPortNumber_Port4 = 0x0008
-    TLMC_IoTriggerPortNumber_Port5 = 0x0010
-    TLMC_IoTriggerPortNumber_Port6 = 0x0020
-    TLMC_IoTriggerPortNumber_Port7 = 0x0040
 
 
 class TLMC_JogMode(IntEnum):
@@ -296,7 +302,6 @@ class TLMC_JoystickAxis(IntEnum):
 
 
 class TLMC_JoystickDirectionSense(IntEnum):
-    TLMC_JoystickDirectionSense_Disabled = 0x0000
     TLMC_JoystickDirectionSense_Positive = 0x0001
     TLMC_JoystickDirectionSense_Negative = 0x0002
 
@@ -679,25 +684,21 @@ class TLMC_NotificationId(IntEnum):
     TLMC_NotificationId_PiezoKpcIoSettingsChanged = 60
     TLMC_NotificationId_PiezoKpcIoTriggerParamsChanged = 61
     TLMC_NotificationId_PiezoKpcMmiParamsChanged = 62
-    TLMC_NotificationId_NanoTrakModeChanged = 63
-    TLMC_NotificationId_NanoTrakStatusChanged = 64
-    TLMC_NotificationId_NanoTrakCircleParamsChanged = 65
-    TLMC_NotificationId_NanoTrakRangeParamsChanged = 66
-    TLMC_NotificationId_NanoTrakPhaseCompensationParamsChanged = 67
-    TLMC_NotificationId_PiezoKnaIoTriggerParamsChanged = 68
-    TLMC_NotificationId_NanoTrakCircleHomePositionChanged = 69
-    TLMC_NotificationId_NanoTrakGainChanged = 70
-    TLMC_NotificationId_NanoTrakTrackThresholdChanged = 71
-    TLMC_NotificationId_TNAIoSettingsChanged = 72
-    TLMC_NotificationId_PiezoKnaMmiParamsChanged = 73
-    TLMC_NotificationId_PiezoXyScanDataChanged = 74
-    TLMC_NotificationId_NanoTrakCircleDiameterLutDataChanged = 75
-    TLMC_NotificationId_NanoTrakStatusBitsChanged = 76
-    TLMC_NotificationId_NanoTrakFeedbackSourceChanged = 77
-    TLMC_NotificationId_MonitorOutputParamsChanged = 78
-    TLMC_NotificationId_LnnxControlLoopParamsChanged = 79
-    TLMC_NotificationId_LnnxNotchFilterParamsChanged = 80
-    TLMC_NotificationId_PiezoIoTriggerParamsChanged = 81
+    TLMC_NotificationId_AbnormalMoveDetectionParamsChanged = 63
+    TLMC_NotificationId_PiezoInertialMotorAmplifierOutputParamsChanged = 64
+    TLMC_NotificationId_PiezoInertialMotorClosedLoopMoveParamsChanged = 65
+    TLMC_NotificationId_PiezoInertialMotorClosedLoopParamsChanged = 66
+    TLMC_NotificationId_PiezoInertialMotorCurrentPositionChanged = 67
+    TLMC_NotificationId_PiezoInertialMotorEthernetParamsChanged = 68
+    TLMC_NotificationId_PiezoInertialMotorExternalTriggerConfigChanged = 69
+    TLMC_NotificationId_PiezoInertialMotorExternalTriggerParamsChanged = 70
+    TLMC_NotificationId_PiezoInertialMotorJogParamsChanged = 71
+    TLMC_NotificationId_PiezoInertialMotorOpenLoopMoveParamsChanged = 72
+    TLMC_NotificationId_PiezoInertialMotorStatusChanged = 73
+    TLMC_NotificationId_PiezoInertialMotorTriggerTargetPositionChanged = 74
+    TLMC_NotificationId_UmcStatusChanged = 75
+    TLMC_NotificationId_AuxIoConfigurationChanged = 76
+
 
 class TLMC_OperatingMode(IntFlag):
     TLMC_OperatingMode_StatusPushedByController = 0x00000000
@@ -710,12 +711,16 @@ class TLMC_OperatingMode(IntFlag):
     TLMC_OperatingMode_DoNotSendDisconnectOnFinalClose = 0x00020000
     TLMC_OperatingMode_DoNotAutoSetConnectedProduct = 0x00040000
     TLMC_OperatingMode_DoNotSendNoFlashProgrammingOnConnect = 0x00080000
+    TLMC_OperatingMode_DoNotAutoCalibrate = 0x00100000
+    TLMC_OperatingMode_DoNotSendHardwareInfoRequestOnConnect = 0x00200000
     TLMC_OperatingMode_Apt = (TLMC_OperatingMode_StatusPushedByController | TLMC_OperatingMode_SendEndOfMoveMessages)
     TLMC_OperatingMode_Kinesis = (TLMC_OperatingMode_AutomaticStatusPolling | TLMC_OperatingMode_SendEndOfMoveMessages)
     TLMC_OperatingMode_Default = TLMC_OperatingMode_Apt
     TLMC_OperatingMode_Expert = (
         TLMC_OperatingMode_DoNotChangeStatusPollingMode | TLMC_OperatingMode_DoNotLoadParamsOnConnect |
-        TLMC_OperatingMode_DoNotSendDisconnectOnFinalClose | TLMC_OperatingMode_DoNotAutoSetConnectedProduct)
+        TLMC_OperatingMode_DoNotSendDisconnectOnFinalClose | TLMC_OperatingMode_DoNotAutoSetConnectedProduct |
+        TLMC_OperatingMode_DoNotSendNoFlashProgrammingOnConnect | TLMC_OperatingMode_DoNotAutoCalibrate |
+        TLMC_OperatingMode_DoNotSendHardwareInfoRequestOnConnect)
 
 
 class TLMC_ParameterGroupId(IntEnum):
@@ -863,6 +868,7 @@ class TLMC_ResultCode(IntEnum):
     TLMC_SimulationCreationError = 24
     TLMC_ConnectedProductNotSet = 25
     TLMC_CalibrationFileNotPresent = 26
+    TLMC_ConnectedProductUnknown = 27
 
 
 class TLMC_ScaleType(IntEnum):
@@ -881,13 +887,6 @@ class TLMC_ScaleType(IntEnum):
     TLMC_ScaleType_NormalizedStrainGauge = 12
     TLMC_ScaleType_RescaledVoltage = 13
     TLMC_ScaleType_RescaledDistance = 14
-    TLMC_ScaleType_Phase = 15
-    TLMC_ScaleType_Frequency = 16
-    TLMC_ScaleType_Current = 17
-    TLMC_ScaleType_UserDiameter = 18
-    TLMC_ScaleType_NanoTrak = 19
-    TLMC_ScaleType_Pid = 20
-    TLMC_ScaleType_QFactor = 21
 
 
 class TLMC_SettingStringFormat(IntEnum):
@@ -905,20 +904,82 @@ class TLMC_SoftLimitOperatingMode(IntEnum):
     TLMC_SoftLimitOperatingMode_RotationStageLimit = 0x0080
 
 
-class TLMC_StageAxis_AxisId(IntEnum):
+class TLMC_StageAxisId(IntEnum):
     TLMC_StageAxisId_Unknown = 0x0001
     TLMC_StageAxisId_Rotary = 0x0003
     TLMC_StageAxisId_X = 0x0010
     TLMC_StageAxisId_Y = 0x0011
     TLMC_StageAxisId_Single = 0x0012
+    TLMC_StageAxisId_Pitch = 0x0013
+    TLMC_StageAxisId_Roll = 0x0014
+    TLMC_StageAxisId_Yaw = 0x0015
 
 
-class TLMC_StageAxis_TypeId(IntEnum):
-    TLMC_StageAxisType_Unknown = 0x0001
-    TLMC_StageAxisType_MLS203_X = 0x0010
-    TLMC_StageAxisType_MLS203_Y = 0x0011
-    TLMC_StageAxisType_DDS = 0x0012
-    TLMC_StageAxisType_DDR = 0x0075
+class TLMC_StageProductId(IntEnum):
+    TLMC_StageProductId_Unknown_PDXC = 0x0000
+    TLMC_StageProductId_Unknown = 0x0001
+    TLMC_StageProductId_MLS203_X = 0x0010
+    TLMC_StageProductId_MLS203_Y = 0x0011
+    TLMC_StageProductId_DDS = 0x0012
+    TLMC_StageProductId_DRV001 = 0x0049
+    TLMC_StageProductId_DRV013 = 0x0050
+    TLMC_StageProductId_DRV014 = 0x0051
+    TLMC_StageProductId_NanoMax_300_Y_Axis_DRV208 = 0x0060
+    TLMC_StageProductId_NanoMax_300M_Y_Axis_DRV208 = 0x0061
+    TLMC_StageProductId_NanoMax_300_Z_Axis_DRV208 = 0x0062
+    TLMC_StageProductId_NanoMax_300M_Z_Axis_DRV208 = 0x0063
+    TLMC_StageProductId_NanoMax_600_Y_Axis_DRV208 = 0x0064
+    TLMC_StageProductId_NanoMax_600M_Y_Axis_DRV208 = 0x0065
+    TLMC_StageProductId_NanoMax_600_Z_Axis_DRV208 = 0x0066
+    TLMC_StageProductId_NanoMax_600M_Z_Axis_DRV208 = 0x0067
+    TLMC_StageProductId_NanoMax_600_Pitch_Axis_DRV208 = 0x0068
+    TLMC_StageProductId_NanoMax_600M_Pitch_Axis_DRV208 = 0x0069
+    TLMC_StageProductId_NanoMax_600_Yaw_Axis_DRV208 = 0x006A
+    TLMC_StageProductId_NanoMax_600M_Yaw_Axis_DRV208 = 0x006B
+    TLMC_StageProductId_NanoMax_600_Roll_Axis_DRV208 = 0x006C
+    TLMC_StageProductId_NanoMax_600M_Roll_Axis_DRV208 = 0x006D
+    TLMC_StageProductId_NanoMax_300_X_Axis_DRV001 = 0x006E
+    TLMC_StageProductId_NanoMax_300M_X_Axis_DRV001 = 0x006F
+    TLMC_StageProductId_NanoMax_300_Y_Axis_DRV001 = 0x0070
+    TLMC_StageProductId_NanoMax_300M_Y_Axis_DRV001 = 0x0071
+    TLMC_StageProductId_NanoMax_300_Z_Axis_DRV001 = 0x0072
+    TLMC_StageProductId_NanoMax_300M_Z_Axis_DRV001 = 0x0073
+    TLMC_StageProductId_NanoMax_600_X_Axis_DRV001 = 0x0074
+    TLMC_StageProductId_DDR = 0x0075
+    TLMC_StageProductId_FW6 = 0x0076
+    TLMC_StageProductId_FW12 = 0x0077
+    TLMC_StageProductId_NanoMax_600_Z_Axis_DRV001 = 0x0078
+    TLMC_StageProductId_NanoMax_600M_Z_Axis_DRV001 = 0x0079
+    TLMC_StageProductId_NanoMax_600_Pitch_Axis_DRV001 = 0x007A
+    TLMC_StageProductId_NanoMax_600M_Pitch_Axis_DRV001 = 0x007B
+    TLMC_StageProductId_NanoMax_600_Yaw_Axis_DRV001 = 0x007C
+    TLMC_StageProductId_NanoMax_600M_Yaw_Axis_DRV001 = 0x007D
+    TLMC_StageProductId_NanoMax_600_Roll_Axis_DRV001 = 0x007E
+    TLMC_StageProductId_NanoMax_600M_Roll_Axis_DRV001 = 0x007F
+    TLMC_StageProductId_NanoMax_600M_X_Axis_DRV001 = 0x0080
+    TLMC_StageProductId_NanoMax_600_Y_Axis_DRV001 = 0x0081
+    TLMC_StageProductId_NanoMax_600M_Y_Axis_DRV001 = 0x0082
+    TLMC_StageProductId_HDR50M = 0x00AE
+    TLMC_StageProductId_HDR50 = 0x00AF
+    TLMC_StageProductId_DRV225 = 0x00B0
+    TLMC_StageProductId_DRV250 = 0x00B1
+    TLMC_StageProductId_DRV208 = 0x00B2
+    TLMC_StageProductId_NRT100 = 0x00B3
+    TLMC_StageProductId_NRT150 = 0x00B4
+    TLMC_StageProductId_FW103 = 0x00B6
+    TLMC_StageProductId_LPXY1_X = 0x00B8
+    TLMC_StageProductId_LPXY1_Y = 0x00B9
+    TLMC_StageProductId_LNR502 = 0x00BB
+    TLMC_StageProductId_LNR502E = 0x00BC
+    TLMC_StageProductId_NanoMax_300_X_Axis_DRV208 = 0x00BD
+    TLMC_StageProductId_NanoMax_300M_X_Axis_DRV208 = 0x00BE
+    TLMC_StageProductId_NanoMax_600_X_Axis_DRV208 = 0x00BF
+    TLMC_StageProductId_NanoMax_600M_X_Axis_DRV208 = 0x00C0
+    TLMC_StageProductId_NRT100M = 0x00C3
+    TLMC_StageProductId_NRT150M = 0x00C4
+    TLMC_StageProductId_LNR502M = 0x00CB
+    TLMC_StageProductId_LNR502EM = 0x00CC
+    TLMC_StageProductId_AutoIdNotPresent = 0x8000
 
 
 class TLMC_StatusItemId(IntEnum):
@@ -990,30 +1051,6 @@ class TLMC_StatusItemId(IntEnum):
     TLMC_StatusItemId_PulseAcquired = 65
     TLMC_StatusItemId_PulseAcquiring = 66
     TLMC_StatusItemId_WrongStageDetected = 67
-    TLMC_StatusItemId_CirclePositionA = 68
-    TLMC_StatusItemId_CirclePositionB = 69
-    TLMC_StatusItemId_CircleDiameter = 70
-    TLMC_StatusItemId_AbsoluteReading = 71
-    TLMC_StatusItemId_RelativeReading = 72
-    TLMC_StatusItemId_Range = 73
-    TLMC_StatusItemId_UnderOverRead = 74
-    TLMC_StatusItemId_Gain = 75
-    TLMC_StatusItemId_PhaseCompensationA = 76
-    TLMC_StatusItemId_PhaseCompensationB = 77
-    TLMC_StatusItemId_TrackingWithSignal = 78
-    TLMC_StatusItemId_TrackingOnlyChannelA = 79
-    TLMC_StatusItemId_TrackingOnlyChannelB = 80
-    TLMC_StatusItemId_AutoRange = 81
-    TLMC_StatusItemId_UnderRead = 82
-    TLMC_StatusItemId_OverRead = 83
-    TLMC_StatusItemId_ChannelAConnected = 84
-    TLMC_StatusItemId_ChannelBConnected = 85
-    TLMC_StatusItemId_ChannelAEnabled = 86
-    TLMC_StatusItemId_ChannelBEnabled = 87
-    TLMC_StatusItemId_ChannelAControlMode = 88
-    TLMC_StatusItemId_ChannelBControlMode = 89
-    TLMC_StatusItemId_NanoTrakMode = 90
-    TLMC_StatusItemId_FeedbackSaturated = 91
 
 
 class TLMC_StatusItemValue(IntEnum):
@@ -1021,6 +1058,11 @@ class TLMC_StatusItemValue(IntEnum):
     TLMC_ValueType_bool = 1
     TLMC_ValueType_string = 2
     TLMC_ValueType_float = 3
+
+
+class TLMC_StepperLoopParams_LoopMode(IntEnum):
+    TLMC_StepperLoopParams_LoopMode_Open = 0x0001
+    TLMC_StepperLoopParams_LoopMode_Closed = 0x0002
 
 
 class TLMC_StepperStatusBit(IntEnum):
@@ -1035,11 +1077,6 @@ class TLMC_StepperStatusBit(IntEnum):
     TLMC_StepperStatusBit_DigitalInput1 = 0x00100000
     TLMC_StepperStatusBit_DigitalInput2 = 0x00200000
     TLMC_StepperStatusBit_Enabled = 0x80000000
-
-
-class TLMC_StepperLoopParams_LoopMode(IntEnum):
-    TLMC_StepperLoopParams_LoopMode_Open = 0x0001
-    TLMC_StepperLoopParams_LoopMode_Closed = 0x0002
 
 
 class TLMC_StopMode(IntEnum):
@@ -1092,9 +1129,6 @@ class TLMC_Unit(IntEnum):
     TLMC_Unit_Nanoseconds = 18
     TLMC_Unit_Millivolts = 19
     TLMC_Unit_Steps = 20
-    TLMC_Unit_Milliamps = 21
-    TLMC_Unit_NanoTrak = 22
-    TLMC_Unit_QFactor = 23
 
 
 class TLMC_UniversalStatusBit(IntFlag):

@@ -1,0 +1,17 @@
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\obj\Debug\net8.0\BPC30X.csproj.AssemblyReference.cache
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\obj\Debug\net8.0\BPC30X.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\obj\Debug\net8.0\BPC30X.AssemblyInfoInputs.cache
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\obj\Debug\net8.0\BPC30X.AssemblyInfo.cs
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\obj\Debug\net8.0\BPC30X.csproj.CoreCompileInputs.cache
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\bin\Debug\net8.0\BPC30X.exe
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\bin\Debug\net8.0\BPC30X.deps.json
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\bin\Debug\net8.0\BPC30X.runtimeconfig.json
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\bin\Debug\net8.0\BPC30X.dll
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\bin\Debug\net8.0\BPC30X.pdb
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\bin\Debug\net8.0\tlmc_xa_dotnet.dll
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\obj\Debug\net8.0\BPC30X.csproj.Up2Date
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\obj\Debug\net8.0\BPC30X.dll
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\obj\Debug\net8.0\refint\BPC30X.dll
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\obj\Debug\net8.0\BPC30X.pdb
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\obj\Debug\net8.0\BPC30X.genruntimeconfig.cache
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BPC30X\BPC30X\obj\Debug\net8.0\ref\BPC30X.dll

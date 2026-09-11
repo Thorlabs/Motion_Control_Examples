@@ -37,7 +37,7 @@ from thorlabs_xa.native_sdks.native_functions import NativeFunctions
 
 from thorlabs_xa.shared.device import Device
 from thorlabs_xa.shared.enums import TLMC_DigitalOutput, TLMC_EnableState, TLMC_KcubeMmiLockState, TLMC_OperatingMode, TLMC_PZ_PositionControlMode, TLMC_PZ_StatusBit, TLMC_ParameterGroupId, TLMC_ScaleType, TLMC_SettingStringFormat, TLMC_StatusItemId, TLMC_Unit
-from thorlabs_xa.shared.params import TLMC_ConnectedProductInfo, TLMC_DeviceInfo, TLMC_FirmwareVersion, TLMC_HardwareInfo, TLMC_PZ_KpcIoSettingsParams, TLMC_PZ_KpcIoTriggerParams, TLMC_PZ_KpcMmiParams, TLMC_PZ_OutputVoltageControlSourceParams, TLMC_PZ_OutputWaveformLoopTableSample, TLMC_PZ_OutputWaveformParams, TLMC_PZ_PositionLoopParams, TLMC_PZ_Status, TLMC_RichResponse, TLMC_Setting, TLMC_StatusItem
+from thorlabs_xa.shared.params import TLMC_ConnectedProductInfo, TLMC_DeviceInfo, TLMC_FirmwareVersion, TLMC_HardwareInfo, TLMC_PZ_KpcIoSettingsParams, TLMC_PZ_KpcIoTriggerParams, TLMC_PZ_KpcMmiParams, TLMC_PZ_OutputVoltageControlSourceParams, TLMC_PZ_OutputWaveformLookupTableSample, TLMC_PZ_OutputWaveformParams, TLMC_PZ_PositionLoopParams, TLMC_PZ_Status, TLMC_RichResponse, TLMC_Setting, TLMC_StatusItem
 
 
 class Kpc101(Device,
@@ -165,7 +165,7 @@ class Kpc101(Device,
     def set_output_waveform_params(self, params: TLMC_PZ_OutputWaveformParams) -> None:
         self.feature_group.output_waveform_feature.set_output_waveform_params(params)
 
-    def set_output_waveform_lookup_table_sample_params(self, params: TLMC_PZ_OutputWaveformLoopTableSample) -> None:
+    def set_output_waveform_lookup_table_sample_params(self, params: TLMC_PZ_OutputWaveformLookupTableSample) -> None:
         self.feature_group.output_waveform_feature.set_output_waveform_lookup_table_sample_params(params)
 
     def start_output_waveform(self) -> None:

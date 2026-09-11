@@ -27,7 +27,7 @@ from thorlabs_xa.implementations.device_features.status_request_feature import S
 from thorlabs_xa.implementations.device_features.stepper_status_feature import StepperStatusFeature
 from thorlabs_xa.implementations.device_features.stop_feature import StopFeature
 from thorlabs_xa.implementations.device_features.unit_converter_feature import UnitConverterFeature
-from thorlabs_xa.implementations.device_features.universal_status_feature import UniversalStatusFeature
+from thorlabs_xa.implementations.device_features.universal_status_bits_feature import UniversalStatusBitsFeature
 from thorlabs_xa.implementations.device_features.velocity_params_feature import VelocityParamsFeature
 
 from thorlabs_xa.interfaces.device_features.button_params import ButtonParams
@@ -57,7 +57,7 @@ from thorlabs_xa.interfaces.device_features.status_request import StatusRequest
 from thorlabs_xa.interfaces.device_features.stepper_status import StepperStatus
 from thorlabs_xa.interfaces.device_features.stop import Stop
 from thorlabs_xa.interfaces.device_features.unit_converter import UnitConverter
-from thorlabs_xa.interfaces.device_features.universal_status import UniversalStatus
+from thorlabs_xa.interfaces.device_features.universal_status_bits import UniversalStatusBits
 from thorlabs_xa.interfaces.device_features.velocity_params import VelocityParams
 
 from thorlabs_xa.native_sdks.native_functions import NativeFunctions
@@ -92,7 +92,7 @@ class LinearTranslationStageFeatureGroup(thorlabs_xa.interfaces.device_feature_g
         self._stepper_status_feature = StepperStatusFeature(device_handle, native_functions)
         self._stop_feature = StopFeature(device_handle, native_functions)
         self._unit_converter_feature = UnitConverterFeature(device_handle, native_functions)
-        self._universal_status_feature = UniversalStatusFeature(device_handle, native_functions)
+        self._universal_status_bits_feature = UniversalStatusBitsFeature(device_handle, native_functions)
         self._velocity_params_feature = VelocityParamsFeature(device_handle, native_functions)
 
     @property
@@ -117,7 +117,7 @@ class LinearTranslationStageFeatureGroup(thorlabs_xa.interfaces.device_feature_g
     
     @property
     def firmware_version_info_feature(self) -> FirmwareVersionInfo:
-        return self.firmware_version_info_feature
+        return self._firmware_version_info_feature
     
     @property
     def general_move_params_feature(self) -> GeneralMoveParams:
@@ -204,8 +204,8 @@ class LinearTranslationStageFeatureGroup(thorlabs_xa.interfaces.device_feature_g
         return self._unit_converter_feature
     
     @property
-    def universal_status_feature(self) -> UniversalStatus:
-        return self._universal_status_feature
+    def universal_status_bits_feature(self) -> UniversalStatusBits:
+        return self._universal_status_bits_feature
     
     @property
     def velocity_params_feature(self) -> VelocityParams:

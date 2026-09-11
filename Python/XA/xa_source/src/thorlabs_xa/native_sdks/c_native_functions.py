@@ -11,9 +11,9 @@ from typing import Any, List, Mapping, Optional
 
 from thorlabs_xa.native_sdks.native_functions import NativeFunctions
 
-from thorlabs_xa.shared.enums import TLMC_AnalogMonitorNumber, TLMC_AuxIoPortMode, TLMC_AuxIoPortNumber, TLMC_BowIndex, TLMC_CalibrationState, TLMC_CurrentLoopScenario, TLMC_DigitalInput, TLMC_DigitalOutput, TLMC_EnableState, TLMC_EndOfMoveMessagesMode, TLMC_IoPortNumber, TLMC_IoPositionTriggerEnableState, TLMC_KcubeMmiLockState, TLMC_MoveDirection, TLMC_MoveMode, TLMC_OperatingMode, TLMC_PZ_PositionControlMode, TLMC_PZ_SetNanoTrakModeType, TLMC_PZ_StatusBit, TLMC_ParameterGroupId, TLMC_PositionLoopScenario, TLMC_RackBayNumber, TLMC_RackBayOccupiedState, TLMC_ResultCode, TLMC_ScaleType, TLMC_SettingStringFormat, TLMC_StatusItemId, TLMC_StopMode, TLMC_Unit, TLMC_UniversalStatusBit, TLMC_Wait
-from thorlabs_xa.shared.c_params import C_TLMC_AdcInputs, C_TLMC_AnalogMonitorConfigurationParams, C_TLMC_ApiVersion, C_TLMC_ButtonParams, C_TLMC_ConnectedProductInfo, C_TLMC_CurrentLoopParams, C_TLMC_DcPidParams, C_TLMC_DeviceInfo, C_TLMC_FirmwareVersion, C_TLMC_GeneralMoveParams, C_TLMC_HardwareInfo, C_TLMC_HomeParams, C_TLMC_IoConfigurationParams, C_TLMC_IoTriggerParams, C_TLMC_JogParams, C_TLMC_JoystickParams, C_TLMC_JoystickSettingsParams, C_TLMC_KcubeIoTriggerParams, C_TLMC_KcubeMmiParams, C_TLMC_KcubePositionTriggerParams, C_TLMC_LcdDisplayParams, C_TLMC_LcdMoveParams, C_TLMC_LimitSwitchParams, C_TLMC_MonitorOutputParams, C_TLMC_MotorOutputParams, C_TLMC_MoveAbsoluteParams, C_TLMC_MoveRelativeParams, C_TLMC_PZ_KpcIoSettingsParams, C_TLMC_PZ_KpcIoTriggerParams, C_TLMC_PZ_KpcMmiParams, C_TLMC_PZ_LnnxControlLoopParams, C_TLMC_PZ_LnnxNotchFilterParams, C_TLMC_PZ_MaxOutputVoltageParams, C_TLMC_PZ_NanoTrakCircleDiameterLookupTableData, C_TLMC_PZ_NanoTrakCircleHomePositionParams, C_TLMC_PZ_NanoTrakCircleParams, C_TLMC_PZ_NanoTrakGainParams, C_TLMC_PZ_NanoTrakMode, C_TLMC_PZ_NanoTrakPhaseCompensationParams, C_TLMC_PZ_NanoTrakRangeParams, C_TLMC_PZ_NanoTrakStatus, C_TLMC_PZ_NanoTrakTnaIoSettings, C_TLMC_PZ_NanoTrakTrackThresholdParams, C_TLMC_PZ_OutputVoltageControlSourceParams, C_TLMC_PZ_OutputWaveformParams, C_TLMC_PZ_PositionLoopParams, C_TLMC_PZ_SlewRateParams, C_TLMC_PZ_StageInfoParams, C_TLMC_PZ_Status, C_TLMC_PositionLoopParams, C_TLMC_PotentiometerParams, C_TLMC_PowerParams, C_TLMC_ProfileModeParams, C_TLMC_RichResponse, C_TLMC_Setting, C_TLMC_StageAxisParams, C_TLMC_StatusItem, C_TLMC_StepperLoopParams, C_TLMC_StepperStatus, C_TLMC_TrackSettleParams, C_TLMC_TriggerParamsForDcBrushless, C_TLMC_TriggerParamsForStepper, C_TLMC_UniversalStatus, C_TLMC_VelocityParams
-from thorlabs_xa.shared.params import TLMC_AdcInputs, TLMC_AnalogMonitorConfigurationParams, TLMC_ApiVersion, TLMC_ButtonParams, TLMC_ConnectedProductInfo, TLMC_CurrentLoopParams, TLMC_DeviceInfo, TLMC_FirmwareVersion, TLMC_GeneralMoveParams, TLMC_HardwareInfo, TLMC_HomeParams, TLMC_DcPidParams, TLMC_IoConfigurationParams, TLMC_IoTriggerParams, TLMC_JogParams, TLMC_JoystickParams, TLMC_JoystickSettingsParams, TLMC_KcubeIoTriggerParams, TLMC_KcubeMmiParams, TLMC_KcubePositionTriggerParams, TLMC_LcdDisplayParams, TLMC_LcdMoveParams, TLMC_LimitSwitchParams, TLMC_MonitorOutputParams, TLMC_MotorOutputParams, TLMC_MoveAbsoluteParams, TLMC_MoveRelativeParams, TLMC_PZ_KpcIoSettingsParams, TLMC_PZ_KpcIoTriggerParams, TLMC_PZ_KpcMmiParams, TLMC_PZ_LnnxControlLoopParams, TLMC_PZ_LnnxNotchFilterParams, TLMC_PZ_MaxOutputVoltageParams, TLMC_PZ_NanoTrakCircleDiameterLookupTableData, TLMC_PZ_NanoTrakCircleHomePositionParams, TLMC_PZ_NanoTrakEEPROMParams, TLMC_PZ_NanoTrakGainParams, TLMC_PZ_NanoTrakMode, TLMC_PZ_NanoTrakPhaseCompensationParams, TLMC_PZ_NanoTrakRangeParams, TLMC_PZ_NanoTrakStatus, TLMC_PZ_NanoTrakTnaIoSettings, TLMC_PZ_NanoTrakTrackThresholdParams, TLMC_PZ_OutputVoltageControlSourceParams, TLMC_PZ_OutputWaveformParams, TLMC_PZ_PositionLoopParams, TLMC_PZ_SlewRateParams, TLMC_PZ_StageInfoParams, TLMC_PZ_Status, TLMC_PositionLoopParams, TLMC_PotentiometerParams, TLMC_PowerParams, TLMC_ProfileModeParams, TLMC_RichResponse, TLMC_Setting, TLMC_StageAxisParams, TLMC_StatusItem, TLMC_StepperLoopParams, TLMC_StepperStatus, TLMC_TrackSettleParams, TLMC_TriggerParamsForDcBrushless, TLMC_TriggerParamsForStepper, TLMC_UniversalStatus, TLMC_Value, TLMC_VelocityParams, TLMC_PZ_NanoTrakCircleParams, TLMC_PZ_OutputWaveformLoopTableSample
+from thorlabs_xa.shared.enums import TLMC_AnalogMonitorNumber, TLMC_AuxIoPortMode, TLMC_AuxIoPortNumber, TLMC_BowIndex, TLMC_CalibrationState, TLMC_CurrentLoopScenario, TLMC_DigitalInput, TLMC_DigitalOutput, TLMC_EnableState, TLMC_EndOfMoveMessagesMode, TLMC_IoPortNumber, TLMC_IoPositionTriggerEnableState, TLMC_KcubeMmiLockState, TLMC_MoveDirection, TLMC_MoveMode, TLMC_OperatingMode, TLMC_PZ_PositionControlMode, TLMC_PZ_SetNanoTrakModeType, TLMC_PZ_StatusBit, TLMC_PZIM_KcubeChannelEnableMode, TLMC_ParameterGroupId, TLMC_PositionLoopScenario, TLMC_RackBayNumber, TLMC_RackBayOccupiedState, TLMC_ResultCode, TLMC_ScaleType, TLMC_SettingStringFormat, TLMC_StatusItemId, TLMC_StopMode, TLMC_Unit, TLMC_UniversalStatusBit, TLMC_Wait
+from thorlabs_xa.shared.c_params import C_TLMC_AdcInputs, C_TLMC_AnalogMonitorConfigurationParams, C_TLMC_ApiVersion, C_TLMC_ButtonParams, C_TLMC_ConnectedProductInfo, C_TLMC_CurrentLoopParams, C_TLMC_DcPidParams, C_TLMC_DeviceInfo, C_TLMC_FirmwareVersion, C_TLMC_GeneralMoveParams, C_TLMC_HardwareInfo, C_TLMC_HomeParams, C_TLMC_IoConfigurationParams, C_TLMC_IoTriggerParams, C_TLMC_JogParams, C_TLMC_JoystickParams, C_TLMC_JoystickSettingsParams, C_TLMC_KcubeIoTriggerParams, C_TLMC_KcubeMmiParams, C_TLMC_KcubePositionTriggerParams, C_TLMC_LcdDisplayParams, C_TLMC_LcdMoveParams, C_TLMC_LimitSwitchParams, C_TLMC_MonitorOutputParams, C_TLMC_MotorOutputParams, C_TLMC_MoveAbsoluteParams, C_TLMC_MoveRelativeParams, C_TLMC_PZ_KpcIoSettingsParams, C_TLMC_PZ_KpcIoTriggerParams, C_TLMC_PZ_KpcMmiParams, C_TLMC_PZ_LnnxControlLoopParams, C_TLMC_PZ_LnnxNotchFilterParams, C_TLMC_PZ_MaxOutputVoltageParams, C_TLMC_PZ_NanoTrakCircleDiameterLookupTableData, C_TLMC_PZ_NanoTrakCircleHomePositionParams, C_TLMC_PZ_NanoTrakCircleParams, C_TLMC_PZ_NanoTrakGainParams, C_TLMC_PZ_NanoTrakMode, C_TLMC_PZ_NanoTrakPhaseCompensationParams, C_TLMC_PZ_NanoTrakRangeParams, C_TLMC_PZ_NanoTrakStatus, C_TLMC_PZ_NanoTrakTnaIoSettings, C_TLMC_PZ_NanoTrakTrackThresholdParams, C_TLMC_PZ_OutputVoltageControlSourceParams, C_TLMC_PZ_OutputWaveformParams, C_TLMC_PZ_PositionLoopParams, C_TLMC_PZ_SlewRateParams, C_TLMC_PZ_StageInfoParams, C_TLMC_PZ_Status, C_TLMC_PZIM_DriveOperationsParams, C_TLMC_PZIM_KcubeFeedbackSignalParams, C_TLMC_PZIM_KcubeIoTriggerParams, C_TLMC_PZIM_KcubeJogParams, C_TLMC_PZIM_KcubeMmiParams, C_TLMC_PZIM_KcubeTriggerParams, C_TLMC_PZIM_LimitSwitchParams, C_TLMC_PZIM_PositionCounts, C_TLMC_PositionLoopParams, C_TLMC_PotentiometerParams, C_TLMC_PowerParams, C_TLMC_ProfileModeParams, C_TLMC_RichResponse, C_TLMC_Setting, C_TLMC_StageAxisParams, C_TLMC_StatusItem, C_TLMC_StepperLoopParams, C_TLMC_StepperStatus, C_TLMC_TrackSettleParams, C_TLMC_TriggerParamsForDcBrushless, C_TLMC_TriggerParamsForStepper, C_TLMC_UmcStatus, C_TLMC_UniversalStatus, C_TLMC_VelocityParams
+from thorlabs_xa.shared.params import TLMC_AdcInputs, TLMC_AnalogMonitorConfigurationParams, TLMC_ApiVersion, TLMC_ButtonParams, TLMC_ConnectedProductInfo, TLMC_CurrentLoopParams, TLMC_DeviceInfo, TLMC_FirmwareVersion, TLMC_GeneralMoveParams, TLMC_HardwareInfo, TLMC_HomeParams, TLMC_DcPidParams, TLMC_IoConfigurationParams, TLMC_IoTriggerParams, TLMC_JogParams, TLMC_JoystickParams, TLMC_JoystickSettingsParams, TLMC_KcubeIoTriggerParams, TLMC_KcubeMmiParams, TLMC_KcubePositionTriggerParams, TLMC_LcdDisplayParams, TLMC_LcdMoveParams, TLMC_LimitSwitchParams, TLMC_MonitorOutputParams, TLMC_MotorOutputParams, TLMC_MoveAbsoluteParams, TLMC_MoveRelativeParams, TLMC_MoveSyncArray, TLMC_MoveSyncParams, TLMC_MoveSyncStartParams, TLMC_PZ_KpcIoSettingsParams, TLMC_PZ_KpcIoTriggerParams, TLMC_PZ_KpcMmiParams, TLMC_PZ_LnnxControlLoopParams, TLMC_PZ_LnnxNotchFilterParams, TLMC_PZ_MaxOutputVoltageParams, TLMC_PZ_NanoTrakCircleDiameterLookupTableData, TLMC_PZ_NanoTrakCircleHomePositionParams, TLMC_PZ_NanoTrakEEPROMParams, TLMC_PZ_NanoTrakGainParams, TLMC_PZ_NanoTrakMode, TLMC_PZ_NanoTrakPhaseCompensationParams, TLMC_PZ_NanoTrakRangeParams, TLMC_PZ_NanoTrakStatus, TLMC_PZ_NanoTrakTnaIoSettings, TLMC_PZ_NanoTrakTrackThresholdParams, TLMC_PZ_OutputVoltageControlSourceParams, TLMC_PZ_OutputWaveformLookupTableSample, TLMC_PZ_OutputWaveformParams, TLMC_PZ_PositionLoopParams, TLMC_PZ_SlewRateParams, TLMC_PZ_StageInfoParams, TLMC_PZ_Status, TLMC_PZIM_DriveOperationsParams, TLMC_PZIM_KcubeFeedbackSignalParams, TLMC_PZIM_KcubeIoTriggerParams, TLMC_PZIM_KcubeJogParams, TLMC_PZIM_KcubeMmiParams, TLMC_PZIM_KcubeTriggerParams, TLMC_PZIM_LimitSwitchParams, TLMC_PZIM_PositionCounts, TLMC_PZIM_StageSelectParams, TLMC_PositionLoopParams, TLMC_PotentiometerParams, TLMC_PowerParams, TLMC_ProfileModeParams, TLMC_RichResponse, TLMC_Setting, TLMC_StageAxisParams, TLMC_StatusItem, TLMC_StepperLoopParams, TLMC_StepperStatus, TLMC_TrackSettleParams, TLMC_TriggerParamsForDcBrushless, TLMC_TriggerParamsForStepper, TLMC_UmcStatus, TLMC_UniversalStatus, TLMC_Value, TLMC_VelocityParams, TLMC_PZ_NanoTrakCircleParams
 
 from thorlabs_xa.shared.xa_error_factory import XAErrorFactory
 
@@ -25,7 +25,7 @@ class CNativeFunctions(NativeFunctions):
     NATIVELIBRARYFILENAME_WINDOWS = "tlmc_xa_native.dll"
     NATIVELIBRARYFILENAME_LINUX = "libtlmc_xa_native.so"
 
-    xa_lib: ctypes.CDLL | None = None
+    xa_lib: ctypes.CDLL
 
     def __init__(self) -> None:
         lib_name = self.pick_lib_name()
@@ -139,16 +139,21 @@ class CNativeFunctions(NativeFunctions):
 
         return MapNativeToPython.button_params(c_button_params)
         
-    def get_calibration_state(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_CalibrationState:
-        c_calibration_state = c_uint8(0)
-        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_GetCalibrationState(c_ulong(handle), byref(c_calibration_state), c_int64(max_wait_in_milliseconds)))
-
-        return TLMC_CalibrationState(c_calibration_state)
-
     def get_bow_index(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_BowIndex:
         c_bow_index = c_uint16(0)
         CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_GetBowIndex(handle, byref(c_bow_index), c_int64(max_wait_in_milliseconds)))
         return TLMC_BowIndex(c_bow_index.value)
+
+    def get_calibration_state(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_CalibrationState:
+        c_calibration_state = c_uint8(0)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_GetCalibrationState(c_ulong(handle), byref(c_calibration_state), c_int64(max_wait_in_milliseconds)))
+
+        return TLMC_CalibrationState(c_calibration_state.value)
+
+    def get_channel(self, handle: int, channel_number: int) -> int:
+        channel_handle = c_ulong()
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_GetChannel(c_ulong(handle), c_uint8(channel_number), byref(channel_handle)))
+        return channel_handle.value
 
     def get_connected_product(self, handle: int, max_length: int) -> str:
         c_buffer = ctypes.create_string_buffer(max_length)
@@ -581,6 +586,11 @@ class CNativeFunctions(NativeFunctions):
         CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_GetTriggerParamsForStepper(c_ulong(handle), byref(c_params), c_int64(max_wait_in_milliseconds)))
         return MapNativeToPython.trigger_params_for_stepper(c_params)
 
+    def get_umc_status(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_UmcStatus:
+        c_params = C_TLMC_UmcStatus()
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_GetUmcStatus(c_ulong(handle), byref(c_params), c_int64(max_wait_in_milliseconds)))
+        return MapNativeToPython.umc_status(c_params)
+
     def get_universal_status(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_UniversalStatus:
         c_params = C_TLMC_UniversalStatus()
         CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_GetUniversalStatus(c_ulong(handle), byref(c_params), c_int64(max_wait_in_milliseconds)))
@@ -620,6 +630,10 @@ class CNativeFunctions(NativeFunctions):
             move_mode = TLMC_MoveMode.TLMC_MoveMode_Absolute
 
         self.move(handle, move_mode, position_val, max_wait_in_milliseconds)
+
+    def move_sync_start(self, handle: int, move_sync_start_params: TLMC_MoveSyncStartParams) -> None:
+        c_params = MapPythonToNative.move_sync_start_params(move_sync_start_params)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_MoveSyncStart(c_ulong(handle), byref(c_params)))
 
     def move_continuous(self, handle: int, direction: TLMC_MoveDirection, max_wait_in_milliseconds: int) -> None:
         if direction == TLMC_MoveDirection.Move_Direction_Reverse:
@@ -677,7 +691,7 @@ class CNativeFunctions(NativeFunctions):
         CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZ_GetKpcMmiParams(c_ulong(handle), byref(c_params), c_int64(max_wait_in_milliseconds)))
         return MapNativeToPython.pz_kpc_mmi_params(c_params)
 
-    def pz_get_lnnx_control_loop_params(self, max_wait_in_milliseconds: int) -> TLMC_PZ_LnnxControlLoopParams:
+    def pz_get_lnnx_control_loop_params(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_PZ_LnnxControlLoopParams:
         c_params = C_TLMC_PZ_LnnxControlLoopParams()
         CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZ_GetLnnxControlLoopParams(c_ulong(handle), byref(c_params), c_int64(max_wait_in_milliseconds)))
         return MapNativeToPython.pz_lnnx_control_loop_params(c_params)
@@ -797,6 +811,56 @@ class CNativeFunctions(NativeFunctions):
         CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZ_GetStatusBits(c_ulong(handle), byref(c_status_bits), c_int64(max_wait_in_milliseconds)))
         return TLMC_PZ_StatusBit(c_status_bits.value)
 
+    def pzim_get_conversion_factors(self, handle: int, max_wait_in_milliseconds: int) -> int:
+        c_conversion_factors = c_uint32(0)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_GetConversionFactors(c_ulong(handle), byref(c_conversion_factors), c_int64(max_wait_in_milliseconds)))
+        return int(c_conversion_factors.value)
+
+    def pzim_get_drive_operations_params(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_PZIM_DriveOperationsParams:
+        c_params = C_TLMC_PZIM_DriveOperationsParams()
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_GetDriveOperationsParams(c_ulong(handle), byref(c_params), c_int64(max_wait_in_milliseconds)))
+        return MapNativeToPython.pzim_drive_operations_params(c_params)
+
+    def pzim_get_kcube_channel_enable_mode(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_PZIM_KcubeChannelEnableMode:
+        c_channel_mode = c_uint16(0)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_GetKcubeChannelEnableMode(c_ulong(handle), byref(c_channel_mode), c_int64(max_wait_in_milliseconds)))
+        return TLMC_PZIM_KcubeChannelEnableMode(c_channel_mode.value)
+
+    def pzim_get_kcube_feedback_signal_params(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_PZIM_KcubeFeedbackSignalParams:
+        c_params = C_TLMC_PZIM_KcubeFeedbackSignalParams()
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_GetKcubeFeedbackSignalParams(c_ulong(handle), byref(c_params), c_int64(max_wait_in_milliseconds)))
+        return MapNativeToPython.pzim_kcube_feedback_signal_params(c_params)
+
+    def pzim_get_kcube_io_trigger_params(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_PZIM_KcubeIoTriggerParams:
+        c_params = C_TLMC_PZIM_KcubeIoTriggerParams()
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_GetKcubeIoTriggerParams(c_ulong(handle), byref(c_params), c_int64(max_wait_in_milliseconds)))
+        return MapNativeToPython.pzim_kcube_io_trigger_params(c_params)
+
+    def pzim_get_kcube_jog_params(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_PZIM_KcubeJogParams:
+        c_params = C_TLMC_PZIM_KcubeJogParams()
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_GetKcubeJogParams(c_ulong(handle), byref(c_params), c_int64(max_wait_in_milliseconds)))
+        return MapNativeToPython.pzim_kcube_jog_params(c_params)
+
+    def pzim_get_kcube_mmi_params(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_PZIM_KcubeMmiParams:
+        c_params = C_TLMC_PZIM_KcubeMmiParams()
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_GetKcubeMmiParams(c_ulong(handle), byref(c_params), c_int64(max_wait_in_milliseconds)))
+        return MapNativeToPython.pzim_kcube_mmi_params(c_params)
+
+    def pzim_get_kcube_trigger_params(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_PZIM_KcubeTriggerParams:
+        c_params = C_TLMC_PZIM_KcubeTriggerParams()
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_GetKcubeTriggerParams(c_ulong(handle), byref(c_params), c_int64(max_wait_in_milliseconds)))
+        return MapNativeToPython.pzim_kcube_trigger_params(c_params)
+    
+    def pzim_get_limit_switch_params(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_PZIM_LimitSwitchParams:
+        c_params = C_TLMC_PZIM_LimitSwitchParams()
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_GetLimitSwitchParams(c_ulong(handle), byref(c_params), c_int64(max_wait_in_milliseconds)))
+        return MapNativeToPython.pzim_limit_switch_params(c_params)
+
+    def pzim_get_position_counts(self, handle: int, max_wait_in_milliseconds: int) -> TLMC_PZIM_PositionCounts:
+        c_params = C_TLMC_PZIM_PositionCounts()
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_GetPositionCounts(c_ulong(handle), byref(c_params), c_int64(max_wait_in_milliseconds)))
+        return MapNativeToPython.pzim_position_counts(c_params)
+
     def pz_nano_trak_circle_to_home_position(self, handle: int) -> None:
         CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZ_NanoTrakMoveToCircleHomePosition(c_ulong(handle)))
         
@@ -882,7 +946,7 @@ class CNativeFunctions(NativeFunctions):
         c_params = MapPythonToNative.pz_output_voltage_control_source_params(params)
         CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZ_SetOutputVoltageControlSourceParams(c_ulong(handle), byref(c_params)))
 
-    def pz_set_output_waveform_loop_table_sample(self, handle: int, params: TLMC_PZ_OutputWaveformLoopTableSample) -> None:
+    def pz_set_output_waveform_loop_table_sample(self, handle: int, params: TLMC_PZ_OutputWaveformLookupTableSample) -> None:
         c_params = MapPythonToNative.pz_output_waveform_lookup_table_sample(params)
         CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZ_SetOutputWaveformLookupTableSample(c_ulong(handle), byref(c_params)))
 
@@ -908,6 +972,46 @@ class CNativeFunctions(NativeFunctions):
 
     def pz_set_zero(self, handle: int, max_wait_in_milliseconds: int) -> None:
         CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZ_SetZero(c_ulong(handle), c_int64(max_wait_in_milliseconds)))
+
+    def pzim_set_drive_operations_params(self, handle: int, params: TLMC_PZIM_DriveOperationsParams) -> None:
+        c_params = MapPythonToNative.pzim_drive_operations_params(params)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_SetDriveOperationsParams(c_ulong(handle), byref(c_params)))
+
+    def pzim_set_kcube_channel_enable_mode(self, handle: int, channelMode: TLMC_PZIM_KcubeChannelEnableMode) -> None:
+        c_channelMode = c_uint16(channelMode)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_SetKcubeChannelEnableMode(c_ulong(handle), byref(c_channelMode)))
+
+    def pzim_set_kcube_feedback_signal_params(self, handle: int, params: TLMC_PZIM_KcubeFeedbackSignalParams) -> None:
+        c_params = MapPythonToNative.pzim_kcube_feedback_signal_params(params)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_SetKcubeFeedbackSignalParams(c_ulong(handle), byref(c_params)))
+
+    def pzim_set_kcube_io_trigger_params(self, handle: int, params: TLMC_PZIM_KcubeIoTriggerParams) -> None:
+        c_params = MapPythonToNative.pzim_kcube_io_trigger_params(params)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_SetKcubeIoTriggerParams(c_ulong(handle), byref(c_params)))
+
+    def pzim_set_kcube_jog_params(self, handle: int, params: TLMC_PZIM_KcubeJogParams) -> None:
+        c_params = MapPythonToNative.pzim_kcube_jog_params(params)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_SetKcubeJogParams(c_ulong(handle), byref(c_params)))
+
+    def pzim_set_kcube_mmi_params(self, handle: int, params: TLMC_PZIM_KcubeMmiParams) -> None:
+        c_params = MapPythonToNative.pzim_kcube_mmi_params(params)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_SetKcubeMmiParams(c_ulong(handle), byref(c_params)))
+
+    def pzim_set_kcube_trigger_params(self, handle: int, params: TLMC_PZIM_KcubeTriggerParams) -> None:
+        c_params = MapPythonToNative.pzim_kcube_trigger_params(params)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_SetKcubeTriggerParams(c_ulong(handle), byref(c_params)))
+
+    def pzim_set_limit_switch_params(self, handle: int, params: TLMC_PZIM_LimitSwitchParams) -> None:
+        c_params = MapPythonToNative.pzim_limit_switch_params(params)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_SetLimitSwitchParams(c_ulong(handle), byref(c_params)))
+
+    def pzim_set_position_counts(self, handle: int, params: TLMC_PZIM_PositionCounts) -> None:
+        c_params = MapPythonToNative.pzim_position_counts(params)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_SetPositionCounts(c_ulong(handle), byref(c_params)))
+
+    def pzim_set_stage_select_params(self, handle: int, params: TLMC_PZIM_StageSelectParams) -> None:
+        c_params = MapPythonToNative.pzim_stage_select_params(params)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZIM_SetStageSelectParams(c_ulong(handle), byref(c_params)))
 
     def pz_start_output_waveform(self, handle: int) -> None:
         CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_PZ_StartOutputWaveform(c_ulong(handle)))
@@ -943,7 +1047,7 @@ class CNativeFunctions(NativeFunctions):
             c_ulong(handle), c_uint16(int(monitor_number)), byref(c_params)))
 
     def set_aux_io_port_mode(self, handle: int, port_number: TLMC_AuxIoPortNumber, port_mode: TLMC_AuxIoPortMode) -> None:
-        CNativeFunctions.wrap_error_code(self.xa_lib.SetAuxIoPortMode(c_ulong(handle), c_uint16(int(port_number)), c_uint16(int(port_mode))))
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_SetAuxIoPortMode(c_ulong(handle), c_uint16(int(port_number)), c_uint16(int(port_mode))))
 
     def set_aux_io_software_states(self, handle: int, software_states: int) -> None:
         CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_SetAuxIoSoftwareStates(c_ulong(handle), c_uint16(software_states)))
@@ -1063,6 +1167,14 @@ class CNativeFunctions(NativeFunctions):
     def set_move_relative_params(self, handle: int, params: TLMC_MoveRelativeParams) -> None:
         c_params = MapPythonToNative.move_relative_params(params)
         CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_SetMoveRelativeParams(c_ulong(handle), byref(c_params)))
+
+    def set_move_sync_array(self, handle: int, params: TLMC_MoveSyncArray) -> None:
+        c_params = MapPythonToNative.move_sync_array(params)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_SetMoveSyncArray(c_ulong(handle), byref(c_params)))
+
+    def set_move_sync_params(self, handle: int, params: TLMC_MoveSyncParams) -> None:
+        c_params = MapPythonToNative.move_sync_params(params)
+        CNativeFunctions.wrap_error_code(self.xa_lib.TLMC_SetMoveSyncParams(c_ulong(handle), byref(c_params)))
 
     def set_position_counter(self, handle: int, position_counter: int) -> None:
         c_position_counter = c_int32(position_counter)

@@ -106,8 +106,7 @@ class XAErrorFactory:
             case TLMC_ResultCode.TLMC_NoFreeHandles:
                 ex = XADeviceException(
                     message="No free handles available, error code 20", error_code=return_code)
-                pass
-            
+                pass          
             
             case TLMC_ResultCode.TLMC_VerificationFailure:
                 ex = XADeviceException(
@@ -123,17 +122,25 @@ class XAErrorFactory:
                 ex = XADeviceException(
                     message="Connected product not supported, error code 23", error_code=return_code)
                 pass
+
             case TLMC_ResultCode.TLMC_SimulationCreationError:
                 ex = XADeviceException(
                     message="Simulation failed to start, error code 24", error_code=return_code)
                 pass
+
             case TLMC_ResultCode.TLMC_ConnectedProductNotSet:
                 ex = XADeviceException(
-                    message="Simulation failed to start, error code 25", error_code=return_code)
+                    message="Connected product not set, error code 25", error_code=return_code)
                 pass
+
             case TLMC_ResultCode.TLMC_CalibrationFileNotPresent:
                 ex = XADeviceException(
                     message = "Calibration file not present, error code 26", error_code=return_code)
+                pass
+
+            case TLMC_ResultCode.TLMC_ConnectedProductUnknown:
+                ex = XADeviceException(
+                    message="Connected product unknown, error code 27", error_code=return_code)
                 pass
 
         return ex

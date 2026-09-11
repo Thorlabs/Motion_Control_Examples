@@ -28,13 +28,13 @@ from thorlabs_xa.interfaces.device_features.status_request import StatusRequest
 from thorlabs_xa.interfaces.device_features.stepper_status import StepperStatus
 from thorlabs_xa.interfaces.device_features.stop import Stop
 from thorlabs_xa.interfaces.device_features.unit_converter import UnitConverter
-from thorlabs_xa.interfaces.device_features.universal_status import UniversalStatus
+from thorlabs_xa.interfaces.device_features.universal_status_bits import UniversalStatusBits
 from thorlabs_xa.interfaces.device_features.velocity_params import VelocityParams
 
 from thorlabs_xa.native_sdks.native_functions import NativeFunctions
 from thorlabs_xa.shared.device import Device
-from thorlabs_xa.shared.enums import TLMC_CalibrationState, TLMC_EnableState, TLMC_MoveMode, TLMC_OperatingMode, TLMC_ParameterGroupId, TLMC_ScaleType, TLMC_SettingStringFormat, TLMC_StatusItemId, TLMC_StopMode, TLMC_Unit 
-from thorlabs_xa.shared.params import TLMC_ButtonParams, TLMC_ConnectedProductInfo, TLMC_DeviceInfo, TLMC_FirmwareVersion, TLMC_GeneralMoveParams, TLMC_HardwareInfo, TLMC_HomeParams,TLMC_JogParams,TLMC_LimitSwitchParams,TLMC_MoveAbsoluteParams, TLMC_MoveRelativeParams, TLMC_PotentiometerParams,TLMC_StepperStatus, TLMC_Setting, TLMC_StatusItem, TLMC_UniversalStatus, TLMC_VelocityParams
+from thorlabs_xa.shared.enums import TLMC_CalibrationState, TLMC_EnableState, TLMC_MoveMode, TLMC_OperatingMode, TLMC_ParameterGroupId, TLMC_ScaleType, TLMC_SettingStringFormat, TLMC_StatusItemId, TLMC_StopMode, TLMC_Unit, TLMC_UniversalStatusBit 
+from thorlabs_xa.shared.params import TLMC_ButtonParams, TLMC_ConnectedProductInfo, TLMC_DeviceInfo, TLMC_FirmwareVersion, TLMC_GeneralMoveParams, TLMC_HardwareInfo, TLMC_HomeParams,TLMC_JogParams,TLMC_LimitSwitchParams,TLMC_MoveAbsoluteParams, TLMC_MoveRelativeParams, TLMC_PotentiometerParams,TLMC_StepperStatus, TLMC_Setting, TLMC_StatusItem, TLMC_VelocityParams
 
 class LinearTranslationStage(Device,
                           ButtonParams,
@@ -64,7 +64,7 @@ class LinearTranslationStage(Device,
                           StepperStatus,
                           Stop,
                           UnitConverter,
-                          UniversalStatus,
+                          UniversalStatusBits,
                           VelocityParams):
     """
     Thorlabs Long travel stage control.
@@ -185,7 +185,7 @@ class LinearTranslationStage(Device,
     
     def get_settings(self, setting_string_format: TLMC_SettingStringFormat, include_read_only_items: bool) -> str:
         return self.feature_group.settings_feature.get_settings(setting_string_format, include_read_only_items)
-    
+
     def set_settings(self, settings: str) -> None:
         self.feature_group.settings_feature.set_settings(settings)
 
@@ -194,37 +194,37 @@ class LinearTranslationStage(Device,
 
     def get_status_item(self, status_item_id: TLMC_StatusItemId) -> TLMC_StatusItem:
         return self.feature_group.status_items_feature.get_status_item(status_item_id)
-    
+
     def get_status_item_count(self) -> int:
         return self.feature_group.status_items_feature.get_status_item_count()
-    
+
     def get_status_items(self, start_index: int, number_of_items: int) -> List[TLMC_StatusItem]:
         return self.feature_group.status_items_feature.get_status_items(start_index, number_of_items)
-    
+
     def set_status_mode(self, operating_mode: TLMC_OperatingMode) -> None:
         return self.feature_group.set_status_mode_feature.set_status_mode(operating_mode)
-    
+
     def get_stepper_status(self, max_wait_in_milliseconds: int) -> TLMC_StepperStatus:
         return self.feature_group.stepper_status_feature.get_stepper_status(max_wait_in_milliseconds)
-    
+
     def stop(self, stop_mode: TLMC_StopMode, max_wait_in_milliseconds : int) -> None:
         return self.feature_group.stop_feature.stop(stop_mode, max_wait_in_milliseconds)
-    
+
     def request_status(self, max_wait_in_milliseconds: int) -> None:
         return self.feature_group.status_request_feature.request_status(max_wait_in_milliseconds)
-    
+
     def convert_from_device_units_to_physical(self, scale_type: TLMC_ScaleType, device_value: int) -> tuple [float, TLMC_Unit]:
         return self.feature_group.unit_converter_feature.convert_from_device_units_to_physical(scale_type, device_value)
-    
+
     def convert_from_physical_to_device(self, scale_type: TLMC_ScaleType, unit: TLMC_Unit, physical_value: int) -> int:
         return self.feature_group.unit_converter_feature.convert_from_physical_to_device(scale_type, unit, physical_value)
 
     def get_preferred_physical_unit(self, scale_type: TLMC_ScaleType) -> TLMC_Unit:
         return self.feature_group.unit_converter_feature.get_preferred_physical_unit(scale_type)
-    
-    def get_universal_status(self, max_wait_in_milliseconds: int) -> TLMC_UniversalStatus:
-        return self.feature_group.universal_status_feature.get_universal_status(max_wait_in_milliseconds)
-    
+
+    def get_universal_status_bits(self, max_wait_in_milliseconds: int) -> TLMC_UniversalStatusBit:
+        return self.feature_group.universal_status_bits_feature.get_universal_status_bits(max_wait_in_milliseconds)
+
     def get_velocity_params(self, max_wait_in_milliseconds: int) -> TLMC_VelocityParams:
         return self.feature_group.velocity_params_feature.get_velocity_params(max_wait_in_milliseconds)
     

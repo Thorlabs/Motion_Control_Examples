@@ -27,7 +27,7 @@ from thorlabs_xa.interfaces.device_features.status_request import StatusRequest
 from thorlabs_xa.interfaces.device_features.stop import Stop
 from thorlabs_xa.interfaces.device_features.unit_converter import UnitConverter
 from thorlabs_xa.interfaces.device_features.stepper_status import StepperStatus
-from thorlabs_xa.interfaces.device_features.universal_status import UniversalStatus
+from thorlabs_xa.interfaces.device_features.universal_status_bits import UniversalStatusBits
 from thorlabs_xa.interfaces.device_features.velocity_params import VelocityParams
 
 class LinearTranslationStageFeatureGroup(Protocol):
@@ -114,7 +114,7 @@ class LinearTranslationStageFeatureGroup(Protocol):
     def stepper_status_feature(self) -> StepperStatus: ...
 
     @property
-    def universal_status_feature(self) -> UniversalStatus: ...
+    def universal_status_bits_feature(self) -> UniversalStatusBits: ...
 
     @property
     def velocity_params_feature(self) -> VelocityParams: ...

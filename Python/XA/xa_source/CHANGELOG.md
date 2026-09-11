@@ -5,9 +5,80 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.6.1] - 2026-09-09
 
-## [1.3.0] - 2026-06-29
+### Fixed
+
+- KIM notification ID enum fields could cause typing error due to trailing commas.
+
+## [1.6.0] - 2026-09-08
+
+### Added
+
+- KIM001 product API support.
+
+## 1.5.0 - 2026-09-08
+
+### Added
+
+- BBD30x product API support.
+- BPC30x product API support.
+- BPC301 product API support.
+- BSC201 product API support.
+- BSC201v4 product API support.
+- KST101 product API support.
+- KBD101 product API support.
+- PDXC2 product API support.
+- PDXC3 product API support.
+- TBD001 product API support.
+
+### Fixed
+
+- MoveSyncArray now correctly stores time positions as an array rather than a single value.
+- LTS API now exposes UniversalStatusBits API.
+- Setting AuxIoPortMode now calls the correctly named function in the native API.
+- Native API: PDXC2/3 now raises 'stopped' message when the device is stopped.
+- UMC brushless and stepper logical channels incorrectly exposed PositionCounter functionality.
+
+## [1.4.0] - 2026-09-02
+
+### Added
+
+- UMC product API support.
+
+### Fixed
+
+- Native API: Resolved a crash when using multiple FTDI devices simultaneously.
+
+## [1.3.3] - 2026-08-25
+
+### Added
+
+- Provided stage identifier values for DDS800 and DDS1000.
+
+### Fixed
+
+- Native API: Improvements in the area of ethernet stability and error recovery.
+- Native API: Issues with TLMC_RegisterLoggingHandler formatting resolved.
+- Native API: Issues with TLMC_DiscoverEthernetDeviceInfo formatting resolved.
+- Native API: Devices connected via ethernet were potentially not having their firmware level checked.
+- UMC stepper logical channel incorrectly exposed disconnect functionality.
+
+### Changed
+
+- Native API: Internal improvements.
+
+## [1.3.2] - 2026-08-07
+
+### Fixed
+
+- In the native API, PositionCounter device feature is now present for LTS and its simulation.
+
+## [1.3.1] - 2026-07-01
+
+### Fixed
+
+- In the native API, simulations are now correctly filtering packets according to channel ID.
 
 ### Changed
 

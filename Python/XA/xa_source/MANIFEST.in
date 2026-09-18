@@ -1,0 +1,4 @@
+include EULA.rtf
+include VERSION
+include ReadMe.md
+include CHANGELOG.md

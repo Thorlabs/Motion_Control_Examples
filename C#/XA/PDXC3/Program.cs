@@ -114,6 +114,9 @@ namespace PDXC3
 
                 channel.SetPositionControlMode(Thorlabs.MotionControl.XA.Piezo.PositionControlMode.OpenLoop, TimeSpan.FromSeconds(1));
 
+                Thorlabs.MotionControl.XA.PiezoInertialMotor.JogParams jogParams = channel.GetJogParams(TimeSpan.FromSeconds(1));
+                jogParams.OpenLoopStepSize = 100;
+                channel.SetJogParams(jogParams);
                 channel.Move(MoveMode.JogForward,200, TimeSpan.FromSeconds(1));
 
                 int currentPos=channel.GetCurrentPosition(TimeSpan.FromSeconds(1));

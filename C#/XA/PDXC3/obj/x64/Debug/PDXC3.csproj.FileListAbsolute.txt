@@ -7,3 +7,4 @@ C:\Users\gboedecker\source\repos\PDXC3\PDXC3\obj\x64\Debug\PDXC3.csproj.CoreComp
 C:\Users\gboedecker\source\repos\PDXC3\PDXC3\obj\x64\Debug\PDXC3.csproj.Up2Date
 C:\Users\gboedecker\source\repos\PDXC3\PDXC3\obj\x64\Debug\PDXC3.exe
 C:\Users\gboedecker\source\repos\PDXC3\PDXC3\obj\x64\Debug\PDXC3.pdb
+C:\Users\gboedecker\source\repos\PDXC3\PDXC3\obj\x64\Debug\PDXC3.exe.config

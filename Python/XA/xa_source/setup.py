@@ -1,8 +1,6 @@
 from setuptools import setup, find_packages, Distribution
-from wheel.bdist_wheel import bdist_wheel as _bdist_wheel
+from setuptools.command.bdist_wheel import bdist_wheel as _bdist_wheel
 import platform
-import shutil
-import os
 from pathlib import Path
 
 # Open the readme content for including as the long description of the package

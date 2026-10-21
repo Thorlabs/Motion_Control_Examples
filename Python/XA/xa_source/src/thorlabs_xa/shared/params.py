@@ -1,7 +1,7 @@
 from typing import Sequence
 
-from thorlabs_xa.shared.enums import TLMC_AnalogMonitorMotorChannel, TLMC_AnalogMonitorSystemVariable, TLMC_ButtonMode, TLMC_ConnectedProductAxisType, TLMC_ConnectedProductMovementType, TLMC_CurrentLoopPhase, TLMC_DeviceFamily, TLMC_DeviceType, TLMC_HardLimitOperatingMode, TLMC_HomeDirection, TLMC_HomeLimitSwitch, TLMC_IoPortMode, TLMC_IoPortSource, TLMC_IoTriggerPolarity, TLMC_IoTriggerPortNumber, TLMC_JogMode, TLMC_JogStopMode, TLMC_JoystickAxis, TLMC_JoystickDirectionSense, TLMC_JoystickModel, TLMC_JoystickSerialInterface, TLMC_KcubeIoTriggerMode, TLMC_KcubeIoTriggerPolarity, TLMC_KcubeMmi_JoystickDirectionSense, TLMC_KcubeMmi_JoystickGear, TLMC_KcubeMmi_JoystickMode, TLMC_MonitorOutput, TLMC_PZ_IoTriggerMode, TLMC_PZ_KpcAnalogInputSource, TLMC_PZ_KpcIoTriggerMode, TLMC_PZ_KpcMmi_JoystickDirectionSense, TLMC_PZ_KpcMmi_JoystickMode, TLMC_PZ_KpcMonitorOutputMode, TLMC_PZ_KpcStrainGaugeOption, TLMC_PZ_KpcVoltageRange, TLMC_PZ_LnnxControlLoopParamsOverrideMode, TLMC_PZ_LnnxNotchFilterParamsOverrideMode, TLMC_PZ_NanoTrakAbsolutePowerAdjustType, TLMC_PZ_NanoTrakCircleDiameterMode, TLMC_PZ_NanoTrakGainControlMode, TLMC_PZ_NanoTrakPhaseCompensationMode, TLMC_PZ_NanoTrakRange, TLMC_PZ_NanoTrakRangeChangeType, TLMC_PZ_NanoTrakRangeMode, TLMC_PZ_NanoTrakStatusBit, TLMC_PZ_NanoTrakTrackingMode, TLMC_PZ_NanoTrakTrackingState, TLMC_PZ_NanoTrakUnderOverReadType, TLMC_PZ_OutputVoltageControlSource, TLMC_PZ_OutputWaveformOperatingMode, TLMC_PZ_SensorType, TLMC_PZ_StageProductId, TLMC_PZ_StatusBit, TLMC_PZ_TnaIoOutRangeType, TLMC_PZ_TnaIoOutRouteType, TLMC_PZ_TnaIoSignalOutputMode, TLMC_PZ_TnaIoSignalRangeType, TLMC_PZ_TnaIoSignalSourceBoostType, TLMC_PZ_TnaIoSignalSourceMode, TLMC_PZ_VoltageLimit, TLMC_PortType, TLMC_ProfileMode, TLMC_SoftLimitOperatingMode, TLMC_StageAxisId, TLMC_StageProductId, TLMC_StatusItemId, TLMC_StepperLoopParams_LoopMode, TLMC_TriggerModesForDcBrushless, TLMC_TriggerModesForStepper, TLMC_Unit, TLMC_UniversalStatusBit, TLMC_ValueType
-    
+from thorlabs_xa.shared.enums import TLMC_AnalogMonitorMotorChannel, TLMC_AnalogMonitorSystemVariable, TLMC_ButtonMode, TLMC_ConnectedProductAxisType, TLMC_ConnectedProductMovementType, TLMC_CurrentLoopPhase, TLMC_DeviceFamily, TLMC_DeviceType, TLMC_HardLimitOperatingMode, TLMC_HomeDirection, TLMC_HomeLimitSwitch, TLMC_IoPortMode, TLMC_IoPortSource, TLMC_IoTriggerPolarity, TLMC_IoTriggerPortNumber, TLMC_JogMode, TLMC_JogStopMode, TLMC_JoystickAxis, TLMC_JoystickDirectionSense, TLMC_JoystickModel, TLMC_JoystickSerialInterface, TLMC_KcubeIoTriggerMode, TLMC_KcubeIoTriggerPolarity, TLMC_KcubeMmi_JoystickDirectionSense, TLMC_KcubeMmi_JoystickGear, TLMC_KcubeMmi_JoystickMode, TLMC_MonitorOutput, TLMC_MoveSyncStartTrigger, TLMC_PZ_IoTriggerMode, TLMC_PZ_KpcAnalogInputSource, TLMC_PZ_KpcIoTriggerMode, TLMC_PZ_KpcMmi_JoystickDirectionSense, TLMC_PZ_KpcMmi_JoystickMode, TLMC_PZ_KpcMonitorOutputMode, TLMC_PZ_KpcStrainGaugeOption, TLMC_PZ_KpcVoltageRange, TLMC_PZ_LnnxControlLoopParamsOverrideMode, TLMC_PZ_LnnxNotchFilterParamsOverrideMode, TLMC_PZ_NanoTrakAbsolutePowerAdjustType, TLMC_PZ_NanoTrakCircleDiameterMode, TLMC_PZ_NanoTrakGainControlMode, TLMC_PZ_NanoTrakPhaseCompensationMode, TLMC_PZ_NanoTrakRange, TLMC_PZ_NanoTrakRangeChangeType, TLMC_PZ_NanoTrakRangeMode, TLMC_PZ_NanoTrakStatusBit, TLMC_PZ_NanoTrakTrackingMode, TLMC_PZ_NanoTrakTrackingState, TLMC_PZ_NanoTrakUnderOverReadType, TLMC_PZ_OutputVoltageControlSource, TLMC_PZ_OutputWaveformOperatingMode, TLMC_PZ_SensorType, TLMC_PZ_StageProductId, TLMC_PZ_StatusBit, TLMC_PZ_TnaIoOutRangeType, TLMC_PZ_TnaIoOutRouteType, TLMC_PZ_TnaIoSignalOutputMode, TLMC_PZ_TnaIoSignalRangeType, TLMC_PZ_TnaIoSignalSourceBoostType, TLMC_PZ_TnaIoSignalSourceMode, TLMC_PZ_VoltageLimit, TLMC_PZIM_KcubeFeedbackSignalMode, TLMC_PZIM_KcubeTriggerChannel, TLMC_PZIM_KcubeTriggerMode, TLMC_PZIM_StageSelectType, TLMC_PortType, TLMC_ProfileMode, TLMC_SoftLimitOperatingMode, TLMC_StageAxisId, TLMC_StageProductId, TLMC_StatusItemId, TLMC_StepperLoopParams_LoopMode, TLMC_TriggerModesForDcBrushless, TLMC_TriggerModesForStepper, TLMC_Unit, TLMC_UniversalStatusBit, TLMC_ValueType
+
 class TLMC_AnalogMonitorConfigurationParams():
     def __init__(self):
         self._motor_channel = TLMC_AnalogMonitorMotorChannel.TLMC_AnalogMonitorMotorChannel_1
@@ -390,11 +390,27 @@ class TLMC_DcPidParams():
         self._filterControl = value
 
 
-class TLMC_FirmwareVersion():
+class TLMC_FirmwareVersion:
+
     def __init__(self):
         self._minor_version = 0
         self._interim_version = 0
         self._major_version = 0
+
+    def __str__(self) -> str:
+        return (
+            f"{self.major_version}."
+            f"{self.interim_version}."
+            f"{self.minor_version}"
+        )
+
+    def __repr__(self) -> str:
+        return (
+            f"TLMC_FirmwareVersion("
+            f"major={self.major_version}, "
+            f"interim={self.interim_version}, "
+            f"minor={self.minor_version})"
+        )
 
     @property
     def minor_version(self) -> int:
@@ -435,6 +451,7 @@ class TLMC_GeneralMoveParams():
 
 
 class TLMC_HardwareInfo():
+
     def __init__(self):
         self._serial_number = 0
         self._part_number = ""
@@ -445,6 +462,29 @@ class TLMC_HardwareInfo():
         self._hardware_version = 0
         self._modification_state = 0
         self._number_of_channels = 0
+
+    def __str__(self) -> str:
+        return (
+            "Hardware Information\n"
+            f"  Serial Number      : {self.serial_number}\n"
+            f"  Part Number        : {self.part_number}\n"
+            f"  Device Type        : {self.type}\n"
+            f"  Firmware Version   : {self.firmware_version}\n"
+            f"  Hardware Version   : {self.hardware_version}\n"
+            f"  Channels           : {self.number_of_channels}\n"
+            f"  Notes              : {self.notes}"
+        )
+
+    def __repr__(self) -> str:
+        return (
+            f"TLMC_HardwareInfo("
+            f"serial_number={self.serial_number}, "
+            f"part_number='{self.part_number}', "
+            f"type={self.type}, "
+            f"firmware_version={self.firmware_version!r}, "
+            f"hardware_version={self.hardware_version}, "
+            f"number_of_channels={self.number_of_channels})"
+        )
 
     @property
     def serial_number(self) -> int:
@@ -820,9 +860,9 @@ class TLMC_JoystickSettingsParams():
             TLMC_JoystickDirectionSense,
             TLMC_JoystickDirectionSense,
         ] = (
-            TLMC_JoystickDirectionSense.TLMC_JoystickDirectionSense_Disabled,
-            TLMC_JoystickDirectionSense.TLMC_JoystickDirectionSense_Disabled,
-            TLMC_JoystickDirectionSense.TLMC_JoystickDirectionSense_Disabled,
+            TLMC_JoystickDirectionSense.TLMC_JoystickDirectionSense_Positive,
+            TLMC_JoystickDirectionSense.TLMC_JoystickDirectionSense_Positive,
+            TLMC_JoystickDirectionSense.TLMC_JoystickDirectionSense_Positive,
         )
         self._axis_mapping: tuple[
             TLMC_JoystickAxis,
@@ -1325,6 +1365,150 @@ class TLMC_MoveRelativeParams():
     @relative_distance.setter
     def relative_distance(self, val: int):
         self._relative_distance = val
+
+
+class TLMC_MoveSyncArray():
+
+    def __init__(self):
+
+        self._array_id = 0
+        self._channels = 0
+        self._num_points = 0
+        self._start_index = 0
+        self._time_positions: list[int] = []
+
+    @property
+    def array_id(self) -> int:
+        return self._array_id
+
+    @array_id.setter
+    def array_id(self, val: int):
+        self._array_id = val
+
+    @property
+    def channels(self) -> int:
+        return self._channels
+
+    @channels.setter
+    def channels(self, val: int):
+        self._channels = val
+
+    @property
+    def num_points(self) -> int:
+        return self._num_points
+
+    @num_points.setter
+    def num_points(self, val: int):
+        self._num_points = val
+
+    @property
+    def start_index(self) -> int:
+        return self._start_index
+
+    @start_index.setter
+    def start_index(self, val: int):
+        self._start_index = val
+
+    @property
+    def time_positions(self) -> list[int]:
+        return self._time_positions
+
+    @time_positions.setter
+    def time_positions(self, val: list[int]):
+        self._time_positions = val
+
+
+class TLMC_MoveSyncParams():
+
+    def __init__(self):
+
+        self._array_id = 0
+        self._cycle_start_index = 0
+        self._cycle_end_index = 0
+        self._number_of_cycles = 0
+        self._end_index = 0
+        self._deceleration = 0
+
+    @property
+    def array_id(self) -> int:
+        return self._array_id
+
+    @array_id.setter
+    def array_id(self, val: int):
+        self._array_id = val
+
+    @property
+    def cycle_start_index(self) -> int:
+        return self._cycle_start_index
+
+    @cycle_start_index.setter
+    def cycle_start_index(self, val: int):
+        self._cycle_start_index = val
+
+    @property
+    def cycle_end_index(self) -> int:
+        return self._cycle_end_index
+
+    @cycle_end_index.setter
+    def cycle_end_index(self, val: int):
+        self._cycle_end_index = val
+
+    @property
+    def number_of_cycles(self) -> int:
+        return self._number_of_cycles
+
+    @number_of_cycles.setter
+    def number_of_cycles(self, val: int):
+        self._number_of_cycles = val
+
+    @property
+    def end_index(self) -> int:
+        return self._end_index
+
+    @end_index.setter
+    def end_index(self, val: int):
+        self._end_index = val
+
+    @property
+    def deceleration(self) -> int:
+        return self._deceleration
+
+    @deceleration.setter
+    def deceleration(self, val: int):
+        self._deceleration = val
+
+
+class TLMC_MoveSyncStartParams():
+
+    def __init__(self):
+
+        self._array_id = 0
+        self._channels = 0
+        self._trigger = TLMC_MoveSyncStartTrigger.TLMC_MoveSyncStartTrigger_Software
+
+    @property
+    def array_id(self) -> int:
+        return self._array_id
+
+    @array_id.setter
+    def array_id(self, val: int):
+        self._array_id = val
+
+    @property
+    def channels(self) -> int:
+        return self._channels
+
+    @channels.setter
+    def channels(self, val: int):
+        self._channels = val
+
+    @property
+    def trigger(self) -> TLMC_MoveSyncStartTrigger:
+        return self._trigger
+
+    @trigger.setter
+    def trigger(self, val: TLMC_MoveSyncStartTrigger):
+        self._trigger = val
 
 
 class TLMC_PositionLoopParams():
@@ -2314,7 +2498,7 @@ class TLMC_PZ_OutputVoltageControlSourceParams():
         self._source = val
 
 
-class TLMC_PZ_OutputWaveformLoopTableSample():
+class TLMC_PZ_OutputWaveformLookupTableSample():
     def __init__(self):
         self._index = 0
         self._voltage = 0
@@ -2581,6 +2765,388 @@ class TLMC_PZ_Status():
     @status_bits.setter
     def status_bits(self, val: TLMC_PZ_StatusBit) -> None:
         self._status_bits = val
+
+class TLMC_PZIM_DriveOperationsParams():
+    def __init__(self):
+        self._max_voltage = 0
+        self._step_rate = 0
+        self._step_acceleration = 0
+
+    @property
+    def max_voltage(self) -> int:
+        return self._max_voltage
+
+    @max_voltage.setter
+    def max_voltage(self, val: int):
+        self._max_voltage = val
+
+    @property
+    def step_rate(self) -> int:
+        return self._step_rate
+
+    @step_rate.setter
+    def step_rate(self, val: int):
+        self._step_rate = val
+
+    @property
+    def step_acceleration(self) -> int:
+        return self._step_acceleration
+
+    @step_acceleration.setter
+    def step_acceleration(self, val: int):
+        self._step_acceleration = val
+
+class TLMC_PZIM_KcubeFeedbackSignalParams():
+
+    def __init__(self):
+
+        self._feedback_signal_mode = TLMC_PZIM_KcubeFeedbackSignalMode.TLMC_PZIM_KcubeFeedbackSignalMode_Disabled
+        self._encoder_const = 0
+
+
+    @property
+    def feedback_signal_mode(self) -> TLMC_PZIM_KcubeFeedbackSignalMode:
+        return self._feedback_signal_mode
+
+    @feedback_signal_mode.setter
+    def feedback_signal_mode(self, val: TLMC_PZIM_KcubeFeedbackSignalMode):
+        self._feedback_signal_mode = val
+
+    @property
+    def encoder_const(self) -> int:
+        return self._encoder_const
+
+    @encoder_const.setter
+    def encoder_const(self, val: int):
+        self._encoder_const = val
+
+class TLMC_PZIM_KcubeIoTriggerParams():
+
+    def __init__(self):
+
+        self._trigger_channel1 = TLMC_PZIM_KcubeTriggerChannel.TLMC_PZIM_KcubeTriggerChannel_Channel1
+        self._trigger_channel2 = TLMC_PZIM_KcubeTriggerChannel.TLMC_PZIM_KcubeTriggerChannel_Channel1
+        self._trigger1_mode = TLMC_PZIM_KcubeTriggerMode.TLMC_PZIM_KcubeTriggerMode_Disabled
+        self._trigger1_polarity = TLMC_KcubeIoTriggerPolarity.TLMC_KcubeIoTriggerPolarity_ActiveIsLogicHigh
+        self._trigger2_mode = TLMC_PZIM_KcubeTriggerMode.TLMC_PZIM_KcubeTriggerMode_Disabled
+        self._trigger2_polarity = TLMC_KcubeIoTriggerPolarity.TLMC_KcubeIoTriggerPolarity_ActiveIsLogicHigh
+
+
+    @property
+    def trigger_channel1(self) -> TLMC_PZIM_KcubeTriggerChannel:
+        return self._trigger_channel1
+
+    @trigger_channel1.setter
+    def trigger_channel1(self, val: TLMC_PZIM_KcubeTriggerChannel):
+        self._trigger_channel1 = val
+
+    @property
+    def trigger_channel2(self) -> TLMC_PZIM_KcubeTriggerChannel:
+        return self._trigger_channel2
+
+    @trigger_channel2.setter
+    def trigger_channel2(self, val: TLMC_PZIM_KcubeTriggerChannel):
+        self._trigger_channel2 = val
+
+    @property
+    def trigger1_mode(self) -> TLMC_PZIM_KcubeTriggerMode:
+        return self._trigger1_mode
+
+    @trigger1_mode.setter
+    def trigger1_mode(self, val: TLMC_PZIM_KcubeTriggerMode):
+        self._trigger1_mode = val
+
+    @property
+    def trigger1_polarity(self) -> TLMC_KcubeIoTriggerPolarity:
+        return self._trigger1_polarity
+
+    @trigger1_polarity.setter
+    def trigger1_polarity(self, val: TLMC_KcubeIoTriggerPolarity):
+        self._trigger1_polarity = val
+
+    @property
+    def trigger2_mode(self) -> TLMC_PZIM_KcubeTriggerMode:
+        return self._trigger2_mode
+
+    @trigger2_mode.setter
+    def trigger2_mode(self, val: TLMC_PZIM_KcubeTriggerMode):
+        self._trigger2_mode = val
+
+    @property
+    def trigger2_polarity(self) -> TLMC_KcubeIoTriggerPolarity:
+        return self._trigger2_polarity
+
+    @trigger2_polarity.setter
+    def trigger2_polarity(self, val: TLMC_KcubeIoTriggerPolarity):
+        self._trigger2_polarity = val
+
+class TLMC_PZIM_KcubeJogParams():
+
+    def __init__(self):
+
+        self._jog_mode = TLMC_JogMode.TLMC_JogMode_Continuous
+        self._jog_step_size_forward = 0
+        self._jog_step_size_reverse = 0
+        self._jog_step_velocity = 0
+        self._jog_step_acceleration = 0
+
+
+    @property
+    def jog_mode(self) -> TLMC_JogMode:
+        return self._jog_mode
+
+    @jog_mode.setter
+    def jog_mode(self, val: TLMC_JogMode):
+        self._jog_mode = val
+
+    @property
+    def jog_step_size_forward(self) -> int:
+        return self._jog_step_size_forward
+
+    @jog_step_size_forward.setter
+    def jog_step_size_forward(self, val: int):
+        self._jog_step_size_forward = val
+
+    @property
+    def jog_step_size_reverse(self) -> int:
+        return self._jog_step_size_reverse
+
+    @jog_step_size_reverse.setter
+    def jog_step_size_reverse(self, val: int):
+        self._jog_step_size_reverse = val
+
+    @property
+    def jog_step_velocity(self) -> int:
+        return self._jog_step_velocity
+
+    @jog_step_velocity.setter
+    def jog_step_velocity(self, val: int):
+        self._jog_step_velocity = val
+
+    @property
+    def jog_step_acceleration(self) -> int:
+        return self._jog_step_acceleration
+
+    @jog_step_acceleration.setter
+    def jog_step_acceleration(self, val: int):
+        self._jog_step_acceleration = val
+
+class TLMC_PZIM_KcubeMmiParams():
+
+    def __init__(self):
+
+        self._joy_stick_mode = TLMC_KcubeMmi_JoystickMode.TLMC_KcubeMmi_JoystickMode_ControlsVelocity
+        self._joy_stick_max_velocity = 0
+        self._joy_stick_direction_sense = TLMC_JoystickDirectionSense.TLMC_JoystickDirectionSense_Positive
+        self._preset_position_1 = 0
+        self._preset_position_2 = 0
+        self._display_brightness = 0
+
+
+    @property
+    def joy_stick_mode(self) -> TLMC_KcubeMmi_JoystickMode:
+        return self._joy_stick_mode
+
+    @joy_stick_mode.setter
+    def joy_stick_mode(self, val: TLMC_KcubeMmi_JoystickMode):
+        self._joy_stick_mode = val
+
+    @property
+    def joy_stick_max_velocity(self) -> int:
+        return self._joy_stick_max_velocity
+
+    @joy_stick_max_velocity.setter
+    def joy_stick_max_velocity(self, val: int):
+        self._joy_stick_max_velocity = val
+
+    @property
+    def joy_stick_direction_sense(self) -> TLMC_JoystickDirectionSense:
+        return self._joy_stick_direction_sense
+
+    @joy_stick_direction_sense.setter
+    def joy_stick_direction_sense(self, val: TLMC_JoystickDirectionSense):
+        self._joy_stick_direction_sense = val
+
+    @property
+    def preset_position_1(self) -> int:
+        return self._preset_position_1
+
+    @preset_position_1.setter
+    def preset_position_1(self, val: int):
+        self._preset_position_1 = val
+
+    @property
+    def preset_position_2(self) -> int:
+        return self._preset_position_2
+
+    @preset_position_2.setter
+    def preset_position_2(self, val: int):
+        self._preset_position_2 = val
+
+    @property
+    def display_brightness(self) -> int:
+        return self._display_brightness
+
+    @display_brightness.setter
+    def display_brightness(self, val: int):
+        self._display_brightness = val
+
+class TLMC_PZIM_KcubeTriggerParams():
+
+    def __init__(self):
+
+        self._start_position_forward = 0
+        self._interval_forward = 0
+        self._number_pulses_forward = 0
+        self._start_position_reverse = 0
+        self._interval_reverse = 0
+        self._number_pulses_reverse = 0
+        self._pulse_width = 0
+        self._number_cycles = 0
+
+
+    @property
+    def start_position_forward(self) -> int:
+        return self._start_position_forward
+
+    @start_position_forward.setter
+    def start_position_forward(self, val: int):
+        self._start_position_forward = val
+
+    @property
+    def interval_forward(self) -> int:
+        return self._interval_forward
+
+    @interval_forward.setter
+    def interval_forward(self, val: int):
+        self._interval_forward = val
+
+    @property
+    def number_pulses_forward(self) -> int:
+        return self._number_pulses_forward
+
+    @number_pulses_forward.setter
+    def number_pulses_forward(self, val: int):
+        self._number_pulses_forward = val
+
+    @property
+    def start_position_reverse(self) -> int:
+        return self._start_position_reverse
+
+    @start_position_reverse.setter
+    def start_position_reverse(self, val: int):
+        self._start_position_reverse = val
+
+    @property
+    def interval_reverse(self) -> int:
+        return self._interval_reverse
+
+    @interval_reverse.setter
+    def interval_reverse(self, val: int):
+        self._interval_reverse = val
+
+    @property
+    def number_pulses_reverse(self) -> int:
+        return self._number_pulses_reverse
+
+    @number_pulses_reverse.setter
+    def number_pulses_reverse(self, val: int):
+        self._number_pulses_reverse = val
+
+    @property
+    def pulse_width(self) -> int:
+        return self._pulse_width
+
+    @pulse_width.setter
+    def pulse_width(self, val: int):
+        self._pulse_width = val
+
+    @property
+    def number_cycles(self) -> int:
+        return self._number_cycles
+
+    @number_cycles.setter
+    def number_cycles(self, val: int):
+        self._number_cycles = val
+
+class TLMC_PZIM_LimitSwitchParams():
+
+    def __init__(self):
+
+        self._forward_hard_limit = TLMC_HardLimitOperatingMode.TLMC_HardLimitOperatingMode_SwitchIgnored
+        self._reverse_hard_limit = TLMC_HardLimitOperatingMode.TLMC_HardLimitOperatingMode_SwitchIgnored
+        self._stage_id = 0
+
+
+    @property
+    def forward_hard_limit(self) -> TLMC_HardLimitOperatingMode:
+        return self._forward_hard_limit
+
+    @forward_hard_limit.setter
+    def forward_hard_limit(self, val: TLMC_HardLimitOperatingMode):
+        self._forward_hard_limit = val
+
+    @property
+    def reverse_hard_limit(self) -> TLMC_HardLimitOperatingMode:
+        return self._reverse_hard_limit
+
+    @reverse_hard_limit.setter
+    def reverse_hard_limit(self, val: TLMC_HardLimitOperatingMode):
+        self._reverse_hard_limit = val
+
+    @property
+    def stage_id(self) -> int:
+        return self._stage_id
+
+    @stage_id.setter
+    def stage_id(self, val: int):
+        self._stage_id = val
+
+class TLMC_PZIM_PositionCounts():
+
+    def __init__(self):
+        self._position = 0
+        self._encoder_count = 0
+
+    @property
+    def position(self) -> int:
+        return self._position
+
+    @position.setter
+    def position(self, val: int):
+        self._position = val
+
+    @property
+    def encoder_count(self) -> int:
+        return self._encoder_count
+
+    @encoder_count.setter
+    def encoder_count(self, val: int):
+        self._encoder_count = val
+
+class TLMC_PZIM_StageSelectParams():
+
+    def __init__(self):
+
+        self._stage_ident = TLMC_PZIM_StageSelectType.TLMC_PZIM_StageType_LinearActuator_PIA
+        self._stage_reserved = 0
+
+
+    @property
+    def stage_ident(self) -> TLMC_PZIM_StageSelectType:
+        return self._stage_ident
+
+    @stage_ident.setter
+    def stage_ident(self, val: TLMC_PZIM_StageSelectType):
+        self._stage_ident = val
+
+    @property
+    def stage_reserved(self) -> int:
+        return self._stage_reserved
+
+    @stage_reserved.setter
+    def stage_reserved(self, val: int):
+        self._stage_reserved = val
 
 
 class TLMC_StageAxisParams():
@@ -3292,6 +3858,57 @@ class TLMC_UniversalStatus():
 
     @status_bits.setter
     def status_bits(self, val: int):
+        self._status_bits = val
+
+
+class TLMC_UmcStatus():
+
+    def __init__(self):
+
+        self._position = 0
+        self._encoder_count = 0
+        self._velocity = 0
+        self._motor_current = 0
+        self._status_bits = TLMC_UniversalStatusBit.TLMC_UniversalStatusBit_ClockwiseHardLimit
+
+    @property
+    def position(self) -> int:
+        return self._position
+
+    @position.setter
+    def position(self, val: int):
+        self._position = val
+
+    @property
+    def encoder_count(self) -> int:
+        return self._encoder_count
+
+    @encoder_count.setter
+    def encoder_count(self, val: int):
+        self._encoder_count = val
+
+    @property
+    def velocity(self) -> int:
+        return self._velocity
+
+    @velocity.setter
+    def velocity(self, val: int):
+        self._velocity = val
+
+    @property
+    def motor_current(self) -> int:
+        return self._motor_current
+
+    @motor_current.setter
+    def motor_current(self, val: int):
+        self._motor_current = val
+
+    @property
+    def status_bits(self) -> TLMC_UniversalStatusBit:
+        return self._status_bits
+
+    @status_bits.setter
+    def status_bits(self, val: TLMC_UniversalStatusBit):
         self._status_bits = val
     
 

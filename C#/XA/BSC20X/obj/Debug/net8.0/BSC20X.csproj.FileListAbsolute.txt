@@ -1,0 +1,17 @@
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\bin\Debug\net8.0\BSC20X.exe
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\bin\Debug\net8.0\BSC20X.deps.json
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\bin\Debug\net8.0\BSC20X.runtimeconfig.json
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\bin\Debug\net8.0\BSC20X.dll
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\bin\Debug\net8.0\BSC20X.pdb
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\bin\Debug\net8.0\tlmc_xa_dotnet.dll
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC20X.csproj.AssemblyReference.cache
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC20X.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC20X.AssemblyInfoInputs.cache
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC20X.AssemblyInfo.cs
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC20X.csproj.CoreCompileInputs.cache
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC20X.csproj.Up2Date
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC20X.dll
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\refint\BSC20X.dll
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC20X.pdb
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC20X.genruntimeconfig.cache
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\ref\BSC20X.dll

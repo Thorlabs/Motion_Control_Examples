@@ -1,0 +1,8 @@
+Copy the following required files to the project folder: 
+C:\Program Files\Thorlabs XA\SDK\Native (C, C++)\Libraries\x64\tlmc_xa_native.dll
+C:\Program Files\Thorlabs XA\SDK\Native (C, C++)\Libraries\x64\tlmc_xa_native.lib
+C:\Program Files\Thorlabs XA\SDK\Native (C, C++)\tlmc_xa_native_api.h
+
+In Solution Explorer -> Properties -> Configuration Properties -> C/C++ -> General add location of header file to 'Additional Include Directories'.
+In Solution Explorer -> Properties -> Configuration Properties -> Linker -> General add location of library file to 'Additional Library Directories'.
+In Solution Explorer -> Properties -> Configuration Properties -> Linker -> Input add 'tlmc_xa_native.lib' to 'Additional Dependencies'.

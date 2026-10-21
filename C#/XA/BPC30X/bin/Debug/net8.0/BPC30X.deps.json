@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "BPC30X/1.0.0": {
+        "dependencies": {
+          "tlmc_xa_dotnet": "1.7.6.28461"
+        },
+        "runtime": {
+          "BPC30X.dll": {}
+        }
+      },
+      "tlmc_xa_dotnet/1.7.6.28461": {
+        "runtime": {
+          "tlmc_xa_dotnet.dll": {
+            "assemblyVersion": "1.7.6.28461",
+            "fileVersion": "1.7.6.28461"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BPC30X/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "tlmc_xa_dotnet/1.7.6.28461": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

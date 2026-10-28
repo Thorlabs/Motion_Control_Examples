@@ -1,4 +1,4 @@
-from thorlabs_xa.interfaces.device_features.rank_identify import RackIdentify
+from thorlabs_xa.interfaces.device_features.rack_identify import RackIdentify
 from thorlabs_xa.native_sdks.native_functions import NativeFunctions
 
 class RackIdentifyFeature(RackIdentify):

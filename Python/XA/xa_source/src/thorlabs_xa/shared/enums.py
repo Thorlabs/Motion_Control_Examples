@@ -143,7 +143,8 @@ class TLMC_DeviceType(IntEnum):
     TLMC_DeviceType_Kst101 = 10
     TLMC_DeviceType_Kst201 = 11
     TLMC_DeviceType_Tbd001 = 12
-    TLMC_DeviceType_LinearTranslationStage = 13
+    TLMC_DeviceType_Lts = 13
+    TLMC_DeviceType_LinearTranslationStage = TLMC_DeviceType_Lts
     TLMC_DeviceType_Bsc20xv4LogicalChannel = 14
     TLMC_DeviceType_Bsc201 = 15
     TLMC_DeviceType_Bsc201v4 = 16
@@ -154,6 +155,7 @@ class TLMC_DeviceType(IntEnum):
     TLMC_DeviceType_UmcxBrushlessLogicalChannel = 21
     TLMC_DeviceType_UmcxStepperLogicalChannel = 22
     TLMC_DeviceType_Anonymous = 23
+    TLMC_DeviceType_Kim001 = 24
 
 
 class TLMC_DigitalInput(IntFlag):
@@ -302,6 +304,7 @@ class TLMC_JoystickAxis(IntEnum):
 
 
 class TLMC_JoystickDirectionSense(IntEnum):
+    TLMC_JoystickDirectionSense_Disabled = 0x0000
     TLMC_JoystickDirectionSense_Positive = 0x0001
     TLMC_JoystickDirectionSense_Negative = 0x0002
 
@@ -616,10 +619,16 @@ class TLMC_MoveMode(IntEnum):
     TLMC_MoveMode_JogForward = auto()
     TLMC_MoveMode_JogReverse = auto()
 
+
 class TLMC_MoveDirection(IntEnum):
     Move_Direction_Forward = 0
     Move_Direction_Reverse = 1
-    
+
+
+class TLMC_MoveSyncStartTrigger(IntEnum):
+    TLMC_MoveSyncStartTrigger_Software = 0x0001
+
+
 class TLMC_NotificationId(IntEnum):
     TLMC_NotificationId_AnalogMonitorConfigurationParamsChanged = 0
     TLMC_NotificationId_AuxIoPortModeChanged = 1
@@ -698,6 +707,20 @@ class TLMC_NotificationId(IntEnum):
     TLMC_NotificationId_PiezoInertialMotorTriggerTargetPositionChanged = 74
     TLMC_NotificationId_UmcStatusChanged = 75
     TLMC_NotificationId_AuxIoConfigurationChanged = 76
+    TLMC_NotificationId_RxInactivityWarningRaised = 77
+    TLMC_NotificationId_RxInactivityWarningCleared = 78
+    TLMC_NotificationId_CommunicationsErrorRaised = 79
+    TLMC_NotificationId_CommunicationsErrorCleared = 80
+    TLMC_NotificationId_PiezoInertialMotorDriveOperationsParamsChanged = 81
+    TLMC_NotificationId_PiezoInertialMotorKcubeTriggerParamsChanged = 82
+    TLMC_NotificationId_PiezoInertialMotorKcubeChannelEnableChanged = 83
+    TLMC_NotificationId_PiezoInertialMotorKcubeJogParamsChanged = 84
+    TLMC_NotificationId_PiezoInertialMotorKcubeFeedbackSigParamsChanged = 85
+    TLMC_NotificationId_PiezoInertialMotorStageSelectParamsChanged = 86
+    TLMC_NotificationId_PiezoInertialMotorKcubeMoveAbsoluteParamsChanged = 87
+    TLMC_NotificationId_PiezoInertialMotorKcubeMoveRelativeParamsChanged = 88
+    TLMC_NotificationId_PiezoInertialMotorConversionFactorsChanged = 89
+    TLMC_NotificationId_PiezoInertialMotorKcubePidParamsChanged = 90
 
 
 class TLMC_OperatingMode(IntFlag):
@@ -819,6 +842,45 @@ class TLMC_PZ_VoltageLimit(IntEnum):
     TLMC_PZ_VoltageLimit_100Volts = 0x0004
     TLMC_PZ_VoltageLimit_150Volts = 0x0008
 
+class TLMC_PZIM_KcubeChannelEnableMode(IntEnum):
+    TLMC_PZIM_KcubeChannelEnableMode_None = 0x00
+    TLMC_PZIM_KcubeChannelEnableMode_Channel1 = 0x01
+    TLMC_PZIM_KcubeChannelEnableMode_Channel2 = 0x02
+    TLMC_PZIM_KcubeChannelEnableMode_Channel3 = 0x03
+    TLMC_PZIM_KcubeChannelEnableMode_Channel4 = 0x04
+    TLMC_PZIM_KcubeChannelEnableMode_Channel1And2 = 0x05
+    TLMC_PZIM_KcubeChannelEnableMode_Channel3And4 = 0x06
+
+class TLMC_PZIM_KcubeFeedbackSignalMode(IntEnum):
+    TLMC_PZIM_KcubeFeedbackSignalMode_Disabled = 0x00
+    TLMC_PZIM_KcubeFeedbackSignalMode_LimitSwitch = 0x01
+    TLMC_PZIM_KcubeFeedbackSignalMode_Encoder = 0x02
+
+class TLMC_PZIM_KcubeTriggerChannel(IntEnum):
+    TLMC_PZIM_KcubeTriggerChannel_Channel1 = 0x0001
+    TLMC_PZIM_KcubeTriggerChannel_Channel2 = 0x0002
+    TLMC_PZIM_KcubeTriggerChannel_Channel3 = 0x0004
+    TLMC_PZIM_KcubeTriggerChannel_Channel4 = 0x0008
+
+class TLMC_PZIM_KcubeTriggerMode(IntEnum):
+    TLMC_PZIM_KcubeTriggerMode_Disabled = 0x0000
+    TLMC_PZIM_KcubeTriggerMode_GeneralPurposeInput = 0x0001
+    TLMC_PZIM_KcubeTriggerMode_InputTriggersRelativeMove = 0x0002
+    TLMC_PZIM_KcubeTriggerMode_InputTriggersAbsoluteMove = 0x0003
+    TLMC_PZIM_KcubeTriggerMode_InputTriggersResetCount = 0x0004
+    TLMC_PZIM_KcubeTriggerMode_GeneralPurposeOutput = 0x000A
+    TLMC_PZIM_KcubeTriggerMode_OutputActiveDuringMotion = 0x000B
+    TLMC_PZIM_KcubeTriggerMode_OutputActiveAtMaxVelocity = 0x000C
+    TLMC_PZIM_KcubeTriggerMode_OutputActiveAtForwardLimit = 0x0010
+    TLMC_PZIM_KcubeTriggerMode_OutputActiveAtReverseLimit = 0x0011
+    TLMC_PZIM_KcubeTriggerMode_OutputActiveAtEitherLimit = 0x0012
+    TLMC_PZIM_KcubeTriggerMode_OutputPulsedInForwardDirection = 0x000D
+    TLMC_PZIM_KcubeTriggerMode_OutputPulsedInReverseDirection = 0x000E
+    TLMC_PZIM_KcubeTriggerMode_OutputPulsedInEitherDirection = 0x000F
+
+class TLMC_PZIM_StageSelectType(IntEnum):
+    TLMC_PZIM_StageType_LinearActuator_PIA = 0x01
+    TLMC_PZIM_StageType_RotaryStage_PDR = 0x02
 
 class TLMC_RackBayNumber(IntEnum):
     TLMC_RackBayNumber_1 = 0x0000
@@ -913,14 +975,24 @@ class TLMC_StageAxisId(IntEnum):
     TLMC_StageAxisId_Pitch = 0x0013
     TLMC_StageAxisId_Roll = 0x0014
     TLMC_StageAxisId_Yaw = 0x0015
+    TLMC_StageAxisId_Z = 0x0016
+    TLMC_StageAxisId_Goniometer = 0x0021
 
 
 class TLMC_StageProductId(IntEnum):
-    TLMC_StageProductId_Unknown_PDXC = 0x0000
+    TLMC_StageProductId_None = 0x0000
     TLMC_StageProductId_Unknown = 0x0001
+    TLMC_StageProductId_Unknown_PDXC = TLMC_StageProductId_None
     TLMC_StageProductId_MLS203_X = 0x0010
     TLMC_StageProductId_MLS203_Y = 0x0011
     TLMC_StageProductId_DDS = 0x0012
+    TLMC_StageProductId_DDS220 = 0x0013
+    TLMC_StageProductId_DDS300 = 0x0014
+    TLMC_StageProductId_DDS600 = 0x0015
+    TLMC_StageProductId_M150XY_X = 0x0016
+    TLMC_StageProductId_M150XY_Y = 0x0017
+    TLMC_StageProductId_DDS800 = 0x0018
+    TLMC_StageProductId_DDS1000 = 0x0019
     TLMC_StageProductId_DRV001 = 0x0049
     TLMC_StageProductId_DRV013 = 0x0050
     TLMC_StageProductId_DRV014 = 0x0051
@@ -946,6 +1018,7 @@ class TLMC_StageProductId(IntEnum):
     TLMC_StageProductId_NanoMax_300M_Z_Axis_DRV001 = 0x0073
     TLMC_StageProductId_NanoMax_600_X_Axis_DRV001 = 0x0074
     TLMC_StageProductId_DDR = 0x0075
+    TLMC_StageProductId_DDR100 = TLMC_StageProductId_DDR
     TLMC_StageProductId_FW6 = 0x0076
     TLMC_StageProductId_FW12 = 0x0077
     TLMC_StageProductId_NanoMax_600_Z_Axis_DRV001 = 0x0078
@@ -967,6 +1040,7 @@ class TLMC_StageProductId(IntEnum):
     TLMC_StageProductId_NRT100 = 0x00B3
     TLMC_StageProductId_NRT150 = 0x00B4
     TLMC_StageProductId_FW103 = 0x00B6
+    TLMC_StageProductId_LNR50SE = 0x00B7
     TLMC_StageProductId_LPXY1_X = 0x00B8
     TLMC_StageProductId_LPXY1_Y = 0x00B9
     TLMC_StageProductId_LNR502 = 0x00BB

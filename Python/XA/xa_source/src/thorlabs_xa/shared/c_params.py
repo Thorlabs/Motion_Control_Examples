@@ -1,4 +1,4 @@
-from ctypes import Structure, Union, c_bool, c_char, c_double, c_float, c_int16, c_int32, c_int8, c_longlong, c_uint16, c_uint32, c_uint8, c_ulonglong
+from ctypes import POINTER, Structure, Union, c_bool, c_char, c_double, c_float, c_int16, c_int32, c_int8, c_longlong, c_uint16, c_uint32, c_uint8, c_ulonglong
 
 class C_TLMC_AdcInputs(Structure):
     _pack_ = 1
@@ -350,6 +350,39 @@ class C_TLMC_MoveRelativeParams(Structure):
                 ]
 
 
+class C_TLMC_MoveSyncArray(Structure):
+    _pack_ = 1
+    _fields_ = [
+        ("arrayId", c_uint16),
+        ("channels", c_uint16),
+        ("numPoints", c_uint16),
+        ("startIndex", c_uint16),
+        ("timePositions", POINTER(c_int32))
+]
+
+
+class C_TLMC_MoveSyncParams(Structure):
+    _pack_ = 1
+    _fields_ = [
+        ("arrayId", c_uint16),
+        ("cycleStartIndex", c_uint16),
+        ("cycleEndIndex", c_uint16),
+        ("numberOfCycles", c_uint16),
+        ("endIndex", c_uint16),
+        ("deceleration", c_int32),
+        ("reserved", c_int8 * 6)
+]
+
+
+class C_TLMC_MoveSyncStartParams(Structure):
+    _pack_ = 1
+    _fields_ = [
+        ("arrayId", c_uint16),
+        ("channels", c_uint16),
+        ("trigger", c_uint16)
+]
+
+
 class C_TLMC_PotentiometerParams(Structure):
     _pack = 1
     _fields_ = [("deflection0", c_uint16),
@@ -513,11 +546,12 @@ class C_TLMC_PZ_OutputWaveformParams(Structure):
                 ("numberOfSamplesBetweenTriggerRepetition", c_uint16)
                 ]
 
-class C_TLMC_PZ_OutputWaveformLoopTableSample(Structure):
+class C_TLMC_PZ_OutputWaveformLookupTableSample(Structure):
     _pack_ = 1
     _fields_ = [("index", c_uint16),
                 ("voltage", c_int16)
                 ]
+
 
 class C_TLMC_PZ_MaxOutputVoltageParams(Structure):
     _pack_ = 1
@@ -567,6 +601,91 @@ class C_TLMC_PZ_SlewRateParams(Structure):
                 ("closedLoopSlewRate", c_uint16)
                 ]
 
+class C_TLMC_PZIM_DriveOperationsParams(Structure):
+    _pack_ = 1
+    _fields_ = [
+        ("maxVoltage", c_uint16),
+        ("stepRate", c_uint32),
+        ("stepAcceleration", c_uint32)
+        ]
+
+class C_TLMC_PZIM_KcubeFeedbackSignalParams(Structure):
+    _pack_ = 1
+    _fields_ = [
+        ("feedbackSignalMode", c_uint16),
+        ("encoderConst", c_uint32),
+        ("reserved", c_uint16 * 4)
+        ]
+
+class C_TLMC_PZIM_KcubeIoTriggerParams(Structure):
+    _pack_ = 1
+    _fields_ = [
+        ("triggerChannel1", c_uint16),
+        ("triggerChannel2", c_uint16),
+        ("trigger1Mode", c_uint16),
+        ("trigger1Polarity", c_uint16),
+        ("trigger2Mode", c_uint16),
+        ("trigger2Polarity", c_uint16),
+        ("reserved", c_int8 * 12)
+]
+
+class C_TLMC_PZIM_KcubeJogParams(Structure):
+    _pack_ = 1
+    _fields_ = [
+        ("jogMode", c_uint16),
+        ("jogStepSizeForward", c_uint32),
+        ("jogStepSizeReverse", c_uint32),
+        ("jogStepVelocity", c_uint32),
+        ("jogStepAcceleration", c_uint32)
+        ]
+
+class C_TLMC_PZIM_KcubeMmiParams(Structure):
+    _pack_ = 1
+    _fields_ = [
+        ("joystickMode", c_uint16),
+        ("joystickMaxVelocity", c_int32),
+        ("joystickDirectionSense", c_uint16),
+        ("presetPosition1", c_int32),
+        ("presetPosition2", c_int32),
+        ("displayBrightness", c_uint16),
+        ("reserved", c_int8 * 2)
+        ]
+
+class C_TLMC_PZIM_KcubeTriggerParams(Structure):
+    _pack_ = 1
+    _fields_ = [
+        ("startPositionForward", c_int32),
+        ("intervalForward", c_int32),
+        ("numberPulsesForward", c_uint32),
+        ("startPositionReverse", c_int32),
+        ("intervalReverse", c_int32),
+        ("numberPulsesReverse", c_uint32),
+        ("pulseWidth", c_uint32),
+        ("numberCycles", c_uint32),
+        ("reserved", c_uint16 * 6)
+]
+
+class C_TLMC_PZIM_LimitSwitchParams(Structure):
+    _pack_ = 1
+    _fields_ = [
+        ("forwardHardLimit", c_uint16),
+        ("reverseHardLimit", c_uint16),
+        ("stageId", c_uint16)
+]
+
+class C_TLMC_PZIM_PositionCounts(Structure):
+    _pack_ = 1
+    _fields_ = [
+        ("position", c_int32),
+        ("encoderCount", c_int32)
+        ]
+
+class C_TLMC_PZIM_StageSelectParams(Structure):
+    _pack_ = 1
+    _fields_ = [
+        ("stageIdent", c_uint16),
+        ("stageReserved", c_uint16)
+        ]
 
 class C_TLMC_RichResponse(Structure):
     _pack_ = 1
@@ -689,6 +808,16 @@ class C_TLMC_TriggerParamsForDcBrushless(Structure):
 class C_TLMC_TriggerParamsForStepper(Structure):
     _pack_ = 1
     _fields_ = [("modes", c_uint8)]
+
+
+class C_TLMC_UmcStatus(Structure):
+    _pack_ = 1
+    _fields_ = [("position", c_int32),
+                ("encoderCount", c_int32),
+                ("velocity", c_int16),
+                ("motorCurrent", c_int16),
+                ("statusBits", c_uint32)
+                ]
 
 
 class C_TLMC_UniversalStatus(Structure):

@@ -277,7 +277,7 @@ def main() -> None:
 
         # Set to open loop position control mode
         DiagnosticsHelper.console("Setting to open loop control mode...")
-        device.set_position_control_mode(TLMC_PZ_PositionControlMode.TLMC_PZ_PositionControlMode_OpenLoop)
+        device.set_position_control_mode(TLMC_PZ_PositionControlMode.TLMC_PZ_PositionControlMode_OpenLoop, DEFAULT_TIMEOUT)
 
         position_control_mode_returned = device.get_position_control_mode(DEFAULT_TIMEOUT)
         

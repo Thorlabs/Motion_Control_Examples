@@ -1,0 +1,5 @@
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC30X.csproj.AssemblyReference.cache
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC30X.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC30X.AssemblyInfoInputs.cache
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC30X.AssemblyInfo.cs
+C:\Users\movag\Desktop\Thorlabs\XA C# examples\BSC30X\BSC30X\obj\Debug\net8.0\BSC30X.csproj.CoreCompileInputs.cache

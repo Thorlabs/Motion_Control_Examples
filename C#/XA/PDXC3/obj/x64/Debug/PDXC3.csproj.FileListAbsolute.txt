@@ -1,0 +1,10 @@
+C:\Users\gboedecker\source\repos\PDXC3\PDXC3\bin\x64\Debug\PDXC3.exe.config
+C:\Users\gboedecker\source\repos\PDXC3\PDXC3\bin\x64\Debug\PDXC3.exe
+C:\Users\gboedecker\source\repos\PDXC3\PDXC3\bin\x64\Debug\PDXC3.pdb
+C:\Users\gboedecker\source\repos\PDXC3\PDXC3\bin\x64\Debug\tlmc_xa_dotnet.dll
+C:\Users\gboedecker\source\repos\PDXC3\PDXC3\obj\x64\Debug\PDXC3.csproj.AssemblyReference.cache
+C:\Users\gboedecker\source\repos\PDXC3\PDXC3\obj\x64\Debug\PDXC3.csproj.CoreCompileInputs.cache
+C:\Users\gboedecker\source\repos\PDXC3\PDXC3\obj\x64\Debug\PDXC3.csproj.Up2Date
+C:\Users\gboedecker\source\repos\PDXC3\PDXC3\obj\x64\Debug\PDXC3.exe
+C:\Users\gboedecker\source\repos\PDXC3\PDXC3\obj\x64\Debug\PDXC3.pdb
+C:\Users\gboedecker\source\repos\PDXC3\PDXC3\obj\x64\Debug\PDXC3.exe.config

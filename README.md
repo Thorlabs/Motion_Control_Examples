@@ -56,13 +56,15 @@ TPA101, TQD001
 
 ## How to Find an Example for Your Device in Your Chosen Language
 
-Examples for individual devices or device groups can be found in their own individual subfolders with the "Devices" folder. Each device has at least one example written in each of three programming languages (C#, C++, and Python), each in their own subfolder. Directions on using specific examples are given within the folders.
+Examples for individual devices or device groups can be found in their own individual subfolders with the "Devices" folder. Each device has at least one example written in one of five programming languages (C#, C++, Python, Matlab and Labview), each in their own subfolder. Directions on using specific examples are given within the folders.
 
 ## Requirements
 
-All examples are built using the libraries provided with Thorlabs' Kinesis software package, which can be found [here](https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=Motion_Control&viewtab=0). DLLs are not provided by this repository in order to save space and ensure that the latest or most appropriate versions of the DLLs are used with your application.
+Some examples are built using the libraries provided with Thorlabs' Kinesis software package.
+Other examples use the libraries that are included in the newer XA software. Both software packages can be found [here](https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=Motion_Control&viewtab=0). 
+DLLs are not provided by this repository in order to save space and ensure that the latest or most appropriate versions of the DLLs are used with your application.
 
-Additionally, Thorlabs currently only provides DLLs for Windows. While Kinesis might be supported on Mac and Linux in the future, it is currently necessary to communicate with devices using serial commands via the FTDI chip present in all MotionControl devices. The FTDI drivers can be found [here](https://ftdichip.com/drivers/d2xx-drivers/)
+Additionally, Thorlabs currently only provides DLLs for Windows.  For Linux operating systems, it is currently necessary to communicate with devices using serial commands via the FTDI chip present in all MotionControl devices. The FTDI drivers can be found [here](https://ftdichip.com/drivers/d2xx-drivers/). XA can be provided for Linux upon request.
 
 ### C\# and C++ Soft Requirements
 

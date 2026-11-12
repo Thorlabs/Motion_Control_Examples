@@ -1,5 +1,6 @@
 % Title: KDC101 Native C
 % Modification Date: 08/24/2026
+% Version of the Thorlabs XA 1.13.3
 % Example Description:
 % This example demonstrates how to set-up the communication for the Thorlabs
 % KDC101 controllers, home it, and move it by 1 mm or degrees.
@@ -77,7 +78,7 @@ try
     % Move the device
     fprintf('Moving to %g %s\n', distance, unitName(deviceUnit));
     check(calllib(lib, 'TLMC_Move', hDevice, TLMC_MoveMode_Relative, int32(pValue.Value), 60000));
-    efprintf('Moving completed\n');
+    fprintf('Moving completed\n');
 
     % Get the current position
     pPos = libpointer('int32Ptr', 0);

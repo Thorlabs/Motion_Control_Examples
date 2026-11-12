@@ -1,5 +1,6 @@
 % Title: KDC101
-% Modification Date: 08/24/2026
+% Modification Date: 11/12/2026
+% Version of the Thorlabs XA 1.13.3
 % Example Description:
 % This example demonstrates how to set-up the communication for the Thorlabs
 % KDC101 controllers, home it, and move it by 1 mm or degrees.

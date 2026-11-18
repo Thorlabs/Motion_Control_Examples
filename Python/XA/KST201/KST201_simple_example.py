@@ -4,7 +4,7 @@ Example Date of Creation(YYYY-MM-DD) 2026-11-11
 Example Date of Last Modification on Github 2026-11-11
 Version of Python 3.13
 Version of the Thorlabs XA 1.13.3
-Version of Python wrapper 1.3.0.27658
+Version of Python wrapper 1.9.2.29178
 ==================
 Example Description: The example shows how to connect to a KST201 device, enable it, home it, and move it to an absolute position. 
 The example also shows how to convert between device units and physical units.

@@ -4,7 +4,7 @@ Example Date of Creation(YYYY-MM-DD) 2026-07-26
 Example Date of Last Modification on Github 2026-07-26
 Version of Python 3.13
 Version of the Thorlabs XA 1.7.14
-Version of Python wrapper 1.2.1.27471
+Version of Python wrapper 1.9.2.29178
 ==================
 Example Description: The example shows how to connect to a KDC101 device, enable it, home it, and move it to an absolute position. 
 The example also shows how to convert between device units and physical units.

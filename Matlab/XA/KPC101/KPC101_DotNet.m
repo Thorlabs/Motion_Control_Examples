@@ -1,5 +1,7 @@
 % Title: KPC101 Openloop
-% Modification Date: 09/09/2026
+% Modification Date: 11/12/2026
+% Matlab version: R2023a
+% Version of the Thorlabs XA 1.13.3
 % Example Description:
 % This example demonstrates how to connect to a KPC101 piezo controller,
 % zero it, set open-loop position control mode, output a voltage, and read it back.

@@ -1,8 +1,10 @@
 % Title: BSC20X
-% Modification Date: 09/09/2026
+% Modification Date: 11/12/2026
+% Matlab version: R2023a
+% Version of the Thorlabs XA 1.13.3
 % Example Description:
 % This example demonstrates how to connect to a BSC20X device and channel,
-% home it, and perform an absolute move of 5 mm.
+% home it, and perform an absolute move.
 
 % Load the XA dll
 NET.addAssembly('C:\Program Files\Thorlabs XA\SDK\.NET Framework (C#)\Libraries\x64\tlmc_xa_dotnet.dll');
@@ -11,7 +13,7 @@ import Thorlabs.MotionControl.XA.*
 import Thorlabs.MotionControl.XA.Products.*
 
 % Change this line to match the serial number on your device.
-deviceId = '1234';
+deviceId = '70875688';
 % Select the channel to control ("1", "2", or "3").
 channelNumber = '1';
 
@@ -71,11 +73,8 @@ try
     channel.SetEnableState(EnableState.Enabled, System.TimeSpan.FromSeconds(60));
     fprintf('Channel enabled successfully.\n');
 
-    % Get hardware info.
-    hardwareInfo = channel.GetHardwareInfo(System.TimeSpan.FromSeconds(1));
-    fprintf('Channel %s Device Name: %s\n', char(channel.DeviceId), char(hardwareInfo.PartNumber));
-
-    % Get the connected stage info.
+    % Set hardware info.
+    channel.SetConnectedProduct("HDR50")
     connectedProductInfo = channel.GetConnectedProductInfo();
     fprintf('Channel %s Stage Name: %s\n', char(channel.DeviceId), char(connectedProductInfo.ProductName));
 

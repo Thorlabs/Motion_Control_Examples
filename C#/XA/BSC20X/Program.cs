@@ -1,14 +1,11 @@
 ﻿// Title: BSC20X
 // Created Date: 05/04/2026
-// Last Modified Date: 09/08/2026
-// .NET Core version: 8.0
-// XA Version Tested: 1.9.3
+// Last Modified Date: 11/18/2026
+// XA Version Tested: 1.13.3
 // Example Description:
 // This example demonstrates how to connect to a BSC20X device and channel,
-// home it, and perform an absolute move of 5 mm.
+// home it, and perform an absolute move.
 
-using Microsoft.VisualBasic;
-using System;
 using Thorlabs.MotionControl.XA;
 using Thorlabs.MotionControl.XA.Products;
 
@@ -17,7 +14,7 @@ namespace BSC20X
     class Program
     {
         // Change this line to match the serial number on your device.
-        private static string _deviceId = "1234";
+        private static string _deviceId = "70875688";
         // Select the channel to control ("1", "2", or "3").
         private static string _channelNumber = "1";
 
@@ -98,11 +95,8 @@ namespace BSC20X
                 channel.SetEnableState(EnableState.Enabled, TimeSpan.FromSeconds(60));
                 Console.WriteLine("Channel enabled successfully.");
 
-                // Get hardware info.
-                HardwareInfo hardwareInfo = channel.GetHardwareInfo(TimeSpan.FromSeconds(1));
-                Console.WriteLine("Channel {0} Device Name: {1}", channel.DeviceId, hardwareInfo.PartNumber);
-
                 // Get the connected stage info.
+                channel.SetConnectedProduct("HDR50");
                 ConnectedProductInfo connectedProductInfo = channel.GetConnectedProductInfo();
                 Console.WriteLine("Channel {0} Stage Name: {1}", channel.DeviceId, connectedProductInfo.ProductName);
 
@@ -119,7 +113,7 @@ namespace BSC20X
 
                 // Convert the physical distance to device units.
                 long valueInDeviceUnits = channel.FromPhysicalToDeviceUnit(ScaleType.Distance, deviceUnit, distance);
-                Console.WriteLine("Conversion from {0} mm successful. Value in device units: {1}", distance, valueInDeviceUnits);
+                Console.WriteLine("Conversion from {0} mm/degree successful. Value in device units: {1}", distance, valueInDeviceUnits);
 
                 // Absolute move to 5 mm.
                 Console.WriteLine("Moving to {0} {1}", distance, deviceUnit.ToString());
